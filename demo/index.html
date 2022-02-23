@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+   <head>
+      <title>Slick UI Components for Web</title>
+      <style>
+         #main {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+         }  
+         #header {
+            z-index: 1;
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+            padding: 18px;
+            color: var(--slick-faded-color);
+            background-color: var(--slick-default-color);
+            text-align: center;
+            font-size: 36px;
+            box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+         } 
+         .box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 50%; 
+            
+         }        
+          
+         .box-title {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around;
+            width: 100%;
+            padding: 15px 0;
+            font-size: 18px;
+         }
+         .box-content {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around;
+            width: 100%;
+            padding: 5px 0;
+            font-size: 16px;
+         }
+         #footer {
+            display: flex;
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center;
+            width: 100%;
+            padding: 8px 0;
+         }
+         #footer a {
+            color: var(--slick-default-color);
+            text-decoration: none;
+         }   
+         #footer a:hover {
+            color: var(--slick-primary-color);
+         }
+      </style>
+      <link rel="stylesheet" href="../src/slick-ui.css" />
+   </head>
+   <body>
+      <header id="header"> Slick UI is the UI components for Web in pure CSS </header>
+      <main id="main">
+         
+
+         <section class="box">
+            <section class="box-title">
+               <div></div>
+               <div class="column">Enabled</div>
+               <div class="column">Disabled</div>
+            </section>
+         </section>
+
+         <section class="box">
+            <section class="box-content">
+               <span>Button - Default</span>
+               <div><button class="slick-btn btn-contained">Default</button></div>
+               <div><button class="slick-btn btn-contained" disabled>Default</button></div>
+            </section>
+         </section>
+
+         
+      </main>  
+      <footer id="footer">
+         <a href="#" target="_blank">Stilos Design Tecnologies</a>
+      </footer>  
+   </body>
+   <script>
+      
+
+   </script>
+</html>

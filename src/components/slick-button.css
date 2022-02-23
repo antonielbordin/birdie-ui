@@ -1,0 +1,145 @@
+.slick-btn {
+   position: relative;
+   display: inline-block;
+   box-sizing: border-box;
+   border: none;
+   border-radius: 4px;
+   margin: 0;
+   padding: 0 16px;
+   min-width: 64px;
+   height: 36px;
+   vertical-align: middle;
+   text-align: center;
+   text-overflow: ellipsis;
+   font-size: 14px;
+   font-weight: 500;
+   line-height: 36px;
+   outline: none;
+   cursor: pointer;
+}
+.slick-btn,
+.btn-primary::-moz-focus-inner {
+   border: none;
+}
+.slick-btn,
+.btn-primary {
+   box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.2); 
+   transition: box-shadow 0.2s;
+}
+
+/* Highlight and Ripple Default Button */
+.slick-btn::before,
+.slick-btn::after,
+.btn-primary::before,
+.btn-primary::after {
+   content: "";
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   border-radius: inherit;
+   opacity: 0;
+}
+
+.slick-btn::before {
+   background-color: #333;
+   transition: opacity 0.2s;
+}
+
+.btn-primary::before {
+   background-color: #333;
+   transition: opacity 0.2s;
+}
+
+.slick-btn::after, 
+.btn-primary::after {
+   background: radial-gradient(circle at center, currentColor 1%, transparent 1%) center/10000% 10000% no-repeat;
+   transition: opacity 1s, background-size 0.5s;
+}
+
+/* Hover and Focus Default Button */
+.slick-btn:hover,
+.slick-btn:focus,
+.btn-primary:hover,
+.btn-primary:focus {
+   box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
+}
+.slick-btn:hover::before,
+.btn-primary:hover::before {
+   opacity: 0.08;
+}
+.slick-btn:focus::before,
+.btn-primary:focus::before {
+   opacity: 0.24;
+}
+.btn-primary:hover:focus::before {
+   opacity: 0.32;
+}
+
+/* Active Buttons */
+.btn-primary:active {
+   box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+.btn-primary:active::after {
+   opacity: 0.32;
+   background-size: 100% 100%;
+   transition: background-size 0s;
+}
+
+/* Disabled Buttons */
+.slick-btn:disabled,
+.btn-primary:disabled {
+   box-shadow: none;
+   cursor: initial;
+}
+.slick-btn:disabled {   
+   color: rgba(0, 0, 0, 0.38);
+   background-color: rgba(0, 0, 0, 0.12);
+}
+.btn-primary:disabled {   
+   color: rgba(var(--matter-onsurface-rgb, 0, 0, 0), 0.38);
+   background-color: rgba(var(--matter-onsurface-rgb, 0, 0, 0), 0.12);
+}
+.slick-btn:disabled::before,
+.slick-btn:disabled::after,
+.btn-primary:disabled::before,
+.btn-primary:disabled::after {
+   opacity: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.btn-xsmall {
+   font-size: 70%;
+}
+.btn-small {
+   font-size: 85%;
+}
+.btn-large {
+   font-size: 110%;
+}
+.btn-xlarge {
+   font-size: 125%;
+}
