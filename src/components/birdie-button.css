@@ -1,4 +1,4 @@
-.slick-btn {
+.birdie-btn {
    position: relative;
    display: inline-block;
    box-sizing: border-box;
@@ -17,19 +17,19 @@
    outline: none;
    cursor: pointer;
 }
-.slick-btn,
+.birdie-btn,
 .btn-primary::-moz-focus-inner {
    border: none;
 }
-.slick-btn,
+.birdie-btn,
 .btn-primary {
    box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.2); 
    transition: box-shadow 0.2s;
 }
 
 /* Highlight and Ripple Default Button */
-.slick-btn::before,
-.slick-btn::after,
+.birdie-btn::before,
+.birdie-btn::after,
 .btn-primary::before,
 .btn-primary::after {
    content: "";
@@ -42,7 +42,7 @@
    opacity: 0;
 }
 
-.slick-btn::before {
+.birdie-btn::before {
    background-color: #333;
    transition: opacity 0.2s;
 }
@@ -52,24 +52,24 @@
    transition: opacity 0.2s;
 }
 
-.slick-btn::after, 
+.birdie-btn::after, 
 .btn-primary::after {
    background: radial-gradient(circle at center, currentColor 1%, transparent 1%) center/10000% 10000% no-repeat;
    transition: opacity 1s, background-size 0.5s;
 }
 
 /* Hover and Focus Default Button */
-.slick-btn:hover,
-.slick-btn:focus,
+.birdie-btn:hover,
+.birdie-btn:focus,
 .btn-primary:hover,
 .btn-primary:focus {
    box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
 }
-.slick-btn:hover::before,
+.birdie-btn:hover::before,
 .btn-primary:hover::before {
    opacity: 0.08;
 }
-.slick-btn:focus::before,
+.birdie-btn:focus::before,
 .btn-primary:focus::before {
    opacity: 0.24;
 }
@@ -88,12 +88,12 @@
 }
 
 /* Disabled Buttons */
-.slick-btn:disabled,
+.birdie-btn:disabled,
 .btn-primary:disabled {
    box-shadow: none;
    cursor: initial;
 }
-.slick-btn:disabled {   
+.birdie-btn:disabled {   
    color: rgba(0, 0, 0, 0.38);
    background-color: rgba(0, 0, 0, 0.12);
 }
@@ -101,8 +101,8 @@
    color: rgba(var(--matter-onsurface-rgb, 0, 0, 0), 0.38);
    background-color: rgba(var(--matter-onsurface-rgb, 0, 0, 0), 0.12);
 }
-.slick-btn:disabled::before,
-.slick-btn:disabled::after,
+.birdie-btn:disabled::before,
+.birdie-btn:disabled::after,
 .btn-primary:disabled::before,
 .btn-primary:disabled::after {
    opacity: 0;
