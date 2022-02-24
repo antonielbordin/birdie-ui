@@ -4,28 +4,6 @@
 /* Components */
 @import "./components/birdie-components.css";
 
-:root {
-   --birdie-default-bg: #545454;
-   --birdie-primary-bg: #0275d8;
-   --birdie-secondary-bg: #5bc0de; 
-   --birdie-success-bg: #5cb85c; 
-   --birdie-error-bg: #d9534f; 
-   --birdie-warning-bg: #f0ad4e;
-   --birdie-info-bg: #5bc0de;
-   --birdie-faded-bg: #f7f7f7;
-   --birdie-inverse-bg: #292b2c;
-
-   --birdie-default-color: #545454;
-   --birdie-primary-color: #0275d8;
-   --birdie-secondary-color: #5bc0de; 
-   --birdie-success-color: #5cb85c; 
-   --birdie-error-color: #d9534f; 
-   --birdie-warning-color: #f0ad4e;
-   --birdie-info-color: #5bc0de;
-   --birdie-faded-color: #f7f7f7;
-   --birdie-inverse-color: #292b2c;
-}
-
 html, body {
    position: relative;
    width: 100%;

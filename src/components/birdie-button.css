@@ -1,33 +1,85 @@
-.birdie-btn {
+.birdie-btn {   
    position: relative;
    display: inline-block;
    box-sizing: border-box;
+   min-width: 64px;
+   padding: 4px 12px;
    border: none;
    border-radius: 4px;
-   margin: 0;
-   padding: 0 16px;
-   min-width: 64px;
-   height: 36px;
    vertical-align: middle;
    text-align: center;
    text-overflow: ellipsis;
+   text-transform: uppercase;
    font-size: 14px;
    font-weight: 500;
    line-height: 36px;
    outline: none;
+   border: none;
    cursor: pointer;
 }
 .birdie-btn,
-.btn-primary::-moz-focus-inner {
+.btn-primary::-moz-focus-inner,
+.btn-secondary::-moz-focus-inner {
    border: none;
 }
+
 .birdie-btn,
-.btn-primary {
-   box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.2); 
+.btn-primary,
+.btn-secondary {
+   box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.2); 
    transition: box-shadow 0.2s;
 }
+.btn-primary {
+   color: var(--birdie-text-light);
+   background-color: var(--birdie-primary-color);
+}
+.btn-secondary {
+   color: var(--birdie-text-light);
+   background-color: var(--birdie-secondary-color);
+}
+.btn-success {
+   color: var(--birdie-text-light);
+   background-color: var(--birdie-success-color);
+}
 
-/* Highlight and Ripple Default Button */
+
+/* Hover and Focus Default Button */
+.birdie-btn:hover,
+.birdie-btn:focus {      
+   box-shadow: inset 0 0 10px 5px rgba(9, 9, 9, 0.1); 
+}
+
+/* Disabled Buttons */
+.birdie-btn:disabled,
+.btn-primary:disabled,
+.btn-secondary:disabled {
+   box-shadow: none;
+   cursor: initial;
+   opacity : 0.6;
+}
+.birdie-btn:disabled {   
+   color: rgba(0, 0, 0, 0.38);
+   background-color: rgba(0, 0, 0, 0.12);
+}
+.btn-primary:disabled {   
+   color: var(--birdie-text-light);
+   background-color: var(--birdie-primary-color);    
+}
+.btn-secondary:disabled {   
+   color: var(--birdie-text-light);
+   background-color: var(--birdie-secondary-color);   
+}
+.btn-success:disabled {
+   color: var(--birdie-text-light);
+   background-color: var(--birdie-success-color);
+}
+
+
+
+
+
+
+/* Highlight and Ripple Default Button 
 .birdie-btn::before,
 .birdie-btn::after,
 .btn-primary::before,
@@ -57,62 +109,24 @@
    background: radial-gradient(circle at center, currentColor 1%, transparent 1%) center/10000% 10000% no-repeat;
    transition: opacity 1s, background-size 0.5s;
 }
+*/
 
-/* Hover and Focus Default Button */
-.birdie-btn:hover,
-.birdie-btn:focus,
-.btn-primary:hover,
-.btn-primary:focus {
-   box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
-}
-.birdie-btn:hover::before,
-.btn-primary:hover::before {
-   opacity: 0.08;
-}
-.birdie-btn:focus::before,
-.btn-primary:focus::before {
-   opacity: 0.24;
-}
-.btn-primary:hover:focus::before {
-   opacity: 0.32;
-}
-
-/* Active Buttons */
-.btn-primary:active {
-   box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
-}
-.btn-primary:active::after {
-   opacity: 0.32;
-   background-size: 100% 100%;
-   transition: background-size 0s;
-}
-
-/* Disabled Buttons */
-.birdie-btn:disabled,
-.btn-primary:disabled {
-   box-shadow: none;
-   cursor: initial;
-}
-.birdie-btn:disabled {   
-   color: rgba(0, 0, 0, 0.38);
-   background-color: rgba(0, 0, 0, 0.12);
-}
-.btn-primary:disabled {   
-   color: rgba(var(--matter-onsurface-rgb, 0, 0, 0), 0.38);
-   background-color: rgba(var(--matter-onsurface-rgb, 0, 0, 0), 0.12);
-}
-.birdie-btn:disabled::before,
-.birdie-btn:disabled::after,
-.btn-primary:disabled::before,
-.btn-primary:disabled::after {
-   opacity: 0;
-}
-
-
-
-
-
-
+/* Ripple effect */
+/* .ripple {
+   background-position: center;
+   transition: background 0.8s;
+ }
+ .ripple:hover {
+   background: #47a7f5 radial-gradient(circle, transparent 1%, #47a7f5 1%) center/15000%;
+ }
+ .ripple:active {
+   background-color: #6eb9f7;
+   background-size: 100%;
+   transition: background 0s;
+ }
+ 
+ /* Button style */
+  
 
 
 

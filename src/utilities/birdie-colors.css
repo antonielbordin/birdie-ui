@@ -1,0 +1,28 @@
+:root {
+  
+   --birdie-default-color: #545454;
+   --birdie-primary-color: #0275d8;
+   --birdie-secondary-color: #5bc0de; 
+   --birdie-success-color: #5cb85c; 
+   --birdie-danger-color: #d9534f; 
+   --birdie-warning-color: #f0ad4e;
+   --birdie-info-color: #5bc0de;
+   --birdie-light-color: #f7f7f7;
+   --birdie-dark-color: #292b2c;
+
+   --birdie-text-primary: #0275d8;
+   --birdie-text-secondary: #6c757d; 
+   --birdie-text-success: #5cb85c; 
+   --birdie-text-danger: #d9534f; 
+   --birdie-text-warning: #f0ad4e;
+   --birdie-text-info: #5bc0de;
+   --birdie-text-muted: #6c757d;
+   --birdie-text-light: #f7f7f7;
+   --birdie-text-dark: #292b2c;
+
+
+
+
+
+
+}

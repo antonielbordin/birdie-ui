@@ -1,2 +1,6 @@
 /* Using reset css */
 @import url("birdie-reset.css");
+
+/* Using colors bases in css */
+@import url("birdie-colors.css");
+
