@@ -65,6 +65,13 @@
          #footer a:hover {
             color: var(--birdie-primary-color);
          }
+         hr {
+            width: 80%;
+            margin-right: auto;
+            margin-left: auto;
+            margin-top: 10px;
+            margin-bottom: 10px;
+         }
       </style>
       <link rel="stylesheet" href="../src/birdie-ui.css" />
    </head>
@@ -72,7 +79,6 @@
       <header id="header"> Birdie UI is the UI components for Web in pure CSS </header>
       <main id="main">
          
-
          <section class="box">
             <section class="box-title">
                <div style="width:33.3%"></div>
@@ -121,6 +127,25 @@
             </section>
          </section>
 
+         <hr /> 
+
+         <section class="box"> 
+            <section class="box-content">
+               <span style="width:33.3%">TextField - Standard</span>
+               <div style="width:33.3%">
+                  <label class="birdie-textfield">
+                     <input placeholder=" ">
+                     <span>Empty</span>
+                  </label>
+               </div>
+               <div style="width:33.3%">
+                  <label class="birdie-textfield">
+                     <input placeholder=" " disabled>
+                     <span>Empty</span>
+                  </label>
+               </div>
+            </section>
+         </section>
 
 
          
