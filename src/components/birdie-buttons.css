@@ -1,4 +1,14 @@
-.birdie-btn {   
+ /* 
+   Birdie Button Start
+   Types: [ Default, Primary, Secondary, Success, Danger, Warning, Info ]
+ */
+.birdie-btn,
+.birdie-btn--primary,
+.birdie-btn--secondary,
+.birdie-btn--success,
+.birdie-btn--danger,
+.birdie-btn--warning,
+.birdie-btn--info {   
    position: relative;
    display: inline-block;
    box-sizing: border-box;
@@ -15,90 +25,96 @@
    line-height: 36px;
    outline: none;
    border: none;
-   cursor: pointer;
-}
+   cursor: pointer;   
+}  
+
 .birdie-btn,
-.btn-primary::-moz-focus-inner,
-.btn-secondary::-moz-focus-inner,
-.btn-success::-moz-focus-inner,
-.btn-danger::-moz-focus-inner,
-.btn-warning::-moz-focus-inner,
-.btn-info::-moz-focus-inner {
+.birdie-btn--primary::-moz-focus-inner,
+.birdie-btn--secondary::-moz-focus-inner,
+.birdie-btn--success::-moz-focus-inner,
+.birdie-btn--danger::-moz-focus-inner,
+.birdie-btn--warning::-moz-focus-inner,
+.birdie-btn--info::-moz-focus-inner {
    border: none;
 }
 
 .birdie-btn,
-.btn-primary,
-.btn-secondary,
-.btn-success,
-.btn-danger,
-.btn-warning,
-.btn-info {
+.birdie-btn--primary,
+.birdie-btn--secondary,
+.birdie-btn--success,
+.birdie-btn--danger,
+.birdie-btn--warning,
+.birdie-btn--info {
    box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.2); 
    transition: box-shadow 0.2s;
 }
-.birdie-btn {
-   color: rgba(0, 0, 0, 0.38);
-   background-color: #f0f0f0;
-}
-.btn-primary {
-   color: var(--birdie-text-light);
-   background-color: var(--birdie-primary-color);
-}
-.btn-secondary {
-   color: var(--birdie-text-light);
-   background-color: var(--birdie-secondary-color);
-}
-.btn-success {
-   color: var(--birdie-text-light);
-   background-color: var(--birdie-success-color);
-}
-.btn-danger {
-   color: var(--birdie-text-light);
-   background-color: var(--birdie-danger-color);
-}
-.btn-warning {
-   color: var(--birdie-text-light);
-   background-color: var(--birdie-warning-color);
-}
-.btn-info {
-   color: var(--birdie-text-light);
-   background-color: var(--birdie-info-color);
-}
 
-/* Hover and Focus Default Button */
+/* Birdie Button Hover and Focus*/
+
 .birdie-btn:hover,
-.birdie-btn:focus {      
+.birdie-btn:focus,
+.birdie-btn--primary:hover,
+.birdie-btn--primary:focus,
+.birdie-btn--secondary:hover,
+.birdie-btn--secondary:focus,
+.birdie-btn--success:hover,
+.birdie-btn--success:focus,
+.birdie-btn--danger:hover,
+.birdie-btn--danger:focus,
+.birdie-btn--warning:hover,
+.birdie-btn--warning:focus,
+.birdie-btn--info:hover,
+.birdie-btn--info:focus {      
    box-shadow: inset 0 0 10px 5px rgba(9, 9, 9, 0.1); 
 }
 
-/* Disabled Buttons */
+/* Birdie Button Disabled */
+
 .birdie-btn:disabled,
-.btn-primary:disabled,
-.btn-secondary:disabled,
-.btn-success:disabled,
-.btn-danger:disabled {
+.birdie-btn--primary:disabled,
+.birdie-btn--secondary:disabled,
+.birdie-btn--success:disabled,
+.birdie-btn--danger:disabled,
+.birdie-btn--warning:disabled,
+.birdie-btn--info:disabled {
    box-shadow: none;
    cursor: initial;
    opacity : 0.6;
 }
-/*change default button*/
-/* .birdie-btn:disabled {   
+
+/* Birdie Button Colors */
+
+.birdie-btn {
    color: rgba(0, 0, 0, 0.38);
-   background-color: rgba(0, 0, 0, 0.12);
-} */
+   background-color: #f0f0f0;
+}
+ 
+.birdie-btn--primary {  
+   color: var(--birdie-text-light);
+   background-color: var(--birdie-primary-color);
+}
+  
+.birdie-btn--secondary {
+   color: var(--birdie-text-light);
+   background-color: var(--birdie-secondary-color);
+}
+  
+.birdie-btn--success {
+   color: var(--birdie-text-light);
+   background-color: var(--birdie-success-color);
+}
 
+.birdie-btn--danger {   
+   color: var(--birdie-text-light);
+   background-color: var(--birdie-danger-color);
+}
 
-/* Size of buttons */
-.btn-xsmall {
-   font-size: 70%;
+.birdie-btn--warning {  
+   color: var(--birdie-text-light);
+   background-color: var(--birdie-warning-color);
 }
-.btn-small {
-   font-size: 85%;
-}
-.btn-large {
-   font-size: 110%;
-}
-.btn-xlarge {
-   font-size: 125%;
+
+.birdie-btn--info {
+   color: var(--birdie-text-light);
+   background-color: var(--birdie-info-color);
 }

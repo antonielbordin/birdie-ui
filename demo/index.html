@@ -98,32 +98,48 @@
          <section class="box">
             <section class="box-content">
                <span style="width:33.3%">Button - Primary</span>
-               <div style="width:33.3%"><button class="birdie-btn btn-primary">Primary</button></div>
-               <div style="width:33.3%"><button class="birdie-btn btn-primary" disabled>Primary</button></div>
+               <div style="width:33.3%"><button class="birdie-btn--primary">Primary</button></div>
+               <div style="width:33.3%"><button class="birdie-btn--primary" disabled>Primary</button></div>
             </section>
          </section>
 
          <section class="box">
             <section class="box-content">
                <span style="width:33.3%">Button - Secondary</span>
-               <div style="width:33.3%"><button class="birdie-btn btn-secondary">Secondary</button></div>
-               <div style="width:33.3%"><button class="birdie-btn btn-secondary" disabled>Secondary</button></div>
+               <div style="width:33.3%"><button class="birdie-btn--secondary">Secondary</button></div>
+               <div style="width:33.3%"><button class="birdie-btn--secondary" disabled>Secondary</button></div>
             </section>
          </section>
 
          <section class="box">
             <section class="box-content">
                <span style="width:33.3%">Button - Success</span>
-               <div style="width:33.3%"><button class="birdie-btn btn-success">Success</button></div>
-               <div style="width:33.3%"><button class="birdie-btn btn-success" disabled>Success</button></div>
+               <div style="width:33.3%"><button class="birdie-btn--success">Success</button></div>
+               <div style="width:33.3%"><button class="birdie-btn--success" disabled>Success</button></div>
             </section>
          </section>
 
          <section class="box">
             <section class="box-content">
                <span style="width:33.3%">Button - Danger</span>
-               <div style="width:33.3%"><button class="birdie-btn btn-danger">Danger</button></div>
-               <div style="width:33.3%"><button class="birdie-btn btn-danger" disabled>Danger</button></div>
+               <div style="width:33.3%"><button class="birdie-btn--danger">Danger</button></div>
+               <div style="width:33.3%"><button class="birdie-btn--danger" disabled>Danger</button></div>
+            </section>
+         </section>
+
+         <section class="box">
+            <section class="box-content">
+               <span style="width:33.3%">Button - Warning</span>
+               <div style="width:33.3%"><button class="birdie-btn--warning">Warning</button></div>
+               <div style="width:33.3%"><button class="birdie-btn--warning" disabled>Warning</button></div>
+            </section>
+         </section>
+
+         <section class="box">
+            <section class="box-content">
+               <span style="width:33.3%">Button - Info</span>
+               <div style="width:33.3%"><button class="birdie-btn--info">Info</button></div>
+               <div style="width:33.3%"><button class="birdie-btn--info" disabled>Info</button></div>
             </section>
          </section>
 
@@ -135,13 +151,13 @@
                <div style="width:33.3%">
                   <span class="birdie-textfield">
                      <input placeholder=" ">
-                     <label>Empty</label>
+                     <label>Standard</label>
                   </span>
                </div>
                <div style="width:33.3%">
                   <span class="birdie-textfield">
                      <input placeholder=" " disabled>
-                     <label>Empty</label>
+                     <label>Standard Disabled</label>
                   </span>
                </div>
             </section>
@@ -151,15 +167,15 @@
             <section class="box-content">
                <span style="width:33.3%">TextField - Filled</span>
                <div style="width:33.3%">
-                  <span class="birdie-textfield field-filled">
+                  <span class="birdie-textfield--filled">
                      <input placeholder=" ">
-                     <label>Empty</label>
+                     <label>Filled</label>
                   </span>
                </div>
                <div style="width:33.3%">
-                  <span class="birdie-textfield field-filled">
+                  <span class="birdie-textfield--filled">
                      <input placeholder=" " disabled>
-                     <label>Empty</label>
+                     <label>Filled Disabled</label>
                   </span>
                </div>
             </section>
@@ -169,19 +185,80 @@
             <section class="box-content">
                <span style="width:33.3%">TextField - Outlined</span>
                <div style="width:33.3%">
-                  <span class="birdie-textfield field-outlined">
+                  <span class="birdie-textfield--outlined">
                      <input placeholder=" ">
-                     <label>Outlined teste dois</label>
+                     <label>Outlined</label>
                   </span>
                </div>
                <div style="width:33.3%">
-                  <span class="birdie-textfield field-outlined">
+                  <span class="birdie-textfield--outlined">
                      <input placeholder=" " disabled>
                      <label>Outlined Disabled</label>
                   </span>
                </div>
             </section>
          </section>
+
+         <!--
+         <section class="box"> 
+            <section class="box-content">
+               <span style="width:33.3%">Checkbox</span>
+               <div style="width:33.3%">
+                  <span class="birdie-checkbox">
+                     <input type="checkbox">
+                     <label>Checkbox</label>
+                  </span>
+               </div>
+               <div style="width:33.3%">
+                  <span class="birdie-checkbox">
+                     <input type="checkbox" disabled>
+                     <label>Checkbox Disabled</label>
+                  </span>
+               </div>
+            </section>
+         </section>
+
+         <section class="box"> 
+            <section class="box-content">
+               <span style="width:33.3%">Radio</span>
+               <div style="width:33.3%">
+                  <span class="birdie-radio">
+                     <input type="radio">
+                     <label>Radio</label>
+                  </span>
+               </div>
+               <div style="width:33.3%">
+                  <span class="birdie-radio">
+                     <input type="radio" disabled>
+                     <label>Radio Disabled</label>
+                  </span>
+               </div>
+            </section>
+         </section>
+
+
+         <section class="box"> 
+            <section class="box-content">
+               <span style="width:33.3%">Multi Select</span>
+               <div style="width:33.3%">
+                  <span class="birdie-switch">
+                     <input type="checkbox" role="switch">
+                     <label>Switch</label>
+                  </span>
+               </div>
+               <div style="width:33.3%">
+                  <span class="birdie-switch">
+                     <input type="checkbox" role="switch" disabled>
+                     <label>Switch Disabled</label>
+                  </span>
+               </div>
+            </section>
+         </section>
+         -->
+
+           
+
+
 
          
       </main>  
