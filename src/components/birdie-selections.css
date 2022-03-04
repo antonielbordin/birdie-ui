@@ -1,0 +1,219 @@
+/* Birdie Checkbox, Radio */
+.birdie-checkbox,
+.birdie-radio {
+   z-index: 0;
+   position: relative;
+   display: inline-block;
+   color: var(--birdie-default-color);
+   font-size: 16px;
+   line-height: 1.5;
+}
+ 
+/* Box Input */
+.birdie-checkbox > input,
+.birdie-radio > input {
+   appearance: none;
+   -moz-appearance: none;
+   -webkit-appearance: none;
+   z-index: 1;
+   position: absolute;
+   display: block;
+   box-sizing: border-box;
+   margin: 3px 1px;
+   border: 1px solid var(--birdie-default-color); 
+   border-radius: 2px;
+   width: 18px;
+   height: 18px;
+   outline: none;
+   cursor: pointer;
+   transition: border-color 0.2s, background-color 0.2s;
+}
+
+.birdie-radio > input {   
+   margin: 2px 0;
+   border-radius: 50%;
+   width: 20px;
+   height: 20px;   
+   transition: border-color 0.2s;
+}
+
+/* Label */
+.birdie-checkbox > input + label,
+.birdie-radio > input + label {
+   display: inline-block;
+   box-sizing: border-box;
+   padding-left: 30px;
+   width: inherit;
+   cursor: pointer;
+}
+ 
+/* Highlight */
+.birdie-checkbox > input + label::before,
+.birdie-radio > input + label::before {
+   content: "";
+   position: absolute;
+   left: -10px;
+   top: -8px;
+   display: block;
+   border-radius: 50%;
+   width: 40px;
+   height: 40px;
+   background-color: var(--birdie-primary-color);
+   opacity: 0;
+   transform: scale(1);
+   pointer-events: none;
+   transition: opacity 0.3s, transform 0.2s;
+}
+
+.birdie-radio > input + label::before { 
+   transform: scale(0);
+}
+
+/* Check Mark */
+.birdie-checkbox > input + label::after {
+   z-index: 1;
+   content: "";  
+   display: block;
+   position: absolute;
+   top: 3px;
+   left: 1px;
+   box-sizing: content-box;
+   width: 10px;
+   height: 5px;
+   border: 2px solid transparent;
+   border-right-width: 0;
+   border-top-width: 0;
+   pointer-events: none;
+   transform: translate(3px, 4px) rotate(-45deg);
+   transition: border-color 0.2s;
+}
+
+.birdie-radio > input + label::after {
+   content: "";
+   display: block;
+   position: absolute;
+   top: 2px;
+   left: 0;
+   border-radius: 50%;
+   width: 10px;
+   height: 10px;
+   background-color: var(--birdie-primary-color);
+   transform: translate(5px, 5px) scale(0);
+   transition: transform 0.2s;
+}
+
+/* Checked, Indeterminate */
+.birdie-checkbox > input:checked,
+.birdie-checkbox > input:indeterminate {
+   border-color: var(--birdie-primary-color);
+   background-color: var(--birdie-primary-color);
+}
+
+.birdie-checkbox > input:checked + label::before,
+.birdie-checkbox > input:indeterminate + label::before {
+   background-color: var(--birdie-primary-color);
+}
+
+.birdie-checkbox > input:checked + label::after,
+.birdie-checkbox > input:indeterminate + label::after {
+   border-color: var(--birdie-light-color);
+}
+
+.birdie-checkbox > input:indeterminate + label::after {
+   border-left-width: 0;
+   transform: translate(4px, 3px);
+}
+
+.birdie-radio > input:checked {
+   border-color: var(--birdie-primary-color);
+}
+
+.birdie-radio > input:checked + label::before {
+   background-color: var(--birdie-light-color);
+}
+
+.birdie-radio > input:checked + label::after {
+   transform: translate(5px, 5px) scale(1);
+}
+
+/* Hover, Focus */
+.birdie-checkbox:hover > input {
+   border-color: var(--birdie-primary-color);
+}
+.birdie-checkbox:hover > input + label::before {
+   opacity: 0.04;  
+   color: var(--birdie-primary-color);  
+}
+
+.birdie-checkbox > input:focus + label::before {
+   opacity: 0.12;
+}
+
+.birdie-checkbox:hover > input:focus + label::before {
+   opacity: 0.16;
+}
+
+.birdie-radio:hover > input + label::before {
+   opacity: 0.04;
+   transform: scale(1);   
+}
+
+.birdie-radio > input:focus + label::before {
+   transform: scale(1);
+   opacity: 0.12;
+}
+
+.birdie-radio:hover > input:focus + label::before {
+   transform: scale(1);
+   opacity: 0.16;
+}
+
+/* Active */
+.birdie-checkbox:active > input,
+.birdie-checkbox:active:hover > input,
+.birdie-radio:active > input,
+.birdie-radio:active:hover > input {
+   border-color: var(--birdie-primary-color);
+}
+
+.birdie-checkbox:active > input:checked {
+   border-color: transparent;
+   background-color: var(--birdie-primary-color);
+}
+
+.birdie-checkbox:active > input + label::before,
+.birdie-radio:active > input + label::before,
+.birdie-radio:active:hover > input + label::before {
+   opacity: 1;
+   transform: scale(0);
+   transition: transform 0s, opacity 0s;
+}
+
+/* Disabled */
+.birdie-checkbox > input:disabled,
+.birdie-radio > input:disabled {   
+   cursor: initial;
+   border-color: var(--birdie-muted-color);
+}
+
+.birdie-checkbox > input:checked:disabled,
+.birdie-checkbox > input:indeterminate:disabled {
+   border-color: transparent;
+   background-color: var(--birdie-muted-color);
+}
+
+.birdie-checkbox > input:disabled + label,
+.birdie-radio > input:disabled + label {
+   cursor: initial;
+   color: var(--birdie-muted-color);   
+}
+
+.birdie-checkbox > input:disabled + label::before,
+.birdie-radio > input:disabled + label::before {
+   opacity: 0;
+   transform: scale(0);
+}
+
+.birdie-radio > input:disabled + label::after {
+   background-color: currentColor;
+}
