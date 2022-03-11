@@ -9,7 +9,7 @@
             justify-content: center;
             align-items: center;
             width: 100%;
-            height: 100%;
+            min-height: 100%;
          }  
          #header {
             z-index: 1;
@@ -28,8 +28,8 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            width: 50%; 
-            
+            width: 50%;
+            margin-top: 10px;
          }        
           
          .box-title {
@@ -67,10 +67,10 @@
          }
          hr {
             width: 80%;
-            margin-right: auto;
-            margin-left: auto;
-            margin-top: 10px;
-            margin-bottom: 10px;
+            margin: 30px auto;
+         }
+         .cTop {
+            margin-top: 50px;
          }
       </style>
       <link rel="stylesheet" href="../src/birdie-ui.css" />
@@ -90,56 +90,98 @@
          <section class="box">
             <section class="box-content">
                <span style="width:33.3%">Button - Default</span>
-               <div style="width:33.3%"><button class="birdie-btn">Default</button></div>
-               <div style="width:33.3%"><button class="birdie-btn" disabled>Default</button></div>
+               <div style="width:33.3%">
+                  <!-- Element Btn Default -->
+                  <button class="birdie-btn">Default</button>
+               </div>
+               <div style="width:33.3%">
+                  <!-- Element Btn Default Disabled -->
+                  <button class="birdie-btn" disabled>Default</button>
+               </div>
             </section>
          </section>
 
          <section class="box">
             <section class="box-content">
                <span style="width:33.3%">Button - Primary</span>
-               <div style="width:33.3%"><button class="birdie-btn--primary">Primary</button></div>
-               <div style="width:33.3%"><button class="birdie-btn--primary" disabled>Primary</button></div>
+               <div style="width:33.3%">
+                  <!-- Element Btn Primary -->
+                  <button class="birdie-btn--primary">Primary</button>
+               </div>
+               <div style="width:33.3%">
+                  <!-- Element Btn Primary Disabled -->
+                  <button class="birdie-btn--primary" disabled>Primary</button>
+               </div>
             </section>
          </section>
 
          <section class="box">
             <section class="box-content">
                <span style="width:33.3%">Button - Secondary</span>
-               <div style="width:33.3%"><button class="birdie-btn--secondary">Secondary</button></div>
-               <div style="width:33.3%"><button class="birdie-btn--secondary" disabled>Secondary</button></div>
+               <div style="width:33.3%">
+                  <!-- Element Btn Secondary -->
+                  <button class="birdie-btn--secondary">Secondary</button>
+               </div>
+               <div style="width:33.3%">
+                  <!-- Element Btn Secondary Disabled -->
+                  <button class="birdie-btn--secondary" disabled>Secondary</button>
+               </div>
             </section>
          </section>
 
          <section class="box">
             <section class="box-content">
                <span style="width:33.3%">Button - Success</span>
-               <div style="width:33.3%"><button class="birdie-btn--success">Success</button></div>
-               <div style="width:33.3%"><button class="birdie-btn--success" disabled>Success</button></div>
+               <div style="width:33.3%">
+                  <!-- Element Btn Success -->
+                  <button class="birdie-btn--success">Success</button>
+               </div>
+               <div style="width:33.3%">
+                  <!-- Element Btn Success Disabled -->
+                  <button class="birdie-btn--success" disabled>Success</button>
+               </div>
             </section>
          </section>
 
          <section class="box">
             <section class="box-content">
                <span style="width:33.3%">Button - Danger</span>
-               <div style="width:33.3%"><button class="birdie-btn--danger">Danger</button></div>
-               <div style="width:33.3%"><button class="birdie-btn--danger" disabled>Danger</button></div>
+               <div style="width:33.3%">
+                  <!-- Element Btn Danger -->
+                  <button class="birdie-btn--danger">Danger</button>
+               </div>
+               <div style="width:33.3%">
+                  <!-- Element Btn Danger Disabled -->
+                  <button class="birdie-btn--danger" disabled>Danger</button>
+               </div>
             </section>
          </section>
 
          <section class="box">
             <section class="box-content">
                <span style="width:33.3%">Button - Warning</span>
-               <div style="width:33.3%"><button class="birdie-btn--warning">Warning</button></div>
-               <div style="width:33.3%"><button class="birdie-btn--warning" disabled>Warning</button></div>
+               <div style="width:33.3%">
+                  <!-- Element Btn Warning -->
+                  <button class="birdie-btn--warning">Warning</button>
+               </div>
+               <div style="width:33.3%">
+                  <!-- Element Btn Warning Disabled -->
+                  <button class="birdie-btn--warning" disabled>Warning</button>
+               </div>
             </section>
          </section>
 
          <section class="box">
             <section class="box-content">
-               <span style="width:33.3%">Button - Info</span>
-               <div style="width:33.3%"><button class="birdie-btn--info">Info</button></div>
-               <div style="width:33.3%"><button class="birdie-btn--info" disabled>Info</button></div>
+               <span style="width:33.3%">Button - Info</span>               
+               <div style="width:33.3%">
+                  <!-- Element Btn Info -->
+                  <button class="birdie-btn--info">Info</button>
+               </div>               
+               <div style="width:33.3%">
+                  <!-- Element Btn Info Disabled -->
+                  <button class="birdie-btn--info" disabled>Info</button>
+               </div>
             </section>
          </section>
 
@@ -149,12 +191,14 @@
             <section class="box-content">
                <span style="width:33.3%">TextField - Standard</span>
                <div style="width:33.3%">
+                  <!-- Element TextField Standard -->
                   <span class="birdie-textfield">
                      <input placeholder=" ">
                      <label>Standard</label>
                   </span>
                </div>
                <div style="width:33.3%">
+                  <!-- Element TextField Standard Disabled -->
                   <span class="birdie-textfield">
                      <input placeholder=" " disabled>
                      <label>Standard Disabled</label>
@@ -167,12 +211,14 @@
             <section class="box-content">
                <span style="width:33.3%">TextField - Filled</span>
                <div style="width:33.3%">
+                  <!-- Element TextField Filled -->
                   <span class="birdie-textfield--filled">
                      <input placeholder=" ">
                      <label>Filled</label>
                   </span>
                </div>
                <div style="width:33.3%">
+                  <!-- Element TextField Filled Disabled -->
                   <span class="birdie-textfield--filled">
                      <input placeholder=" " disabled>
                      <label>Filled Disabled</label>
@@ -185,12 +231,14 @@
             <section class="box-content">
                <span style="width:33.3%">TextField - Outlined</span>
                <div style="width:33.3%">
+                  <!-- Element TextField Outlined -->
                   <span class="birdie-textfield--outlined">
                      <input placeholder=" ">
                      <label>Outlined</label>
                   </span>
                </div>
                <div style="width:33.3%">
+                  <!-- Element TextField Outlined Disabled -->
                   <span class="birdie-textfield--outlined">
                      <input placeholder=" " disabled>
                      <label>Outlined Disabled</label>
@@ -205,12 +253,14 @@
             <section class="box-content">
                <span style="width:33.3%">Checkbox</span>
                <div style="width:33.3%">
+                  <!-- Element Checkbox -->
                   <span class="birdie-checkbox">
                      <input type="checkbox">
                      <label>Checkbox</label>
                   </span>
                </div>
                <div style="width:33.3%">
+                  <!-- Element Checkbox Disabled -->
                   <span class="birdie-checkbox">
                      <input type="checkbox" disabled>
                      <label>Checkbox Disabled</label>
@@ -223,12 +273,14 @@
             <section class="box-content">
                <span style="width:33.3%">Radio</span>
                <div style="width:33.3%">
+                  <!-- Element Radio -->
                   <span class="birdie-radio">
                      <input type="radio">
                      <label>Radio</label>
                   </span>
                </div>
                <div style="width:33.3%">
+                  <!-- Element Radio Disabled -->
                   <span class="birdie-radio">
                      <input type="radio" disabled>
                      <label>Radio Disabled</label>
@@ -237,8 +289,46 @@
             </section>
          </section>
 
- 
-          
+         <hr />           
+
+         <section class="box">             
+            <section class="box-content">
+               <span style="width:30%">DataTable Standard</span>
+               <div style="width:70%">
+                  <!-- Element DataTable -->
+                  <table class="birdie-datatable">
+                     <thead>
+                        <tr>
+                           <th>#</th>
+                           <th>Data One</th>
+                           <th>Data Two</th>
+                           <th>Data Three</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>1</td>
+                           <td>Day</td>
+                           <td>Wello</td>
+                           <td>World!</td>                        
+                        </tr>
+                        <tr>
+                           <td>2</td>
+                           <td>Day</td>
+                           <td>Hello</td>
+                           <td>World!</td>
+                        </tr>
+                        <tr>
+                           <td>3</td>
+                           <td>Day</td>
+                           <td>Hello</td>
+                           <td>World!</td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </div>
+            </section>
+         </section>
 
            
 
@@ -247,7 +337,7 @@
          
       </main>  
       <footer id="footer">
-         <a href="#" target="_blank">Stilos Design Tecnologia</a>
+         <a href="#" target="_blank">Stilos Design Network</a>
       </footer>  
    </body>
    <script>
