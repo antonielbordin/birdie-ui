@@ -10,7 +10,13 @@
             align-items: center;
             width: 100%;
             min-height: 100%;
-         }  
+         }
+         #main h2 {
+            font-size: 22px; 
+            padding: 20px 0;
+         } 
+         
+
          #header {
             z-index: 1;
             position: -webkit-sticky;
@@ -65,6 +71,8 @@
          #footer a:hover {
             color: var(--birdie-primary-color);
          }
+         
+
          hr {
             width: 80%;
             margin: 30px auto;
@@ -72,222 +80,336 @@
          .cTop {
             margin-top: 50px;
          }
+
+         .space-top {
+            margin-top: 10px;
+         }
+         .col {
+            min-height: 45px;    
+            border:1px dashed var(--birdie-primary-color);
+            background: paleturquoise;
+         }
+         .no-bg {
+            background: #fff !important;
+         }
+
       </style>
       <link rel="stylesheet" href="../src/birdie-ui.css" />
    </head>
    <body>
       <header id="header"> Birdie UI is the UI components for Web in pure CSS </header>
       <main id="main">
-         
-         <section class="box">
-            <section class="box-title">
-               <div style="width:33.3%"></div>
-               <div class="column" style="width:33.3%">Enabled</div>
-               <div class="column" style="width:33.3%">Disabled</div>
-            </section>
-         </section>
 
-         <section class="box">
-            <section class="box-content">
-               <span style="width:33.3%">Button - Default</span>
-               <div style="width:33.3%">
+         <h2>Contained Grid</h2> 
+
+         <div class="birdie-container">
+            <!-- Columns 100% width -->
+            <div class="birdie-row space-top">
+               <div class="birdie-column col"> 100% </div>
+            </div>
+
+            <!-- Columns 50% width -->
+            <div class="birdie-row">
+               <div class="birdie-column col"> 50% </div>
+               <div class="birdie-column col"> 50% </div>
+            </div>
+
+            <!-- Columns 33.3% width -->
+            <div class="birdie-row">
+               <div class="birdie-column col"> 33.3% </div>
+               <div class="birdie-column col"> 33.3% </div>
+               <div class="birdie-column col"> 33.3% </div>
+            </div>
+
+            <!-- Columns 25% width -->
+            <div class="birdie-row">
+               <div class="birdie-column col"> 25% </div>
+               <div class="birdie-column col"> 25% </div>
+               <div class="birdie-column col"> 25% </div>
+               <div class="birdie-column col"> 25% </div>
+            </div>
+         </div>
+
+         <h2>Contained Grid Fixed</h2>
+
+         <div class="birdie-container-fixed">
+            <!-- Columns 25% and 75% width -->
+            <div class="birdie-row space-top">
+               <div class="birdie-column col-25 col"> Twenty-five Percent </div>
+               <div class="birdie-column col-75 col"> Seventy-five Percent </div>
+            </div>
+         </div>
+ 
+       
+
+
+         <div class="birdie-container-fixed no-bg">
+
+            <h2>Element Button</h2>
+
+            <div class="birdie-row">
+               <div class="birdie-column"></div>
+               <div class="birdie-column">Enabled</div>
+               <div class="birdie-column">Disabled</div>
+            </div>
+
+            <div class="birdie-row">
+               <div class="birdie-column"> <span>Button - Default</span> </div>
+               <div class="birdie-column">
                   <!-- Element Btn Default -->
                   <button class="birdie-btn">Default</button>
                </div>
-               <div style="width:33.3%">
+               <div class="birdie-column">
                   <!-- Element Btn Default Disabled -->
                   <button class="birdie-btn" disabled>Default</button>
                </div>
-            </section>
-         </section>
+            </div>
 
-         <section class="box">
-            <section class="box-content">
-               <span style="width:33.3%">Button - Primary</span>
-               <div style="width:33.3%">
+            <div class="birdie-row">
+               <div class="birdie-column"> <span>Button - Primary</span> </div>
+               <div class="birdie-column">
                   <!-- Element Btn Primary -->
                   <button class="birdie-btn--primary">Primary</button>
                </div>
-               <div style="width:33.3%">
+               <div class="birdie-column">
                   <!-- Element Btn Primary Disabled -->
                   <button class="birdie-btn--primary" disabled>Primary</button>
                </div>
-            </section>
-         </section>
+            </div>
 
-         <section class="box">
-            <section class="box-content">
-               <span style="width:33.3%">Button - Secondary</span>
-               <div style="width:33.3%">
+            <div class="birdie-row">
+               <div class="birdie-column"> <span>Button - Secondary</span> </div>
+               <div class="birdie-column">
                   <!-- Element Btn Secondary -->
                   <button class="birdie-btn--secondary">Secondary</button>
                </div>
-               <div style="width:33.3%">
+               <div class="birdie-column">
                   <!-- Element Btn Secondary Disabled -->
                   <button class="birdie-btn--secondary" disabled>Secondary</button>
                </div>
-            </section>
-         </section>
+            </div>
 
-         <section class="box">
-            <section class="box-content">
-               <span style="width:33.3%">Button - Success</span>
-               <div style="width:33.3%">
+            <div class="birdie-row">
+               <div class="birdie-column"> <span>Button - Success</span> </div>
+               <div class="birdie-column">
                   <!-- Element Btn Success -->
                   <button class="birdie-btn--success">Success</button>
                </div>
-               <div style="width:33.3%">
+               <div class="birdie-column">
                   <!-- Element Btn Success Disabled -->
                   <button class="birdie-btn--success" disabled>Success</button>
                </div>
-            </section>
-         </section>
+            </div>
 
-         <section class="box">
-            <section class="box-content">
-               <span style="width:33.3%">Button - Danger</span>
-               <div style="width:33.3%">
+            <div class="birdie-row">
+               <div class="birdie-column"> <span>Button - Danger</span> </div>
+               <div class="birdie-column">
                   <!-- Element Btn Danger -->
                   <button class="birdie-btn--danger">Danger</button>
                </div>
-               <div style="width:33.3%">
+               <div class="birdie-column">
                   <!-- Element Btn Danger Disabled -->
                   <button class="birdie-btn--danger" disabled>Danger</button>
                </div>
-            </section>
-         </section>
+            </div>
 
-         <section class="box">
-            <section class="box-content">
-               <span style="width:33.3%">Button - Warning</span>
-               <div style="width:33.3%">
+            <div class="birdie-row">
+               <div class="birdie-column"> <span>Button - Warning</span> </div>
+               <div class="birdie-column">
                   <!-- Element Btn Warning -->
                   <button class="birdie-btn--warning">Warning</button>
                </div>
-               <div style="width:33.3%">
+               <div class="birdie-column">
                   <!-- Element Btn Warning Disabled -->
                   <button class="birdie-btn--warning" disabled>Warning</button>
                </div>
-            </section>
-         </section>
+            </div>
 
-         <section class="box">
-            <section class="box-content">
-               <span style="width:33.3%">Button - Info</span>               
-               <div style="width:33.3%">
+            <div class="birdie-row">
+               <div class="birdie-column"> <span>Button - Info</span> </div>
+               <div class="birdie-column">
                   <!-- Element Btn Info -->
                   <button class="birdie-btn--info">Info</button>
-               </div>               
-               <div style="width:33.3%">
+               </div>
+               <div class="birdie-column">
                   <!-- Element Btn Info Disabled -->
                   <button class="birdie-btn--info" disabled>Info</button>
                </div>
-            </section>
-         </section>
+            </div>
 
-         <hr /> 
+            <h2>Elements Actions (inputs,selects, etc...)</h2>
 
-         <section class="box"> 
-            <section class="box-content">
-               <span style="width:33.3%">TextField - Standard</span>
-               <div style="width:33.3%">
+            <div class="birdie-row">
+               <div class="birdie-column"> <span>TextField - Standard</span> </div>
+               <div class="birdie-column">
                   <!-- Element TextField Standard -->
                   <span class="birdie-textfield">
                      <input placeholder=" ">
                      <label>Standard</label>
                   </span>
                </div>
-               <div style="width:33.3%">
+               <div class="birdie-column">
                   <!-- Element TextField Standard Disabled -->
                   <span class="birdie-textfield">
                      <input placeholder=" " disabled>
                      <label>Standard Disabled</label>
                   </span>
                </div>
-            </section>
-         </section>
+            </div>
 
-         <section class="box"> 
-            <section class="box-content">
-               <span style="width:33.3%">TextField - Filled</span>
-               <div style="width:33.3%">
+
+            <div class="birdie-row">
+               <div class="birdie-column"> <span>TextField - Filled</span> </div>
+               <div class="birdie-column">
                   <!-- Element TextField Filled -->
                   <span class="birdie-textfield--filled">
                      <input placeholder=" ">
                      <label>Filled</label>
                   </span>
                </div>
-               <div style="width:33.3%">
+               <div class="birdie-column">
                   <!-- Element TextField Filled Disabled -->
                   <span class="birdie-textfield--filled">
                      <input placeholder=" " disabled>
                      <label>Filled Disabled</label>
                   </span>
                </div>
-            </section>
-         </section>
+            </div>
 
-         <section class="box"> 
-            <section class="box-content">
-               <span style="width:33.3%">TextField - Outlined</span>
-               <div style="width:33.3%">
+            <div class="birdie-row">
+               <div class="birdie-column"> <span>TextField - Outlined</span> </div>
+               <div class="birdie-column">
                   <!-- Element TextField Outlined -->
                   <span class="birdie-textfield--outlined">
                      <input placeholder=" ">
                      <label>Outlined</label>
                   </span>
                </div>
-               <div style="width:33.3%">
+               <div class="birdie-column">
                   <!-- Element TextField Outlined Disabled -->
                   <span class="birdie-textfield--outlined">
                      <input placeholder=" " disabled>
                      <label>Outlined Disabled</label>
                   </span>
                </div>
-            </section>
-         </section>
+            </div>
 
-         <hr /> 
-          
-         <section class="box"> 
-            <section class="box-content">
-               <span style="width:33.3%">Checkbox</span>
-               <div style="width:33.3%">
+            <hr />
+  
+            <div class="birdie-row">
+               <div class="birdie-column"> <span>Checkbox</span> </div>
+               <div class="birdie-column">
                   <!-- Element Checkbox -->
                   <span class="birdie-checkbox">
                      <input type="checkbox">
                      <label>Checkbox</label>
                   </span>
                </div>
-               <div style="width:33.3%">
+               <div class="birdie-column">
                   <!-- Element Checkbox Disabled -->
                   <span class="birdie-checkbox">
                      <input type="checkbox" disabled>
                      <label>Checkbox Disabled</label>
                   </span>
                </div>
-            </section>
-         </section>
+            </div>
 
-         <section class="box"> 
-            <section class="box-content">
-               <span style="width:33.3%">Radio</span>
-               <div style="width:33.3%">
+            <div class="birdie-row">
+               <div class="birdie-column"> <span>Radio</span> </div>
+               <div class="birdie-column">
                   <!-- Element Radio -->
                   <span class="birdie-radio">
                      <input type="radio">
                      <label>Radio</label>
                   </span>
                </div>
-               <div style="width:33.3%">
+               <div class="birdie-column">
                   <!-- Element Radio Disabled -->
                   <span class="birdie-radio">
                      <input type="radio" disabled>
                      <label>Radio Disabled</label>
                   </span>
                </div>
+            </div>
+
+            <hr />
+
+
+
+
+
+            <div class="birdie-row">
+               <div class="birdie-column"> <span> </span> </div>
+               <div class="birdie-column">
+                   
+               </div>
+               <div class="birdie-column">
+                   
+               </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+         </div>
+ 
+
+
+
+
+
+
+<!--          
+         <section class="box">
+            <section class="box-title">
+               <div style="width:33.3%"></div>
+               <div class="column" style="width:33.3%">Enabled</div>
+               <div class="column" style="width:33.3%">Disabled</div>
+            </section>
+         </section> 
+
+         <section class="box">
+            <section class="box-content">
+               <span style="width:33.3%">Button - Default</span>
+               <div style="width:33.3%">
+                   Element Btn Default  
+                  <button class="birdie-btn">Default</button>
+               </div>
+               <div style="width:33.3%">
+                   Element Btn Default Disabled  
+                  <button class="birdie-btn" disabled>Default</button>
+               </div>
             </section>
          </section>
+      -->
+
+         
+
+        
+
+         
+
+ 
+
+          
+
+        
+ 
+
+        
+          
+         
+
+          
 
          <hr />           
 
@@ -331,6 +453,19 @@
          </section>
 
            
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

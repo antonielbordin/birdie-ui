@@ -1,0 +1,69 @@
+/* Simple Grid System */
+
+.birdie-container {
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 20px);
+    max-width: calc(100% - 20px);
+    padding: 0 10px;
+    background: #f0f0f0;    
+}
+.birdie-container-fixed {
+    display: flex;
+    flex-direction: column;
+    width: 1200px;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 10px;
+    background: #f0f0f0;
+}  
+.birdie-row {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex; 
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin-bottom: 10px;   
+}
+
+.birdie-column {
+    flex-basis: 100%;    
+}
+  
+#box {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+#content,
+#sidebar {
+    flex-basis: 100%;
+}
+
+@media screen and (min-width: 800px) {
+    .birdie-column {
+        flex: 1; 
+    }
+    .col-20 {
+        flex: 2;
+    }
+    .col-25 {
+        flex: 2.5;
+    }
+    .col-55 {
+        flex: 5.5;
+    }
+    .col-75 {
+        flex: 7.5;
+    }   
+
+    #sidebar {
+        flex: 2.5;
+    }
+    #content {
+        flex: 7.5;
+    } 
+}

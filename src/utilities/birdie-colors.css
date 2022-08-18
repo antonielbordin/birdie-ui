@@ -1,5 +1,4 @@
-:root {
-  
+:root {  
    --birdie-default-color: #545454;
    --birdie-primary-color: #0275d8;
    --birdie-secondary-color: #5bc0de; 
@@ -20,10 +19,4 @@
    --birdie-text-muted: #6c757d;
    --birdie-text-light: #f7f7f7;
    --birdie-text-dark: #292b2c;
-
-
-
-
-
-
 }
