@@ -19,4 +19,8 @@
    --birdie-text-muted: #6c757d;
    --birdie-text-light: #f7f7f7;
    --birdie-text-dark: #292b2c;
+
+   /** Style for tooltips */
+   --birdie-tooltip-bg: #292b2c;
+   --birdie-tooltip-color: #f7f7f7;
 }
