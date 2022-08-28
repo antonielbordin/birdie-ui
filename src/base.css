@@ -1,9 +1,3 @@
-/* Utilities */
-@import "./utilities/birdie-utilities.css";
-
-/* Components */
-@import "./components/birdie-components.css";
-
 html, body {
    position: relative;
    width: 100%;
@@ -20,4 +14,3 @@ body {
    color: var(--birdie-default-color);
    background-color: var(--birdie-faded-bg);
 }
-  

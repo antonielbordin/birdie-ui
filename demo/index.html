@@ -15,8 +15,6 @@
             font-size: 22px; 
             padding: 20px 0;
          } 
-         
-
          #header {
             z-index: 1;
             position: -webkit-sticky;
@@ -24,7 +22,7 @@
             top: 0;
             padding: 18px;
             color: var(--birdie-light-color);
-            background-color: var(--birdie-default-color);
+            background-color: var(--birdie-primary-color);
             text-align: center;
             font-size: 36px;
             box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
@@ -36,8 +34,7 @@
             justify-content: center;
             width: 50%;
             margin-top: 10px;
-         }        
-          
+         }
          .box-title {
             display: flex;
             flex-direction: row;
@@ -71,38 +68,41 @@
          #footer a:hover {
             color: var(--birdie-primary-color);
          }
-         
-
-         hr {
-            width: 80%;
-            margin: 30px auto;
-         }
-         .cTop {
-            margin-top: 50px;
-         }
-
-         .space-top {
-            margin-top: 10px;
-         }
          .col {
             min-height: 45px;    
             border:1px dashed var(--birdie-primary-color);
             background: paleturquoise;
+         }          
+         .space-top {
+            margin-top: 20px;
          }
-         .no-bg {
-            background: #fff !important;
+         .bg-container {
+            background: #f0f0f0; 
          }
-
+         hr {
+            width: 80%;
+            margin: 30px auto;
+         }
+         h2 {
+            margin: 10px 0;
+            color: var(--birdie-default-color);
+            text-align: left !important;
+         }
+         .b-bottom {
+            border-bottom: 2px;
+            border-style: solid;
+            border-color: var(--birdie-primary-color);
+         }
       </style>
-      <link rel="stylesheet" href="../src/birdie-ui.css" />
+      <link rel="stylesheet" href="../dist/birdie-ui.min.css" />
    </head>
    <body>
       <header id="header"> Birdie UI is the UI components for Web in pure CSS </header>
       <main id="main">
 
-         <h2>Contained Grid</h2> 
+         <h2><span class="b-bottom">Contained Grid</span></h2> 
 
-         <div class="birdie-container">
+         <div class="birdie-container bg-container">
             <!-- Columns 100% width -->
             <div class="birdie-row space-top">
                <div class="birdie-column col"> 100% </div>
@@ -130,30 +130,27 @@
             </div>
          </div>
 
-         <h2>Contained Grid Fixed</h2>
+         <h2><span class="b-bottom">Contained Grid Fixed</span></h2>
 
-         <div class="birdie-container-fixed">
+         <div class="birdie-container-fixed bg-container">
             <!-- Columns 25% and 75% width -->
             <div class="birdie-row space-top">
-               <div class="birdie-column col-25 col"> Twenty-five Percent </div>
-               <div class="birdie-column col-75 col"> Seventy-five Percent </div>
+               <div class="birdie-column col-25 col"> Twenty five Percent </div>
+               <div class="birdie-column col-75 col"> Seventy five Percent </div>
             </div>
          </div>
  
-       
+         <div class="birdie-container-fixed">
 
+            <h2><span class="b-bottom">Element Button</span></h2>
 
-         <div class="birdie-container-fixed no-bg">
-
-            <h2>Element Button</h2>
-
-            <div class="birdie-row">
+            <div class="birdie-row space-top">
                <div class="birdie-column"></div>
                <div class="birdie-column">Enabled</div>
                <div class="birdie-column">Disabled</div>
             </div>
 
-            <div class="birdie-row">
+            <div class="birdie-row space-top">
                <div class="birdie-column"> <span>Button - Default</span> </div>
                <div class="birdie-column">
                   <!-- Element Btn Default -->
@@ -165,7 +162,7 @@
                </div>
             </div>
 
-            <div class="birdie-row">
+            <div class="birdie-row space-top">
                <div class="birdie-column"> <span>Button - Primary</span> </div>
                <div class="birdie-column">
                   <!-- Element Btn Primary -->
@@ -177,7 +174,7 @@
                </div>
             </div>
 
-            <div class="birdie-row">
+            <div class="birdie-row space-top">
                <div class="birdie-column"> <span>Button - Secondary</span> </div>
                <div class="birdie-column">
                   <!-- Element Btn Secondary -->
@@ -189,7 +186,7 @@
                </div>
             </div>
 
-            <div class="birdie-row">
+            <div class="birdie-row space-top">
                <div class="birdie-column"> <span>Button - Success</span> </div>
                <div class="birdie-column">
                   <!-- Element Btn Success -->
@@ -201,7 +198,7 @@
                </div>
             </div>
 
-            <div class="birdie-row">
+            <div class="birdie-row space-top">
                <div class="birdie-column"> <span>Button - Danger</span> </div>
                <div class="birdie-column">
                   <!-- Element Btn Danger -->
@@ -213,7 +210,7 @@
                </div>
             </div>
 
-            <div class="birdie-row">
+            <div class="birdie-row space-top">
                <div class="birdie-column"> <span>Button - Warning</span> </div>
                <div class="birdie-column">
                   <!-- Element Btn Warning -->
@@ -225,7 +222,7 @@
                </div>
             </div>
 
-            <div class="birdie-row">
+            <div class="birdie-row space-top">
                <div class="birdie-column"> <span>Button - Info</span> </div>
                <div class="birdie-column">
                   <!-- Element Btn Info -->
@@ -237,9 +234,9 @@
                </div>
             </div>
 
-            <h2>Elements Actions (inputs,selects, etc...)</h2>
+            <h2><span class="b-bottom">Elements Actions (inputs,selects, etc...)</span></h2>
 
-            <div class="birdie-row">
+            <div class="birdie-row space-top">
                <div class="birdie-column"> <span>TextField - Standard</span> </div>
                <div class="birdie-column">
                   <!-- Element TextField Standard -->
@@ -258,7 +255,7 @@
             </div>
 
 
-            <div class="birdie-row">
+            <div class="birdie-row space-top">
                <div class="birdie-column"> <span>TextField - Filled</span> </div>
                <div class="birdie-column">
                   <!-- Element TextField Filled -->
@@ -276,7 +273,7 @@
                </div>
             </div>
 
-            <div class="birdie-row">
+            <div class="birdie-row space-top">
                <div class="birdie-column"> <span>TextField - Outlined</span> </div>
                <div class="birdie-column">
                   <!-- Element TextField Outlined -->
@@ -294,7 +291,7 @@
                </div>
             </div>
                
-            <div class="birdie-row">
+            <div class="birdie-row space-top">
                <div class="birdie-column"> <span>Checkbox</span> </div>
                <div class="birdie-column">
                   <!-- Element Checkbox -->
@@ -312,7 +309,7 @@
                </div>
             </div>
 
-            <div class="birdie-row">
+            <div class="birdie-row space-top">
                <div class="birdie-column"> <span>Radio</span> </div>
                <div class="birdie-column">
                   <!-- Element Radio -->
@@ -329,32 +326,31 @@
                   </span>
                </div>
             </div>
-
             
-            <h2>Tooltips</h2>
+            <h2><span class="b-bottom">Tooltips</span></h2>
 
-            <div class="birdie-row">
+            <div class="birdie-row space-top">
                <div class="birdie-column"> <span> Tooltip Top </span> </div>
                <div class="birdie-column">
                   <span style="padding: 3px" data-birdie="tooltip" birdie-tooltip-pos="top" birdie-tooltip="Top">Show Top</span>
                </div>
             </div>
 
-            <div class="birdie-row">
+            <div class="birdie-row space-top">
                <div class="birdie-column"> <span> Tooltip Right </span> </div>
                <div class="birdie-column">
                   <span style="padding: 3px" data-birdie="tooltip" birdie-tooltip-pos="right" birdie-tooltip="Right">Show Right</span>
                </div>
             </div>
 
-            <div class="birdie-row">
+            <div class="birdie-row space-top">
                <div class="birdie-column"> <span> Tooltip Left </span> </div>
                <div class="birdie-column">
                   <span style="padding: 3px" data-birdie="tooltip" birdie-tooltip-pos="left" birdie-tooltip="Left">Show Left</span>
                </div>
             </div>
 
-            <div class="birdie-row">
+            <div class="birdie-row space-top">
                <div class="birdie-column"> <span> Tooltip Bottom </span> </div>
                <div class="birdie-column">
                   <span style="padding: 3px" data-birdie="tooltip" birdie-tooltip-pos="bottom" birdie-tooltip="Bottom">Show Bottom</span>
@@ -362,24 +358,7 @@
             </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            <div class="birdie-row">
+            <div class="birdie-row space-top">
                <div class="birdie-column"> <span> </span> </div>
                <div class="birdie-column">
                    
@@ -389,13 +368,9 @@
                </div>
             </div>
 
-
-
          </div>
  
-                
-
-         <section class="box">             
+         <section class="box space-top">             
             <section class="box-content">
                <span style="width:30%">DataTable Standard</span>
                <div style="width:70%">
@@ -433,14 +408,6 @@
                </div>
             </section>
          </section>
-
-          
- 
-
-
-
-
-
          
       </main>  
       <footer id="footer">

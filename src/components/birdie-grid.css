@@ -5,9 +5,9 @@
     flex-direction: column;
     width: calc(100% - 20px);
     max-width: calc(100% - 20px);
-    padding: 0 10px;
-    background: #f0f0f0;    
+    padding: 0 10px;       
 }
+
 .birdie-container-fixed {
     display: flex;
     flex-direction: column;
@@ -15,8 +15,8 @@
     max-width: 100%;
     margin: 0 auto;
     padding: 0 10px;
-    background: #f0f0f0;
-}  
+} 
+
 .birdie-row {
     display: -webkit-box;
     display: -webkit-flex;
@@ -31,13 +31,14 @@
 
 .birdie-column {
     flex-basis: 100%;    
-}
-  
+} 
+
 #box {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
+
 #content,
 #sidebar {
     flex-basis: 100%;

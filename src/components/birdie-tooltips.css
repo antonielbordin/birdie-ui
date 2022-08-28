@@ -26,7 +26,6 @@
 
 [data-birdie='tooltip']::after {
 	content: attr(birdie-tooltip);
-	/* magic! */
 	text-align: center;
 	-webkit-backdrop-filter: blur(20px);
 	backdrop-filter: blur(20px);
@@ -48,7 +47,7 @@
 	display: block;
 }
 
-/* don't show empty tooltips */
+/* Don't show empty tooltips */
 [tooltip=""]::before,
 [tooltip=""]::after {
 	display: none !important;
@@ -153,103 +152,3 @@
 [data-birdie="tooltip"][birdie-tooltip-pos^="right"]:hover::after {
 	animation: tooltips-horz 300ms ease-out forwards;
 }
-
-/** 
-[data-birdie='tooltip'] { 
-   position: relative;
-   
-   display: inline-block;   
-}
-
-[data-birdie='tooltip']::after {
-   background-color: #333;
-   border-radius: 10px;
-   color: #b254ff;
-   display: none;
-   padding: 10px 15px;
-   position: absolute;
-   text-align: center;
-   z-index: 999;
-}
-
-[data-birdie='tooltip']::before {
-   background-color: #333;
-   content: ' ';
-   display: none;
-   position: absolute;
-   width: 15px;
-   height: 15px;
-   z-index: 999;
-}
-
-[data-birdie='tooltip']:hover {
-   cursor:pointer;
-}
-
-/** Birdie Tooltip Show 
-[data-birdie='tooltip']:hover::after {
-   display: block;   
-}
-
-[data-birdie='tooltip']:hover::before {
-   display: block;
-}
-
-/** Birdie Tooltip Possitions 
-[birdie-tooltip-pos='top']::before {
-   top: 0;
-   left: 50%;
-   transform: translate(-50%, calc(-100% - 5px)) rotate(45deg);
-}
-
-[birdie-tooltip-pos='top']::after {
-   content: attr(birdie-tooltip);
-   top: 0;
-   left: 50%;
-   transform: translate(-50%, calc(-100% - 10px));
-}
- 
-[birdie-tooltip-pos='left']::before {
-   top: 50%;
-   left: 0;
-   transform: translate(calc(-100% - 5px), -50%) rotate(45deg);
-}
-
-[birdie-tooltip-pos='left']::after {
-   content: attr(birdie-tooltip);
-   top: -50%;
-   left: 0;
-   transform: translateX(calc(-100% - 10px));
-}
-
-[birdie-tooltip-pos='bottom']::before {
-   bottom: 0;
-   left: 50%;
-   transform: translate(-50%, calc(100% + 5px)) rotate(45deg);
-}
-
-[birdie-tooltip-pos='bottom']::after {
-   content: attr(birdie-tooltip);
-   bottom: 0;
-   left: 50%;
-   transform: translate(-50%, calc(100% + 10px));
-}
- 
-[birdie-tooltip-pos='right']::before {
-   top: 50%;
-   right: 0;
-   transform: translate(calc(100% + 5px), -50%) rotate(45deg);  
-}
-
-[birdie-tooltip-pos='right']::after {
-   content: attr(birdie-tooltip);
-   top: -50%;
-   right: 0;
-   transform: translateX(calc(100% + 10px)); 
-}
- 
-
-.btn-op {
-   padding: 5px 8px; background: yellow;
-} 
-*/

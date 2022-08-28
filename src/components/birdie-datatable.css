@@ -1,3 +1,4 @@
+
 .birdie-datatable,
 .birdie-datatable--striped,
 .birdie-datatable--bordered {
@@ -12,9 +13,6 @@
    background-color: var(--birdie-datatable-bg);
 }
 
-
-
-
 .birdie-datatable caption,
 .birdie-datatable--striped caption,
 .birdie-datatable--bordered caption {
@@ -23,8 +21,6 @@
    padding: 1em 0;
    text-align: center;
 }
-
-
 
 .birdie-datatable td,
 .birdie-datatable th,
@@ -71,7 +67,6 @@ striping:
    background-color: #f2f2f2;
 }
 
-
 /* nth-child selector for modern browsers */
 .birdie-datatable--striped tr:nth-child(2n-1) td {
    background-color: #f2f2f2;
@@ -85,14 +80,13 @@ striping:
    border-bottom-width: 0;
 }
 
-
 /* HORIZONTAL BORDERED TABLES */
-
 .pure-table-horizontal td,
 .pure-table-horizontal th {
    border-width: 0 0 1px 0;
    border-bottom: 1px solid #cbcbcb;
 }
+
 .pure-table-horizontal tbody > tr:last-child > td {
    border-bottom-width: 0;
 }

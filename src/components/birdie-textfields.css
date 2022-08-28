@@ -1,4 +1,5 @@
 /* Birdie Textfield */
+
 .birdie-textfield,
 .birdie-textfield--filled,
 .birdie-textfield--outlined {
@@ -98,7 +99,6 @@
    pointer-events: none;
    transition: color 0.2s, font-size 0.2s, line-height 0.2s;
 } 
-
 
 /* Underline */
 .birdie-textfield > input + label::after,
@@ -256,6 +256,7 @@
    background-color: var(--birdie-muted-color);
    color: var(--birdie-muted-color);
 }
+
 .birdie-textfield--filled > input:disabled + label,
 .birdie-textfield--filled > textarea:disabled + label {
    color: var(--birdie-default-color);
