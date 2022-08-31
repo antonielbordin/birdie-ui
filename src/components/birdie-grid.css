@@ -18,15 +18,13 @@
 } 
 
 .birdie-row {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex; 
-    -webkit-flex-wrap: wrap;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
+    display: flex;   
     flex-direction: row;
-    margin-bottom: 10px;   
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10px; 
 }
 
 .birdie-column {
@@ -46,7 +44,7 @@
 
 @media screen and (min-width: 800px) {
     .birdie-column {
-        flex: 1; 
+        flex: 1;
     }
     .col-20 {
         flex: 2;
@@ -59,8 +57,7 @@
     }
     .col-75 {
         flex: 7.5;
-    }   
-
+    }
     #sidebar {
         flex: 2.5;
     }

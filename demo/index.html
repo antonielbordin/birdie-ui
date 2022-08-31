@@ -84,7 +84,7 @@
             margin: 30px auto;
          }
          h2 {
-            margin: 10px 0;
+            margin: 30px 0 !important;
             color: var(--birdie-default-color);
             text-align: left !important;
          }
@@ -99,9 +99,8 @@
    <body>
       <header id="header"> Birdie UI is the UI components for Web in pure CSS </header>
       <main id="main">
-
+         <!-- Contained Grid -->
          <h2><span class="b-bottom">Contained Grid</span></h2> 
-
          <div class="birdie-container bg-container">
             <!-- Columns 100% width -->
             <div class="birdie-row space-top">
@@ -130,20 +129,19 @@
             </div>
          </div>
 
+         <!-- Contained Grid Fixed -->
          <h2><span class="b-bottom">Contained Grid Fixed</span></h2>
-
          <div class="birdie-container-fixed bg-container">
             <!-- Columns 25% and 75% width -->
             <div class="birdie-row space-top">
-               <div class="birdie-column col-25 col"> Twenty five Percent </div>
-               <div class="birdie-column col-75 col"> Seventy five Percent </div>
+               <div class="birdie-column col-25 col"> Twenty Five Percent </div>
+               <div class="birdie-column col-75 col"> Seventy Five Percent </div>
             </div>
          </div>
  
          <div class="birdie-container-fixed">
-
-            <h2><span class="b-bottom">Element Button</span></h2>
-
+            <!-- Element Buttons -->
+            <h2><span class="b-bottom">Element Buttons</span></h2>
             <div class="birdie-row space-top">
                <div class="birdie-column"></div>
                <div class="birdie-column">Enabled</div>
@@ -234,8 +232,8 @@
                </div>
             </div>
 
+            <!-- Elements Actions -->
             <h2><span class="b-bottom">Elements Actions (inputs,selects, etc...)</span></h2>
-
             <div class="birdie-row space-top">
                <div class="birdie-column"> <span>TextField - Standard</span> </div>
                <div class="birdie-column">
@@ -253,7 +251,6 @@
                   </span>
                </div>
             </div>
-
 
             <div class="birdie-row space-top">
                <div class="birdie-column"> <span>TextField - Filled</span> </div>
@@ -326,9 +323,28 @@
                   </span>
                </div>
             </div>
-            
-            <h2><span class="b-bottom">Tooltips</span></h2>
 
+            <div class="birdie-row space-top">
+               <div class="birdie-column"> <span> Dropdown </span> </div>
+               <div class="birdie-column">
+                  <span class="bi-dropdown">
+                     <button>Action</button>
+                     <label>
+                       <input type="checkbox">
+                       <ul>
+                         <li>Action</li>
+                         <li>Another Action</li>
+                         <li>Test</li>
+                         <li class="divider"></li>
+                         <li>Separated link</li>
+                       </ul>
+                     </label>
+                   </span>
+               </div>
+            </div>
+            
+            <!-- Element Tooltip -->
+            <h2><span class="b-bottom">Tooltips</span></h2>
             <div class="birdie-row space-top">
                <div class="birdie-column"> <span> Tooltip Top </span> </div>
                <div class="birdie-column">
@@ -357,24 +373,29 @@
                </div>
             </div>
 
+            
 
-            <div class="birdie-row space-top">
-               <div class="birdie-column"> <span> </span> </div>
-               <div class="birdie-column">
-                   
+
+
+
+            <!-- Element Card -->
+            <h2><span class="b-bottom">Card</span></h2>
+            <div class="birdie-row space-top"> 
+               <div class="birdie-column col-20"></div>
+               <div class="birdie-column col-55">
+                  <div class="birdie-card">
+                     <header class="birdie-card-header">Header card</header>
+                     <section class="birdie-card-content">This is content card</section>
+                  </div>
                </div>
-               <div class="birdie-column">
-                   
-               </div>
+               <div class="birdie-column col-20"></div>               
             </div>
 
-         </div>
- 
-         <section class="box space-top">             
-            <section class="box-content">
-               <span style="width:30%">DataTable Standard</span>
-               <div style="width:70%">
-                  <!-- Element DataTable -->
+            <!-- Element DataTable -->
+            <h2><span class="b-bottom">DataTable</span></h2>
+            <div class="birdie-row space-top">
+               <div class="birdie-column col-25"> <span> DataTable Standard </span> </div>
+               <div class="birdie-column col-75">
                   <table class="birdie-datatable">
                      <thead>
                         <tr>
@@ -406,8 +427,36 @@
                      </tbody>
                   </table>
                </div>
-            </section>
-         </section>
+            </div>
+
+            <div class="birdie-row space-top">
+               <div class="birdie-column"> <span> </span> </div>
+               
+               <div class="birdie-column">
+                   
+               </div>
+            </div>
+
+
+
+
+
+
+            
+
+
+
+
+
+           
+
+
+
+
+
+
+
+         </div>        
          
       </main>  
       <footer id="footer">

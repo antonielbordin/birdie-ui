@@ -23,4 +23,11 @@
    /** Style for tooltips */
    --birdie-tooltip-bg: #292b2c;
    --birdie-tooltip-color: #f7f7f7;
+
+   /** Style for card */ 
+   --birdie-card-bg: #fbfbfb;  
+   --birdie-card-header-bg: #e0e0e0;
+   --birdie-card-header-color: #292b2c;
+   --birdie-card-content-bg: #fbfbfb;
+   --birdie-card-content-color: #292b2c;
 }

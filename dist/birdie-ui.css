@@ -65,6 +65,13 @@ table {
    /** Style for tooltips */
    --birdie-tooltip-bg: #292b2c;
    --birdie-tooltip-color: #f7f7f7;
+
+   /** Style for card */ 
+   --birdie-card-bg: #fbfbfb;  
+   --birdie-card-header-bg: #e0e0e0;
+   --birdie-card-header-color: #292b2c;
+   --birdie-card-content-bg: #fbfbfb;
+   --birdie-card-content-color: #292b2c;
 }
 html, body {
    position: relative;
@@ -91,6 +98,7 @@ body {
     max-width: calc(100% - 20px);
     padding: 0 10px;       
 }
+
 .birdie-container-fixed {
     display: flex;
     flex-direction: column;
@@ -98,21 +106,28 @@ body {
     max-width: 100%;
     margin: 0 auto;
     padding: 0 10px;
-}  
+} 
+
 .birdie-row {
-    display: flex;
-    flex-wrap: wrap;
+    display: flex;   
     flex-direction: row;
-    margin-bottom: 10px;   
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10px; 
 }
+
 .birdie-column {
     flex-basis: 100%;    
 } 
+
 #box {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
+
 #content,
 #sidebar {
     flex-basis: 100%;
@@ -120,7 +135,7 @@ body {
 
 @media screen and (min-width: 800px) {
     .birdie-column {
-        flex: 1; 
+        flex: 1;
     }
     .col-20 {
         flex: 2;
@@ -133,8 +148,7 @@ body {
     }
     .col-75 {
         flex: 7.5;
-    }   
-
+    }
     #sidebar {
         flex: 2.5;
     }
@@ -146,6 +160,7 @@ body {
    Birdie Button Start
    Types: [ Default, Primary, Secondary, Success, Danger, Warning, Info ]
  */
+ 
 .birdie-btn,
 .birdie-btn--primary,
 .birdie-btn--secondary,
@@ -263,6 +278,7 @@ body {
    background-color: var(--birdie-info-color);
 }
 /* Birdie Textfield */
+
 .birdie-textfield,
 .birdie-textfield--filled,
 .birdie-textfield--outlined {
@@ -366,7 +382,6 @@ body {
    pointer-events: none;
    transition: color 0.2s, font-size 0.2s, line-height 0.2s;
 } 
-
 
 /* Underline */
 .birdie-textfield > input + label::after,
@@ -551,6 +566,7 @@ body {
    background-color: var(--birdie-muted-color);
    color: var(--birdie-muted-color);
 }
+
 .birdie-textfield--filled > input:disabled + label,
 .birdie-textfield--filled > textarea:disabled + label {
    color: var(--birdie-default-color);
@@ -594,6 +610,7 @@ body {
    border-top-color: transparent !important;
 }
 /* Birdie Checkbox, Radio */
+
 .birdie-checkbox,
 .birdie-radio {
    z-index: 0;
@@ -812,6 +829,99 @@ body {
 .birdie-radio > input:disabled + label::after {
    background-color: currentColor;
 }
+.bi-dropdown {
+    position: relative;
+    display: inline-block;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+}
+.bi-dropdown:hover{
+    cursor:pointer;
+}
+.bi-dropdown > a, .bi-dropdown > button {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 6px 20px 6px 10px;
+    border-radius: 4px;
+    display: inline-block;
+    color: black;
+    text-decoration: none;
+}
+  
+.bi-dropdown > a:before, .bi-dropdown > button:before {
+    position: absolute;
+    right: 7px;
+    top: 12px;
+    content: ' ';
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid black;
+}
+  
+.bi-dropdown input[type=checkbox] {
+    position: absolute;
+    display: block;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    opacity: 0;
+  }
+  
+.bi-dropdown input[type=checkbox]:checked {
+    position: fixed;
+    z-index:+0;
+    top: 0px; left: 0px; 
+    right: 0px; bottom: 0px;
+  }
+  
+.bi-dropdown ul {
+    position: absolute;
+    top: 18px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    left: 0px;
+    list-style: none;
+    padding: 4px 0px;
+    display: none;
+    background-color: white;
+    box-shadow: 0 3px 6px rgba(0,0,0,.175);
+}
+  
+.bi-dropdown input[type=checkbox]:checked + ul {
+    display: block;
+}
+  
+.bi-dropdown ul li {
+    display: block;
+    padding: 6px 20px;
+    white-space: nowrap;
+    min-width: 100px;
+}
+  
+.bi-dropdown ul li:hover {
+    background-color: #F5F5F5;
+    cursor: pointer;
+}
+  
+.bi-dropdown ul li a {
+    text-decoration: none;
+    display: block;
+    color: black
+}
+  
+.bi-dropdown .divider {
+    height: 1px;
+    margin: 9px 0;
+    overflow: hidden;
+    background-color: #e5e5e5;
+    font-size: 1px;
+    padding: 0;
+  }
+  
 
 [data-birdie='tooltip'] {
 	position: relative;
@@ -842,7 +952,6 @@ body {
 
 [data-birdie='tooltip']::after {
 	content: attr(birdie-tooltip);
-	/* magic! */
 	text-align: center;
 	-webkit-backdrop-filter: blur(20px);
 	backdrop-filter: blur(20px);
@@ -864,7 +973,7 @@ body {
 	display: block;
 }
 
-/* don't show empty tooltips */
+/* Don't show empty tooltips */
 [tooltip=""]::before,
 [tooltip=""]::after {
 	display: none !important;
@@ -985,105 +1094,6 @@ body {
 	        animation: tooltips-horz 300ms ease-out forwards;
 }
 
-/** 
-[data-birdie='tooltip'] { 
-   position: relative;
-   
-   display: inline-block;   
-}
-
-[data-birdie='tooltip']::after {
-   background-color: #333;
-   border-radius: 10px;
-   color: #b254ff;
-   display: none;
-   padding: 10px 15px;
-   position: absolute;
-   text-align: center;
-   z-index: 999;
-}
-
-[data-birdie='tooltip']::before {
-   background-color: #333;
-   content: ' ';
-   display: none;
-   position: absolute;
-   width: 15px;
-   height: 15px;
-   z-index: 999;
-}
-
-[data-birdie='tooltip']:hover {
-   cursor:pointer;
-}
-
-/** Birdie Tooltip Show 
-[data-birdie='tooltip']:hover::after {
-   display: block;   
-}
-
-[data-birdie='tooltip']:hover::before {
-   display: block;
-}
-
-/** Birdie Tooltip Possitions 
-[birdie-tooltip-pos='top']::before {
-   top: 0;
-   left: 50%;
-   transform: translate(-50%, calc(-100% - 5px)) rotate(45deg);
-}
-
-[birdie-tooltip-pos='top']::after {
-   content: attr(birdie-tooltip);
-   top: 0;
-   left: 50%;
-   transform: translate(-50%, calc(-100% - 10px));
-}
- 
-[birdie-tooltip-pos='left']::before {
-   top: 50%;
-   left: 0;
-   transform: translate(calc(-100% - 5px), -50%) rotate(45deg);
-}
-
-[birdie-tooltip-pos='left']::after {
-   content: attr(birdie-tooltip);
-   top: -50%;
-   left: 0;
-   transform: translateX(calc(-100% - 10px));
-}
-
-[birdie-tooltip-pos='bottom']::before {
-   bottom: 0;
-   left: 50%;
-   transform: translate(-50%, calc(100% + 5px)) rotate(45deg);
-}
-
-[birdie-tooltip-pos='bottom']::after {
-   content: attr(birdie-tooltip);
-   bottom: 0;
-   left: 50%;
-   transform: translate(-50%, calc(100% + 10px));
-}
- 
-[birdie-tooltip-pos='right']::before {
-   top: 50%;
-   right: 0;
-   transform: translate(calc(100% + 5px), -50%) rotate(45deg);  
-}
-
-[birdie-tooltip-pos='right']::after {
-   content: attr(birdie-tooltip);
-   top: -50%;
-   right: 0;
-   transform: translateX(calc(100% + 10px)); 
-}
- 
-
-.btn-op {
-   padding: 5px 8px; background: yellow;
-} 
-*/
 .birdie-datatable,
 .birdie-datatable--striped,
 .birdie-datatable--bordered {
@@ -1098,9 +1108,6 @@ body {
    background-color: var(--birdie-datatable-bg);
 }
 
-
-
-
 .birdie-datatable caption,
 .birdie-datatable--striped caption,
 .birdie-datatable--bordered caption {
@@ -1109,8 +1116,6 @@ body {
    padding: 1em 0;
    text-align: center;
 }
-
-
 
 .birdie-datatable td,
 .birdie-datatable th,
@@ -1157,7 +1162,6 @@ striping:
    background-color: #f2f2f2;
 }
 
-
 /* nth-child selector for modern browsers */
 .birdie-datatable--striped tr:nth-child(2n-1) td {
    background-color: #f2f2f2;
@@ -1171,14 +1175,44 @@ striping:
    border-bottom-width: 0;
 }
 
-
 /* HORIZONTAL BORDERED TABLES */
-
 .pure-table-horizontal td,
 .pure-table-horizontal th {
    border-width: 0 0 1px 0;
    border-bottom: 1px solid #cbcbcb;
 }
+
 .pure-table-horizontal tbody > tr:last-child > td {
    border-bottom-width: 0;
+}
+.birdie-card,
+.birdie-card--padding {
+    background: var(--birdie-card-bg);
+    border:none;
+    border-radius: 4px;  
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;  
+    width: auto;
+}
+.birdie-card--padding {
+    padding: 0.5em;
+}
+
+.birdie-card img,
+.birdie-card--padding img {
+    border-radius: 4px 4px 0 0;
+}
+
+.birdie-card .birdie-card-header,
+.birdie-card--padding .birdie-card-header {
+    color: var(--birdie-card-header-color);
+    background: var(--birdie-card-header-bg);
+    padding: 5px;
+}
+.birdie-card .birdie-card-content,
+.birdie-card--padding .birdie-card-content {
+    min-height: 85px;
+    color: var(--birdie-card-content-color);
+    background: var(--birdie-card-content-bg);
+    padding: 5px;    
 }
