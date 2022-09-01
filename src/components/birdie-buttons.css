@@ -3,13 +3,13 @@
    Types: [ Default, Primary, Secondary, Success, Danger, Warning, Info ]
  */
  
-.birdie-btn,
-.birdie-btn--primary,
-.birdie-btn--secondary,
-.birdie-btn--success,
-.birdie-btn--danger,
-.birdie-btn--warning,
-.birdie-btn--info {   
+.bi-btn,
+.bi-btn--primary,
+.bi-btn--secondary,
+.bi-btn--success,
+.bi-btn--danger,
+.bi-btn--warning,
+.bi-btn--info {   
    position: relative;
    display: inline-block;
    box-sizing: border-box;
@@ -29,55 +29,55 @@
    cursor: pointer;   
 }  
 
-.birdie-btn,
-.birdie-btn--primary::-moz-focus-inner,
-.birdie-btn--secondary::-moz-focus-inner,
-.birdie-btn--success::-moz-focus-inner,
-.birdie-btn--danger::-moz-focus-inner,
-.birdie-btn--warning::-moz-focus-inner,
-.birdie-btn--info::-moz-focus-inner {
+.bi-btn,
+.bi-btn--primary::-moz-focus-inner,
+.bi-btn--secondary::-moz-focus-inner,
+.bi-btn--success::-moz-focus-inner,
+.bi-btn--danger::-moz-focus-inner,
+.bi-btn--warning::-moz-focus-inner,
+.bi-btn--info::-moz-focus-inner {
    border: none;
 }
 
-.birdie-btn,
-.birdie-btn--primary,
-.birdie-btn--secondary,
-.birdie-btn--success,
-.birdie-btn--danger,
-.birdie-btn--warning,
-.birdie-btn--info {
+.bi-btn,
+.bi-btn--primary,
+.bi-btn--secondary,
+.bi-btn--success,
+.bi-btn--danger,
+.bi-btn--warning,
+.bi-btn--info {
    box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.2); 
    transition: box-shadow 0.2s;
 }
 
 /* Birdie Button Hover and Focus*/
 
-.birdie-btn:hover,
-.birdie-btn:focus,
-.birdie-btn--primary:hover,
-.birdie-btn--primary:focus,
-.birdie-btn--secondary:hover,
-.birdie-btn--secondary:focus,
-.birdie-btn--success:hover,
-.birdie-btn--success:focus,
-.birdie-btn--danger:hover,
-.birdie-btn--danger:focus,
-.birdie-btn--warning:hover,
-.birdie-btn--warning:focus,
-.birdie-btn--info:hover,
-.birdie-btn--info:focus {      
+.bi-btn:hover,
+.bi-btn:focus,
+.bi-btn--primary:hover,
+.bi-btn--primary:focus,
+.bi-btn--secondary:hover,
+.bi-btn--secondary:focus,
+.bi-btn--success:hover,
+.bi-btn--success:focus,
+.bi-btn--danger:hover,
+.bi-btn--danger:focus,
+.bi-btn--warning:hover,
+.bi-btn--warning:focus,
+.bi-btn--info:hover,
+.bi-btn--info:focus {      
    box-shadow: inset 0 0 10px 5px rgba(80, 80, 80, 0.1); 
 }
 
 /* Birdie Button Disabled */
 
-.birdie-btn:disabled,
-.birdie-btn--primary:disabled,
-.birdie-btn--secondary:disabled,
-.birdie-btn--success:disabled,
-.birdie-btn--danger:disabled,
-.birdie-btn--warning:disabled,
-.birdie-btn--info:disabled {
+.bi-btn:disabled,
+.bi-btn--primary:disabled,
+.bi-btn--secondary:disabled,
+.bi-btn--success:disabled,
+.bi-btn--danger:disabled,
+.bi-btn--warning:disabled,
+.bi-btn--info:disabled {
    box-shadow: none;
    cursor: initial;
    opacity : 0.6;
@@ -85,37 +85,37 @@
 
 /* Birdie Button Colors */
 
-.birdie-btn {
+.bi-btn {
    color: rgba(0, 0, 0, 0.38);
    background-color: #f0f0f0;
 }
  
-.birdie-btn--primary {  
-   color: var(--birdie-text-light);
-   background-color: var(--birdie-primary-color);
+.bi-btn--primary {  
+   color: var(--bi-text-light);
+   background-color: var(--bi-primary-color);
 }
   
-.birdie-btn--secondary {
-   color: var(--birdie-text-light);
-   background-color: var(--birdie-secondary-color);
+.bi-btn--secondary {
+   color: var(--bi-text-light);
+   background-color: var(--bi-secondary-color);
 }
   
-.birdie-btn--success {
-   color: var(--birdie-text-light);
-   background-color: var(--birdie-success-color);
+.bi-btn--success {
+   color: var(--bi-text-light);
+   background-color: var(--bi-success-color);
 }
 
-.birdie-btn--danger {   
-   color: var(--birdie-text-light);
-   background-color: var(--birdie-danger-color);
+.bi-btn--danger {   
+   color: var(--bi-text-light);
+   background-color: var(--bi-danger-color);
 }
 
-.birdie-btn--warning {  
-   color: var(--birdie-text-light);
-   background-color: var(--birdie-warning-color);
+.bi-btn--warning {  
+   color: var(--bi-text-light);
+   background-color: var(--bi-warning-color);
 }
 
-.birdie-btn--info {
-   color: var(--birdie-text-light);
-   background-color: var(--birdie-info-color);
+.bi-btn--info {
+   color: var(--bi-text-light);
+   background-color: var(--bi-info-color);
 }

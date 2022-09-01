@@ -1,8 +1,7 @@
 /* Birdie Textfield */
-
-.birdie-textfield,
-.birdie-textfield--filled,
-.birdie-textfield--outlined {
+.bi-textfield,
+.bi-textfield--filled,
+.bi-textfield--outlined {
    position: relative;
    display: inline-block;
    font-size: 16px;
@@ -10,12 +9,12 @@
 }
 
 /* Input, Textarea */
-.birdie-textfield > input,
-.birdie-textfield > textarea,
-.birdie-textfield--filled > input,
-.birdie-textfield--filled > textarea,
-.birdie-textfield--outlined > input,
-.birdie-textfield--outlined > textarea {
+.bi-textfield > input,
+.bi-textfield > textarea,
+.bi-textfield--filled > input,
+.bi-textfield--filled > textarea,
+.bi-textfield--outlined > input,
+.bi-textfield--outlined > textarea {
    display: block;
    box-sizing: border-box;
    margin: 0;
@@ -24,44 +23,44 @@
    height: inherit;
    border: none;
    border-top: 24px solid transparent;
-   border-bottom: 1px solid var(--birdie-default-color);   
-   color: var(--birdie-default-color);
+   border-bottom: 1px solid var(--bi-default-color);   
+   color: var(--bi-default-color);
    -webkit-text-fill-color: currentColor; 
    background-color: transparent;
    box-shadow: none;
    font-family: inherit;
    font-size: inherit;
    line-height: inherit;
-   caret-color: var(--birdie-default-color);
+   caret-color: var(--bi-default-color);
    transition: border-bottom 0.2s, background-color 0.2s;
 }
 
-.birdie-textfield--filled > input,
-.birdie-textfield--filled > textarea {   
+.bi-textfield--filled > input,
+.bi-textfield--filled > textarea {   
    border-radius: 4px 4px 0 0;
    padding: 0 12px 7px;
    width: 100%;
-   color: var(--birdie-default-color);
-   background-color: var(--birdie-light-color);
+   color: var(--bi-default-color);
+   background-color: var(--bi-light-color);
 }
 
-.birdie-textfield--outlined > input,
-.birdie-textfield--outlined > textarea {
-   border: 1px solid var(--birdie-default-color);
+.bi-textfield--outlined > input,
+.bi-textfield--outlined > textarea {
+   border: 1px solid var(--bi-default-color);
    border-radius: 4px;
    padding: 15px 10px; 
 }
 
-.birdie-textfield--outlined > input:not(:focus):placeholder-shown,
-.birdie-textfield--outlined > textarea:not(:focus):placeholder-shown {
-   border-top-color: var(--birdie-default-color);
+.bi-textfield--outlined > input:not(:focus):placeholder-shown,
+.bi-textfield--outlined > textarea:not(:focus):placeholder-shown {
+   border-top-color: var(--bi-default-color);
 }
 
 /* Label */
-.birdie-textfield > input + label,
-.birdie-textfield > textarea + label,
-.birdie-textfield--filled > input + label,
-.birdie-textfield--filled > textarea + label {
+.bi-textfield > input + label,
+.bi-textfield > textarea + label,
+.bi-textfield--filled > input + label,
+.bi-textfield--filled > textarea + label {
    position: absolute;
    top: 0;
    left: 0;
@@ -73,17 +72,17 @@
    font-size: 75%;
    line-height: 18px;
    pointer-events: none; 
-   color: var(--birdie-default-color);  
+   color: var(--bi-default-color);  
    transition: color 0.2s, font-size 0.2s, line-height 0.2s;   
 }
 
-.birdie-textfield--filled > input + label,
-.birdie-textfield--filled > textarea + label {  
+.bi-textfield--filled > input + label,
+.bi-textfield--filled > textarea + label {  
    padding: 7px 12px 0;
 }
 
-.birdie-textfield--outlined > input + label,
-.birdie-textfield--outlined > textarea + label {
+.bi-textfield--outlined > input + label,
+.bi-textfield--outlined > textarea + label {
    position: absolute;
    top: 0;
    left: 12px;   
@@ -95,16 +94,16 @@
    font-size: 75%;
    line-height: 15px;
    cursor: text; 
-   color: var(--birdie-default-color);
+   color: var(--bi-default-color);
    pointer-events: none;
    transition: color 0.2s, font-size 0.2s, line-height 0.2s;
 } 
 
 /* Underline */
-.birdie-textfield > input + label::after,
-.birdie-textfield > textarea + label::after,
-.birdie-textfield--filled > input + label::after,
-.birdie-textfield--filled > textarea + label::after {
+.bi-textfield > input + label::after,
+.bi-textfield > textarea + label::after,
+.bi-textfield--filled > input + label::after,
+.bi-textfield--filled > textarea + label::after {
    content: "";
    position: absolute;
    left: 0;
@@ -112,22 +111,22 @@
    display: block;
    width: 100%;
    height: 2px;
-   background-color: var(--birdie-primary-color);
+   background-color: var(--bi-primary-color);
    transform-origin: bottom center;
    transform: scaleX(0);
    transition: transform 0.2s;
 }
 
-.birdie-textfield--filled > input + label::after,
-.birdie-textfield--filled > textarea + label::after {
+.bi-textfield--filled > input + label::after,
+.bi-textfield--filled > textarea + label::after {
    transition: transform 0.3s;
 }
 
 /* Corners */
-.birdie-textfield--outlined > input + label::before,
-.birdie-textfield--outlined > input + label::after,
-.birdie-textfield--outlined > textarea + label::before,
-.birdie-textfield--outlined > textarea + label::after {
+.bi-textfield--outlined > input + label::before,
+.bi-textfield--outlined > input + label::after,
+.bi-textfield--outlined > textarea + label::before,
+.bi-textfield--outlined > textarea + label::after {
    content: "";
    display: block;
    box-sizing: border-box;
@@ -140,154 +139,154 @@
    background: none;
 }
 
-.birdie-textfield--outlined > input:not(:focus):placeholder-shown + label,
-.birdie-textfield--outlined > textarea:not(:focus):placeholder-shown + label {
+.bi-textfield--outlined > input:not(:focus):placeholder-shown + label,
+.bi-textfield--outlined > textarea:not(:focus):placeholder-shown + label {
    line-height: 68px;  
 }
 
 /* Hover */
-.birdie-textfield:hover > input,
-.birdie-textfield:hover > textarea {
-   border-bottom-color: var(--birdie-primary-color);
+.bi-textfield:hover > input,
+.bi-textfield:hover > textarea {
+   border-bottom-color: var(--bi-primary-color);
 }
 
-.birdie-textfield--filled:hover > input,
-.birdie-textfield--filled:hover > textarea {
+.bi-textfield--filled:hover > input,
+.bi-textfield--filled:hover > textarea {
    background-color: #e8fbfb;
-   border-bottom-color: var(--birdie-primary-color);
+   border-bottom-color: var(--bi-primary-color);
 }
  
-.birdie-textfield--outlined:hover > input,
-.birdie-textfield--outlined:hover > textarea {
-   border-color: var(--birdie-primary-color);
+.bi-textfield--outlined:hover > input,
+.bi-textfield--outlined:hover > textarea {
+   border-color: var(--bi-primary-color);
 }
 
-.birdie-textfield--outlined:hover > input:not(:focus):placeholder-shown,
-.birdie-textfield--outlined:hover > textarea:not(:focus):placeholder-shown {
-   border-color: var(--birdie-primary-color);
+.bi-textfield--outlined:hover > input:not(:focus):placeholder-shown,
+.bi-textfield--outlined:hover > textarea:not(:focus):placeholder-shown {
+   border-color: var(--bi-primary-color);
 }
 
 /* Placeholder-shown */
-.birdie-textfield > input:not(:focus):placeholder-shown + label,
-.birdie-textfield > textarea:not(:focus):placeholder-shown + label,
-.birdie-textfield--filled > input:not(:focus):placeholder-shown + label,
-.birdie-textfield--filled > textarea:not(:focus):placeholder-shown + label,
-.birdie-textfield--outlined > input:not(:focus):placeholder-shown + label,
-.birdie-textfield--outlined > textarea:not(:focus):placeholder-shown + label {
+.bi-textfield > input:not(:focus):placeholder-shown + label,
+.bi-textfield > textarea:not(:focus):placeholder-shown + label,
+.bi-textfield--filled > input:not(:focus):placeholder-shown + label,
+.bi-textfield--filled > textarea:not(:focus):placeholder-shown + label,
+.bi-textfield--outlined > input:not(:focus):placeholder-shown + label,
+.bi-textfield--outlined > textarea:not(:focus):placeholder-shown + label {
    font-size: inherit;
    line-height: 56px;
 }
 
-.birdie-textfield--filled > input:focus + label,
-.birdie-textfield--filled > textarea:focus + label {
-   color: var(--birdie-default-color);
+.bi-textfield--filled > input:focus + label,
+.bi-textfield--filled > textarea:focus + label {
+   color: var(--bi-default-color);
 }
 
 /* Focus */
-.birdie-textfield > input:focus,
-.birdie-textfield > textarea:focus {
+.bi-textfield > input:focus,
+.bi-textfield > textarea:focus {
    outline: none;
 }
 
-.birdie-textfield > input:focus + label,
-.birdie-textfield > textarea:focus + label {
-   color: var(--birdie-primary-color);
+.bi-textfield > input:focus + label,
+.bi-textfield > textarea:focus + label {
+   color: var(--bi-primary-color);
 }
 
-.birdie-textfield > input:focus + label::after,
-.birdie-textfield > textarea:focus + label::after {
+.bi-textfield > input:focus + label::after,
+.bi-textfield > textarea:focus + label::after {
    transform: scale(1);
 }
 
-.birdie-textfield--filled > input:focus,
-.birdie-textfield--filled > textarea:focus {
+.bi-textfield--filled > input:focus,
+.bi-textfield--filled > textarea:focus {
    outline: none;
 }
 
-.birdie-textfield--filled > input:focus + label,
-.birdie-textfield--filled > textarea:focus + label {
-   color: var(--birdie-default-color);
+.bi-textfield--filled > input:focus + label,
+.bi-textfield--filled > textarea:focus + label {
+   color: var(--bi-default-color);
 }
 
-.birdie-textfield--filled > input:focus + label::after,
-.birdie-textfield--filled > textarea:focus + label::after {
+.bi-textfield--filled > input:focus + label::after,
+.bi-textfield--filled > textarea:focus + label::after {
    transform: scale(1);
 }
 
-.birdie-textfield--outlined > input:focus,
-.birdie-textfield--outlined > textarea:focus {
-   border-color: var(--birdie-primary-color);
-   box-shadow: inset 1px 0 var(--birdie-primary-color), inset -1px 0 var(--birdie-primary-color), inset 0 1px var(--birdie-primary-color) , inset 0 -1px var(--birdie-primary-color);
+.bi-textfield--outlined > input:focus,
+.bi-textfield--outlined > textarea:focus {
+   border-color: var(--bi-primary-color);
+   box-shadow: inset 1px 0 var(--bi-primary-color), inset -1px 0 var(--bi-primary-color), inset 0 1px var(--bi-primary-color) , inset 0 -1px var(--bi-primary-color);
    outline: none;
 }
 
-.birdie-textfield--outlined > input:focus + label,
-.birdie-textfield--outlined > textarea:focus + label,
-.birdie-textfield--outlined > input:not(:placeholder-shown) + label {
+.bi-textfield--outlined > input:focus + label,
+.bi-textfield--outlined > textarea:focus + label,
+.bi-textfield--outlined > input:not(:placeholder-shown) + label {
    top: -5px;   
    max-height: 25%;
    width: auto !important; 
    max-width: 50%;
    padding: 0 3px; 
-   color: var(--birdie-primary-color);
+   color: var(--bi-primary-color);
    background: #FFFFFF;
 }
 
-.birdie-textfield--outlined > input:not(:placeholder-shown):not(:focus) + label {  
+.bi-textfield--outlined > input:not(:placeholder-shown):not(:focus) + label {  
    max-height: 20%;
-   color: var(--birdie-default-color);
+   color: var(--bi-default-color);
 } 
 
 /* Disabled */
-.birdie-textfield > input:disabled,
-.birdie-textfield > textarea:disabled {
-   border-bottom-color: var(--birdie-muted-color);
-   color: var(--birdie-muted-color);
+.bi-textfield > input:disabled,
+.bi-textfield > textarea:disabled {
+   border-bottom-color: var(--bi-muted-color);
+   color: var(--bi-muted-color);
 }
 
-.birdie-textfield > input:disabled + label,
-.birdie-textfield > textarea:disabled + label {
-   color: var(--birdie-default-color);
+.bi-textfield > input:disabled + label,
+.bi-textfield > textarea:disabled + label {
+   color: var(--bi-default-color);
 }
 
-.birdie-textfield--filled > input:disabled,
-.birdie-textfield--filled > textarea:disabled {
-   border-bottom-color: var(--birdie-muted-color);   
-   background-color: var(--birdie-muted-color);
-   color: var(--birdie-muted-color);
+.bi-textfield--filled > input:disabled,
+.bi-textfield--filled > textarea:disabled {
+   border-bottom-color: var(--bi-muted-color);   
+   background-color: var(--bi-muted-color);
+   color: var(--bi-muted-color);
 }
 
-.birdie-textfield--filled > input:disabled + label,
-.birdie-textfield--filled > textarea:disabled + label {
-   color: var(--birdie-default-color);
+.bi-textfield--filled > input:disabled + label,
+.bi-textfield--filled > textarea:disabled + label {
+   color: var(--bi-default-color);
 }
 
-.birdie-textfield--outlined > input:disabled,
-.birdie-textfield--outlined > input:disabled + label,
-.birdie-textfield--outlined > textarea:disabled,
-.birdie-textfield--outlined > textarea:disabled + label {
-   border-color: transparent var(--birdie-muted-color) var(--birdie-muted-color) !important;
-   color: var(--birdie-default-color);
+.bi-textfield--outlined > input:disabled,
+.bi-textfield--outlined > input:disabled + label,
+.bi-textfield--outlined > textarea:disabled,
+.bi-textfield--outlined > textarea:disabled + label {
+   border-color: transparent var(--bi-muted-color) var(--bi-muted-color) !important;
+   color: var(--bi-default-color);
    pointer-events: none;   
 }
 
-.birdie-textfield--outlined > input:disabled + label::before,
-.birdie-textfield--outlined > input:disabled + label::after,
-.birdie-textfield--outlined > textarea:disabled + label::before,
-.birdie-textfield--outlined > textarea:disabled + label::after {
-   border-top-color: var(--birdie-muted-color) !important;   
+.bi-textfield--outlined > input:disabled + label::before,
+.bi-textfield--outlined > input:disabled + label::after,
+.bi-textfield--outlined > textarea:disabled + label::before,
+.bi-textfield--outlined > textarea:disabled + label::after {
+   border-top-color: var(--bi-muted-color) !important;   
 }
 
-.birdie-textfield--outlined > input:disabled:placeholder-shown,
-.birdie-textfield--outlined > input:disabled:placeholder-shown + label,
-.birdie-textfield--outlined > textarea:disabled:placeholder-shown,
-.birdie-textfield--outlined > textarea:disabled:placeholder-shown + label {
-   border-top-color: var(--birdie-muted-color) !important;
+.bi-textfield--outlined > input:disabled:placeholder-shown,
+.bi-textfield--outlined > input:disabled:placeholder-shown + label,
+.bi-textfield--outlined > textarea:disabled:placeholder-shown,
+.bi-textfield--outlined > textarea:disabled:placeholder-shown + label {
+   border-top-color: var(--bi-muted-color) !important;
 }
 
-.birdie-textfield--outlined > input:disabled:placeholder-shown + label::before,
-.birdie-textfield--outlined > input:disabled:placeholder-shown + label::after,
-.birdie-textfield--outlined > textarea:disabled:placeholder-shown + label::before,
-.birdie-textfield--outlined > textarea:disabled:placeholder-shown + label::after {
+.bi-textfield--outlined > input:disabled:placeholder-shown + label::before,
+.bi-textfield--outlined > input:disabled:placeholder-shown + label::after,
+.bi-textfield--outlined > textarea:disabled:placeholder-shown + label::before,
+.bi-textfield--outlined > textarea:disabled:placeholder-shown + label::after {
    border-top-color: transparent !important;
 }

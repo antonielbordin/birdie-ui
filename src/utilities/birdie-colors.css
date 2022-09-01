@@ -1,33 +1,33 @@
 :root {  
-   --birdie-default-color: #545454;
-   --birdie-primary-color: #0275d8;
-   --birdie-secondary-color: #5bc0de; 
-   --birdie-success-color: #5cb85c; 
-   --birdie-danger-color: #d9534f; 
-   --birdie-warning-color: #f0ad4e;
-   --birdie-info-color: #5bc0de;
-   --birdie-light-color: #f7f7f7;
-   --birdie-dark-color: #292b2c;
-   --birdie-muted-color: #c0c0c0;
+   --bi-default-color: #545454;
+   --bi-primary-color: #0275d8;
+   --bi-secondary-color: #5bc0de; 
+   --bi-success-color: #5cb85c; 
+   --bi-danger-color: #d9534f; 
+   --bi-warning-color: #f0ad4e;
+   --bi-info-color: #5bc0de;
+   --bi-light-color: #f7f7f7;
+   --bi-dark-color: #292b2c;
+   --bi-muted-color: #c0c0c0;
 
-   --birdie-text-primary: #0275d8;
-   --birdie-text-secondary: #6c757d; 
-   --birdie-text-success: #5cb85c; 
-   --birdie-text-danger: #d9534f; 
-   --birdie-text-warning: #f0ad4e;
-   --birdie-text-info: #5bc0de;
-   --birdie-text-muted: #6c757d;
-   --birdie-text-light: #f7f7f7;
-   --birdie-text-dark: #292b2c;
+   --bi-text-primary: #0275d8;
+   --bi-text-secondary: #6c757d; 
+   --bi-text-success: #5cb85c; 
+   --bi-text-danger: #d9534f; 
+   --bi-text-warning: #f0ad4e;
+   --bi-text-info: #5bc0de;
+   --bi-text-muted: #6c757d;
+   --bi-text-light: #f7f7f7;
+   --bi-text-dark: #292b2c;
 
    /** Style for tooltips */
-   --birdie-tooltip-bg: #292b2c;
-   --birdie-tooltip-color: #f7f7f7;
+   --bi-tooltip-bg: #292b2c;
+   --bi-tooltip-color: #f7f7f7;
 
    /** Style for card */ 
-   --birdie-card-bg: #fbfbfb;  
-   --birdie-card-header-bg: #e0e0e0;
-   --birdie-card-header-color: #292b2c;
-   --birdie-card-content-bg: #fbfbfb;
-   --birdie-card-content-color: #292b2c;
+   --bi-card-bg: #fbfbfb;  
+   --bi-card-header-bg: #e0e0e0;
+   --bi-card-header-color: #292b2c;
+   --bi-card-content-bg: #fbfbfb;
+   --bi-card-content-color: #292b2c;
 }

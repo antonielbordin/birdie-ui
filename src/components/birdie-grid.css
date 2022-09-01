@@ -1,6 +1,6 @@
 /* Simple Grid System */
 
-.birdie-container {
+.bi-container {
     display: flex;
     flex-direction: column;
     width: calc(100% - 20px);
@@ -8,7 +8,7 @@
     padding: 0 10px;       
 }
 
-.birdie-container-fixed {
+.bi-container-fixed {
     display: flex;
     flex-direction: column;
     width: 1200px;
@@ -17,7 +17,7 @@
     padding: 0 10px;
 } 
 
-.birdie-row {
+.bi-row {
     display: flex;   
     flex-direction: row;
     flex-wrap: wrap;
@@ -27,7 +27,7 @@
     margin-bottom: 10px; 
 }
 
-.birdie-column {
+.bi-column {
     flex-basis: 100%;    
 } 
 
@@ -43,7 +43,7 @@
 }
 
 @media screen and (min-width: 800px) {
-    .birdie-column {
+    .bi-column {
         flex: 1;
     }
     .col-20 {

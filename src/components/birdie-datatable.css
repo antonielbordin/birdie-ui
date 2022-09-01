@@ -1,7 +1,7 @@
 
-.birdie-datatable,
-.birdie-datatable--striped,
-.birdie-datatable--bordered {
+.bi-datatable,
+.bi-datatable--striped,
+.bi-datatable--bordered {
    width: 100%;
    max-width: 100%;
    margin-bottom: 2rem;
@@ -10,24 +10,24 @@
    empty-cells: show;
    border: 1px solid #cbcbcb;
    /* border-radius: 4px; */
-   background-color: var(--birdie-datatable-bg);
+   background-color: var(--bi-datatable-bg);
 }
 
-.birdie-datatable caption,
-.birdie-datatable--striped caption,
-.birdie-datatable--bordered caption {
+.bi-datatable caption,
+.bi-datatable--striped caption,
+.bi-datatable--bordered caption {
    color: #000;
    font: italic 85%/1 arial, sans-serif;
    padding: 1em 0;
    text-align: center;
 }
 
-.birdie-datatable td,
-.birdie-datatable th,
-.birdie-datatable--striped td,
-.birdie-datatable--striped th,
-.birdie-datatable--bordered td,
-.birdie-datatable--bordered th {
+.bi-datatable td,
+.bi-datatable th,
+.bi-datatable--striped td,
+.bi-datatable--striped th,
+.bi-datatable--bordered td,
+.bi-datatable--bordered th {
    border-left: 1px solid #cbcbcb; 
    border-width: 0 0 0 1px;
    font-size: inherit;
@@ -36,16 +36,16 @@
    padding: 0.5em 1em;
 }
 
-.birdie-datatable thead,
-.birdie-datatable--striped thead,
-.birdie-datatable--bordered thead {   
+.bi-datatable thead,
+.bi-datatable--striped thead,
+.bi-datatable--bordered thead {   
    color: #000;
    text-align: left;
    vertical-align: bottom;    
    background-color: #e0e0e0;
 }
 
-.birdie-datatable thead th
+.bi-datatable thead th
 {
    /* padding: 8px 0;  
    padding-left: 5px; */
@@ -58,35 +58,35 @@ striping:
   even - #fff (white)
   odd  - #f2f2f2 (light gray)
 */
-.birdie-datatable td,
-.birdie-datatable--striped td {
+.bi-datatable td,
+.bi-datatable--striped td {
    background-color: transparent;
 }
 
-.birdie-datatable--zebra td {
+.bi-datatable--zebra td {
    background-color: #f2f2f2;
 }
 
 /* nth-child selector for modern browsers */
-.birdie-datatable--striped tr:nth-child(2n-1) td {
+.bi-datatable--striped tr:nth-child(2n-1) td {
    background-color: #f2f2f2;
 }
 
 /* BORDERED TABLES */
-.birdie-datatable--bordered td {
+.bi-datatable--bordered td {
    border-bottom: 1px solid #cbcbcb;
 }
-.birdie-datatable--bordered tbody > tr:last-child > td {
+.bi-datatable--bordered tbody > tr:last-child > td {
    border-bottom-width: 0;
 }
 
 /* HORIZONTAL BORDERED TABLES */
-.pure-table-horizontal td,
-.pure-table-horizontal th {
+.bi-datatable--horizontal td,
+.bi-datatable--horizontal th {
    border-width: 0 0 1px 0;
    border-bottom: 1px solid #cbcbcb;
 }
 
-.pure-table-horizontal tbody > tr:last-child > td {
+.bi-datatable--horizontal tbody > tr:last-child > td {
    border-bottom-width: 0;
 }
