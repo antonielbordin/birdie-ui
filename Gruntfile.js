@@ -34,7 +34,8 @@ module.exports = function(grunt) {
                 files: [
                     {'dist/css/utilities.css': [                        
                         'dist/css/birdie-reset.css',  
-                        'dist/css/birdie-colors.css',                      
+                        'dist/css/birdie-colors.css',
+                        'dist/css/birdie-typography.css',                      
                         'dist/css/base.css',
                     ]},
 

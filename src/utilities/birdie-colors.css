@@ -1,4 +1,5 @@
 :root {  
+
    --bi-default-color: #545454;
    --bi-primary-color: #0275d8;
    --bi-secondary-color: #5bc0de; 
@@ -19,6 +20,18 @@
    --bi-text-muted: #6c757d;
    --bi-text-light: #f7f7f7;
    --bi-text-dark: #292b2c;
+
+
+   /* typography */
+   --bi-color-text: var(--bi-default-color);
+   --bi-color-text-heading: var(--bi-text-dark);
+   --bi-color-text-subtle: var(--bi-text-muted);
+   --bi-color-link: var(--bi-primary-color);
+   --bi-color-link-visited: var(--bi-primary-color);
+
+
+
+
 
    /** Style for tooltips */
    --bi-tooltip-bg: #292b2c;

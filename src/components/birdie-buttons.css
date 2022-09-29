@@ -4,12 +4,12 @@
  */
  
 .bi-btn,
-.bi-btn--primary,
-.bi-btn--secondary,
-.bi-btn--success,
-.bi-btn--danger,
-.bi-btn--warning,
-.bi-btn--info {   
+.bi-btn-primary,
+.bi-btn-secondary,
+.bi-btn-success,
+.bi-btn-danger,
+.bi-btn-warning,
+.bi-btn-info {   
    position: relative;
    display: inline-block;
    box-sizing: border-box;
@@ -30,22 +30,22 @@
 }  
 
 .bi-btn,
-.bi-btn--primary::-moz-focus-inner,
-.bi-btn--secondary::-moz-focus-inner,
-.bi-btn--success::-moz-focus-inner,
-.bi-btn--danger::-moz-focus-inner,
-.bi-btn--warning::-moz-focus-inner,
-.bi-btn--info::-moz-focus-inner {
+.bi-btn-primary::-moz-focus-inner,
+.bi-btn-secondary::-moz-focus-inner,
+.bi-btn-success::-moz-focus-inner,
+.bi-btn-danger::-moz-focus-inner,
+.bi-btn-warning::-moz-focus-inner,
+.bi-btn-info::-moz-focus-inner {
    border: none;
 }
 
 .bi-btn,
-.bi-btn--primary,
-.bi-btn--secondary,
-.bi-btn--success,
-.bi-btn--danger,
-.bi-btn--warning,
-.bi-btn--info {
+.bi-btn-primary,
+.bi-btn-secondary,
+.bi-btn-success,
+.bi-btn-danger,
+.bi-btn-warning,
+.bi-btn-info {
    box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.2); 
    transition: box-shadow 0.2s;
 }
@@ -54,30 +54,30 @@
 
 .bi-btn:hover,
 .bi-btn:focus,
-.bi-btn--primary:hover,
-.bi-btn--primary:focus,
-.bi-btn--secondary:hover,
-.bi-btn--secondary:focus,
-.bi-btn--success:hover,
-.bi-btn--success:focus,
-.bi-btn--danger:hover,
-.bi-btn--danger:focus,
-.bi-btn--warning:hover,
-.bi-btn--warning:focus,
-.bi-btn--info:hover,
-.bi-btn--info:focus {      
+.bi-btn-primary:hover,
+.bi-btn-primary:focus,
+.bi-btn-secondary:hover,
+.bi-btn-secondary:focus,
+.bi-btn-success:hover,
+.bi-btn-success:focus,
+.bi-btn-danger:hover,
+.bi-btn-danger:focus,
+.bi-btn-warning:hover,
+.bi-btn-warning:focus,
+.bi-btn-info:hover,
+.bi-btn-info:focus {      
    box-shadow: inset 0 0 10px 5px rgba(80, 80, 80, 0.1); 
 }
 
 /* Birdie Button Disabled */
 
 .bi-btn:disabled,
-.bi-btn--primary:disabled,
-.bi-btn--secondary:disabled,
-.bi-btn--success:disabled,
-.bi-btn--danger:disabled,
-.bi-btn--warning:disabled,
-.bi-btn--info:disabled {
+.bi-btn-primary:disabled,
+.bi-btn-secondary:disabled,
+.bi-btn-success:disabled,
+.bi-btn-danger:disabled,
+.bi-btn-warning:disabled,
+.bi-btn-info:disabled {
    box-shadow: none;
    cursor: initial;
    opacity : 0.6;
@@ -90,32 +90,44 @@
    background-color: #f0f0f0;
 }
  
-.bi-btn--primary {  
+.bi-btn-primary {  
    color: var(--bi-text-light);
    background-color: var(--bi-primary-color);
 }
   
-.bi-btn--secondary {
+.bi-btn-secondary {
    color: var(--bi-text-light);
    background-color: var(--bi-secondary-color);
 }
   
-.bi-btn--success {
+.bi-btn-success {
    color: var(--bi-text-light);
    background-color: var(--bi-success-color);
 }
 
-.bi-btn--danger {   
+.bi-btn-danger {   
    color: var(--bi-text-light);
    background-color: var(--bi-danger-color);
 }
 
-.bi-btn--warning {  
+.bi-btn-warning {  
    color: var(--bi-text-light);
    background-color: var(--bi-warning-color);
 }
 
-.bi-btn--info {
+.bi-btn-info {
    color: var(--bi-text-light);
    background-color: var(--bi-info-color);
+}
+
+.bi-btn-small {
+   padding: 1px 6px;
+}
+
+.bi-btn-large {
+   padding: 6px 24px;
+} 
+
+.bi-btn-full {
+   display: block;
 }

@@ -1,7 +1,7 @@
 
 .bi-datatable,
-.bi-datatable--striped,
-.bi-datatable--bordered {
+.bi-datatable-striped,
+.bi-datatable-bordered {
    width: 100%;
    max-width: 100%;
    margin-bottom: 2rem;
@@ -9,13 +9,12 @@
    border-spacing: 0;
    empty-cells: show;
    border: 1px solid #cbcbcb;
-   /* border-radius: 4px; */
    background-color: var(--bi-datatable-bg);
 }
 
 .bi-datatable caption,
-.bi-datatable--striped caption,
-.bi-datatable--bordered caption {
+.bi-datatable-striped caption,
+.bi-datatable-bordered caption {
    color: #000;
    font: italic 85%/1 arial, sans-serif;
    padding: 1em 0;
@@ -24,10 +23,10 @@
 
 .bi-datatable td,
 .bi-datatable th,
-.bi-datatable--striped td,
-.bi-datatable--striped th,
-.bi-datatable--bordered td,
-.bi-datatable--bordered th {
+.bi-datatable-striped td,
+.bi-datatable-striped th,
+.bi-datatable-bordered td,
+.bi-datatable-bordered th {
    border-left: 1px solid #cbcbcb; 
    border-width: 0 0 0 1px;
    font-size: inherit;
@@ -37,8 +36,8 @@
 }
 
 .bi-datatable thead,
-.bi-datatable--striped thead,
-.bi-datatable--bordered thead {   
+.bi-datatable-striped thead,
+.bi-datatable-bordered thead {   
    color: #000;
    text-align: left;
    vertical-align: bottom;    
@@ -59,34 +58,34 @@ striping:
   odd  - #f2f2f2 (light gray)
 */
 .bi-datatable td,
-.bi-datatable--striped td {
+.bi-datatable-striped td {
    background-color: transparent;
 }
 
-.bi-datatable--zebra td {
+.bi-datatable-zebra td {
    background-color: #f2f2f2;
 }
 
 /* nth-child selector for modern browsers */
-.bi-datatable--striped tr:nth-child(2n-1) td {
+.bi-datatable-striped tr:nth-child(2n-1) td {
    background-color: #f2f2f2;
 }
 
 /* BORDERED TABLES */
-.bi-datatable--bordered td {
+.bi-datatable-bordered td {
    border-bottom: 1px solid #cbcbcb;
 }
-.bi-datatable--bordered tbody > tr:last-child > td {
+.bi-datatable-bordered tbody > tr:last-child > td {
    border-bottom-width: 0;
 }
 
 /* HORIZONTAL BORDERED TABLES */
-.bi-datatable--horizontal td,
-.bi-datatable--horizontal th {
+.bi-datatable-horizontal td,
+.bi-datatable-horizontal th {
    border-width: 0 0 1px 0;
    border-bottom: 1px solid #cbcbcb;
 }
 
-.bi-datatable--horizontal tbody > tr:last-child > td {
+.bi-datatable-horizontal tbody > tr:last-child > td {
    border-bottom-width: 0;
 }

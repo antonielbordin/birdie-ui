@@ -1,5 +1,5 @@
 .bi-card,
-.bi-card--padding {
+.bi-card-padding {
     background: var(--bi-card-bg);
     border:none;
     border-radius: 4px;  
@@ -7,23 +7,23 @@
     transition: 0.3s;  
     width: auto;
 }
-.bi-card--padding {
+.bi-card-padding {
     padding: 0.5em;
 }
 
 .bi-card img,
-.bi-card--padding img {
+.bi-card-padding img {
     border-radius: 4px 4px 0 0;
 }
 
 .bi-card .bi-card-header,
-.bi-card--padding .bi-card-header {
+.bi-card-padding .bi-card-header {
     color: var(--bi-card-header-color);
     background: var(--bi-card-header-bg);
     padding: 5px;
 }
 .bi-card .bi-card-content,
-.bi-card--padding .bi-card-content {
+.bi-card-padding .bi-card-content {
     min-height: 85px;
     color: var(--bi-card-content-color);
     background: var(--bi-card-content-bg);

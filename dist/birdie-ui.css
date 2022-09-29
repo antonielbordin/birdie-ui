@@ -41,6 +41,7 @@ table {
 	border-spacing: 0;
 }
 :root {  
+
    --bi-default-color: #545454;
    --bi-primary-color: #0275d8;
    --bi-secondary-color: #5bc0de; 
@@ -62,6 +63,18 @@ table {
    --bi-text-light: #f7f7f7;
    --bi-text-dark: #292b2c;
 
+
+   /* typography */
+   --bi-color-text: var(--bi-default-color);
+   --bi-color-text-heading: var(--bi-text-dark);
+   --bi-color-text-subtle: var(--bi-text-muted);
+   --bi-color-link: var(--bi-primary-color);
+   --bi-color-link-visited: var(--bi-primary-color);
+
+
+
+
+
    /** Style for tooltips */
    --bi-tooltip-bg: #292b2c;
    --bi-tooltip-color: #f7f7f7;
@@ -73,21 +86,135 @@ table {
    --bi-card-content-bg: #fbfbfb;
    --bi-card-content-color: #292b2c;
 }
+/** ------------------------------- 
+--         Typography            --
+-------------------------------- */
+:root {
+    /** set font family */
+    --bi-font-family: Arial, Helvetica, sans-serif;     
+
+    /** set base values */
+    --bi-font-size: 100%;
+    --bi-line-height: 1.2;
+    --bi-text-base-size: 100%;
+    --bi-text-scale-ratio: 1.2;
+
+    --bi-text-xs:   0.25em;
+    --bi-text-sm:   0.5em;
+    --bi-text-md:   1em;
+    --bi-text-lg:   1.5em;
+    --bi-text-xl:   2em;
+    --bi-text-xxl:  2.5em;
+    --bi-text-xxxl: 3em;
+
+    /** line-height */
+    --bi-heading-line-height: 1.2;
+    --bi-body-line-height: 1.4;
+
+    /** spacing values */
+    --bi-space-xxxs: 0.25em;
+    --bi-space-xxs:  0.375em;
+    --bi-space-xs:   0.5em;
+    --bi-space-sm:   0.75em;
+    --bi-space-md:   1.25em;
+    --bi-space-lg:   2em;
+    --bi-space-xl:   3.25em;
+    --bi-space-xxl:  5.25em;
+    --bi-space-xxxl: 8.5em;
+}
+
+h1, h2, h3, h4, form legend {
+    color: var(--bi-color-text-heading);
+    margin-bottom: var(--bi-space-xxs);
+    line-height: var(--bi-heading-line-height);
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    font-weight: 400;
+}
+
+/** text size */
+.text--xxxl { font-size: var(--bi-text-xxxl); }
+
+h1, .text--xxl {
+    font-size: var(--bi-text-xxl);
+}
+
+h1 {
+    /* margin-bottom: var(--bi-space-lg); */
+}
+
+h2, .text--xl {
+    font-size: var(--bi-text-xl);
+}
+
+h2 {
+    /* margin-bottom: var(--bi-space-md); */
+}
+
+h3, .text--lg {
+    font-size: var(--bi-text-lg);
+}
+
+h4, .text--md {
+    font-size: var(--bi-text-md);
+}
+
+small, .text--sm {
+    font-size: var(--bi-text-sm);
+}
+
+.text--xs {
+    font-size: var(--bi-text-xs);
+}
+
+p {
+    line-height: var(--bi-body-line-height);
+    margin-bottom: var(--bi-space-sm);
+}
+
+a {
+    color: var(--bi-color-link);
+}
+a:visited {
+    color: var(--bi-color-link-visited);
+}
+
+b, strong {
+    font-weight: bold;
+}
+
+/** Transform text in uppercase */
+.uppercase {
+    text-transform: uppercase;
+}
+
+/* Increase font sizes by 1.5x on bigger screens */
+@media (min-width: 48rem) {
+    :root {          
+        --bi-text-xs:   0.5em;
+        --bi-text-sm:   1em;
+        --bi-text-md:   1.5em;
+        --bi-text-lg:   2em;
+        --bi-text-xl:   2.5em;
+        --bi-text-xxl:  3em;
+        --bi-text-xxxl: 3.5em;
+    }
+}
 html, body {
    position: relative;
    width: 100%;
    height: 100%;
 }
+
 body {
-   box-sizing: border-box;	
+   font-size: var(--bi-font-size);
+   font-family: var(--bi-font-family);
+   color: var(--bi-color-text);
+   background: #f6f6f6;
 	margin: 0;
 	padding: 0;	
-   background: #f6f6f6;
-   color: #434343;
-	font-family: "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-   font-size: 16px;
-   color: var(--birdie-default-color);
-   background-color: var(--birdie-faded-bg);
+   box-sizing: border-box;
 }
 /* Simple Grid System */
 
@@ -162,12 +289,12 @@ body {
  */
  
 .bi-btn,
-.bi-btn--primary,
-.bi-btn--secondary,
-.bi-btn--success,
-.bi-btn--danger,
-.bi-btn--warning,
-.bi-btn--info {   
+.bi-btn-primary,
+.bi-btn-secondary,
+.bi-btn-success,
+.bi-btn-danger,
+.bi-btn-warning,
+.bi-btn-info {   
    position: relative;
    display: inline-block;
    box-sizing: border-box;
@@ -188,22 +315,22 @@ body {
 }  
 
 .bi-btn,
-.bi-btn--primary::-moz-focus-inner,
-.bi-btn--secondary::-moz-focus-inner,
-.bi-btn--success::-moz-focus-inner,
-.bi-btn--danger::-moz-focus-inner,
-.bi-btn--warning::-moz-focus-inner,
-.bi-btn--info::-moz-focus-inner {
+.bi-btn-primary::-moz-focus-inner,
+.bi-btn-secondary::-moz-focus-inner,
+.bi-btn-success::-moz-focus-inner,
+.bi-btn-danger::-moz-focus-inner,
+.bi-btn-warning::-moz-focus-inner,
+.bi-btn-info::-moz-focus-inner {
    border: none;
 }
 
 .bi-btn,
-.bi-btn--primary,
-.bi-btn--secondary,
-.bi-btn--success,
-.bi-btn--danger,
-.bi-btn--warning,
-.bi-btn--info {
+.bi-btn-primary,
+.bi-btn-secondary,
+.bi-btn-success,
+.bi-btn-danger,
+.bi-btn-warning,
+.bi-btn-info {
    box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.2); 
    transition: box-shadow 0.2s;
 }
@@ -212,30 +339,30 @@ body {
 
 .bi-btn:hover,
 .bi-btn:focus,
-.bi-btn--primary:hover,
-.bi-btn--primary:focus,
-.bi-btn--secondary:hover,
-.bi-btn--secondary:focus,
-.bi-btn--success:hover,
-.bi-btn--success:focus,
-.bi-btn--danger:hover,
-.bi-btn--danger:focus,
-.bi-btn--warning:hover,
-.bi-btn--warning:focus,
-.bi-btn--info:hover,
-.bi-btn--info:focus {      
+.bi-btn-primary:hover,
+.bi-btn-primary:focus,
+.bi-btn-secondary:hover,
+.bi-btn-secondary:focus,
+.bi-btn-success:hover,
+.bi-btn-success:focus,
+.bi-btn-danger:hover,
+.bi-btn-danger:focus,
+.bi-btn-warning:hover,
+.bi-btn-warning:focus,
+.bi-btn-info:hover,
+.bi-btn-info:focus {      
    box-shadow: inset 0 0 10px 5px rgba(80, 80, 80, 0.1); 
 }
 
 /* Birdie Button Disabled */
 
 .bi-btn:disabled,
-.bi-btn--primary:disabled,
-.bi-btn--secondary:disabled,
-.bi-btn--success:disabled,
-.bi-btn--danger:disabled,
-.bi-btn--warning:disabled,
-.bi-btn--info:disabled {
+.bi-btn-primary:disabled,
+.bi-btn-secondary:disabled,
+.bi-btn-success:disabled,
+.bi-btn-danger:disabled,
+.bi-btn-warning:disabled,
+.bi-btn-info:disabled {
    box-shadow: none;
    cursor: initial;
    opacity : 0.6;
@@ -248,39 +375,51 @@ body {
    background-color: #f0f0f0;
 }
  
-.bi-btn--primary {  
+.bi-btn-primary {  
    color: var(--bi-text-light);
    background-color: var(--bi-primary-color);
 }
   
-.bi-btn--secondary {
+.bi-btn-secondary {
    color: var(--bi-text-light);
    background-color: var(--bi-secondary-color);
 }
   
-.bi-btn--success {
+.bi-btn-success {
    color: var(--bi-text-light);
    background-color: var(--bi-success-color);
 }
 
-.bi-btn--danger {   
+.bi-btn-danger {   
    color: var(--bi-text-light);
    background-color: var(--bi-danger-color);
 }
 
-.bi-btn--warning {  
+.bi-btn-warning {  
    color: var(--bi-text-light);
    background-color: var(--bi-warning-color);
 }
 
-.bi-btn--info {
+.bi-btn-info {
    color: var(--bi-text-light);
    background-color: var(--bi-info-color);
 }
+
+.bi-btn-small {
+   padding: 1px 6px;
+}
+
+.bi-btn-large {
+   padding: 6px 24px;
+} 
+
+.bi-btn-full {
+   display: block;
+}
 /* Birdie Textfield */
 .bi-textfield,
-.bi-textfield--filled,
-.bi-textfield--outlined {
+.bi-textfield-filled,
+.bi-textfield-outlined {
    position: relative;
    display: inline-block;
    font-size: 16px;
@@ -290,10 +429,10 @@ body {
 /* Input, Textarea */
 .bi-textfield > input,
 .bi-textfield > textarea,
-.bi-textfield--filled > input,
-.bi-textfield--filled > textarea,
-.bi-textfield--outlined > input,
-.bi-textfield--outlined > textarea {
+.bi-textfield-filled > input,
+.bi-textfield-filled > textarea,
+.bi-textfield-outlined > input,
+.bi-textfield-outlined > textarea {
    display: block;
    box-sizing: border-box;
    margin: 0;
@@ -314,8 +453,8 @@ body {
    transition: border-bottom 0.2s, background-color 0.2s;
 }
 
-.bi-textfield--filled > input,
-.bi-textfield--filled > textarea {   
+.bi-textfield-filled > input,
+.bi-textfield-filled > textarea {   
    border-radius: 4px 4px 0 0;
    padding: 0 12px 7px;
    width: 100%;
@@ -323,27 +462,27 @@ body {
    background-color: var(--bi-light-color);
 }
 
-.bi-textfield--outlined > input,
-.bi-textfield--outlined > textarea {
+.bi-textfield-outlined > input,
+.bi-textfield-outlined > textarea {
    border: 1px solid var(--bi-default-color);
    border-radius: 4px;
    padding: 15px 10px; 
 }
 
-.bi-textfield--outlined > input:not(:focus):-moz-placeholder-shown, .bi-textfield--outlined > textarea:not(:focus):-moz-placeholder-shown {
+.bi-textfield-outlined > input:not(:focus):-moz-placeholder-shown, .bi-textfield-outlined > textarea:not(:focus):-moz-placeholder-shown {
    border-top-color: var(--bi-default-color);
 }
 
-.bi-textfield--outlined > input:not(:focus):placeholder-shown,
-.bi-textfield--outlined > textarea:not(:focus):placeholder-shown {
+.bi-textfield-outlined > input:not(:focus):placeholder-shown,
+.bi-textfield-outlined > textarea:not(:focus):placeholder-shown {
    border-top-color: var(--bi-default-color);
 }
 
 /* Label */
 .bi-textfield > input + label,
 .bi-textfield > textarea + label,
-.bi-textfield--filled > input + label,
-.bi-textfield--filled > textarea + label {
+.bi-textfield-filled > input + label,
+.bi-textfield-filled > textarea + label {
    position: absolute;
    top: 0;
    left: 0;
@@ -359,13 +498,13 @@ body {
    transition: color 0.2s, font-size 0.2s, line-height 0.2s;   
 }
 
-.bi-textfield--filled > input + label,
-.bi-textfield--filled > textarea + label {  
+.bi-textfield-filled > input + label,
+.bi-textfield-filled > textarea + label {  
    padding: 7px 12px 0;
 }
 
-.bi-textfield--outlined > input + label,
-.bi-textfield--outlined > textarea + label {
+.bi-textfield-outlined > input + label,
+.bi-textfield-outlined > textarea + label {
    position: absolute;
    top: 0;
    left: 12px;   
@@ -385,8 +524,8 @@ body {
 /* Underline */
 .bi-textfield > input + label::after,
 .bi-textfield > textarea + label::after,
-.bi-textfield--filled > input + label::after,
-.bi-textfield--filled > textarea + label::after {
+.bi-textfield-filled > input + label::after,
+.bi-textfield-filled > textarea + label::after {
    content: "";
    position: absolute;
    left: 0;
@@ -400,16 +539,16 @@ body {
    transition: transform 0.2s;
 }
 
-.bi-textfield--filled > input + label::after,
-.bi-textfield--filled > textarea + label::after {
+.bi-textfield-filled > input + label::after,
+.bi-textfield-filled > textarea + label::after {
    transition: transform 0.3s;
 }
 
 /* Corners */
-.bi-textfield--outlined > input + label::before,
-.bi-textfield--outlined > input + label::after,
-.bi-textfield--outlined > textarea + label::before,
-.bi-textfield--outlined > textarea + label::after {
+.bi-textfield-outlined > input + label::before,
+.bi-textfield-outlined > input + label::after,
+.bi-textfield-outlined > textarea + label::before,
+.bi-textfield-outlined > textarea + label::after {
    content: "";
    display: block;
    box-sizing: border-box;
@@ -422,12 +561,12 @@ body {
    background: none;
 }
 
-.bi-textfield--outlined > input:not(:focus):-moz-placeholder-shown + label, .bi-textfield--outlined > textarea:not(:focus):-moz-placeholder-shown + label {
+.bi-textfield-outlined > input:not(:focus):-moz-placeholder-shown + label, .bi-textfield-outlined > textarea:not(:focus):-moz-placeholder-shown + label {
    line-height: 68px;  
 }
 
-.bi-textfield--outlined > input:not(:focus):placeholder-shown + label,
-.bi-textfield--outlined > textarea:not(:focus):placeholder-shown + label {
+.bi-textfield-outlined > input:not(:focus):placeholder-shown + label,
+.bi-textfield-outlined > textarea:not(:focus):placeholder-shown + label {
    line-height: 68px;  
 }
 
@@ -437,43 +576,43 @@ body {
    border-bottom-color: var(--bi-primary-color);
 }
 
-.bi-textfield--filled:hover > input,
-.bi-textfield--filled:hover > textarea {
+.bi-textfield-filled:hover > input,
+.bi-textfield-filled:hover > textarea {
    background-color: #e8fbfb;
    border-bottom-color: var(--bi-primary-color);
 }
  
-.bi-textfield--outlined:hover > input,
-.bi-textfield--outlined:hover > textarea {
+.bi-textfield-outlined:hover > input,
+.bi-textfield-outlined:hover > textarea {
    border-color: var(--bi-primary-color);
 }
 
-.bi-textfield--outlined:hover > input:not(:focus):-moz-placeholder-shown, .bi-textfield--outlined:hover > textarea:not(:focus):-moz-placeholder-shown {
+.bi-textfield-outlined:hover > input:not(:focus):-moz-placeholder-shown, .bi-textfield-outlined:hover > textarea:not(:focus):-moz-placeholder-shown {
    border-color: var(--bi-primary-color);
 }
 
-.bi-textfield--outlined:hover > input:not(:focus):placeholder-shown,
-.bi-textfield--outlined:hover > textarea:not(:focus):placeholder-shown {
+.bi-textfield-outlined:hover > input:not(:focus):placeholder-shown,
+.bi-textfield-outlined:hover > textarea:not(:focus):placeholder-shown {
    border-color: var(--bi-primary-color);
 }
 
 /* Placeholder-shown */
-.bi-textfield > input:not(:focus):-moz-placeholder-shown + label, .bi-textfield > textarea:not(:focus):-moz-placeholder-shown + label, .bi-textfield--filled > input:not(:focus):-moz-placeholder-shown + label, .bi-textfield--filled > textarea:not(:focus):-moz-placeholder-shown + label, .bi-textfield--outlined > input:not(:focus):-moz-placeholder-shown + label, .bi-textfield--outlined > textarea:not(:focus):-moz-placeholder-shown + label {
+.bi-textfield > input:not(:focus):-moz-placeholder-shown + label, .bi-textfield > textarea:not(:focus):-moz-placeholder-shown + label, .bi-textfield-filled > input:not(:focus):-moz-placeholder-shown + label, .bi-textfield-filled > textarea:not(:focus):-moz-placeholder-shown + label, .bi-textfield-outlined > input:not(:focus):-moz-placeholder-shown + label, .bi-textfield-outlined > textarea:not(:focus):-moz-placeholder-shown + label {
    font-size: inherit;
    line-height: 56px;
 }
 .bi-textfield > input:not(:focus):placeholder-shown + label,
 .bi-textfield > textarea:not(:focus):placeholder-shown + label,
-.bi-textfield--filled > input:not(:focus):placeholder-shown + label,
-.bi-textfield--filled > textarea:not(:focus):placeholder-shown + label,
-.bi-textfield--outlined > input:not(:focus):placeholder-shown + label,
-.bi-textfield--outlined > textarea:not(:focus):placeholder-shown + label {
+.bi-textfield-filled > input:not(:focus):placeholder-shown + label,
+.bi-textfield-filled > textarea:not(:focus):placeholder-shown + label,
+.bi-textfield-outlined > input:not(:focus):placeholder-shown + label,
+.bi-textfield-outlined > textarea:not(:focus):placeholder-shown + label {
    font-size: inherit;
    line-height: 56px;
 }
 
-.bi-textfield--filled > input:focus + label,
-.bi-textfield--filled > textarea:focus + label {
+.bi-textfield-filled > input:focus + label,
+.bi-textfield-filled > textarea:focus + label {
    color: var(--bi-default-color);
 }
 
@@ -493,29 +632,29 @@ body {
    transform: scale(1);
 }
 
-.bi-textfield--filled > input:focus,
-.bi-textfield--filled > textarea:focus {
+.bi-textfield-filled > input:focus,
+.bi-textfield-filled > textarea:focus {
    outline: none;
 }
 
-.bi-textfield--filled > input:focus + label,
-.bi-textfield--filled > textarea:focus + label {
+.bi-textfield-filled > input:focus + label,
+.bi-textfield-filled > textarea:focus + label {
    color: var(--bi-default-color);
 }
 
-.bi-textfield--filled > input:focus + label::after,
-.bi-textfield--filled > textarea:focus + label::after {
+.bi-textfield-filled > input:focus + label::after,
+.bi-textfield-filled > textarea:focus + label::after {
    transform: scale(1);
 }
 
-.bi-textfield--outlined > input:focus,
-.bi-textfield--outlined > textarea:focus {
+.bi-textfield-outlined > input:focus,
+.bi-textfield-outlined > textarea:focus {
    border-color: var(--bi-primary-color);
    box-shadow: inset 1px 0 var(--bi-primary-color), inset -1px 0 var(--bi-primary-color), inset 0 1px var(--bi-primary-color) , inset 0 -1px var(--bi-primary-color);
    outline: none;
 }
 
-.bi-textfield--outlined > input:not(:-moz-placeholder-shown) + label {
+.bi-textfield-outlined > input:not(:-moz-placeholder-shown) + label {
    top: -5px;   
    max-height: 25%;
    width: auto !important; 
@@ -525,9 +664,9 @@ body {
    background: #FFFFFF;
 }
 
-.bi-textfield--outlined > input:focus + label,
-.bi-textfield--outlined > textarea:focus + label,
-.bi-textfield--outlined > input:not(:placeholder-shown) + label {
+.bi-textfield-outlined > input:focus + label,
+.bi-textfield-outlined > textarea:focus + label,
+.bi-textfield-outlined > input:not(:placeholder-shown) + label {
    top: -5px;   
    max-height: 25%;
    width: auto !important; 
@@ -537,12 +676,12 @@ body {
    background: #FFFFFF;
 }
 
-.bi-textfield--outlined > input:not(:-moz-placeholder-shown):not(:focus) + label {  
+.bi-textfield-outlined > input:not(:-moz-placeholder-shown):not(:focus) + label {  
    max-height: 20%;
    color: var(--bi-default-color);
 }
 
-.bi-textfield--outlined > input:not(:placeholder-shown):not(:focus) + label {  
+.bi-textfield-outlined > input:not(:placeholder-shown):not(:focus) + label {  
    max-height: 20%;
    color: var(--bi-default-color);
 } 
@@ -559,53 +698,53 @@ body {
    color: var(--bi-default-color);
 }
 
-.bi-textfield--filled > input:disabled,
-.bi-textfield--filled > textarea:disabled {
+.bi-textfield-filled > input:disabled,
+.bi-textfield-filled > textarea:disabled {
    border-bottom-color: var(--bi-muted-color);   
    background-color: var(--bi-muted-color);
    color: var(--bi-muted-color);
 }
 
-.bi-textfield--filled > input:disabled + label,
-.bi-textfield--filled > textarea:disabled + label {
+.bi-textfield-filled > input:disabled + label,
+.bi-textfield-filled > textarea:disabled + label {
    color: var(--bi-default-color);
 }
 
-.bi-textfield--outlined > input:disabled,
-.bi-textfield--outlined > input:disabled + label,
-.bi-textfield--outlined > textarea:disabled,
-.bi-textfield--outlined > textarea:disabled + label {
+.bi-textfield-outlined > input:disabled,
+.bi-textfield-outlined > input:disabled + label,
+.bi-textfield-outlined > textarea:disabled,
+.bi-textfield-outlined > textarea:disabled + label {
    border-color: transparent var(--bi-muted-color) var(--bi-muted-color) !important;
    color: var(--bi-default-color);
    pointer-events: none;   
 }
 
-.bi-textfield--outlined > input:disabled + label::before,
-.bi-textfield--outlined > input:disabled + label::after,
-.bi-textfield--outlined > textarea:disabled + label::before,
-.bi-textfield--outlined > textarea:disabled + label::after {
+.bi-textfield-outlined > input:disabled + label::before,
+.bi-textfield-outlined > input:disabled + label::after,
+.bi-textfield-outlined > textarea:disabled + label::before,
+.bi-textfield-outlined > textarea:disabled + label::after {
    border-top-color: var(--bi-muted-color) !important;   
 }
 
-.bi-textfield--outlined > input:disabled:-moz-placeholder-shown, .bi-textfield--outlined > input:disabled:-moz-placeholder-shown + label, .bi-textfield--outlined > textarea:disabled:-moz-placeholder-shown, .bi-textfield--outlined > textarea:disabled:-moz-placeholder-shown + label {
+.bi-textfield-outlined > input:disabled:-moz-placeholder-shown, .bi-textfield-outlined > input:disabled:-moz-placeholder-shown + label, .bi-textfield-outlined > textarea:disabled:-moz-placeholder-shown, .bi-textfield-outlined > textarea:disabled:-moz-placeholder-shown + label {
    border-top-color: var(--bi-muted-color) !important;
 }
 
-.bi-textfield--outlined > input:disabled:placeholder-shown,
-.bi-textfield--outlined > input:disabled:placeholder-shown + label,
-.bi-textfield--outlined > textarea:disabled:placeholder-shown,
-.bi-textfield--outlined > textarea:disabled:placeholder-shown + label {
+.bi-textfield-outlined > input:disabled:placeholder-shown,
+.bi-textfield-outlined > input:disabled:placeholder-shown + label,
+.bi-textfield-outlined > textarea:disabled:placeholder-shown,
+.bi-textfield-outlined > textarea:disabled:placeholder-shown + label {
    border-top-color: var(--bi-muted-color) !important;
 }
 
-.bi-textfield--outlined > input:disabled:-moz-placeholder-shown + label::before, .bi-textfield--outlined > input:disabled:-moz-placeholder-shown + label::after, .bi-textfield--outlined > textarea:disabled:-moz-placeholder-shown + label::before, .bi-textfield--outlined > textarea:disabled:-moz-placeholder-shown + label::after {
+.bi-textfield-outlined > input:disabled:-moz-placeholder-shown + label::before, .bi-textfield-outlined > input:disabled:-moz-placeholder-shown + label::after, .bi-textfield-outlined > textarea:disabled:-moz-placeholder-shown + label::before, .bi-textfield-outlined > textarea:disabled:-moz-placeholder-shown + label::after {
    border-top-color: transparent !important;
 }
 
-.bi-textfield--outlined > input:disabled:placeholder-shown + label::before,
-.bi-textfield--outlined > input:disabled:placeholder-shown + label::after,
-.bi-textfield--outlined > textarea:disabled:placeholder-shown + label::before,
-.bi-textfield--outlined > textarea:disabled:placeholder-shown + label::after {
+.bi-textfield-outlined > input:disabled:placeholder-shown + label::before,
+.bi-textfield-outlined > input:disabled:placeholder-shown + label::after,
+.bi-textfield-outlined > textarea:disabled:placeholder-shown + label::before,
+.bi-textfield-outlined > textarea:disabled:placeholder-shown + label::after {
    border-top-color: transparent !important;
 }
 /* Birdie Checkbox, Radio */
@@ -828,6 +967,12 @@ body {
 .bi-radio > input:disabled + label::after {
    background-color: currentColor;
 }
+
+
+
+
+
+
 .bi-dropdown {
     position: relative;
     display: inline-block;
@@ -1094,8 +1239,8 @@ body {
 }
 
 .bi-datatable,
-.bi-datatable--striped,
-.bi-datatable--bordered {
+.bi-datatable-striped,
+.bi-datatable-bordered {
    width: 100%;
    max-width: 100%;
    margin-bottom: 2rem;
@@ -1103,13 +1248,12 @@ body {
    border-spacing: 0;
    empty-cells: show;
    border: 1px solid #cbcbcb;
-   /* border-radius: 4px; */
    background-color: var(--bi-datatable-bg);
 }
 
 .bi-datatable caption,
-.bi-datatable--striped caption,
-.bi-datatable--bordered caption {
+.bi-datatable-striped caption,
+.bi-datatable-bordered caption {
    color: #000;
    font: italic 85%/1 arial, sans-serif;
    padding: 1em 0;
@@ -1118,10 +1262,10 @@ body {
 
 .bi-datatable td,
 .bi-datatable th,
-.bi-datatable--striped td,
-.bi-datatable--striped th,
-.bi-datatable--bordered td,
-.bi-datatable--bordered th {
+.bi-datatable-striped td,
+.bi-datatable-striped th,
+.bi-datatable-bordered td,
+.bi-datatable-bordered th {
    border-left: 1px solid #cbcbcb; 
    border-width: 0 0 0 1px;
    font-size: inherit;
@@ -1131,8 +1275,8 @@ body {
 }
 
 .bi-datatable thead,
-.bi-datatable--striped thead,
-.bi-datatable--bordered thead {   
+.bi-datatable-striped thead,
+.bi-datatable-bordered thead {   
    color: #000;
    text-align: left;
    vertical-align: bottom;    
@@ -1153,39 +1297,39 @@ striping:
   odd  - #f2f2f2 (light gray)
 */
 .bi-datatable td,
-.bi-datatable--striped td {
+.bi-datatable-striped td {
    background-color: transparent;
 }
 
-.bi-datatable--zebra td {
+.bi-datatable-zebra td {
    background-color: #f2f2f2;
 }
 
 /* nth-child selector for modern browsers */
-.bi-datatable--striped tr:nth-child(2n-1) td {
+.bi-datatable-striped tr:nth-child(2n-1) td {
    background-color: #f2f2f2;
 }
 
 /* BORDERED TABLES */
-.bi-datatable--bordered td {
+.bi-datatable-bordered td {
    border-bottom: 1px solid #cbcbcb;
 }
-.bi-datatable--bordered tbody > tr:last-child > td {
+.bi-datatable-bordered tbody > tr:last-child > td {
    border-bottom-width: 0;
 }
 
 /* HORIZONTAL BORDERED TABLES */
-.bi-datatable--horizontal td,
-.bi-datatable--horizontal th {
+.bi-datatable-horizontal td,
+.bi-datatable-horizontal th {
    border-width: 0 0 1px 0;
    border-bottom: 1px solid #cbcbcb;
 }
 
-.bi-datatable--horizontal tbody > tr:last-child > td {
+.bi-datatable-horizontal tbody > tr:last-child > td {
    border-bottom-width: 0;
 }
 .bi-card,
-.bi-card--padding {
+.bi-card-padding {
     background: var(--bi-card-bg);
     border:none;
     border-radius: 4px;  
@@ -1193,23 +1337,23 @@ striping:
     transition: 0.3s;  
     width: auto;
 }
-.bi-card--padding {
+.bi-card-padding {
     padding: 0.5em;
 }
 
 .bi-card img,
-.bi-card--padding img {
+.bi-card-padding img {
     border-radius: 4px 4px 0 0;
 }
 
 .bi-card .bi-card-header,
-.bi-card--padding .bi-card-header {
+.bi-card-padding .bi-card-header {
     color: var(--bi-card-header-color);
     background: var(--bi-card-header-bg);
     padding: 5px;
 }
 .bi-card .bi-card-content,
-.bi-card--padding .bi-card-content {
+.bi-card-padding .bi-card-content {
     min-height: 85px;
     color: var(--bi-card-content-color);
     background: var(--bi-card-content-bg);

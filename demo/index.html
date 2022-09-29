@@ -11,18 +11,23 @@
             width: 100%;
             min-height: 100%;
          }
-         #main h2 {
-            font-size: 22px; 
+         /* #main h2 {   
+            font-size: 30px;
+            font-weight: bold;
             padding: 20px 0;
-         } 
+            margin: 30px 0;
+            color: var(--bi-default-color);
+            text-align: left;
+            background: yellow;
+         }  */
          #header {
             z-index: 1;
             position: -webkit-sticky;
             position: sticky;
             top: 0;
             padding: 18px;
-            color: var(--birdie-light-color);
-            background-color: var(--birdie-primary-color);
+            color: var(--bi-light-color);
+            background-color: var(--bi-primary-color);
             text-align: center;
             font-size: 36px;
             box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
@@ -62,15 +67,15 @@
             padding: 8px 0;
          }
          #footer a {
-            color: var(--birdie-default-color);
+            color: var(--bi-default-color);
             text-decoration: none;
          }   
          #footer a:hover {
-            color: var(--birdie-primary-color);
+            color: var(--bi-primary-color);
          }
          .col {
             min-height: 45px;    
-            border:1px dashed var(--birdie-primary-color);
+            border:1px dashed var(--bi-primary-color);
             background: paleturquoise;
          }          
          .space-top {
@@ -79,20 +84,11 @@
          .bg-container {
             background: #f0f0f0; 
          }
-         hr {
-            width: 80%;
-            margin: 30px auto;
+         .title-box {             
+            background: yellowgreen;
          }
-         h2 {
-            margin: 30px 0 !important;
-            color: var(--birdie-default-color);
-            text-align: left !important;
-         }
-         .b-bottom {
-            border-bottom: 2px;
-            border-style: solid;
-            border-color: var(--birdie-primary-color);
-         }
+         
+          
       </style>
       <link rel="stylesheet" href="../dist/birdie-ui.min.css" />
    </head>
@@ -100,7 +96,7 @@
       <header id="header"> Birdie UI is the UI components for Web in pure CSS </header>
       <main id="main">
          <!-- Contained Grid -->
-         <h2><span class="b-bottom">Contained Grid</span></h2> 
+         <h2><span class="title-box">Contained Grid</span></h2> 
          <div class="bi-container bg-container">
             <!-- Columns 100% width -->
             <div class="bi-row space-top">
@@ -130,7 +126,7 @@
          </div>
 
          <!-- Contained Grid Fixed -->
-         <h2><span class="b-bottom">Contained Grid Fixed</span></h2>
+         <h2><span class="title-box">Contained Grid Fixed</span></h2>
          <div class="bi-container-fixed bg-container">
             <!-- Columns 25% and 75% width -->
             <div class="bi-row space-top">
@@ -141,7 +137,7 @@
  
          <div class="bi-container-fixed">
             <!-- Element Buttons -->
-            <h2><span class="b-bottom">Element Buttons</span></h2>
+            <h2><span class="title-box">Element Buttons</span></h2>
             <div class="bi-row space-top">
                <div class="bi-column"></div>
                <div class="bi-column">Enabled</div>
@@ -164,11 +160,11 @@
                <div class="bi-column"> <span>Button - Primary</span> </div>
                <div class="bi-column">
                   <!-- Element Btn Primary -->
-                  <button class="bi-btn--primary">Primary</button>
+                  <button class="bi-btn-primary">Primary</button>
                </div>
                <div class="bi-column">
                   <!-- Element Btn Primary Disabled -->
-                  <button class="bi-btn--primary" disabled>Primary</button>
+                  <button class="bi-btn-primary" disabled>Primary</button>
                </div>
             </div>
 
@@ -176,11 +172,11 @@
                <div class="bi-column"> <span>Button - Secondary</span> </div>
                <div class="bi-column">
                   <!-- Element Btn Secondary -->
-                  <button class="bi-btn--secondary">Secondary</button>
+                  <button class="bi-btn-secondary">Secondary</button>
                </div>
                <div class="bi-column">
                   <!-- Element Btn Secondary Disabled -->
-                  <button class="bi-btn--secondary" disabled>Secondary</button>
+                  <button class="bi-btn-secondary" disabled>Secondary</button>
                </div>
             </div>
 
@@ -188,11 +184,11 @@
                <div class="bi-column"> <span>Button - Success</span> </div>
                <div class="bi-column">
                   <!-- Element Btn Success -->
-                  <button class="bi-btn--success">Success</button>
+                  <button class="bi-btn-success">Success</button>
                </div>
                <div class="bi-column">
                   <!-- Element Btn Success Disabled -->
-                  <button class="bi-btn--success" disabled>Success</button>
+                  <button class="bi-btn-success" disabled>Success</button>
                </div>
             </div>
 
@@ -200,11 +196,11 @@
                <div class="bi-column"> <span>Button - Danger</span> </div>
                <div class="bi-column">
                   <!-- Element Btn Danger -->
-                  <button class="bi-btn--danger">Danger</button>
+                  <button class="bi-btn-danger">Danger</button>
                </div>
                <div class="bi-column">
                   <!-- Element Btn Danger Disabled -->
-                  <button class="bi-btn--danger" disabled>Danger</button>
+                  <button class="bi-btn-danger" disabled>Danger</button>
                </div>
             </div>
 
@@ -212,11 +208,11 @@
                <div class="bi-column"> <span>Button - Warning</span> </div>
                <div class="bi-column">
                   <!-- Element Btn Warning -->
-                  <button class="bi-btn--warning">Warning</button>
+                  <button class="bi-btn-warning">Warning</button>
                </div>
                <div class="bi-column">
                   <!-- Element Btn Warning Disabled -->
-                  <button class="bi-btn--warning" disabled>Warning</button>
+                  <button class="bi-btn-warning" disabled>Warning</button>
                </div>
             </div>
 
@@ -224,16 +220,36 @@
                <div class="bi-column"> <span>Button - Info</span> </div>
                <div class="bi-column">
                   <!-- Element Btn Info -->
-                  <button class="bi-btn--info">Info</button>
+                  <button class="bi-btn-info">Info</button>
                </div>
                <div class="bi-column">
                   <!-- Element Btn Info Disabled -->
-                  <button class="bi-btn--info" disabled>Info</button>
+                  <button class="bi-btn-info" disabled>Info</button>
                </div>
             </div>
 
+            <div class="bi-row space-top">
+               <div class="bi-column"> <span>Button - Small/Large</span> </div>
+               <div class="bi-column">
+                  <!-- Element Btn Small -->
+                  <button class="bi-btn bi-btn-small">Small</button>
+               </div>
+               <div class="bi-column">
+                  <!-- Element Btn Large -->
+                  <button class="bi-btn bi-btn-large">Large</button>
+               </div>
+            </div>
+
+
+
+
+
+
+
+
+
             <!-- Elements Actions -->
-            <h2><span class="b-bottom">Elements Actions (inputs,selects, etc...)</span></h2>
+            <h2><span class="title-box">Elements Actions (inputs,selects, etc...)</span></h2>
             <div class="bi-row space-top">
                <div class="bi-column"> <span>TextField - Standard</span> </div>
                <div class="bi-column">
@@ -256,14 +272,14 @@
                <div class="bi-column"> <span>TextField - Filled</span> </div>
                <div class="bi-column">
                   <!-- Element TextField Filled -->
-                  <span class="bi-textfield--filled">
+                  <span class="bi-textfield-filled">
                      <input placeholder=" ">
                      <label>Filled</label>
                   </span>
                </div>
                <div class="bi-column">
                   <!-- Element TextField Filled Disabled -->
-                  <span class="bi-textfield--filled">
+                  <span class="bi-textfield-filled">
                      <input placeholder=" " disabled>
                      <label>Filled Disabled</label>
                   </span>
@@ -274,14 +290,14 @@
                <div class="bi-column"> <span>TextField - Outlined</span> </div>
                <div class="bi-column">
                   <!-- Element TextField Outlined -->
-                  <span class="bi-textfield--outlined">
+                  <span class="bi-textfield-outlined">
                      <input placeholder=" ">
                      <label>Outlined</label>
                   </span>
                </div>
                <div class="bi-column">
                   <!-- Element TextField Outlined Disabled -->
-                  <span class="bi-textfield--outlined">
+                  <span class="bi-textfield-outlined">
                      <input placeholder=" " disabled>
                      <label>Outlined Disabled</label>
                   </span>
@@ -342,9 +358,20 @@
                    </span>
                </div>
             </div>
+
+
+
+
+
+
+
+
+
+
+
             
             <!-- Element Tooltip -->
-            <h2><span class="b-bottom">Tooltips</span></h2>
+            <h2><span class="title-box">Tooltips</span></h2>
             <div class="bi-row space-top">
                <div class="bi-column"> <span> Tooltip Top </span> </div>
                <div class="bi-column">
@@ -379,7 +406,7 @@
 
 
             <!-- Element Card -->
-            <h2><span class="b-bottom">Card</span></h2>
+            <h2><span class="title-box">Card</span></h2>
             <div class="bi-row space-top"> 
                <div class="bi-column col-20"></div>
                <div class="bi-column col-55">
@@ -392,7 +419,7 @@
             </div>
 
             <!-- Element DataTable -->
-            <h2><span class="b-bottom">DataTable</span></h2>
+            <h2><span class="title-box">DataTable</span></h2>
             <div class="bi-row space-top">
                <div class="bi-column col-25"> <span> DataTable Standard </span> </div>
                <div class="bi-column col-75">
@@ -429,20 +456,22 @@
                </div>
             </div>
 
+            <!-- Element Typography -->
+            <h2><span class="title-box">Typography</span></h2>
             <div class="bi-row space-top">
-               <div class="bi-column"> <span> </span> </div>
-               
+               <div class="bi-column"> 
+                  <p>Display headings</p> <br>
+               </div>               
                <div class="bi-column">
-                   
+                  <h1>Header One</h1>
+                  <h2>Header Two</h2>
+                  <h3>Header Three</h3>
+                  <h4>Header Four</h4>
+                  <h5>Header Five</h5>
+                  <h6>Header Six</h6>
                </div>
             </div>
-
-
-
-
-
-
-            
+          
 
 
 
