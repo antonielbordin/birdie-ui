@@ -1,32 +1,41 @@
+/** ------------------------------- 
+--        Birdie Dropdown        --
+-------------------------------- */
+
+/** Birdie Dropdown */
 .bi-dropdown {
     position: relative;
     display: inline-block;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-size: 14px;
+    font-size: 16px;
 }
-.bi-dropdown:hover{
+
+.bi-dropdown:hover {
     cursor:pointer;
 }
-.bi-dropdown > a, .bi-dropdown > button {
+
+.bi-dropdown > a, 
+.bi-dropdown > button {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-size: 14px;
-    background-color: white;
-    border: 1px solid #ccc;
-    padding: 6px 20px 6px 10px;
+    font-size: 16px;
+    background-color: var(--bi-dropdown-bg);
+    border: 1px solid var(--bi-dropdown-border);
+    padding: 8px 20px 8px 10px;
     border-radius: 4px;
     display: inline-block;
-    color: black;
+    color: var(--bi-dropdown-color);
     text-decoration: none;
 }
   
-.bi-dropdown > a:before, .bi-dropdown > button:before {
+.bi-dropdown > a:before, 
+.bi-dropdown > button:before {
     position: absolute;
     right: 7px;
-    top: 12px;
+    top: 16px;
     content: ' ';
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
-    border-top: 5px solid black;
+    border-top: 5px solid var(--bi-dropdown-color);
 }
   
 .bi-dropdown input[type=checkbox] {
@@ -49,8 +58,8 @@
   
 .bi-dropdown ul {
     position: absolute;
-    top: 18px;
-    border: 1px solid #ccc;
+    top: 35px;
+    border: 1px solid var(--bi-dropdown-border);
     border-radius: 3px;
     left: 0px;
     list-style: none;
@@ -58,6 +67,7 @@
     display: none;
     background-color: white;
     box-shadow: 0 3px 6px rgba(0,0,0,.175);
+    z-index: 999;
 }
   
 .bi-dropdown input[type=checkbox]:checked + ul {
@@ -72,22 +82,22 @@
 }
   
 .bi-dropdown ul li:hover {
-    background-color: #F5F5F5;
+    background-color: var(--bi-dropdown-hover);
     cursor: pointer;
 }
   
 .bi-dropdown ul li a {
     text-decoration: none;
     display: block;
-    color: black
+    color: var(--bi-dropdown-color)
 }
   
-.bi-dropdown .divider {
+.bi-dropdown .bi-dropdown-divider {
     height: 1px;
     margin: 9px 0;
     overflow: hidden;
     background-color: #e5e5e5;
     font-size: 1px;
     padding: 0;
-  }
+}
   

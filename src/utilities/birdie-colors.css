@@ -29,9 +29,9 @@
    --bi-color-link: var(--bi-primary-color);
    --bi-color-link-visited: var(--bi-primary-color);
 
+   
 
-
-
+    
 
    /** Style for tooltips */
    --bi-tooltip-bg: #292b2c;
@@ -43,4 +43,10 @@
    --bi-card-header-color: #292b2c;
    --bi-card-content-bg: #fbfbfb;
    --bi-card-content-color: #292b2c;
+
+   /** Style for dropdown */
+   --bi-dropdown-bg: #fbfbfb;
+   --bi-dropdown-color: var(--bi-default-color);
+   --bi-dropdown-hover: #F5F5F5;
+   --bi-dropdown-border: #c0c0c0;
 }
