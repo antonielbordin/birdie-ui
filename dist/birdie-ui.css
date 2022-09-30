@@ -281,14 +281,11 @@ body {
         flex: 7.5;
     } 
 }
-/** 
- * Birdie Button Start
- * Types: [ Default, Primary, Secondary, Success, Danger, Warning, Info ]
- */
-/**
- * Birdie Button reset comportament 
- * in browser
- */ 
+/** ------------------------------- 
+--       Birdie Buttons          --
+-------------------------------- */
+
+/** Birdie Button reset comportament in browser */ 
 .bi-btn,
 .bi-btn-primary::-moz-focus-inner,
 .bi-btn-secondary::-moz-focus-inner,
@@ -298,9 +295,7 @@ body {
 .bi-btn-info::-moz-focus-inner {
    border: none;
 }
-/**
- * Birdie Button default options 
- */
+/** Birdie Button default options */
 .bi-btn,
 .bi-btn-primary,
 .bi-btn-secondary,
@@ -345,9 +340,7 @@ body {
    background: none; 
 } 
 
-/**  
- * Birdie Button Hover and Focus 
- */
+/** Birdie Button Hover and Focus */
 .bi-btn:hover,
 .bi-btn:focus {      
    box-shadow: inset 0 0 10px 5px rgba(143, 143, 143, 0.1); 
@@ -374,9 +367,7 @@ body {
    transition: color 0.2s;
 }
 
-/**
- * Birdie Button Disabled 
- */
+/** Birdie Button Disabled */
 .bi-btn:disabled,
 .bi-btn-primary:disabled,
 .bi-btn-secondary:disabled,
@@ -389,10 +380,7 @@ body {
    opacity : 0.6;
 }
 
-/** 
- * Birdie Button Colors
- */
-
+/** Birdie Button Colors */
 .bi-btn {
    color: rgba(0, 0, 0, 0.38);
    background-color: #f1f1f1;
@@ -435,10 +423,7 @@ body {
    color: var(--bi-color-link);
 }
 
-/**
- * Birdie Button Size and custom
- */
-
+/** Birdie Button Size and custom */
 .bi-btn-small {
    padding: 3px 6px;
    font-size: 12px;
@@ -835,8 +820,11 @@ textarea::-moz-focus-inner {
 }
 
 
-/* Birdie Checkbox, Radio */
+/** ------------------------------- 
+--      Birdie Selections        --
+-------------------------------- */
 
+/** Birdie Checkbox, Radio */
 .bi-checkbox,
 .bi-radio {
    z-index: 0;
@@ -847,7 +835,7 @@ textarea::-moz-focus-inner {
    line-height: 1.5;
 }
  
-/* Box Input */
+/** Box input checkbox and radio */
 .bi-checkbox > input,
 .bi-radio > input {
    appearance: none;
@@ -875,7 +863,7 @@ textarea::-moz-focus-inner {
    transition: border-color 0.2s;
 }
 
-/* Label */
+/** Label checkbox and radio */
 .bi-checkbox > input + label,
 .bi-radio > input + label {
    display: inline-block;
@@ -885,7 +873,7 @@ textarea::-moz-focus-inner {
    cursor: pointer;
 }
  
-/* Highlight */
+/** Highlight checkbox and radio */
 .bi-checkbox > input + label::before,
 .bi-radio > input + label::before {
    content: "";
@@ -907,7 +895,7 @@ textarea::-moz-focus-inner {
    transform: scale(0);
 }
 
-/* Check Mark */
+/** Check Mark checkbox and radio */
 .bi-checkbox > input + label::after {
    z-index: 1;
    content: "";  
@@ -940,7 +928,7 @@ textarea::-moz-focus-inner {
    transition: transform 0.2s;
 }
 
-/* Checked, Indeterminate */
+/** Checked, Indeterminate in checkbox */
 .bi-checkbox > input:checked,
 .bi-checkbox > input:indeterminate {
    border-color: var(--bi-primary-color);
@@ -974,7 +962,7 @@ textarea::-moz-focus-inner {
    transform: translate(5px, 5px) scale(1);
 }
 
-/* Hover, Focus */
+/** Hover, Focus in checkbox and radio */
 .bi-checkbox:hover > input {
    border-color: var(--bi-primary-color);
 }
@@ -1006,7 +994,7 @@ textarea::-moz-focus-inner {
    opacity: 0.16;
 }
 
-/* Active */
+/** Active in checkbox and radio */
 .bi-checkbox:active > input,
 .bi-checkbox:active:hover > input,
 .bi-radio:active > input,
@@ -1027,7 +1015,7 @@ textarea::-moz-focus-inner {
    transition: transform 0s, opacity 0s;
 }
 
-/* Disabled */
+/** Disabled in checkbox and radio */
 .bi-checkbox > input:disabled,
 .bi-radio > input:disabled {   
    cursor: initial;
@@ -1056,7 +1044,64 @@ textarea::-moz-focus-inner {
    background-color: currentColor;
 }
 
-
+/** Birdie Switch */
+.bi-switch {
+   position: relative;
+   display: inline-block;
+   width: 60px;
+   height: 30px;
+}
+ 
+/** Hide default HTML checkbox in switch */
+.bi-switch input {
+   opacity: 0;
+   width: 0;
+   height: 0;
+}
+ 
+/** The slider in switch */
+.bi-slider-sw {
+   position: absolute;
+   cursor: pointer;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   background-color: var(--bi-muted-color);
+   transition: .4s;
+}
+ 
+.bi-slider-sw:before {
+   position: absolute;
+   content: "";
+   height: 22px;
+   width: 22px;
+   left: 4px;
+   bottom: 4px;
+   background-color: #FFF;
+   transition: .4s;
+}
+ 
+.bi-switch input:checked + .bi-slider-sw {
+   background-color: var(--bi-primary-color);
+}
+ 
+.bi-switch input:focus + .bi-slider-sw {
+   box-shadow: 0 0 1px var(--bi-primary-color);
+}
+ 
+.bi-switch input:checked + .bi-slider-sw:before {
+   transform: translateX(26px);
+}
+ 
+/** Rounded sliders in switch */
+.bi-slider-sw.round {
+   border-radius: 30px;
+}
+ 
+.bi-slider-sw.round:before {
+   border-radius: 50%;
+}
 
 
 
@@ -1280,23 +1325,10 @@ textarea::-moz-focus-inner {
 }
 
 /* KEYFRAMES */
-@-webkit-keyframes tooltips-vert {
-	to {
-		opacity: 0.9;
-		transform: translate(-50%, 0);
-	}
-}
 @keyframes tooltips-vert {
 	to {
 		opacity: 0.9;
 		transform: translate(-50%, 0);
-	}
-}
-
-@-webkit-keyframes tooltips-horz {
-	to {
-		opacity: 0.9;
-		transform: translate(0, -50%);
 	}
 }
 
@@ -1314,16 +1346,14 @@ textarea::-moz-focus-inner {
 [data-bi="tooltip"][bi-tooltip-pos^="top"]:hover::after,
 [data-bi="tooltip"][bi-tooltip-pos^="bottom"]:hover::before,
 [data-bi="tooltip"][bi-tooltip-pos^="bottom"]:hover::after {
-	-webkit-animation: tooltips-vert 300ms ease-out forwards;
-	        animation: tooltips-vert 300ms ease-out forwards;
+	animation: tooltips-vert 300ms ease-out forwards;
 }
 
 [data-bi="tooltip"][bi-tooltip-pos^="left"]:hover::before,
 [data-bi="tooltip"][bi-tooltip-pos^="left"]:hover::after,
 [data-bi="tooltip"][bi-tooltip-pos^="right"]:hover::before,
 [data-bi="tooltip"][bi-tooltip-pos^="right"]:hover::after {
-	-webkit-animation: tooltips-horz 300ms ease-out forwards;
-	        animation: tooltips-horz 300ms ease-out forwards;
+	animation: tooltips-horz 300ms ease-out forwards;
 }
 
 .bi-datatable,

@@ -1,11 +1,8 @@
-/** 
- * Birdie Button Start
- * Types: [ Default, Primary, Secondary, Success, Danger, Warning, Info ]
- */
-/**
- * Birdie Button reset comportament 
- * in browser
- */ 
+/** ------------------------------- 
+--       Birdie Buttons          --
+-------------------------------- */
+
+/** Birdie Button reset comportament in browser */ 
 .bi-btn,
 .bi-btn-primary::-moz-focus-inner,
 .bi-btn-secondary::-moz-focus-inner,
@@ -15,9 +12,7 @@
 .bi-btn-info::-moz-focus-inner {
    border: none;
 }
-/**
- * Birdie Button default options 
- */
+/** Birdie Button default options */
 .bi-btn,
 .bi-btn-primary,
 .bi-btn-secondary,
@@ -62,9 +57,7 @@
    background: none; 
 } 
 
-/**  
- * Birdie Button Hover and Focus 
- */
+/** Birdie Button Hover and Focus */
 .bi-btn:hover,
 .bi-btn:focus {      
    box-shadow: inset 0 0 10px 5px rgba(143, 143, 143, 0.1); 
@@ -91,9 +84,7 @@
    transition: color 0.2s;
 }
 
-/**
- * Birdie Button Disabled 
- */
+/** Birdie Button Disabled */
 .bi-btn:disabled,
 .bi-btn-primary:disabled,
 .bi-btn-secondary:disabled,
@@ -106,10 +97,7 @@
    opacity : 0.6;
 }
 
-/** 
- * Birdie Button Colors
- */
-
+/** Birdie Button Colors */
 .bi-btn {
    color: rgba(0, 0, 0, 0.38);
    background-color: #f1f1f1;
@@ -152,10 +140,7 @@
    color: var(--bi-color-link);
 }
 
-/**
- * Birdie Button Size and custom
- */
-
+/** Birdie Button Size and custom */
 .bi-btn-small {
    padding: 3px 6px;
    font-size: 12px;

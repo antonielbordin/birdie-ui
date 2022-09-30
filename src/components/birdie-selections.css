@@ -1,5 +1,8 @@
-/* Birdie Checkbox, Radio */
+/** ------------------------------- 
+--      Birdie Selections        --
+-------------------------------- */
 
+/** Birdie Checkbox, Radio */
 .bi-checkbox,
 .bi-radio {
    z-index: 0;
@@ -10,7 +13,7 @@
    line-height: 1.5;
 }
  
-/* Box Input */
+/** Box input checkbox and radio */
 .bi-checkbox > input,
 .bi-radio > input {
    appearance: none;
@@ -38,7 +41,7 @@
    transition: border-color 0.2s;
 }
 
-/* Label */
+/** Label checkbox and radio */
 .bi-checkbox > input + label,
 .bi-radio > input + label {
    display: inline-block;
@@ -48,7 +51,7 @@
    cursor: pointer;
 }
  
-/* Highlight */
+/** Highlight checkbox and radio */
 .bi-checkbox > input + label::before,
 .bi-radio > input + label::before {
    content: "";
@@ -70,7 +73,7 @@
    transform: scale(0);
 }
 
-/* Check Mark */
+/** Check Mark checkbox and radio */
 .bi-checkbox > input + label::after {
    z-index: 1;
    content: "";  
@@ -103,7 +106,7 @@
    transition: transform 0.2s;
 }
 
-/* Checked, Indeterminate */
+/** Checked, Indeterminate in checkbox */
 .bi-checkbox > input:checked,
 .bi-checkbox > input:indeterminate {
    border-color: var(--bi-primary-color);
@@ -137,7 +140,7 @@
    transform: translate(5px, 5px) scale(1);
 }
 
-/* Hover, Focus */
+/** Hover, Focus in checkbox and radio */
 .bi-checkbox:hover > input {
    border-color: var(--bi-primary-color);
 }
@@ -169,7 +172,7 @@
    opacity: 0.16;
 }
 
-/* Active */
+/** Active in checkbox and radio */
 .bi-checkbox:active > input,
 .bi-checkbox:active:hover > input,
 .bi-radio:active > input,
@@ -190,7 +193,7 @@
    transition: transform 0s, opacity 0s;
 }
 
-/* Disabled */
+/** Disabled in checkbox and radio */
 .bi-checkbox > input:disabled,
 .bi-radio > input:disabled {   
    cursor: initial;
@@ -219,7 +222,68 @@
    background-color: currentColor;
 }
 
-
+/** Birdie Switch */
+.bi-switch {
+   position: relative;
+   display: inline-block;
+   width: 60px;
+   height: 30px;
+}
+ 
+/** Hide default HTML checkbox in switch */
+.bi-switch input {
+   opacity: 0;
+   width: 0;
+   height: 0;
+}
+ 
+/** The slider in switch */
+.bi-slider-sw {
+   position: absolute;
+   cursor: pointer;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   background-color: var(--bi-muted-color);
+   -webkit-transition: .4s;
+   transition: .4s;
+}
+ 
+.bi-slider-sw:before {
+   position: absolute;
+   content: "";
+   height: 22px;
+   width: 22px;
+   left: 4px;
+   bottom: 4px;
+   background-color: #FFF;
+   -webkit-transition: .4s;
+   transition: .4s;
+}
+ 
+.bi-switch input:checked + .bi-slider-sw {
+   background-color: var(--bi-primary-color);
+}
+ 
+.bi-switch input:focus + .bi-slider-sw {
+   box-shadow: 0 0 1px var(--bi-primary-color);
+}
+ 
+.bi-switch input:checked + .bi-slider-sw:before {
+   -webkit-transform: translateX(26px);
+   -ms-transform: translateX(26px);
+   transform: translateX(26px);
+}
+ 
+/** Rounded sliders in switch */
+.bi-slider-sw.round {
+   border-radius: 30px;
+}
+ 
+.bi-slider-sw.round:before {
+   border-radius: 50%;
+}
 
 
 
