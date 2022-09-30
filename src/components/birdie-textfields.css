@@ -1,20 +1,43 @@
-/* Birdie Textfield */
+/** ------------------------------- 
+--         Textfields            --
+-------------------------------- */
+
+/** Reset default style in browsers */
+::placeholder,
+::-ms-input-placeholder,
+:-ms-input-placeholder { 
+   color: --bi-default-color;    
+}
+::placeholder {  
+   opacity: 1;
+} 
+
+input::-moz-focus-inner,
+textarea::-moz-focus-inner {
+   border: none;
+   outline: none;
+}
+
+/** Birdie Textfield */
 .bi-textfield,
 .bi-textfield-filled,
-.bi-textfield-outlined {
+.bi-textfield-outlined,
+.bi-textfield-solid {
    position: relative;
    display: inline-block;
    font-size: 16px;
    line-height: 1.5;
 }
 
-/* Input, Textarea */
+/** Input, Textarea */
 .bi-textfield > input,
 .bi-textfield > textarea,
 .bi-textfield-filled > input,
 .bi-textfield-filled > textarea,
 .bi-textfield-outlined > input,
-.bi-textfield-outlined > textarea {
+.bi-textfield-outlined > textarea,
+.bi-textfield-solid > input,
+.bi-textfield-solid > textarea {
    display: block;
    box-sizing: border-box;
    margin: 0;
@@ -45,7 +68,9 @@
 }
 
 .bi-textfield-outlined > input,
-.bi-textfield-outlined > textarea {
+.bi-textfield-outlined > textarea,
+.bi-textfield-solid > input,
+.bi-textfield-solid > textarea {
    border: 1px solid var(--bi-default-color);
    border-radius: 4px;
    padding: 15px 10px; 
@@ -144,7 +169,7 @@
    line-height: 68px;  
 }
 
-/* Hover */
+/** Hover */
 .bi-textfield:hover > input,
 .bi-textfield:hover > textarea {
    border-bottom-color: var(--bi-primary-color);
@@ -157,7 +182,9 @@
 }
  
 .bi-textfield-outlined:hover > input,
-.bi-textfield-outlined:hover > textarea {
+.bi-textfield-outlined:hover > textarea,
+.bi-textfield-solid:hover > input,
+.bi-textfield-solid:hover > textarea {
    border-color: var(--bi-primary-color);
 }
 
@@ -237,6 +264,13 @@
    color: var(--bi-default-color);
 } 
 
+.bi-textfield-solid > input:focus,
+.bi-textfield-solid > textarea:focus {
+   border-color: var(--bi-primary-color);
+   box-shadow: inset 1px 0 var(--bi-primary-color), inset -1px 0 var(--bi-primary-color), inset 0 1px var(--bi-primary-color) , inset 0 -1px var(--bi-primary-color);
+   outline: none;
+}
+
 /* Disabled */
 .bi-textfield > input:disabled,
 .bi-textfield > textarea:disabled {
@@ -246,7 +280,7 @@
 
 .bi-textfield > input:disabled + label,
 .bi-textfield > textarea:disabled + label {
-   color: var(--bi-default-color);
+   color: var(--bi-muted-color);
 }
 
 .bi-textfield-filled > input:disabled,
@@ -266,7 +300,7 @@
 .bi-textfield-outlined > textarea:disabled,
 .bi-textfield-outlined > textarea:disabled + label {
    border-color: transparent var(--bi-muted-color) var(--bi-muted-color) !important;
-   color: var(--bi-default-color);
+   color: var(--bi-muted-color);
    pointer-events: none;   
 }
 
@@ -290,3 +324,11 @@
 .bi-textfield-outlined > textarea:disabled:placeholder-shown + label::after {
    border-top-color: transparent !important;
 }
+
+.bi-textfield-solid > input:disabled,
+.bi-textfield-solid > textarea:disabled {
+   border-color: var(--bi-muted-color) !important;
+   color: var(--bi-muted-color);
+   pointer-events: none;   
+}
+

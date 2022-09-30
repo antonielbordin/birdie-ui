@@ -2,14 +2,14 @@
 --         Typography            --
 -------------------------------- */
 :root {
-    /** set font family */
-    --bi-font-family: Arial, Helvetica, sans-serif;     
+    /** Set primary and secondary family */
+    --bi-font-primary: sans-serif;
+    --bi-font-secondary: serif;     
 
-    /** set base values */
-    --bi-font-size: 100%;
-    --bi-line-height: 1.2;
-    --bi-text-base-size: 100%;
+    /** Set base values */    
+    --bi-text-base-size: 1em;
     --bi-text-scale-ratio: 1.2;
+    --bi-line-height: 1.2;
 
     --bi-text-xs:   0.25em;
     --bi-text-sm:   0.5em;
@@ -19,11 +19,11 @@
     --bi-text-xxl:  2.5em;
     --bi-text-xxxl: 3em;
 
-    /** line-height */
+    /** Line-height */
     --bi-heading-line-height: 1.2;
     --bi-body-line-height: 1.4;
 
-    /** spacing values */
+    /** Spacing values */
     --bi-space-xxxs: 0.25em;
     --bi-space-xxs:  0.375em;
     --bi-space-xs:   0.5em;
@@ -33,6 +33,12 @@
     --bi-space-xl:   3.25em;
     --bi-space-xxl:  5.25em;
     --bi-space-xxxl: 8.5em;
+}
+
+body {
+    font-size: var(--bi-text-base-size);
+    font-family: var(--bi-font-primary);
+    color: var(--color-text);
 }
 
 h1, h2, h3, h4, form legend {
@@ -45,38 +51,30 @@ h1, h2, h3, h4, h5, h6, p {
     font-weight: 400;
 }
 
-/** text size */
-.text--xxxl { font-size: var(--bi-text-xxxl); }
+/** Text size */
+.text-xxxl { font-size: var(--bi-text-xxxl); }
 
-h1, .text--xxl {
+h1, .text-xxl {
     font-size: var(--bi-text-xxl);
 }
 
-h1 {
-    /* margin-bottom: var(--bi-space-lg); */
-}
-
-h2, .text--xl {
+h2, .text-xl {
     font-size: var(--bi-text-xl);
 }
 
-h2 {
-    /* margin-bottom: var(--bi-space-md); */
-}
-
-h3, .text--lg {
+h3, .text-lg {
     font-size: var(--bi-text-lg);
 }
 
-h4, .text--md {
+h4, .text-md {
     font-size: var(--bi-text-md);
 }
 
-small, .text--sm {
+small, .text-sm {
     font-size: var(--bi-text-sm);
 }
 
-.text--xs {
+.text-xs {
     font-size: var(--bi-text-xs);
 }
 
