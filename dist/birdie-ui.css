@@ -1112,6 +1112,63 @@ textarea::-moz-focus-inner {
 
 
 
+
+
+
+.bi-select {
+   display: flex;
+   width: 20em;
+   height: 3em;
+   font-size: 16px;
+   line-height: 3;
+   position: relative;     
+   overflow: hidden;
+   border-radius: .25em;
+   background: transparent !important;
+   border: 1px solid var(--bi-default-color);
+}
+.bi-select::after {
+   content: '\25BC';
+   position: absolute;
+   top: 0;
+   right: 0;
+   padding: 0 1em;
+   /* background: #2b2e2e; */
+   cursor: pointer;
+   pointer-events: none;
+   transition: .25s all ease;
+}
+.bi-select:hover::after {
+   color: #23b499;
+}
+
+.bi-select:hover,
+.bi-select:active {
+   border: 1px solid var(--bi-primary-color);
+}
+
+
+
+
+.bi-select select {
+   -webkit-appearance: none;
+   -moz-appearance: none;
+   appearance: none;
+   outline: 0;
+   box-shadow: none;
+   border: 0 !important;
+   background-image: none;
+   flex: 1;
+   padding: 0 .5em;
+   color: var(--bi-default-color);
+   background: transparent !important;
+   cursor: pointer;
+   font-size: 1em;
+   font-family: inherit;
+}
+.bi-select select::-ms-expand {
+   display: none;
+}
 /** ------------------------------- 
 --        Birdie Dropdown        --
 -------------------------------- */
