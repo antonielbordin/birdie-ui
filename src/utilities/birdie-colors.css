@@ -49,4 +49,23 @@
    --bi-dropdown-color: var(--bi-default-color);
    --bi-dropdown-hover: #F5F5F5;
    --bi-dropdown-border: #c0c0c0;
+
+   /** Style for accordion */
+   --bi-accordion-bg: #fbfbfb;
+   --bi-accordion-color: var(--bi-default-color);
+   --bi-accordion-hover-bg: var(--bi-primary-color);
+   --bi-accordion-hover-color: #fbfbfb;
+   --bi-accordion-border: var(--bi-default-color);
+   --bi-accordion-border-hover: var(--bi-primary-color);
+   --bi-accordion-active-bg: var(--bi-primary-color);
+   --bi-accordion-active-color: #fbfbfb;
+
+
+
+
+
+
+
+
+
 }

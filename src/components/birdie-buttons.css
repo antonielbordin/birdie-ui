@@ -40,17 +40,6 @@
    cursor: pointer;   
 }  
 
-.bi-btn,
-.bi-btn-primary,
-.bi-btn-secondary,
-.bi-btn-success,
-.bi-btn-danger,
-.bi-btn-warning,
-.bi-btn-info {
-   box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.2); 
-   transition: box-shadow 0.2s;
-}
-
 .bi-btn-text,
 .bi-btn-link {
    padding: 2px;

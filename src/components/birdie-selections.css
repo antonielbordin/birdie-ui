@@ -285,12 +285,7 @@
    border-radius: 50%;
 }
 
-
-
-
-
-
-
+/** Birdie Select */
 .bi-select {
    display: flex;
    width: 20em;
@@ -299,7 +294,7 @@
    line-height: 3;
    position: relative;     
    overflow: hidden;
-   border-radius: .25em;
+   border-radius: 4px;
    background: transparent !important;
    border: 1px solid var(--bi-default-color);
 }
@@ -309,23 +304,10 @@
    top: 0;
    right: 0;
    padding: 0 1em;
-   /* background: #2b2e2e; */
    cursor: pointer;
    pointer-events: none;
    transition: .25s all ease;
 }
-.bi-select:hover::after {
-   color: #23b499;
-}
-
-.bi-select:hover,
-.bi-select:active {
-   border: 1px solid var(--bi-primary-color);
-}
-
-
-
-
 .bi-select select {
    -webkit-appearance: none;
    -moz-appearance: none;
@@ -345,4 +327,39 @@
 }
 .bi-select select::-ms-expand {
    display: none;
+}
+
+/** Removing default browsers outline on focus */
+.bi-select select:focus {
+   outline: none; 
+}
+
+.bi-select select option {
+   border: 1px solid #000; 
+   background: #010;
+}
+
+.bi-select:hover::after {
+   color: var(--bi-primary-color);
+}
+.bi-select:hover {
+   border-color: var(--bi-primary-color);
+}
+.bi-select select:focus-within {
+   border: 1px solid var(--bi-primary-color) !important;
+}
+.bi-select select:active-within {
+   border-color: #036 !important;
+}
+
+/** Disabled */
+.bi-select[disabled] {
+   color: var(--bi-muted-color);
+   border-color: var(--bi-muted-color) !important;
+}
+.bi-select[disabled] > select {
+   color: var(--bi-muted-color);
+}
+.bi-select[disabled]:hover::after {
+   color: var(--bi-muted-color);
 }

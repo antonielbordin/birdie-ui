@@ -10,6 +10,7 @@
             align-items: center;
             width: 100%;
             min-height: 100%;
+            background: #fff;
          }
          /* #main h2 {   
             font-size: 30px;
@@ -330,8 +331,7 @@
                      <label>Outlined Disabled</label>
                   </span>
                </div>
-            </div>
-              
+            </div>              
 
             <div class="bi-row space-top">
                <div class="bi-column"> <span>TextField - Solid</span> </div>
@@ -347,8 +347,7 @@
                      <input placeholder="Solid" disabled>
                   </span>
                </div>
-            </div>
-            
+            </div>            
 
             <div class="bi-row space-top">
                <div class="bi-column"> <span>Checkbox</span> </div>
@@ -414,40 +413,106 @@
                </div>
             </div>
 
-
-
             <div class="bi-row space-top">
                <div class="bi-column"> <span>Select</span> </div>
                <div class="bi-column">
                   <!-- Element Select -->
                   <div class="bi-select">
                      <select name="bi-select-format" id="bi-select-format">
-                        <option selected disabled>Choose a book format</option>
-                        <option value="pdf">PDF</option>
-                        <option value="txt">txt</option>
-                        <option value="epub">ePub</option>
-                        <option value="fb2">fb2</option>
-                        <option value="mobi">mobi</option>
+                        <option selected disabled>Choose a content</option>
+                        <option value="one">Option One</option>
+                        <option value="two">Option Two</option>
+                        <option value="three">Option Three</option>
+                        <option value="four">Option Four</option>
+                        <option value="five">Option Five</option>
                      </select>
                   </div>
                </div>
                <div class="bi-column">
                   <!-- Element Select Disabled -->
-                  <div class="bi-select">
-                     <select name="bi-select-format" id="bi-select-format">
-                        <option selected disabled>Choose a book format</option>
-                        <option value="pdf">PDF</option>
-                        <option value="txt">txt</option>
-                        <option value="epub">ePub</option>
-                        <option value="fb2">fb2</option>
-                        <option value="mobi">mobi</option>
+                  <div class="bi-select" disabled>
+                     <select name="bi-select-format" id="bi-select-format" disabled>
+                        <option selected disabled>Choose a content</option>
+                        <option value="one">Option One</option>
+                        <option value="two">Option Two</option>
+                        <option value="three">Option Three</option>
+                        <option value="four">Option Four</option>
+                        <option value="five">Option Five</option>
                      </select>
                   </div>
                </div>
             </div>
 
 
+            <div class="bi-row space-top">
+               <div class="bi-column"> <span>Accordion Multiple/Single</span> </div>
+               <div class="bi-column">
+                  <!-- Element Accordion Multiple -->
+                  <div class="bi-accordion">
+                     <div class="bi-accordion-tabs">
+                        <div class="bi-accordion-tab">
+                           <input type="checkbox" id="chck1">
+                           <label class="bi-accordion-tab-label" for="chck1">Item 1</label>
+                           <div class="bi-accordion-tab-content">
+                              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, reiciendis!
+                           </div>
+                        </div>
+                        <div class="bi-accordion-tab">
+                           <input type="checkbox" id="chck2">
+                           <label class="bi-accordion-tab-label" for="chck2">Item 2</label>
+                           <div class="bi-accordion-tab-content">
+                              Lorem ipsum dolor sit amet consectetur adipisicing elit. A, in!
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="bi-column">
+                  <!-- Element Accordion Single -->
+                  <div class="bi-accordion">
+                     <div class="bi-accordion-tabs">
+                        <div class="bi-accordion-tab">
+                           <input type="radio" id="rd1" name="rd">
+                           <label class="bi-accordion-tab-label" for="rd1">Item 1</label>
+                           <div class="bi-accordion-tab-content">
+                              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, reiciendis!
+                           </div>
+                        </div>
+                        <div class="bi-accordion-tab">
+                           <input type="radio" id="rd2" name="rd">
+                           <label class="bi-accordion-tab-label" for="rd2">Item 2</label>
+                           <div class="bi-accordion-tab-content">
+                              Lorem ipsum dolor sit amet consectetur adipisicing elit. A, in!
+                           </div>
+                        </div>
+                        <div class="bi-accordion-tab">
+                           <input type="radio" id="rd3" name="rd">
+                           <label for="rd3" class="bi-accordion-tab-close">Close others &times;</label>
+                        </div>
+                     </div>
+                  </div>
+
+
+
+
+               </div>
+            </div>
+
+
+
+            <!-- <h2>Open <b>multiple</b></h2> -->
             
+
+
+
+
+
+
+
+
+
+
+
 
 
 

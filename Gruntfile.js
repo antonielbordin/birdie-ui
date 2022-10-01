@@ -47,7 +47,8 @@ module.exports = function(grunt) {
                         'dist/css/birdie-dropdown.css',                        
                         'dist/css/birdie-tooltips.css',
                         'dist/css/birdie-datatable.css',
-                        'dist/css/birdie-card.css'
+                        'dist/css/birdie-card.css',
+                        'dist/css/birdie-accordion.css'
                     ]},        
 
                     // Rollups

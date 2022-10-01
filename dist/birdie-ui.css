@@ -91,6 +91,25 @@ table {
    --bi-dropdown-color: var(--bi-default-color);
    --bi-dropdown-hover: #F5F5F5;
    --bi-dropdown-border: #c0c0c0;
+
+   /** Style for accordion */
+   --bi-accordion-bg: #fbfbfb;
+   --bi-accordion-color: var(--bi-default-color);
+   --bi-accordion-hover-bg: var(--bi-primary-color);
+   --bi-accordion-hover-color: #fbfbfb;
+   --bi-accordion-border: var(--bi-default-color);
+   --bi-accordion-border-hover: var(--bi-primary-color);
+   --bi-accordion-active-bg: var(--bi-primary-color);
+   --bi-accordion-active-color: #fbfbfb;
+
+
+
+
+
+
+
+
+
 }
 /** ------------------------------- 
 --         Typography            --
@@ -328,17 +347,6 @@ body {
    border: none;
    cursor: pointer;   
 }  
-
-.bi-btn,
-.bi-btn-primary,
-.bi-btn-secondary,
-.bi-btn-success,
-.bi-btn-danger,
-.bi-btn-warning,
-.bi-btn-info {
-   box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.2); 
-   transition: box-shadow 0.2s;
-}
 
 .bi-btn-text,
 .bi-btn-link {
@@ -1109,12 +1117,7 @@ textarea::-moz-focus-inner {
    border-radius: 50%;
 }
 
-
-
-
-
-
-
+/** Birdie Select */
 .bi-select {
    display: flex;
    width: 20em;
@@ -1123,7 +1126,7 @@ textarea::-moz-focus-inner {
    line-height: 3;
    position: relative;     
    overflow: hidden;
-   border-radius: .25em;
+   border-radius: 4px;
    background: transparent !important;
    border: 1px solid var(--bi-default-color);
 }
@@ -1133,23 +1136,10 @@ textarea::-moz-focus-inner {
    top: 0;
    right: 0;
    padding: 0 1em;
-   /* background: #2b2e2e; */
    cursor: pointer;
    pointer-events: none;
    transition: .25s all ease;
 }
-.bi-select:hover::after {
-   color: #23b499;
-}
-
-.bi-select:hover,
-.bi-select:active {
-   border: 1px solid var(--bi-primary-color);
-}
-
-
-
-
 .bi-select select {
    -webkit-appearance: none;
    -moz-appearance: none;
@@ -1168,6 +1158,41 @@ textarea::-moz-focus-inner {
 }
 .bi-select select::-ms-expand {
    display: none;
+}
+
+/** Removing default browsers outline on focus */
+.bi-select select:focus {
+   outline: none; 
+}
+
+.bi-select select option {
+   border: 1px solid #000; 
+   background: #010;
+}
+
+.bi-select:hover::after {
+   color: var(--bi-primary-color);
+}
+.bi-select:hover {
+   border-color: var(--bi-primary-color);
+}
+.bi-select select:focus-within {
+   border: 1px solid var(--bi-primary-color) !important;
+}
+.bi-select select:active-within {
+   border-color: #036 !important;
+}
+
+/** Disabled */
+.bi-select[disabled] {
+   color: var(--bi-muted-color);
+   border-color: var(--bi-muted-color) !important;
+}
+.bi-select[disabled] > select {
+   color: var(--bi-muted-color);
+}
+.bi-select[disabled]:hover::after {
+   color: var(--bi-muted-color);
 }
 /** ------------------------------- 
 --        Birdie Dropdown        --
@@ -1398,10 +1423,23 @@ textarea::-moz-focus-inner {
 }
 
 /* KEYFRAMES */
+@-webkit-keyframes tooltips-vert {
+	to {
+		opacity: 0.9;
+		transform: translate(-50%, 0);
+	}
+}
 @keyframes tooltips-vert {
 	to {
 		opacity: 0.9;
 		transform: translate(-50%, 0);
+	}
+}
+
+@-webkit-keyframes tooltips-horz {
+	to {
+		opacity: 0.9;
+		transform: translate(0, -50%);
 	}
 }
 
@@ -1419,14 +1457,16 @@ textarea::-moz-focus-inner {
 [data-bi="tooltip"][bi-tooltip-pos^="top"]:hover::after,
 [data-bi="tooltip"][bi-tooltip-pos^="bottom"]:hover::before,
 [data-bi="tooltip"][bi-tooltip-pos^="bottom"]:hover::after {
-	animation: tooltips-vert 300ms ease-out forwards;
+	-webkit-animation: tooltips-vert 300ms ease-out forwards;
+	        animation: tooltips-vert 300ms ease-out forwards;
 }
 
 [data-bi="tooltip"][bi-tooltip-pos^="left"]:hover::before,
 [data-bi="tooltip"][bi-tooltip-pos^="left"]:hover::after,
 [data-bi="tooltip"][bi-tooltip-pos^="right"]:hover::before,
 [data-bi="tooltip"][bi-tooltip-pos^="right"]:hover::after {
-	animation: tooltips-horz 300ms ease-out forwards;
+	-webkit-animation: tooltips-horz 300ms ease-out forwards;
+	        animation: tooltips-horz 300ms ease-out forwards;
 }
 
 .bi-datatable,
@@ -1549,4 +1589,95 @@ striping:
     color: var(--bi-card-content-color);
     background: var(--bi-card-content-bg);
     padding: 5px;    
+}
+/** -------------------------------
+--        Birdie Accordion       --
+-------------------------------- */
+
+/** Birdie Accordion */
+
+.bi-accordion {
+    width: 80%;
+    border-radius: 4px;
+    border: 1px solid var(--bi-accordion-border);
+    color: var(--bi-accordion-color);
+}
+
+.bi-accordion:hover {
+    border-color: var(--bi-accordion-border-hover);    
+}
+
+.bi-accordion-tabs {
+    border-radius: 4px;
+    overflow: hidden;
+    /* box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.5); */    
+}
+
+.bi-accordion-tab {
+    width: 100%;    
+    overflow: hidden;
+}
+
+.bi-accordion-tab-label {
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+    background: transparent;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.bi-accordion-tab-label:hover {
+    background: var(--bi-accordion-hover-bg); /*#1a252f*/
+    color: var(--bi-accordion-hover-color);
+}
+
+.bi-accordion-tab-label::after {
+    content: "❯";
+    width: 1em;
+    height: 1em;
+    text-align: center;
+    transition: all 0.35s;
+}
+
+.bi-accordion-tab-content {
+    max-height: 0;
+    padding: 0 1em;
+    color: #2c3e50;
+    background: white;
+    transition: all 0.35s;
+}
+
+.bi-accordion-tab-close {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1em;
+    font-size: 0.75em;
+    background: transparent; /*#2c3e50*/
+    cursor: pointer;
+}
+
+.bi-accordion-tab-close:hover {
+    background: var(--bi-accordion-hover-bg); /*#1a252f*/
+    color: var(--bi-accordion-hover-color);
+}
+
+.bi-accordion input {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+}
+.bi-accordion input:checked + .bi-accordion-tab-label {
+    background: var(--bi-accordion-active-bg);/* #1a252f*/
+    color: var(--bi-accordion-active-color);
+}
+.bi-accordion input:checked + .bi-accordion-tab-label::after {
+    transform: rotate(90deg);
+}
+.bi-accordion input:checked ~ .bi-accordion-tab-content {
+    max-height: 100vh;
+    padding: 1em;
+}
+.bi-accordion input:checked + .bi-accordion {
+    border-color: var(--bi-accordion-border-hover); 
 }
