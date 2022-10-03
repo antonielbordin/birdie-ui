@@ -11,16 +11,8 @@
             width: 100%;
             min-height: 100%;
             background: #fff;
-         }
-         /* #main h2 {   
-            font-size: 30px;
-            font-weight: bold;
-            padding: 20px 0;
-            margin: 30px 0;
-            color: var(--bi-default-color);
-            text-align: left;
-            background: yellow;
-         }  */
+         } 
+
          #header {
             z-index: 1;
             position: -webkit-sticky;
@@ -492,9 +484,6 @@
                      </div>
                   </div>
 
-
-
-
                </div>
             </div>
 
@@ -502,26 +491,6 @@
 
             <!-- <h2>Open <b>multiple</b></h2> -->
             
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
             <div class="bi-row space-top">
                <div class="bi-column"> <span> Dropdown </span> </div>
@@ -587,44 +556,6 @@
                <div class="bi-column col-20"></div>               
             </div>
 
-            <!-- Element DataTable -->
-            <h2><span class="title-box">DataTable</span></h2>
-            <div class="bi-row space-top">
-               <div class="bi-column col-25"> <span> DataTable Standard </span> </div>
-               <div class="bi-column col-75">
-                  <table class="bi-datatable">
-                     <thead>
-                        <tr>
-                           <th>#</th>
-                           <th>Data One</th>
-                           <th>Data Two</th>
-                           <th>Data Three</th>
-                        </tr>
-                     </thead>
-                     <tbody>
-                        <tr>
-                           <td>1</td>
-                           <td>Day</td>
-                           <td>Wello</td>
-                           <td>World!</td>                        
-                        </tr>
-                        <tr>
-                           <td>2</td>
-                           <td>Day</td>
-                           <td>Hello</td>
-                           <td>World!</td>
-                        </tr>
-                        <tr>
-                           <td>3</td>
-                           <td>Day</td>
-                           <td>Hello</td>
-                           <td>World!</td>
-                        </tr>
-                     </tbody>
-                  </table>
-               </div>
-            </div>
-
             <!-- Element Typography -->
             <h2><span class="title-box">Typography</span></h2>
             <div class="bi-row space-top">
@@ -640,6 +571,74 @@
                   <h6>Header Six</h6>
                </div>
             </div>
+
+            <!-- Element DataTable -->
+            <h2><span class="title-box">DataTable</span></h2>
+            <div class="bi-row space-top">
+               <div class="bi-column col-25"> <span> DataTable Standard </span> </div>
+               <div class="bi-column col-75">
+                  
+                  <div class="bi-datatable">
+                     <table id="bi-datatable">
+                        <thead>
+                           <tr>
+                              <th>#</th>
+                              <th>Data One</th>
+                              <th>Data Two</th>
+                              <th>Data Three</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr>
+                              <td>1</td>
+                              <td>Day</td>
+                              <td>Wello</td>
+                              <td>World!</td>                        
+                           </tr>
+                           <tr>
+                              <td>2</td>
+                              <td>Day</td>
+                              <td>Hello</td>
+                              <td>World!</td>
+                           </tr>
+                           <tr>
+                              <td>3</td>
+                              <td>Day</td>
+                              <td>Hello</td>
+                              <td>World!</td>
+                           </tr>
+                           <tr>
+                              <td>4</td>
+                              <td>Day</td>
+                              <td>Hello</td>
+                              <td>World!</td>
+                           </tr>
+                           <tr>
+                              <td>5</td>
+                              <td>Day</td>
+                              <td>Hello</td>
+                              <td>World!</td>
+                           </tr>
+                           <tr>
+                              <td>6</td>
+                              <td>Day</td>
+                              <td>Hello</td>
+                              <td>World!</td>
+                           </tr>
+                           <tr>
+                              <td>7</td>
+                              <td>Day</td>
+                              <td>Hello</td>
+                              <td>World!</td>
+                           </tr>
+                        </tbody>
+                     </table>                    
+                  </div>
+                  
+               </div>
+            </div>
+
+            
           
 
 
@@ -661,8 +660,24 @@
          <a href="#" target="_blank">Stilos Design Network</a>
       </footer>  
    </body>
+   <script src="../src/js/birdie-datatable.js"></script>
    <script>
-      
+      let dataTable = new BiDataTable('bi-datatable',{
+         //RenderJSON:[], // Convert Json to Table html 
+         showSearch:true, // show search field,
+         ShowSelect:true, // show show select,
+         ShowPaginate:true, // show paginate ,
+         SelectionNumber:[5,10,20,50,100], //Change Option in Select
+         HideColumn:["City"], // Hide column
+         ShowHighlight:false, // show Highlight if search
+         fixedTable:true, // fixed table
+         sortAnimate:false, // show animated if sorted
+         ShowTfoot:false,
+         ExcludeColumnExport:["Name","City"] 
+      });
+
+
+
 
    </script>
 </html>

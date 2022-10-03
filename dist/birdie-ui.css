@@ -1468,8 +1468,62 @@ textarea::-moz-focus-inner {
 	-webkit-animation: tooltips-horz 300ms ease-out forwards;
 	        animation: tooltips-horz 300ms ease-out forwards;
 }
+/** Formatng datatable */
+.bi-datatable {
+   display: flex;
+   flex-direction: column; 
+   width: 100%;
+   background: green;
+}
 
-.bi-datatable,
+
+.bi-datatable-controls {
+   display: flex;
+   flex-direction: row; 
+   justify-content: flex-start; 
+   align-items: center;
+   width: 100%;
+   padding: 5px 0; 
+   background: yellow; 
+}
+
+.bi-dtc-select {
+   display: flex;
+   flex-direction: row; 
+   justify-content: flex-start;
+   width: 30%;
+   background: royalblue;
+   order: 1;
+}
+
+.bi-dtc-select > select {
+   width: 30%;
+}
+
+.bi-dtc-search {
+   display: flex;
+   flex-direction: row; 
+   justify-content: flex-end;
+   width: 70%;
+   background: rebeccapurple;
+   order: 2;
+}
+
+.bi-dtc-search > input {
+   width: 40%;
+   margin-left: 50px;
+} 
+
+
+
+
+
+
+
+
+
+
+/* .bi-datatable,
 .bi-datatable-striped,
 .bi-datatable-bordered {
    width: 100%;
@@ -1512,13 +1566,13 @@ textarea::-moz-focus-inner {
    text-align: left;
    vertical-align: bottom;    
    background-color: #e0e0e0;
-}
+} */
 
-.bi-datatable thead th
+/* .bi-datatable thead th
 {
-   /* padding: 8px 0;  
-   padding-left: 5px; */
-}
+   padding: 8px 0;  
+   padding-left: 5px; 
+} */
 
  
 
@@ -1527,30 +1581,30 @@ striping:
   even - #fff (white)
   odd  - #f2f2f2 (light gray)
 */
-.bi-datatable td,
+/* .bi-datatable td,
 .bi-datatable-striped td {
    background-color: transparent;
 }
 
 .bi-datatable-zebra td {
    background-color: #f2f2f2;
-}
+} */
 
 /* nth-child selector for modern browsers */
-.bi-datatable-striped tr:nth-child(2n-1) td {
+/* .bi-datatable-striped tr:nth-child(2n-1) td {
    background-color: #f2f2f2;
-}
+} */
 
 /* BORDERED TABLES */
-.bi-datatable-bordered td {
+/* .bi-datatable-bordered td {
    border-bottom: 1px solid #cbcbcb;
 }
 .bi-datatable-bordered tbody > tr:last-child > td {
    border-bottom-width: 0;
-}
+} */
 
 /* HORIZONTAL BORDERED TABLES */
-.bi-datatable-horizontal td,
+/* .bi-datatable-horizontal td,
 .bi-datatable-horizontal th {
    border-width: 0 0 1px 0;
    border-bottom: 1px solid #cbcbcb;
@@ -1558,7 +1612,10 @@ striping:
 
 .bi-datatable-horizontal tbody > tr:last-child > td {
    border-bottom-width: 0;
-}
+} */
+
+
+
 .bi-card,
 .bi-card-padding {
     background: var(--bi-card-bg);
