@@ -86,7 +86,7 @@
       <link rel="stylesheet" href="../dist/birdie-ui.min.css" />
    </head>
    <body>
-      <header id="header"> Birdie UI is the UI components for Web in pure CSS </header>
+      <header id="header"> Birdie UI is a library of UI components that you can use to start any web project </header>
       <main id="main">
          <!-- Contained Grid -->
          <h2><span class="title-box">Contained Grid</span></h2> 
@@ -450,10 +450,7 @@
                </div>
             </div>
 
-
-
-            <!-- <h2>Open <b>multiple</b></h2> -->
-            
+            <!-- <h2>Open <b>multiple</b></h2> -->        
 
             <div class="bi-row space-top">
                <div class="bi-column"> <span> Dropdown </span> </div>
@@ -545,21 +542,21 @@
                      <table id="bi-datatable">
                         <thead>
                            <tr>
-                              <th>#</th>
-                              <th>Data One</th>
-                              <th>Data Two</th>
-                              <th>Data Three</th>
+                              <th scope="col">#</th>
+                              <th scope="col">Data One</th>
+                              <th scope="col">Data Two</th>
+                              <th scope="col">Data Three</th>
                            </tr>
                         </thead>
                         <tbody>
                            <tr>
-                              <td>1</td>
-                              <td>Day</td>
-                              <td>Wello</td>
-                              <td>World!</td>                        
+                              <td data-label="#">1</td>
+                              <td data-label="Data One">Day</td>
+                              <td data-label="Data Two">Wello</td>
+                              <td data-label="Data Three">World!</td>                        
                            </tr>
                            <tr>
-                              <td>2</td>
+                              <td scope="row" >2</td>
                               <td>Day</td>
                               <td>Hello</td>
                               <td>World!</td>

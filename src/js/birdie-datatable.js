@@ -6,13 +6,13 @@ class BiDataTable {
         renderJSON: null,
         showSearch: true,
         showSelect: true,
-        ShowPaginate: true,
+        showPaginate: true,
         selectionNumber: [5, 10, 20, 50],
         hideColumn: [],
         showHighlight: false,
         fixedTable: false,
         sortAnimate: true,
-        ShowTfoot: true,
+        showTfooter: true,
         removeColumnExport: [] }) {
         var _a, _b, _c, _d;
         this.headerDataTable = []; // header table to array
@@ -37,7 +37,6 @@ class BiDataTable {
         this.tableElement = document.getElementById(idTable);
         this.options = options;
         this.detectTyped();
-        this.styles();
         this.convertToJson();
         this.paginateRender();
         this.control();
@@ -71,8 +70,6 @@ class BiDataTable {
         this.totalPages = this.divide().length;
     }
 
-
-
     detectTyped() {
         var _a;
         const getHead = (_a = this.tableElement) === null || _a === void 0 ? void 0 : _a.getElementsByTagName('th');
@@ -86,49 +83,6 @@ class BiDataTable {
         }
     }
 
-
-    styles() {
-        const style = document.createElement('style');
-        style.innerHTML = `
-        .table_layout_fixed { 
-            table-layout:fixed;
-        }
-        table > thead{
-            -webkit-user-select: none;  
-            -moz-user-select: none;    
-            -ms-user-select: none;      
-            user-select: none;
-        }
-        .pagination a {
-          color: black;
-          float: left;
-          padding: 8px 12px;
-          text-decoration: none;
-          transition: background-color .3s;
-          font-size:12px;
-        }
-        .tablesorter-header-asc::after {
-            content: '\\2191';
-            top: calc(50% - 0.75em);
-            float: right;
-        }
-        .tablesorter-header-desc::after {
-            content: '\\2193';
-            top: calc(50% - 0.75em);
-            float: right;
-        }
-        .pagination a:hover:not(.active) {background-color: #ddd;}
-        .blink_me {
-            animation: blinker 1s;
-          }
-          @keyframes blinker {
-            50% {
-              opacity: .5;
-            }
-          } 
-          `;
-        document.getElementsByTagName('head')[0].appendChild(style);
-    }
     changeSelect() {
         this.selectElementString = '';
         for (let x = 0; x < this.selectionNumber.length; x++) {
@@ -141,37 +95,43 @@ class BiDataTable {
         return this.selectElementString;
     }
     control() {
-        const span1 = document.createElement('span');
-        span1.innerHTML = `
+        const spanOne = document.createElement('span');
+        spanOne.innerHTML = `
         <div class="bi-datatable-controls">
             <div class="bi-dtc-select">
-                <select id="biSelectControl">
-                <option value="5">5</option><option value="10">10</option><option value="20">20</option><option value="50">50</option>
-                </select>
+                <div class="ctr-select">
+                    <select id="biSelectControl">
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                        <option value="50">50</option>
+                    </select>
+                </div>
             </div>
             <div class="bi-dtc-search">
-                <input type="text" id="biSearchControl" placeholder="Search">
+                <div class="ctr-search">
+                    <input type="text" id="biSearchControl" placeholder="Search">
+                </div>
             </div>
         </div>
         `;
-        span1.className = 'Selc';
-        this.tableElement.parentNode.insertBefore(span1, this.tableElement);
+        this.tableElement.parentNode.insertBefore(spanOne, this.tableElement);
         this.tableElement.style.width = '100%';
-        const ChangeV = (params) => {
+        const changeValueSelected = (params) => {
             this.pageSize = params;
             this.i = 0;
             this.renderToHTML();
         };
         let selectEl = document.getElementById('biSelectControl');
         selectEl === null || selectEl === void 0 ? void 0 : selectEl.addEventListener('change', function () {
-            ChangeV(this.value);
+            changeValueSelected(this.value);
         });
-        document.getElementById('x__NEXT__X').onclick = () => {
+        document.getElementById('biPaginator__NEXT__X').onclick = () => {
             this.nextItem();
             this.highlight(this.searchValue);
             this.DoHide();
         };
-        document.getElementById('x__PREV__X').onclick = () => {
+        document.getElementById('biPaginator__PREV__X').onclick = () => {
             this.prevItem();
             this.highlight(this.searchValue);
             this.DoHide();
@@ -194,16 +154,21 @@ class BiDataTable {
         this.renderToHTML(this.controlDataArr);
     }
     paginateRender() {
-        const k = ` <div class="pagination" id="pgN"><a id="x__PREV__X" style="cursor:pointer;user-select: none;">&laquo;</a><div id="PF"></div><a id="x__NEXT__X" style="cursor:pointer;user-select: none;">&raquo;</a></div>`;
+        const paginator = ` 
+        <div class="bi-datatable-paginator">
+            <span id="biPaginator__PREV__X" class="bi-pg-prev">&laquo;</span>
+            <div id="biPaginator__INFO" class="bi-pg-info"></div>
+            <span id="biPaginator__NEXT__X" class="bi-pg-next">&raquo;</span>
+        </div>
+        `;
         const span = document.createElement('span');
-        span.innerHTML = k;
-        span.className = 'asterisk';
+        span.innerHTML = paginator;
         this.tableElement.parentNode.insertBefore(span, this.tableElement.nextSibling);
     }
     paginateUpdate() {
-        if (document.getElementById('PF') != null) {
-            document.getElementById('PF').innerHTML = `
-            <a style="">Page ${this.i + 1} to ${this.divide().length} of ${(this.dataTable === undefined) ? 0 : this.dataTable.length} Entries</a>`;
+        if (document.getElementById('biPaginator__INFO') != null) {
+            document.getElementById('biPaginator__INFO').innerHTML = `
+            <span>Page ${this.i + 1} / ${this.divide().length} of ${(this.dataTable === undefined) ? 0 : this.dataTable.length} Entries</span>`;
         }
     }
     search() {
@@ -298,7 +263,7 @@ class BiDataTable {
         }
         // ====
         let ToEl = `<thead><tr>${header}</tr></thead><tbody>${row}</tbody>`;
-        if (this.options.ShowTfoot) {
+        if (this.options.showTfooter) {
             ToEl += `<tfoot>${footer}</tfoot>`;
         }
         this.tableElement.innerHTML = ToEl;

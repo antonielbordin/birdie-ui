@@ -21,17 +21,12 @@
    --bi-text-light: #f7f7f7;
    --bi-text-dark: #292b2c;
 
-
    /* typography */
    --bi-color-text: var(--bi-default-color);
    --bi-color-text-heading: var(--bi-text-dark);
    --bi-color-text-subtle: var(--bi-text-muted);
    --bi-color-link: var(--bi-primary-color);
    --bi-color-link-visited: var(--bi-primary-color);
-
-   
-
-    
 
    /** Style for tooltips */
    --bi-tooltip-bg: #292b2c;
@@ -60,9 +55,12 @@
    --bi-accordion-active-bg: var(--bi-primary-color);
    --bi-accordion-active-color: #fbfbfb;
 
-
-
-
+   /** Style for datatable */
+   --bi-datatable-paginator-bg: transparent !important;
+   --bi-datatable-paginator-color: var(--bi-primary-color);
+   --bi-datatable-paginator-bg-action: var(--bi-primary-color);
+   --bi-datatable-paginator-color-action: #fbfbfb;
+   --bi-datatable-paginator-info: var(--bi-primary-color);
 
 
 

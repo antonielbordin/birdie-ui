@@ -63,17 +63,12 @@ table {
    --bi-text-light: #f7f7f7;
    --bi-text-dark: #292b2c;
 
-
    /* typography */
    --bi-color-text: var(--bi-default-color);
    --bi-color-text-heading: var(--bi-text-dark);
    --bi-color-text-subtle: var(--bi-text-muted);
    --bi-color-link: var(--bi-primary-color);
    --bi-color-link-visited: var(--bi-primary-color);
-
-   
-
-    
 
    /** Style for tooltips */
    --bi-tooltip-bg: #292b2c;
@@ -102,9 +97,12 @@ table {
    --bi-accordion-active-bg: var(--bi-primary-color);
    --bi-accordion-active-color: #fbfbfb;
 
-
-
-
+   /** Style for datatable */
+   --bi-datatable-paginator-bg: transparent !important;
+   --bi-datatable-paginator-color: var(--bi-primary-color);
+   --bi-datatable-paginator-bg-action: var(--bi-primary-color);
+   --bi-datatable-paginator-color-action: #fbfbfb;
+   --bi-datatable-paginator-info: var(--bi-primary-color);
 
 
 
@@ -484,39 +482,32 @@ textarea::-moz-focus-inner {
    display: inline-block;
    font-size: 16px;
    line-height: 1.5;
+   width: 100%;
+   height: 2.5em;
+   border-radius: 4px;
 }
 /** Input, Textarea */
 .bi-textfield > input,
 .bi-textfield > textarea,
 .bi-textfield-outlined > input,
 .bi-textfield-outlined > textarea {
-   display: block;
-   box-sizing: border-box;
-   margin: 0;
-   padding: 0 0 7px;
-   width: 100%;
-   height: inherit;
-   border: none;
-   border-top: 24px solid transparent;
-   border-bottom: 1px solid var(--bi-default-color);   
-   color: var(--bi-default-color);
-   -webkit-text-fill-color: currentColor; 
-   background-color: transparent;
+   -webkit-text-fill-color: currentColor;
    box-shadow: none;
    font-family: inherit;
    font-size: inherit;
-   line-height: inherit;
+   line-height: inherit; 
+   display: block;
+   box-sizing: border-box;
+   width: 100%;
+   height: inherit;
+   border: none; 
+   margin: 0;
+   padding: 15px 10px;
+   color: var(--bi-default-color);   
    caret-color: var(--bi-default-color);
-   transition: border-bottom 0.2s, background-color 0.2s;
-}
-.bi-textfield > input,
-.bi-textfield > textarea,
-.bi-textfield-outlined > input,
-.bi-textfield-outlined > textarea
-{
    border: 1px solid var(--bi-default-color);
-   border-radius: 4px;
-   padding: 15px 10px; 
+   background-color: transparent;
+   border-radius: 4px;   
 }
 .bi-textfield-outlined > input:not(:focus):-moz-placeholder-shown, .bi-textfield-outlined > textarea:not(:focus):-moz-placeholder-shown {
    border-top-color: var(--bi-default-color);
@@ -528,13 +519,13 @@ textarea::-moz-focus-inner {
 /* Label */
 .bi-textfield-outlined > input + label,
 .bi-textfield-outlined > textarea + label {
+   display: block;
+   box-sizing: border-box;
    position: absolute;
    top: 0;
    left: 12px;   
-   display: block;
    max-width: 80%;  
-   max-height: 80%;
-   box-sizing: border-box;
+   max-height: 80%;  
    padding: 2px 0 0;
    font-size: 75%;
    line-height: 15px;
@@ -561,12 +552,12 @@ textarea::-moz-focus-inner {
 }
 
 .bi-textfield-outlined > input:not(:focus):-moz-placeholder-shown + label, .bi-textfield-outlined > textarea:not(:focus):-moz-placeholder-shown + label {
-   line-height: 68px;  
+   line-height: 10px;  
 }
 
 .bi-textfield-outlined > input:not(:focus):placeholder-shown + label,
 .bi-textfield-outlined > textarea:not(:focus):placeholder-shown + label {
-   line-height: 68px;  
+   line-height: 10px;  
 }
 
 /** Hover */
@@ -576,6 +567,7 @@ textarea::-moz-focus-inner {
 .bi-textfield-outlined:hover > textarea
 {
    border-color: var(--bi-primary-color);
+   width: 100%;
 }
 
 .bi-textfield-outlined:hover > input:not(:focus):-moz-placeholder-shown, .bi-textfield-outlined:hover > textarea:not(:focus):-moz-placeholder-shown {
@@ -589,33 +581,31 @@ textarea::-moz-focus-inner {
 /* Placeholder-shown */
 .bi-textfield > input:not(:focus):-moz-placeholder-shown + label, .bi-textfield > textarea:not(:focus):-moz-placeholder-shown + label, .bi-textfield-outlined > input:not(:focus):-moz-placeholder-shown + label, .bi-textfield-outlined > textarea:not(:focus):-moz-placeholder-shown + label {
    font-size: inherit;
-   line-height: 56px;
+   line-height: 2.5em;
 }
 .bi-textfield > input:not(:focus):placeholder-shown + label,
 .bi-textfield > textarea:not(:focus):placeholder-shown + label,
 .bi-textfield-outlined > input:not(:focus):placeholder-shown + label,
 .bi-textfield-outlined > textarea:not(:focus):placeholder-shown + label {
    font-size: inherit;
-   line-height: 56px;
+   line-height: 2.5em;
 }
 /* Focus */
 .bi-textfield > input:focus,
 .bi-textfield > textarea:focus {
    border-color: var(--bi-primary-color);
-   box-shadow: inset 1px 0 var(--bi-primary-color), inset -1px 0 var(--bi-primary-color), inset 0 1px var(--bi-primary-color) , inset 0 -1px var(--bi-primary-color);
    outline: none;
 }
 .bi-textfield-outlined > input:focus,
 .bi-textfield-outlined > textarea:focus {
    border-color: var(--bi-primary-color);
-   box-shadow: inset 1px 0 var(--bi-primary-color), inset -1px 0 var(--bi-primary-color), inset 0 1px var(--bi-primary-color) , inset 0 -1px var(--bi-primary-color);
    outline: none;
 }
 .bi-textfield-outlined > input:not(:-moz-placeholder-shown) + label {
    top: -5px;   
    max-height: 25%;
    width: auto !important; 
-   max-width: 50%;
+   max-width: 60%;
    padding: 0 3px; 
    color: var(--bi-primary-color);
    background: #FFFFFF;
@@ -626,7 +616,7 @@ textarea::-moz-focus-inner {
    top: -5px;   
    max-height: 25%;
    width: auto !important; 
-   max-width: 50%;
+   max-width: 60%;
    padding: 0 3px; 
    color: var(--bi-primary-color);
    background: #FFFFFF;
@@ -681,6 +671,18 @@ textarea::-moz-focus-inner {
 /** ------------------------------- 
 --      Birdie Selections        --
 -------------------------------- */
+/** Reset default style in browsers */
+::-moz-placeholder {  
+   opacity: 1;
+}
+::placeholder {  
+   opacity: 1;
+}
+input::-moz-focus-inner,
+select::-moz-focus-inner {
+   border: none;
+   outline: none;
+}
 /** Birdie Checkbox, Radio */
 .bi-checkbox,
 .bi-radio {
@@ -777,6 +779,7 @@ textarea::-moz-focus-inner {
    transform: translate(5px, 5px) scale(0);
    transition: transform 0.1s;
 }
+
 /** Checked, Indeterminate in checkbox */
 .bi-checkbox > input:checked,
 .bi-checkbox > input:indeterminate {
@@ -891,8 +894,8 @@ textarea::-moz-focus-inner {
 /** Birdie Select */
 .bi-select {
    display: flex;
-   width: 20em;
-   height: 3em;
+   width: 100%;
+   height: 2.5em;
    font-size: 16px;
    line-height: 3;
    position: relative;     
@@ -902,54 +905,50 @@ textarea::-moz-focus-inner {
    border: 1px solid var(--bi-default-color);
 }
 .bi-select::after {
-   content: '\25BC';
+   content: "";
    position: absolute;
-   top: 0;
-   right: 0;
-   padding: 0 1em;
+   right: 20px;
+   top: 10px;
+   z-index: 9999;
+   width: 12px;
+   height: 12px;   
+   border: 2px solid grey;
+   border-top: transparent;
+   border-right: transparent;
    cursor: pointer;
+   transform: rotate(-45deg);
    pointer-events: none;
-   transition: .25s all ease;
-}
-.bi-select select {
+   transition: all 0.3s linear;
+ }
+.bi-select > select {
    -webkit-appearance: none;
    -moz-appearance: none;
    appearance: none;
    outline: 0;
    box-shadow: none;
-   border: 0 !important;
+   border: none;
    background-image: none;
+   background: transparent !important;
    flex: 1;
    padding: 0 .5em;
-   color: var(--bi-default-color);
-   background: transparent !important;
+   color: var(--bi-default-color);   
    cursor: pointer;
    font-size: 1em;
    font-family: inherit;
 }
-.bi-select select::-ms-expand {
+.bi-select > select::-ms-expand {
    display: none;
-}
-/** Removing default browsers outline on focus */
-.bi-select select:focus {
-   outline: none;
-}
-.bi-select:hover::after {
-   color: var(--bi-primary-color);
 }
 .bi-select:hover {
    border-color: var(--bi-primary-color);
 }
-.bi-select select:focus-within {
-   border: 1px solid var(--bi-primary-color) !important;
+.bi-select > select:focus,
+.bi-select > select:active,
+.bi-select > select:focus-within,
+.bi-select > select:active-within {
+   border-radius: 4px;
 }
-.bi-select select:active {
-   border:5px solid #333;
-   border-color: var(--bi-primary-color) !important;
-}
-.bi-select select:active-within {
-   border-color: var(--bi-primary-color) !important;
-}
+
 /** Disabled */
 .bi-select[disabled] {
    color: var(--bi-muted-color);
@@ -1240,149 +1239,185 @@ textarea::-moz-focus-inner {
    display: flex;
    flex-direction: column; 
    width: 100%;
-   background: green;
+   border-collapse: collapse;
+   margin: 0;
+   padding: 0;
+   table-layout: fixed;
 }
-
-
 .bi-datatable-controls {
    display: flex;
    flex-direction: row; 
    justify-content: flex-start; 
    align-items: center;
    width: 100%;
-   padding: 5px 0; 
-   background: yellow; 
+   padding: 5px 0;
 }
-
-.bi-dtc-select {
+.bi-datatable-controls .bi-dtc-select {
    display: flex;
    flex-direction: row; 
    justify-content: flex-start;
    width: 30%;
-   background: royalblue;
+}
+.bi-datatable-controls .bi-dtc-select .ctr-select {
+   display: flex;
+   flex-direction: row; 
+   justify-content: flex-start;
+   width: 120px;
+   height: 28px;
    order: 1;
+   font-size: 16px;
+   line-height: 3;
+   position: relative;     
+   overflow: hidden;
+   border-radius: 4px;
+   background: transparent !important;
+   border: 1px solid var(--bi-default-color)
 }
-
-.bi-dtc-select > select {
+.bi-datatable-controls .bi-dtc-select .ctr-select::after {
+   content: "";
+   position: absolute;
+   right: 10px;
+   top: 8px;
+   z-index: 9999;
+   width: 8px;
+   height: 8px;   
+   border: 2px solid grey;
+   border-top: transparent;
+   border-right: transparent;
+   cursor: pointer;
+   transform: rotate(-45deg);
+   pointer-events: none;
+   transition: all 0.3s linear;
+}
+.bi-datatable-controls .bi-dtc-select .ctr-select > select {
+   -webkit-appearance: none;
+   -moz-appearance: none;
+   appearance: none;
+   outline: 0;
+   box-shadow: none;
+   border: none;
+   background-image: none;
+   background: transparent !important;
    width: 30%;
+   flex: 1;
+   padding: 0 .5em;
+   color: var(--bi-default-color);   
+   cursor: pointer;
+   font-size: 1em;
+   font-family: inherit;
 }
-
-.bi-dtc-search {
+.bi-datatable-controls .bi-dtc-select .ctr-select > select::-ms-expand {
+   display: none;
+}
+.bi-datatable-controls .bi-dtc-select .ctr-select:hover {
+   border-color: var(--bi-primary-color);
+}
+.bi-datatable-controls .bi-dtc-select .ctr-select > select:focus,
+.bi-datatable-controls .bi-dtc-select .ctr-select > select:active,
+.bi-datatable-controls .bi-dtc-select .ctr-select > select:focus-within,
+.bi-datatable-controls .bi-dtc-select .ctr-select > select:active-within {
+   border-radius: 4px;
+}
+.bi-datatable-controls .bi-dtc-search {
    display: flex;
    flex-direction: row; 
    justify-content: flex-end;
    width: 70%;
-   background: rebeccapurple;
    order: 2;
 }
-
-.bi-dtc-search > input {
-   width: 40%;
-   margin-left: 50px;
-} 
-
-
-
-
-
-
-
-
-
-
-/* .bi-datatable,
-.bi-datatable-striped,
-.bi-datatable-bordered {
-   width: 100%;
-   max-width: 100%;
-   margin-bottom: 2rem;
-   border-collapse: collapse;
-   border-spacing: 0;
-   empty-cells: show;
-   border: 1px solid #cbcbcb;
-   background-color: var(--bi-datatable-bg);
+.bi-datatable-controls .bi-dtc-search .ctr-search {
+   width: 50%;
+   height: 28px;
 }
 
-.bi-datatable caption,
-.bi-datatable-striped caption,
-.bi-datatable-bordered caption {
-   color: #000;
-   font: italic 85%/1 arial, sans-serif;
-   padding: 1em 0;
+.bi-datatable-controls .bi-dtc-search .ctr-search > input {
+   -webkit-text-fill-color: currentColor;
+   box-shadow: none;
+   font-family: inherit;
+   font-size: inherit;
+   line-height: inherit; 
+   display: block;
+   box-sizing: border-box;
+   width: 100%;
+   height: 29px;
+   border: none; 
+   margin: 0;
+   padding: 0 8px;
+   color: var(--bi-default-color);   
+   caret-color: var(--bi-default-color);
+   border: 1px solid var(--bi-default-color);
+   background-color: transparent;
+   border-radius: 4px;
+} 
+.bi-datatable-controls .bi-dtc-search .ctr-search:hover > input {
+   border-color: var(--bi-primary-color);
+}
+.bi-datatable-controls .bi-dtc-search .ctr-search > input:focus {
+   border-color: var(--bi-primary-color);
+   outline: none;
+}
+.bi-datatable-paginator {
+   display: flex;
+   flex-direction: row;
+   justify-content: center; 
+   align-items: center;
+   width: 100%;
+   height: 32px;
+}
+.bi-datatable-paginator .bi-pg-prev,
+.bi-datatable-paginator .bi-pg-next {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   width: 28px; 
+   height: 28px;
+   cursor: pointer;
+   -webkit-user-select: none;
+      -moz-user-select: none;
+           user-select: none;
+   font-size: 1.2em;
+   margin: 0 2px;
+   background: var(--bi-datatable-paginator-bg);
+   color: var(--bi-datatable-paginator-color);   
+}
+.bi-datatable-paginator .bi-pg-prev:hover,
+.bi-datatable-paginator .bi-pg-next:hover {
+   background: var(--bi-datatable-paginator-bg-action);
+   color: var(--bi-datatable-paginator-color-action);
+}
+.bi-datatable-paginator .bi-pg-info {
+   color: var(--bi-datatable-paginator-info);
+}
+.bi-datatable table {
+   width: 100%;
+   margin: 0;
+   padding: 0; 
+   table-layout: fixed;
+   border: 1px solid #ccc;
+   border-collapse: collapse;   
+}
+.bi-datatable table > thead {
+   -webkit-user-select: none;  
+   -moz-user-select: none;      
+   user-select: none;
+   background: #f6f6f6;
+   color:#545454;
+}
+.bi-datatable table tr {
+   border: 1px solid #ddd;
+   padding: .35em;
+}
+.bi-datatable table th,
+.bi-datatable table td {
+   padding: .625em;
    text-align: center;
 }
-
-.bi-datatable td,
-.bi-datatable th,
-.bi-datatable-striped td,
-.bi-datatable-striped th,
-.bi-datatable-bordered td,
-.bi-datatable-bordered th {
-   border-left: 1px solid #cbcbcb; 
-   border-width: 0 0 0 1px;
-   font-size: inherit;
-   margin: 0;
-   overflow: visible;
-   padding: 0.5em 1em;
+.bi-datatable table th {
+   font-size: .85em;
+   letter-spacing: .1em;
+   text-transform: uppercase;
 }
-
-.bi-datatable thead,
-.bi-datatable-striped thead,
-.bi-datatable-bordered thead {   
-   color: #000;
-   text-align: left;
-   vertical-align: bottom;    
-   background-color: #e0e0e0;
-} */
-
-/* .bi-datatable thead th
-{
-   padding: 8px 0;  
-   padding-left: 5px; 
-} */
-
- 
-
-/*
-striping:
-  even - #fff (white)
-  odd  - #f2f2f2 (light gray)
-*/
-/* .bi-datatable td,
-.bi-datatable-striped td {
-   background-color: transparent;
-}
-
-.bi-datatable-zebra td {
-   background-color: #f2f2f2;
-} */
-
-/* nth-child selector for modern browsers */
-/* .bi-datatable-striped tr:nth-child(2n-1) td {
-   background-color: #f2f2f2;
-} */
-
-/* BORDERED TABLES */
-/* .bi-datatable-bordered td {
-   border-bottom: 1px solid #cbcbcb;
-}
-.bi-datatable-bordered tbody > tr:last-child > td {
-   border-bottom-width: 0;
-} */
-
-/* HORIZONTAL BORDERED TABLES */
-/* .bi-datatable-horizontal td,
-.bi-datatable-horizontal th {
-   border-width: 0 0 1px 0;
-   border-bottom: 1px solid #cbcbcb;
-}
-
-.bi-datatable-horizontal tbody > tr:last-child > td {
-   border-bottom-width: 0;
-} */
-
-
-
 .bi-card,
 .bi-card-padding {
     background: var(--bi-card-bg);
@@ -1419,7 +1454,7 @@ striping:
 -------------------------------- */
 /** Birdie Accordion */
 .bi-accordion {
-    width: 80%;
+    width: 100%;
     border-radius: 4px;
     border: 1px solid var(--bi-accordion-border);
     color: var(--bi-accordion-color);
@@ -1429,8 +1464,7 @@ striping:
 }
 .bi-accordion-tabs {
     border-radius: 4px;
-    overflow: hidden;
-    /* box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.5); */    
+    overflow: hidden;    
 }
 .bi-accordion-tab {
     width: 100%;    
@@ -1439,10 +1473,13 @@ striping:
 .bi-accordion-tab-label {
     display: flex;
     justify-content: space-between;
-    padding: 1em;
+    align-items: center;
+    height: 2.5em;
     background: transparent;
     font-weight: bold;
     cursor: pointer;
+    padding-left: 1em;
+    padding-right: 1em;
 }
 .bi-accordion-tab-label:hover {
     background: var(--bi-accordion-hover-bg); /*#1a252f*/
@@ -1458,8 +1495,8 @@ striping:
 .bi-accordion-tab-content {
     max-height: 0;
     padding: 0 1em;
-    color: #2c3e50;
-    background: white;
+    color: #545454;
+    background: #FFFFFF;
     transition: all 0.35s;
 }
 .bi-accordion-tab-close {
@@ -1492,5 +1529,8 @@ striping:
     padding: 1em;
 }
 .bi-accordion input:checked + .bi-accordion {
-    border-color: var(--bi-accordion-border-hover); 
+    border-color: var(--bi-accordion-border-hover);
+}
+.bi-accordion input:checked + .bi-accordion {
+    background-color: magenta;
 }

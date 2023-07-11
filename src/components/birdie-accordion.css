@@ -3,7 +3,7 @@
 -------------------------------- */
 /** Birdie Accordion */
 .bi-accordion {
-    width: 80%;
+    width: 100%;
     border-radius: 4px;
     border: 1px solid var(--bi-accordion-border);
     color: var(--bi-accordion-color);
@@ -13,8 +13,7 @@
 }
 .bi-accordion-tabs {
     border-radius: 4px;
-    overflow: hidden;
-    /* box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.5); */    
+    overflow: hidden;    
 }
 .bi-accordion-tab {
     width: 100%;    
@@ -23,10 +22,13 @@
 .bi-accordion-tab-label {
     display: flex;
     justify-content: space-between;
-    padding: 1em;
+    align-items: center;
+    height: 2.5em;
     background: transparent;
     font-weight: bold;
     cursor: pointer;
+    padding-left: 1em;
+    padding-right: 1em;
 }
 .bi-accordion-tab-label:hover {
     background: var(--bi-accordion-hover-bg); /*#1a252f*/
@@ -42,8 +44,8 @@
 .bi-accordion-tab-content {
     max-height: 0;
     padding: 0 1em;
-    color: #2c3e50;
-    background: white;
+    color: #545454;
+    background: #FFFFFF;
     transition: all 0.35s;
 }
 .bi-accordion-tab-close {
@@ -76,5 +78,8 @@
     padding: 1em;
 }
 .bi-accordion input:checked + .bi-accordion {
-    border-color: var(--bi-accordion-border-hover); 
+    border-color: var(--bi-accordion-border-hover);
+}
+.bi-accordion input:checked + .bi-accordion {
+    background-color: magenta;
 }

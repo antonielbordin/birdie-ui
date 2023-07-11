@@ -35,9 +35,11 @@
     "style": "dist/birdie-ui.css",
     "keywords": [
         "css",
+        "mobile-first",
+        "responsive",
         "front-end",
         "framework",
-        "web"
+        "web"        
     ],
     "author":{
         "name": "Antoniel Bordin",

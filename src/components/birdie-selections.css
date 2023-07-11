@@ -1,6 +1,15 @@
 /** ------------------------------- 
 --      Birdie Selections        --
 -------------------------------- */
+/** Reset default style in browsers */
+::placeholder {  
+   opacity: 1;
+}
+input::-moz-focus-inner,
+select::-moz-focus-inner {
+   border: none;
+   outline: none;
+}
 /** Birdie Checkbox, Radio */
 .bi-checkbox,
 .bi-radio {
@@ -97,6 +106,7 @@
    transform: translate(5px, 5px) scale(0);
    transition: transform 0.1s;
 }
+
 /** Checked, Indeterminate in checkbox */
 .bi-checkbox > input:checked,
 .bi-checkbox > input:indeterminate {
@@ -215,8 +225,8 @@
 /** Birdie Select */
 .bi-select {
    display: flex;
-   width: 20em;
-   height: 3em;
+   width: 100%;
+   height: 2.5em;
    font-size: 16px;
    line-height: 3;
    position: relative;     
@@ -226,55 +236,51 @@
    border: 1px solid var(--bi-default-color);
 }
 .bi-select::after {
-   content: '\25BC';
+   content: "";
    position: absolute;
-   top: 0;
-   right: 0;
-   padding: 0 1em;
+   right: 20px;
+   top: 10px;
+   z-index: 9999;
+   width: 12px;
+   height: 12px;   
+   border: 2px solid grey;
+   border-top: transparent;
+   border-right: transparent;
    cursor: pointer;
+   transform: rotate(-45deg);
    pointer-events: none;
-   transition: .25s all ease;
-}
-.bi-select select {
+   transition: all 0.3s linear;
+ }
+.bi-select > select {
    -webkit-appearance: none;
    -moz-appearance: none;
    -ms-appearance: none;
    appearance: none;
    outline: 0;
    box-shadow: none;
-   border: 0 !important;
+   border: none;
    background-image: none;
+   background: transparent !important;
    flex: 1;
    padding: 0 .5em;
-   color: var(--bi-default-color);
-   background: transparent !important;
+   color: var(--bi-default-color);   
    cursor: pointer;
    font-size: 1em;
    font-family: inherit;
 }
-.bi-select select::-ms-expand {
+.bi-select > select::-ms-expand {
    display: none;
-}
-/** Removing default browsers outline on focus */
-.bi-select select:focus {
-   outline: none;
-}
-.bi-select:hover::after {
-   color: var(--bi-primary-color);
 }
 .bi-select:hover {
    border-color: var(--bi-primary-color);
 }
-.bi-select select:focus-within {
-   border: 1px solid var(--bi-primary-color) !important;
+.bi-select > select:focus,
+.bi-select > select:active,
+.bi-select > select:focus-within,
+.bi-select > select:active-within {
+   border-radius: 4px;
 }
-.bi-select select:active {
-   border:5px solid #333;
-   border-color: var(--bi-primary-color) !important;
-}
-.bi-select select:active-within {
-   border-color: var(--bi-primary-color) !important;
-}
+
 /** Disabled */
 .bi-select[disabled] {
    color: var(--bi-muted-color);
