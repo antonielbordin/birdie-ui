@@ -6,15 +6,15 @@
     "scripts": {
         "prepare": "grunt release",
         "prepublishOnly": "npm run build"
-    },    
+    },
     "repository": {
         "type": "git",
-        "url": "https://github.com/antonielbordin/birdie-ui"
+        "url": "https://github.com/stilosdesign/birdie-ui"
     },
-    "homepage": "https://github.com/antonielbordin/birdie-ui/blob/main/README.md",
+    "homepage": "https://github.com/stilosdesign/birdie-ui/blob/main/README.md",
     "bugs": {
-        "url": "https://github.com/antonielbordin/birdie-ui/issues"
-    },    
+        "url": "https://github.com/stilosdesign/birdie-ui/issues"
+    },
     "files": [
         "dist/"
     ],
@@ -23,11 +23,12 @@
         "autoprefixer": "^10.4.2",
         "grunt": "^1.5.3",
         "grunt-cli": "^1.2.0",
-        "grunt-contrib-clean": "^2.0.0",  
-        "grunt-contrib-compress": "^2.0.0",      
+        "grunt-contrib-clean": "^2.0.0",
+        "grunt-contrib-compress": "^2.0.0",
         "grunt-contrib-concat": "^2.0.0",
-        "grunt-contrib-copy": "^1.0.0",         
+        "grunt-contrib-copy": "^1.0.0",
         "grunt-contrib-cssmin": "^4.0.0",
+        "grunt-contrib-uglify": "^5.2.2",
         "grunt-contrib-watch": "^1.0.0",
         "postcss": "^8.4.8"
     },
@@ -39,9 +40,9 @@
         "responsive",
         "front-end",
         "framework",
-        "web"        
+        "web"
     ],
-    "author":{
+    "author": {
         "name": "Antoniel Bordin",
         "email": "antonielbordin@hotmail.com"
     },

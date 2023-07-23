@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Birdie UI Components for Web</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+  <script type="module">
+      import BiDataTable from '/public/js/birdie-datatable'
+      let teste = new BiDataTable('bi-datatable', {
+        showSearch: true, // Show search field,
+        showSelect: true, // Show show select,
+        showPaginate: true, // Show paginate ,
+        selectionNumber: [5,10,20,50,100], // Change Option in Select
+        hideColumn: ["City"], // Hide column
+        showHighlight: false, // Show Highlight if search
+        fixedTable: true, // Fixed table
+        sortAnimate: false, // Show animated if sorted
+        showTfoot: false, // Show footer
+        excludeColumnExport: ["Name","City"] // Exclude columns in export
+      });
+  </script>
+</html>

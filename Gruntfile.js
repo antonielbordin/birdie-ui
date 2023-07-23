@@ -3,28 +3,38 @@ module.exports = function(grunt) {
     // -- Config -------------------------------------------------------------------
     grunt.initConfig({
 
-        nick : 'birdie-ui',
-        pkg  : grunt.file.readJSON('package.json'),
+        nick: 'birdie-ui',
+        pkg: grunt.file.readJSON('package.json'),
 
         // -- Clean Config ----------------------------------------------------------
         clean: {
-            build      : ['dist/'],
-            buildAfter : ['dist/css/'],
-            release    : ['release/<%= pkg.version %>/']
+            build: ['dist/'],
+            buildAfter: ['dist/css/','dist/js/'],
+            release: ['release/<%= pkg.version %>/']
         },
         
         // -- Copy Config -----------------------------------------------------------
         copy: {
             build: {
-                src     : 'src/**/*.css',
-                dest    : 'dist/css/',
-                expand  : true,
-                flatten : true
-            },
+                files: [
+                    {
+                        src: 'src/**/*.css',
+                        dest: 'dist/css/',
+                        expand: true,
+                        flatten: true
+                    },
+                    {
+                        src: 'src/**/*.js',
+                        dest: 'dist/js/',
+                        expand: true,
+                        flatten: true
+                    }
+                ]
+            },           
 
             release: {
-                src  : '{LICENSE,README.md}',
-                dest : 'dist/'
+                src: '{LICENSE,README.md}',
+                dest: 'dist/'
             }
         },
 
@@ -49,13 +59,25 @@ module.exports = function(grunt) {
                         'dist/css/birdie-datatable.css',
                         'dist/css/birdie-card.css',
                         'dist/css/birdie-accordion.css'
-                    ]},        
+                    ]},  
+                    
+                    {'dist/js/utilities.js': [ 
+
+                    ]},
+
+                    {'dist/js/components.js': [
+                        'dist/js/birdie-datatable.js',
+                    ]},
 
                     // Rollups
-
                     {'dist/<%= nick %>.css': [                        
                         'dist/css/utilities.css',                        
                         'dist/css/components.css'
+                    ]},
+
+                    {'dist/<%= nick %>.js': [                        
+                        'dist/js/utilities.js',                        
+                        'dist/js/components.js'
                     ]}
                 ]
             }
@@ -81,9 +103,22 @@ module.exports = function(grunt) {
 
             files: {
                 expand: true,
-                src   : 'dist/*.css',
-                ext   : '.min.css'
+                src: 'dist/*.css',
+                ext: '.min.css'
             }
+        },
+
+        // -- Uglify Config -----------------------------------------------------------
+        uglify: {
+            options: {
+                mangle: false
+            },
+
+            build: {
+                files: {
+                    'dist/<%= nick %>.min.js': ['dist/*.js']                    
+                }  
+            }                     
         },
 
         // -- Compress Config -------------------------------------------------------
@@ -93,10 +128,10 @@ module.exports = function(grunt) {
                     archive: 'release/<%= pkg.version %>/<%= nick %>-<%= pkg.version %>.tar.gz'
                 },
 
-                expand : true,
+                expand: true,
                 flatten: true,
-                src    : 'dist/*',
-                dest   : '<%= nick %>/<%= pkg.version %>/'
+                src: 'dist/*',
+                dest: '<%= nick %>/<%= pkg.version %>/'
             }
         },
 
@@ -120,6 +155,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-compress');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('@lodder/grunt-postcss');
@@ -133,6 +169,7 @@ module.exports = function(grunt) {
         'concat:build',
         'postcss',
         'cssmin',
+        'uglify',
         'clean:buildAfter'
     ]);
 

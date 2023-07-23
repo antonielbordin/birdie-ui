@@ -52,8 +52,11 @@
     .col-25 {
         flex: 2.5;
     }
-    .col-55 {
-        flex: 5.5;
+    .col-30 {
+        flex: 3;
+    }
+    .col-50 {
+        flex: 5;
     }
     .col-75 {
         flex: 7.5;

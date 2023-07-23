@@ -1,0 +1,96 @@
+@import url('../../dist/birdie-ui.min.css');
+/*
+    palete color logo
+    option 01 - #28324E
+    option 02 - #414141
+    option 03 - #E75C21
+    option 04 - #EC421E
+    option 05 - #003E71
+    option 06 - #387EB9
+*/
+body {
+    background: rgb(230, 230, 230) no-repeat;
+    background: linear-gradient(180deg, rgb(230, 230, 230) 0%, rgba(255,255,255,1) 100%) no-repeat;
+    color: #414141;
+}
+.header-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+    margin-bottom: 25px;
+    text-align: center;
+}
+.header-page .title {
+    font-size: 26px;
+    margin: 20px 0;
+    color: #28324E;
+}
+.header-page .title .subli {
+    padding-bottom: 5px;
+    border-bottom: 2px solid #E75C21;
+}
+.header-page .subtitle {
+    font-size: 18px;
+    margin: 10px 0;
+}
+.preview-and-sample-code {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    min-height: 40px;
+}
+.preview-and-sample-code span {
+    font-size: 18px;
+}
+.code-preview-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 80px;
+    padding: 8px 0;
+    background: rgb(248, 248, 248);
+}
+.code-preview-wrapper .preview-title {
+    width: calc(85% - 40px);
+    margin: 10px 0;
+}
+.code-preview-wrapper .preview-enabled,
+.code-preview-wrapper .preview-disabled {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    margin: 0 10px;
+}
+.code-syntax-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    background: rgb(248, 248, 248);;
+    padding: 8px 0;
+}
+.code-syntax-wrapper .code-sample {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: calc(85% - 40px);
+}
+.full-table {
+    width: calc(85% - 40px) !important;
+}
+
+@media screen and (min-width: 800px) {
+    .code-preview-wrapper {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
