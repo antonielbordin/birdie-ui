@@ -1401,13 +1401,13 @@
       align-items: flex-start;
       width: 100%;
       min-height: 40px;
-      margin-bottom:40px;
+      margin-bottom: 35px;
    }
    .install-via-package {
       display: flex;
       flex-direction: column;
       width: 100%;
-      padding:25px;
+      padding: 25px;
    }
    .install-via-cdn {
       display: flex;
@@ -1431,6 +1431,5 @@
    }
    .add-cdn {
       margin-top: 25px;
-      background: green;
    }
 </style>

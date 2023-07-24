@@ -39,7 +39,7 @@
         justify-content: center;
         align-items: center;
         padding: 25px;
-        margin-bottom: 80px;
+        margin-bottom: 55px;
     }
     .npm-install {
         padding: 15px 25px;
