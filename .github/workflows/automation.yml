@@ -1,6 +1,8 @@
 on:
   push:
     branches: [main]
+    tags:
+      - 'v*'
 
 name: Create Release Birdie UI
 
@@ -13,15 +15,15 @@ jobs:
         uses: actions/checkout@v2
       - name: Build project
         run: |
-          zip --junk-paths my-artifact README.md
+          zip --junk-paths birdie-ui-dist /dist
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
         with:
-          tag_name: v${{ github.run_number }}
-          release_name: Release V${{ github.run_number }}
+          tag_name: v${{ github.ref }}
+          release_name: Release V${{ github.ref }}
           body: |
             Changes in this Release
             - First Change
@@ -35,7 +37,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-          asset_path: ./my-artifact.zip
-          asset_name: my-artifact.zip
+          asset_path: ./birdie-ui-dist.zip
+          asset_name: birdie-ui-dist.zip
           asset_content_type: application/zip
           
