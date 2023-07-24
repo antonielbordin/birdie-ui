@@ -27,7 +27,7 @@ jobs:
           release_name: Release ${{ github.ref }}
           body: |
             Changes in this Release
-            - Initial release
+            - Create Initial release
             - Generate Documentation
           draft: false
           prerelease: false
