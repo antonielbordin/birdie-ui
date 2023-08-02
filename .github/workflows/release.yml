@@ -1,33 +1,33 @@
-# Name of the workflow
-name: Release Birdie UI 
+# # Name of the workflow
+# name: Release Birdie UI 
 
-# Run on every commit tag which begins 
-# with "v" (e.g., "v0.1.4")
-on:
-  push:
-    tags:
-      - 'v*'
+# # Run on every commit tag which begins 
+# # with "v" (e.g., "v0.1.4")
+# on:
+#   push:
+#     tags:
+#       - 'v*'
 
-# Automatically create a GitHub Release, with release details 
-# specified (the relevant commits)
-jobs:
-  release:
-    name: Release
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
-        with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
-          body: |
-            Changes in this Release
-            - Initial release
-            - Generate Documentation
-          draft: false
-          prerelease: false
+# # Automatically create a GitHub Release, with release details 
+# # specified (the relevant commits)
+# jobs:
+#   release:
+#     name: Release
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout Code
+#         uses: actions/checkout@v3
+#       - name: Create Release
+#         id: create_release
+#         uses: actions/create-release@v1
+#         env:
+#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+#         with:
+#           tag_name: ${{ github.ref }}
+#           release_name: Release ${{ github.ref }}
+#           body: |
+#             Changes in this Release
+#             - Initial release
+#             - Generate Documentation
+#           draft: false
+#           prerelease: false

@@ -231,55 +231,43 @@ b, strong {
 /** Text Decoration and decoration style */
 .bi-underline, .bi-underline-double, .bi-underline-dotted, 
 .bi-underline-dashed, .bi-underline-wavy {
-    -webkit-text-decoration-line: underline;
-            text-decoration-line: underline;
-    -webkit-text-decoration-style: solid;
-            text-decoration-style: solid;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
 }
 .bi-overline, .bi-overline-double, .bi-overline-dotted, 
 .bi-overline-dashed, .bi-overline-wavy {
-    -webkit-text-decoration-line: overline;
-            text-decoration-line: overline;
-    -webkit-text-decoration-style: solid;
-            text-decoration-style: solid;
+    text-decoration-line: overline;
+    text-decoration-style: solid;
 }
 .bi-line-through, .bi-line-through-double, .bi-line-through-dotted, 
 .bi-line-through-dashed, .bi-line-through-wavy {
-    -webkit-text-decoration-line: line-through;
-            text-decoration-line: line-through;
-    -webkit-text-decoration-style: solid;
-            text-decoration-style: solid;
+    text-decoration-line: line-through;
+    text-decoration-style: solid;
 }
 .bi-no-decoration {
-    -webkit-text-decoration-line: none;
-            text-decoration-line: none;
-    -webkit-text-decoration-style: solid;
-            text-decoration-style: solid;
+    text-decoration-line: none;
+    text-decoration-style: solid;
 }
 /** Text Decoration Style */
 .bi-underline-double,
 .bi-overline-double,
 .bi-line-through-double {
-    -webkit-text-decoration-style: double;
-            text-decoration-style: double;
+    text-decoration-style: double;
 }
 .bi-underline-dotted,
 .bi-overline-dotted,
 .bi-line-through-dotted {
-    -webkit-text-decoration-style: dotted;
-            text-decoration-style: dotted;
+    text-decoration-style: dotted;
 }
 .bi-underline-dashed,
 .bi-overline-dashed,
 .bi-line-through-dashed {
-    -webkit-text-decoration-style: dashed;
-            text-decoration-style: dashed;
+    text-decoration-style: dashed;
 }
 .bi-underline-wavy,
 .bi-overline-wavy,
 .bi-line-through-wavy	{
-    -webkit-text-decoration-style: wavy;
-            text-decoration-style: wavy;
+    text-decoration-style: wavy;
 }
 
 /** Text Align */
@@ -1284,23 +1272,10 @@ select::-moz-focus-inner {
 }
 
 /* KEYFRAMES */
-@-webkit-keyframes tooltips-vert {
-	to {
-		opacity: 0.9;
-		transform: translate(-50%, 0);
-	}
-}
 @keyframes tooltips-vert {
 	to {
 		opacity: 0.9;
 		transform: translate(-50%, 0);
-	}
-}
-
-@-webkit-keyframes tooltips-horz {
-	to {
-		opacity: 0.9;
-		transform: translate(0, -50%);
 	}
 }
 
@@ -1318,16 +1293,14 @@ select::-moz-focus-inner {
 [data-bi="tooltip"][bi-tooltip-pos^="top"]:hover::after,
 [data-bi="tooltip"][bi-tooltip-pos^="bottom"]:hover::before,
 [data-bi="tooltip"][bi-tooltip-pos^="bottom"]:hover::after {
-	-webkit-animation: tooltips-vert 300ms ease-out forwards;
-	        animation: tooltips-vert 300ms ease-out forwards;
+	animation: tooltips-vert 300ms ease-out forwards;
 }
 
 [data-bi="tooltip"][bi-tooltip-pos^="left"]:hover::before,
 [data-bi="tooltip"][bi-tooltip-pos^="left"]:hover::after,
 [data-bi="tooltip"][bi-tooltip-pos^="right"]:hover::before,
 [data-bi="tooltip"][bi-tooltip-pos^="right"]:hover::after {
-	-webkit-animation: tooltips-horz 300ms ease-out forwards;
-	        animation: tooltips-horz 300ms ease-out forwards;
+	animation: tooltips-horz 300ms ease-out forwards;
 }
 /** Formatng datatable */
 .bi-datatable {
