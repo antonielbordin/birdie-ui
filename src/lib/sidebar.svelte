@@ -3,42 +3,40 @@
 </script>
 
 <aside id="side-menu">
-    <input type="checkbox" id="menuicon" bind:checked={isOpenSide}>
-    <div class="menu-toggle">
-        <label for="menuicon" class="icon-menus">
-            <span></span>
-            <span></span>
-            <span></span>
-        </label>
-    </div>
-    <section class="sidebar">
-        <nav>
-            <ul>
-                <li><a href="/" on:click={() => isOpenSide = false}>Welcome</a></li>
-                <li><a href="/instalation" on:click={() => isOpenSide = false}>Installation</a></li>
-                <li><a href="" on:click={() => isOpenSide = false}>Configuration</a></li>
+	<input type="checkbox" id="menuicon" bind:checked={isOpenSide}>
+	<div class="menu-toggle">
+		<label for="menuicon" class="icon-menus">
+			<span></span>
+			<span></span>
+      <span></span>
+    </label>
+  </div>
+  <section class="sidebar">
+		<nav>
+			<ul>
+				<li><a href="/birdie-ui/" on:click={() => isOpenSide = false}>Welcome</a></li>
+				<li><a href="/birdie-ui/instalation" on:click={() => isOpenSide = false}>Installation</a></li>
 				<li><a href="">Components</a>
-                    <ul>
-                        <li><a href="" on:click={() => isOpenSide = false}>Alerts</a></li>
-                        <li><a href="/accordions" on:click={() => isOpenSide = false}>Accordions</a></li>
-                        <li><a href="/buttons" on:click={() => isOpenSide = false}>Buttons</a></li>
-                        <li><a href="/cards" on:click={() => isOpenSide = false}>Cards</a></li>
-						<li><a href="/datatables" on:click={() => isOpenSide = false}>DataTables</a></li>
-						<li><a href="/dropdowns" on:click={() => isOpenSide = false}>Dropdowns</a></li>
-                        <li><a href="/forms"on:click={() => isOpenSide = false}>Forms</a></li>
+					<ul>
+						<li><a href="/birdie-ui/alerts" on:click={() => isOpenSide = false}>Alerts</a></li>
+            <li><a href="/birdie-ui/accordions" on:click={() => isOpenSide = false}>Accordions</a></li>
+            <li><a href="/birdie-ui/buttons" on:click={() => isOpenSide = false}>Buttons</a></li>
+            <li><a href="/birdie-ui/cards" on:click={() => isOpenSide = false}>Cards</a></li>
+						<li><a href="/birdie-ui/datatables" on:click={() => isOpenSide = false}>DataTables</a></li>
+						<li><a href="/birdie-ui/dropdowns" on:click={() => isOpenSide = false}>Dropdowns</a></li>
+            <li><a href="/birdie-ui/forms"on:click={() => isOpenSide = false}>Forms</a></li>
 						<li><a href="/layouts" on:click={() => isOpenSide = false}>Layouts & Grids</a></li>						
 						<li><a href="/modals" on:click={() => isOpenSide = false}>Modals</a></li>
 						<li><a href="/tooltips" on:click={() => isOpenSide = false}>Tooltip</a></li>
 						<li><a href="/typography" on:click={() => isOpenSide = false}>Typography</a></li>
-                    </ul>
-                </li>
-                
-            </ul>
-        </nav>
-    </section>
-  </aside>
+					</ul>
+				</li>
+			</ul>
+		</nav>
+	</section>
+</aside>
 
-  <style>
+<style>
 	#side-menu .menu-toggle {
 		display: block;
 		padding: .5em;
@@ -181,6 +179,5 @@
 	}
 	#side-menu .sidebar ul li:hover ul li a:hover {
 		background: #2e2e2e
-	}
-   
+	}   
 </style>

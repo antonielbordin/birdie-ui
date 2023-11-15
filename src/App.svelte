@@ -11,14 +11,17 @@
 <Sidebar />
 
 <Router>		
-  <Route path="/" component="{Home}" />
-  <Route path="/instalation">
+  <Route path="/birdie-ui/" component="{Home}" />
+  <Route path="/birdie-ui/instalation">
     <Content page="instalation" />
   </Route>  
-  <Route path="/accordions">
+  <Route path="/birdie-ui/alerts">
+     <p>Under development</p>
+  </Route>
+  <Route path="/birdie-ui/accordions">
     <Content page="accordions" />
   </Route>
-  <Route path="/buttons">
+  <Route path="/birdie-ui/buttons">
     <Content page="buttons" />
   </Route>
   <Route path="/cards">

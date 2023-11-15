@@ -5,5 +5,5 @@ import { svelte } from '@sveltejs/vite-plugin-svelte'
 export default defineConfig({
   base: '/birdie-ui/',
   plugins: [svelte()],
-  build: { outDir: "./docs" }
+  build: { outDir: "./dist" }
 })

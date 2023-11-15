@@ -12,7 +12,7 @@
             </header>            
             <section class="actions">
                 <span class="npm-install">npm install birdie-ui </span>
-                <a href="/instalation" class="get-started bi-no-decoration">Get started </a>
+                <a href="/birdie-ui/instalation" class="get-started bi-no-decoration">Get started </a>
             </section>
         </div>        
     </div>
