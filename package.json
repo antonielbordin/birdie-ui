@@ -2,10 +2,12 @@
     "name": "birdie-ui",
     "version": "1.0.0",
     "description": "Birdie UI is a library of UI components that you can use to start any web project",
-    "main": "index.js",
+    "main": "dist/birdie-ui-svelte.js",
+    "module": "dist/birdie-ui-svelte.mjs",
+    "svelte": "./svelte.js",
     "scripts": {
         "prepare": "grunt release",
-        "prepublishOnly": "npm run build"
+        "build": "rollup -c"
     },
     "repository": {
         "type": "git",
@@ -30,7 +32,11 @@
         "grunt-contrib-cssmin": "^4.0.0",
         "grunt-contrib-uglify": "^5.2.2",
         "grunt-contrib-watch": "^1.0.0",
-        "postcss": "^8.4.8"
+        "postcss": "^8.4.8",         
+        "rollup": "^1.28.0",
+        "rollup-plugin-node-resolve": "^5.2.0",
+        "rollup-plugin-svelte": "^6.1.1",
+        "svelte": "^3.16.7"
     },
     "browser": "dist/birdie-ui.min.css",
     "style": "dist/birdie-ui.css",
@@ -40,11 +46,12 @@
         "responsive",
         "front-end",
         "framework",
+        "web-component",
         "web"
     ],
     "author": {
         "name": "Antoniel Bordin",
-        "email": "antonielbordin@hotmail.com"
+        "email": "antoniel@stilosdesign.com.br"
     },
     "license": "MIT"
 }
