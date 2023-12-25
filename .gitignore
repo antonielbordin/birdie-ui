@@ -2,9 +2,6 @@
 .nyc_output/
 artifacts/
 build/
-dist
-/dist
-dist/
 coverage/
 node_modules
 node_modules/

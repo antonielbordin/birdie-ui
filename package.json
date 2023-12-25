@@ -7,7 +7,7 @@
     "svelte": "./svelte.js",
     "scripts": {
         "prepare": "grunt release",
-        "build": "rollup -c"
+        "to-svelte": "rollup -c"
     },
     "repository": {
         "type": "git",
@@ -51,7 +51,7 @@
     ],
     "author": {
         "name": "Antoniel Bordin",
-        "email": "antoniel@stilosdesign.com.br"
+        "email": "birdie-ui@stilosdesign.com.br"
     },
     "license": "MIT"
 }
