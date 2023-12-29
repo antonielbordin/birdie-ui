@@ -1,5 +1,3 @@
-<svelte:options tag="bi-button" />
-
 <script>
   import { createEventDispatcher } from "svelte";
   export let text = '';
@@ -39,7 +37,7 @@
 </button>
 
 <style>
-    /** ------------------------------- 
+  /** ------------------------------- 
   --       Birdie Buttons          --
   -------------------------------- */
   /** Birdie Button reset comportament in browser */ 

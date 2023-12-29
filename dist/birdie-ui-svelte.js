@@ -5,6 +5,12 @@
 }(this, (function (exports) { 'use strict';
 
     function noop() { }
+    function assign(tar, src) {
+        // @ts-ignore
+        for (const k in src)
+            tar[k] = src[k];
+        return tar;
+    }
     function run(fn) {
         return fn();
     }
@@ -23,8 +29,76 @@
     function is_empty(obj) {
         return Object.keys(obj).length === 0;
     }
+    function create_slot(definition, ctx, $$scope, fn) {
+        if (definition) {
+            const slot_ctx = get_slot_context(definition, ctx, $$scope, fn);
+            return definition[0](slot_ctx);
+        }
+    }
+    function get_slot_context(definition, ctx, $$scope, fn) {
+        return definition[1] && fn
+            ? assign($$scope.ctx.slice(), definition[1](fn(ctx)))
+            : $$scope.ctx;
+    }
+    function get_slot_changes(definition, $$scope, dirty, fn) {
+        if (definition[2] && fn) {
+            const lets = definition[2](fn(dirty));
+            if ($$scope.dirty === undefined) {
+                return lets;
+            }
+            if (typeof lets === 'object') {
+                const merged = [];
+                const len = Math.max($$scope.dirty.length, lets.length);
+                for (let i = 0; i < len; i += 1) {
+                    merged[i] = $$scope.dirty[i] | lets[i];
+                }
+                return merged;
+            }
+            return $$scope.dirty | lets;
+        }
+        return $$scope.dirty;
+    }
+    function update_slot_base(slot, slot_definition, ctx, $$scope, slot_changes, get_slot_context_fn) {
+        if (slot_changes) {
+            const slot_context = get_slot_context(slot_definition, ctx, $$scope, get_slot_context_fn);
+            slot.p(slot_context, slot_changes);
+        }
+    }
+    function get_all_dirty_from_scope($$scope) {
+        if ($$scope.ctx.length > 32) {
+            const dirty = [];
+            const length = $$scope.ctx.length / 32;
+            for (let i = 0; i < length; i++) {
+                dirty[i] = -1;
+            }
+            return dirty;
+        }
+        return -1;
+    }
     function append(target, node) {
         target.appendChild(node);
+    }
+    function append_styles(target, style_sheet_id, styles) {
+        const append_styles_to = get_root_for_style(target);
+        if (!append_styles_to.getElementById(style_sheet_id)) {
+            const style = element('style');
+            style.id = style_sheet_id;
+            style.textContent = styles;
+            append_stylesheet(append_styles_to, style);
+        }
+    }
+    function get_root_for_style(node) {
+        if (!node)
+            return document;
+        const root = node.getRootNode ? node.getRootNode() : node.ownerDocument;
+        if (root && root.host) {
+            return root;
+        }
+        return node.ownerDocument;
+    }
+    function append_stylesheet(node, style) {
+        append(node.head || node, style);
+        return style.sheet;
     }
     function insert(target, node, anchor) {
         target.insertBefore(node, anchor || null);
@@ -47,6 +121,12 @@
         node.addEventListener(event, handler, options);
         return () => node.removeEventListener(event, handler, options);
     }
+    function attr(node, attribute, value) {
+        if (value == null)
+            node.removeAttribute(attribute);
+        else if (node.getAttribute(attribute) !== value)
+            node.setAttribute(attribute, value);
+    }
     function children(element) {
         return Array.from(element.childNodes);
     }
@@ -63,13 +143,6 @@
         const e = document.createEvent('CustomEvent');
         e.initCustomEvent(type, bubbles, cancelable, detail);
         return e;
-    }
-    function attribute_to_object(attributes) {
-        const result = {};
-        for (const attribute of attributes) {
-            result[attribute.name] = attribute.value;
-        }
-        return result;
     }
 
     let current_component;
@@ -216,10 +289,30 @@
         render_callbacks = filtered;
     }
     const outroing = new Set();
+    let outros;
     function transition_in(block, local) {
         if (block && block.i) {
             outroing.delete(block);
             block.i(local);
+        }
+    }
+    function transition_out(block, local, detach, callback) {
+        if (block && block.o) {
+            if (outroing.has(block))
+                return;
+            outroing.add(block);
+            outros.c.push(() => {
+                outroing.delete(block);
+                if (callback) {
+                    if (detach)
+                        block.d(1);
+                    callback();
+                }
+            });
+            block.o(local);
+        }
+        else if (callback) {
+            callback();
         }
     }
     function mount_component(component, target, anchor, customElement) {
@@ -326,72 +419,58 @@
         }
         set_current_component(parent_component);
     }
-    let SvelteElement;
-    if (typeof HTMLElement === 'function') {
-        SvelteElement = class extends HTMLElement {
-            constructor() {
-                super();
-                this.attachShadow({ mode: 'open' });
+    /**
+     * Base class for Svelte components. Used when dev=false.
+     */
+    class SvelteComponent {
+        $destroy() {
+            destroy_component(this, 1);
+            this.$destroy = noop;
+        }
+        $on(type, callback) {
+            if (!is_function(callback)) {
+                return noop;
             }
-            connectedCallback() {
-                const { on_mount } = this.$$;
-                this.$$.on_disconnect = on_mount.map(run).filter(is_function);
-                // @ts-ignore todo: improve typings
-                for (const key in this.$$.slotted) {
-                    // @ts-ignore todo: improve typings
-                    this.appendChild(this.$$.slotted[key]);
-                }
+            const callbacks = (this.$$.callbacks[type] || (this.$$.callbacks[type] = []));
+            callbacks.push(callback);
+            return () => {
+                const index = callbacks.indexOf(callback);
+                if (index !== -1)
+                    callbacks.splice(index, 1);
+            };
+        }
+        $set($$props) {
+            if (this.$$set && !is_empty($$props)) {
+                this.$$.skip_bound = true;
+                this.$$set($$props);
+                this.$$.skip_bound = false;
             }
-            attributeChangedCallback(attr, _oldValue, newValue) {
-                this[attr] = newValue;
-            }
-            disconnectedCallback() {
-                run_all(this.$$.on_disconnect);
-            }
-            $destroy() {
-                destroy_component(this, 1);
-                this.$destroy = noop;
-            }
-            $on(type, callback) {
-                // TODO should this delegate to addEventListener?
-                if (!is_function(callback)) {
-                    return noop;
-                }
-                const callbacks = (this.$$.callbacks[type] || (this.$$.callbacks[type] = []));
-                callbacks.push(callback);
-                return () => {
-                    const index = callbacks.indexOf(callback);
-                    if (index !== -1)
-                        callbacks.splice(index, 1);
-                };
-            }
-            $set($$props) {
-                if (this.$$set && !is_empty($$props)) {
-                    this.$$.skip_bound = true;
-                    this.$$set($$props);
-                    this.$$.skip_bound = false;
-                }
-            }
-        };
+        }
     }
 
     /* src/components/svelte/birdie-buttons.svelte generated by Svelte v3.59.2 */
+
+    function add_css(target) {
+    	append_styles(target, "svelte-2qo8dn", ".bi-btn.svelte-2qo8dn,.bi-btn-primary.svelte-2qo8dn::-moz-focus-inner,.bi-btn-secondary.svelte-2qo8dn::-moz-focus-inner,.bi-btn-success.svelte-2qo8dn::-moz-focus-inner,.bi-btn-danger.svelte-2qo8dn::-moz-focus-inner,.bi-btn-warning.svelte-2qo8dn::-moz-focus-inner,.bi-btn-info.svelte-2qo8dn::-moz-focus-inner{border:none}.bi-btn.svelte-2qo8dn,.bi-btn-primary.svelte-2qo8dn,.bi-btn-secondary.svelte-2qo8dn,.bi-btn-success.svelte-2qo8dn,.bi-btn-danger.svelte-2qo8dn,.bi-btn-warning.svelte-2qo8dn,.bi-btn-info.svelte-2qo8dn,.bi-btn-text.svelte-2qo8dn,.bi-btn-link.svelte-2qo8dn{position:relative;display:inline-block;box-sizing:border-box;min-width:64px;padding:8px 12px;vertical-align:middle;text-align:center;text-overflow:ellipsis;text-transform:uppercase;text-decoration:none;font-size:14px;font-weight:500;line-height:16px;outline:none;border:none;cursor:pointer}.bi-btn-text.svelte-2qo8dn,.bi-btn-link.svelte-2qo8dn{padding:2px;background:none}.bi-btn.svelte-2qo8dn:hover,.bi-btn.svelte-2qo8dn:focus{box-shadow:inset 0 0 10px 5px rgba(143, 143, 143, 0.1)}.bi-btn-primary.svelte-2qo8dn:hover,.bi-btn-primary.svelte-2qo8dn:focus,.bi-btn-secondary.svelte-2qo8dn:hover,.bi-btn-secondary.svelte-2qo8dn:focus,.bi-btn-success.svelte-2qo8dn:hover,.bi-btn-success.svelte-2qo8dn:focus,.bi-btn-danger.svelte-2qo8dn:hover,.bi-btn-danger.svelte-2qo8dn:focus,.bi-btn-warning.svelte-2qo8dn:hover,.bi-btn-warning.svelte-2qo8dn:focus,.bi-btn-info.svelte-2qo8dn:hover,.bi-btn-info.svelte-2qo8dn:focus{box-shadow:inset 0 0 10px 5px rgba(80, 80, 80, 0.1)}.bi-btn-link.svelte-2qo8dn:hover,.bi-btn-link.svelte-2qo8dn:focus{color:#0275d8;transition:color 0.2s}.bi-btn.svelte-2qo8dn:disabled,.bi-btn-primary.svelte-2qo8dn:disabled,.bi-btn-secondary.svelte-2qo8dn:disabled,.bi-btn-success.svelte-2qo8dn:disabled,.bi-btn-danger.svelte-2qo8dn:disabled,.bi-btn-warning.svelte-2qo8dn:disabled,.bi-btn-info.svelte-2qo8dn:disabled,.bi-btn-disabled.svelte-2qo8dn{box-shadow:none;cursor:initial;opacity:0.6}.bi-btn.svelte-2qo8dn{color:rgba(0, 0, 0, 0.38);background-color:#f1f1f1}.bi-btn-primary.svelte-2qo8dn{color:#f7f7f7;background-color:#0275d8}.bi-btn-secondary.svelte-2qo8dn{color:#f7f7f7;background-color:#5bc0de}.bi-btn-success.svelte-2qo8dn{color:#f7f7f7;background-color:#5cb85c}.bi-btn-danger.svelte-2qo8dn{color:#f7f7f7;background-color:#d9534f}.bi-btn-warning.svelte-2qo8dn{color:#f7f7f7;background-color:#f0ad4e}.bi-btn-info.svelte-2qo8dn{color:#f7f7f7;background-color:#5bc0de}.bi-btn-text.svelte-2qo8dn{color:#545454}.bi-btn-link.svelte-2qo8dn{color:#0275d8}.bi-btn-small.svelte-2qo8dn{padding:3px 6px;font-size:12px}.bi-btn-large.svelte-2qo8dn{padding:12px 24px;font-size:16px}.bi-btn-full.svelte-2qo8dn{display:block}.bi-btn-round.svelte-2qo8dn{border-radius:4px}.bi-btn-circle.svelte-2qo8dn{width:60px;height:60px;padding:0;border-radius:50%}");
+    }
 
     function create_fragment(ctx) {
     	let button;
     	let t0;
     	let t1;
-    	let slot;
+    	let current;
     	let mounted;
     	let dispose;
+    	const default_slot_template = /*#slots*/ ctx[8].default;
+    	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[7], null);
 
     	return {
     		c() {
     			button = element("button");
     			t0 = text(/*text*/ ctx[0]);
     			t1 = space();
-    			slot = element("slot");
-    			this.c = noop;
+    			if (default_slot) default_slot.c();
+    			attr(button, "class", "svelte-2qo8dn");
     			toggle_class(button, "bi-btn", /*type*/ ctx[1] === 'default');
     			toggle_class(button, "bi-btn-primary", /*type*/ ctx[1] === 'primary');
     			toggle_class(button, "bi-btn-secondary", /*type*/ ctx[1] === 'secondary');
@@ -412,7 +491,12 @@
     			insert(target, button, anchor);
     			append(button, t0);
     			append(button, t1);
-    			append(button, slot);
+
+    			if (default_slot) {
+    				default_slot.m(button, null);
+    			}
+
+    			current = true;
 
     			if (!mounted) {
     				dispose = listen(button, "click", /*onClick*/ ctx[6]);
@@ -420,72 +504,95 @@
     			}
     		},
     		p(ctx, [dirty]) {
-    			if (dirty & /*text*/ 1) set_data(t0, /*text*/ ctx[0]);
+    			if (!current || dirty & /*text*/ 1) set_data(t0, /*text*/ ctx[0]);
 
-    			if (dirty & /*type*/ 2) {
+    			if (default_slot) {
+    				if (default_slot.p && (!current || dirty & /*$$scope*/ 128)) {
+    					update_slot_base(
+    						default_slot,
+    						default_slot_template,
+    						ctx,
+    						/*$$scope*/ ctx[7],
+    						!current
+    						? get_all_dirty_from_scope(/*$$scope*/ ctx[7])
+    						: get_slot_changes(default_slot_template, /*$$scope*/ ctx[7], dirty, null),
+    						null
+    					);
+    				}
+    			}
+
+    			if (!current || dirty & /*type*/ 2) {
     				toggle_class(button, "bi-btn", /*type*/ ctx[1] === 'default');
     			}
 
-    			if (dirty & /*type*/ 2) {
+    			if (!current || dirty & /*type*/ 2) {
     				toggle_class(button, "bi-btn-primary", /*type*/ ctx[1] === 'primary');
     			}
 
-    			if (dirty & /*type*/ 2) {
+    			if (!current || dirty & /*type*/ 2) {
     				toggle_class(button, "bi-btn-secondary", /*type*/ ctx[1] === 'secondary');
     			}
 
-    			if (dirty & /*type*/ 2) {
+    			if (!current || dirty & /*type*/ 2) {
     				toggle_class(button, "bi-btn-danger", /*type*/ ctx[1] === 'danger');
     			}
 
-    			if (dirty & /*type*/ 2) {
+    			if (!current || dirty & /*type*/ 2) {
     				toggle_class(button, "bi-btn-success", /*type*/ ctx[1] === 'success');
     			}
 
-    			if (dirty & /*type*/ 2) {
+    			if (!current || dirty & /*type*/ 2) {
     				toggle_class(button, "bi-btn-warning", /*type*/ ctx[1] === 'warning');
     			}
 
-    			if (dirty & /*type*/ 2) {
+    			if (!current || dirty & /*type*/ 2) {
     				toggle_class(button, "bi-btn-info", /*type*/ ctx[1] === 'info');
     			}
 
-    			if (dirty & /*type*/ 2) {
+    			if (!current || dirty & /*type*/ 2) {
     				toggle_class(button, "bi-btn-text", /*type*/ ctx[1] === 'text');
     			}
 
-    			if (dirty & /*type*/ 2) {
+    			if (!current || dirty & /*type*/ 2) {
     				toggle_class(button, "bi-btn-link", /*type*/ ctx[1] === 'link');
     			}
 
-    			if (dirty & /*size*/ 4) {
+    			if (!current || dirty & /*size*/ 4) {
     				toggle_class(button, "bi-btn-small", /*size*/ ctx[2] === 'small');
     			}
 
-    			if (dirty & /*size*/ 4) {
+    			if (!current || dirty & /*size*/ 4) {
     				toggle_class(button, "bi-btn-large", /*size*/ ctx[2] === 'large');
     			}
 
-    			if (dirty & /*size*/ 4) {
+    			if (!current || dirty & /*size*/ 4) {
     				toggle_class(button, "bi-btn-full", /*size*/ ctx[2] === 'full');
     			}
 
-    			if (dirty & /*rounded*/ 8) {
+    			if (!current || dirty & /*rounded*/ 8) {
     				toggle_class(button, "bi-btn-round", /*rounded*/ ctx[3]);
     			}
 
-    			if (dirty & /*circle*/ 16) {
+    			if (!current || dirty & /*circle*/ 16) {
     				toggle_class(button, "bi-btn-circle", /*circle*/ ctx[4]);
     			}
 
-    			if (dirty & /*disabled*/ 32) {
+    			if (!current || dirty & /*disabled*/ 32) {
     				toggle_class(button, "bi-btn-disabled", /*disabled*/ ctx[5]);
     			}
     		},
-    		i: noop,
-    		o: noop,
+    		i(local) {
+    			if (current) return;
+    			transition_in(default_slot, local);
+    			current = true;
+    		},
+    		o(local) {
+    			transition_out(default_slot, local);
+    			current = false;
+    		},
     		d(detaching) {
     			if (detaching) detach(button);
+    			if (default_slot) default_slot.d(detaching);
     			mounted = false;
     			dispose();
     		}
@@ -493,6 +600,7 @@
     }
 
     function instance($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
     	let { text = '' } = $$props;
     	let { type = 'default' } = $$props;
     	let { size = 'normal' } = $$props;
@@ -512,25 +620,19 @@
     		if ('rounded' in $$props) $$invalidate(3, rounded = $$props.rounded);
     		if ('circle' in $$props) $$invalidate(4, circle = $$props.circle);
     		if ('disabled' in $$props) $$invalidate(5, disabled = $$props.disabled);
+    		if ('$$scope' in $$props) $$invalidate(7, $$scope = $$props.$$scope);
     	};
 
-    	return [text, type, size, rounded, circle, disabled, onClick];
+    	return [text, type, size, rounded, circle, disabled, onClick, $$scope, slots];
     }
 
-    class Birdie_buttons extends SvelteElement {
+    class Birdie_buttons extends SvelteComponent {
     	constructor(options) {
     		super();
-    		const style = document.createElement('style');
-    		style.textContent = `.bi-btn,.bi-btn-primary::-moz-focus-inner,.bi-btn-secondary::-moz-focus-inner,.bi-btn-success::-moz-focus-inner,.bi-btn-danger::-moz-focus-inner,.bi-btn-warning::-moz-focus-inner,.bi-btn-info::-moz-focus-inner{border:none}.bi-btn,.bi-btn-primary,.bi-btn-secondary,.bi-btn-success,.bi-btn-danger,.bi-btn-warning,.bi-btn-info,.bi-btn-text,.bi-btn-link{position:relative;display:inline-block;box-sizing:border-box;min-width:64px;padding:8px 12px;vertical-align:middle;text-align:center;text-overflow:ellipsis;text-transform:uppercase;text-decoration:none;font-size:14px;font-weight:500;line-height:16px;outline:none;border:none;cursor:pointer}.bi-btn-text,.bi-btn-link{padding:2px;background:none}.bi-btn:hover,.bi-btn:focus{box-shadow:inset 0 0 10px 5px rgba(143, 143, 143, 0.1)}.bi-btn-primary:hover,.bi-btn-primary:focus,.bi-btn-secondary:hover,.bi-btn-secondary:focus,.bi-btn-success:hover,.bi-btn-success:focus,.bi-btn-danger:hover,.bi-btn-danger:focus,.bi-btn-warning:hover,.bi-btn-warning:focus,.bi-btn-info:hover,.bi-btn-info:focus{box-shadow:inset 0 0 10px 5px rgba(80, 80, 80, 0.1)}.bi-btn-link:hover,.bi-btn-link:focus{color:#0275d8;transition:color 0.2s}.bi-btn:disabled,.bi-btn-primary:disabled,.bi-btn-secondary:disabled,.bi-btn-success:disabled,.bi-btn-danger:disabled,.bi-btn-warning:disabled,.bi-btn-info:disabled,.bi-btn-disabled{box-shadow:none;cursor:initial;opacity:0.6}.bi-btn{color:rgba(0, 0, 0, 0.38);background-color:#f1f1f1}.bi-btn-primary{color:#f7f7f7;background-color:#0275d8}.bi-btn-secondary{color:#f7f7f7;background-color:#5bc0de}.bi-btn-success{color:#f7f7f7;background-color:#5cb85c}.bi-btn-danger{color:#f7f7f7;background-color:#d9534f}.bi-btn-warning{color:#f7f7f7;background-color:#f0ad4e}.bi-btn-info{color:#f7f7f7;background-color:#5bc0de}.bi-btn-text{color:#545454}.bi-btn-link{color:#0275d8}.bi-btn-small{padding:3px 6px;font-size:12px}.bi-btn-large{padding:12px 24px;font-size:16px}.bi-btn-full{display:block}.bi-btn-round{border-radius:4px}.bi-btn-circle{width:60px;height:60px;padding:0;border-radius:50%}`;
-    		this.shadowRoot.appendChild(style);
 
     		init(
     			this,
-    			{
-    				target: this.shadowRoot,
-    				props: attribute_to_object(this.attributes),
-    				customElement: true
-    			},
+    			options,
     			instance,
     			create_fragment,
     			safe_not_equal,
@@ -542,81 +644,10 @@
     				circle: 4,
     				disabled: 5
     			},
-    			null
+    			add_css
     		);
-
-    		if (options) {
-    			if (options.target) {
-    				insert(options.target, this, options.anchor);
-    			}
-
-    			if (options.props) {
-    				this.$set(options.props);
-    				flush();
-    			}
-    		}
-    	}
-
-    	static get observedAttributes() {
-    		return ["text", "type", "size", "rounded", "circle", "disabled"];
-    	}
-
-    	get text() {
-    		return this.$$.ctx[0];
-    	}
-
-    	set text(text) {
-    		this.$$set({ text });
-    		flush();
-    	}
-
-    	get type() {
-    		return this.$$.ctx[1];
-    	}
-
-    	set type(type) {
-    		this.$$set({ type });
-    		flush();
-    	}
-
-    	get size() {
-    		return this.$$.ctx[2];
-    	}
-
-    	set size(size) {
-    		this.$$set({ size });
-    		flush();
-    	}
-
-    	get rounded() {
-    		return this.$$.ctx[3];
-    	}
-
-    	set rounded(rounded) {
-    		this.$$set({ rounded });
-    		flush();
-    	}
-
-    	get circle() {
-    		return this.$$.ctx[4];
-    	}
-
-    	set circle(circle) {
-    		this.$$set({ circle });
-    		flush();
-    	}
-
-    	get disabled() {
-    		return this.$$.ctx[5];
-    	}
-
-    	set disabled(disabled) {
-    		this.$$set({ disabled });
-    		flush();
     	}
     }
-
-    customElements.define("bi-button", Birdie_buttons);
 
     exports.BiButton = Birdie_buttons;
 

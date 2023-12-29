@@ -15,7 +15,6 @@ export default {
 	],
 	plugins: [
 		svelte({
-			customElement: true,
 			css: true
 		}),
 		resolve()
