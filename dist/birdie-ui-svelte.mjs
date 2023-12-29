@@ -643,4 +643,4 @@ class Birdie_buttons extends SvelteComponent {
 	}
 }
 
-export { Birdie_buttons as BiButton };
+export default Birdie_buttons;
