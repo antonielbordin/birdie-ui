@@ -1,7 +1,8 @@
-(function (factory) {
-    typeof define === 'function' && define.amd ? define(factory) :
-    factory();
-}((function () { 'use strict';
+(function (global, factory) {
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
+    typeof define === 'function' && define.amd ? define(['exports'], factory) :
+    (global = global || self, factory(global.BirdieUi = {}));
+}(this, (function (exports) { 'use strict';
 
     function noop() { }
     function run(fn) {
@@ -616,5 +617,16 @@
     }
 
     customElements.define("bi-button", Birdie_buttons);
+
+    const BirdieUI = {
+      BiButton: Birdie_buttons
+    };
+    // export { default as BiButton } from './src/components/birdie-buttons.svelte'
+    // export * from './src/components/svelte/birdie-buttons.svelte'
+
+    exports.BiButton = Birdie_buttons;
+    exports.BirdieUI = BirdieUI;
+
+    Object.defineProperty(exports, '__esModule', { value: true });
 
 })));
