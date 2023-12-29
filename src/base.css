@@ -8,8 +8,8 @@ body {
    font-size: var(--bi-font-size);
    font-family: var(--bi-font-family);
    color: var(--bi-color-text);
-   background: #f6f6f6;
-	margin: 0;
-	padding: 0;	
+   background: #f6f6f6;		
    box-sizing: border-box;
+   margin: 0;
+	padding: 0;
 }

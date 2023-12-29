@@ -39,7 +39,7 @@
 </button>
 
 <style>
-  /** ------------------------------- 
+    /** ------------------------------- 
   --       Birdie Buttons          --
   -------------------------------- */
   /** Birdie Button reset comportament in browser */ 
