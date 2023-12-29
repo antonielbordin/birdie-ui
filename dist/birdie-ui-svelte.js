@@ -618,14 +618,7 @@
 
     customElements.define("bi-button", Birdie_buttons);
 
-    const BirdieUI = {
-      BiButton: Birdie_buttons
-    };
-    // export { default as BiButton } from './src/components/birdie-buttons.svelte'
-    // export * from './src/components/svelte/birdie-buttons.svelte'
-
     exports.BiButton = Birdie_buttons;
-    exports.BirdieUI = BirdieUI;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 

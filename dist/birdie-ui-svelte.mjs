@@ -612,10 +612,4 @@ class Birdie_buttons extends SvelteElement {
 
 customElements.define("bi-button", Birdie_buttons);
 
-const BirdieUI = {
-  BiButton: Birdie_buttons
-};
-// export { default as BiButton } from './src/components/birdie-buttons.svelte'
-// export * from './src/components/svelte/birdie-buttons.svelte'
-
-export { Birdie_buttons as BiButton, BirdieUI };
+export { Birdie_buttons as BiButton };
