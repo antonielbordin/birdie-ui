@@ -1,5 +1,5 @@
-import BiButton from './src/components/svelte/BiButton.svelte';
+import Button from './src/components/svelte/Button.svelte';
 
 export {
-  BiButton
+  Button
 }

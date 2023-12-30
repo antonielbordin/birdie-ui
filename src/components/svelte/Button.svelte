@@ -1,13 +1,33 @@
 <script>
   import { createEventDispatcher } from "svelte";
   export let text = '';
-  export let type = 'default';
-	export let size = 'normal';
+  export let primary = null;
+  export let secondary = null;
+  export let danger = null;
+  export let success = null;
+  export let warning = null;
+  export let info = null;
+  export let small = null;
+	export let large = null;
+  export let full = null;
 	export let rounded = false;
   export let circle = false;
   export let disabled = false;
 
+  let isDefault = false;
+  if (
+    !primary && 
+    !secondary && 
+    !danger && 
+    !success && 
+    !warning && 
+    !info) {
+    isDefault = true;
+  }
+
   const dispatch = createEventDispatcher();
+
+  const hasSlot = $$props.$$slots && $$props.$$slots !== undefined;
      
   function onClick(event) {
     dispatch("click", event);
@@ -15,18 +35,16 @@
 </script>
 
 <button
-  class:bi-btn={type === 'default'}
-  class:bi-btn-primary={type === 'primary'}
-  class:bi-btn-secondary={type === 'secondary'}
-  class:bi-btn-danger={type === 'danger'}
-  class:bi-btn-success={type === 'success'}
-  class:bi-btn-warning={type === 'warning'}
-  class:bi-btn-info={type === 'info'}
-  class:bi-btn-text={type === 'text'}
-  class:bi-btn-link={type === 'link'}
-  class:bi-btn-small={size === 'small'}
-  class:bi-btn-large={size === 'large'}
-  class:bi-btn-full={size === 'full'}
+  class:bi-btn={isDefault}
+  class:bi-btn-primary={primary !== null}
+  class:bi-btn-secondary={secondary !== null}
+  class:bi-btn-danger={danger !== null}
+  class:bi-btn-success={success !== null}
+  class:bi-btn-warning={warning !== null}
+  class:bi-btn-info={info !== null}
+  class:bi-btn-small={small !== null}
+  class:bi-btn-large={large !== null}
+  class:bi-btn-full={full !== null}
   class:bi-btn-round={rounded}
   class:bi-btn-circle={circle}
   class:bi-btn-disabled={disabled}
