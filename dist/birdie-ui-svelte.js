@@ -1,1 +1,825 @@
-var P=Object.create,m=Object.defineProperty,F=Object.getPrototypeOf,G=Object.prototype.hasOwnProperty,H=Object.getOwnPropertyNames,I=Object.getOwnPropertyDescriptor;var S=t=>m(t,"__esModule",{value:!0});var J=(t,n)=>{for(var b in n)m(t,b,{get:n[b],enumerable:!0})},K=(t,n,b)=>{if(n&&typeof n=="object"||typeof n=="function")for(let r of H(n))!G.call(t,r)&&r!=="default"&&m(t,r,{get:()=>n[r],enumerable:!(b=I(n,r))||b.enumerable});return t},B=t=>K(S(m(t!=null?P(F(t)):{},"default",t&&t.__esModule&&"default"in t?{get:()=>t.default,enumerable:!0}:{value:t,enumerable:!0})),t);S(exports);J(exports,{Button:()=>C});var e=B(require("svelte/internal"));var v=B(require("svelte/internal"));function O(){let t=(0,v.get_current_component)();return n=>{let b=Object.keys(t.$$.callbacks),r=[];return b.forEach(o=>r.push((0,v.listen)(n,o,a=>(0,v.bubble)(t,a)))),{destroy:()=>{r.forEach(o=>o())}}}}function L(t){(0,e.append_styles)(t,"svelte-nn0bvd",".bi-btn.svelte-nn0bvd,.bi-btn-primary.svelte-nn0bvd::-moz-focus-inner,.bi-btn-secondary.svelte-nn0bvd::-moz-focus-inner,.bi-btn-success.svelte-nn0bvd::-moz-focus-inner,.bi-btn-danger.svelte-nn0bvd::-moz-focus-inner,.bi-btn-warning.svelte-nn0bvd::-moz-focus-inner,.bi-btn-info.svelte-nn0bvd::-moz-focus-inner{border:none}.bi-btn.svelte-nn0bvd,.bi-btn-primary.svelte-nn0bvd,.bi-btn-secondary.svelte-nn0bvd,.bi-btn-success.svelte-nn0bvd,.bi-btn-danger.svelte-nn0bvd,.bi-btn-warning.svelte-nn0bvd,.bi-btn-info.svelte-nn0bvd{position:relative;display:inline-block;box-sizing:border-box;min-width:64px;padding:8px 12px;vertical-align:middle;text-align:center;text-overflow:ellipsis;text-transform:uppercase;text-decoration:none;font-size:14px;font-weight:500;line-height:16px;outline:none;border:none;cursor:pointer}.bi-btn.svelte-nn0bvd:hover,.bi-btn.svelte-nn0bvd:focus{box-shadow:inset 0 0 10px 5px rgba(143, 143, 143, 0.1)}.bi-btn-primary.svelte-nn0bvd:hover,.bi-btn-primary.svelte-nn0bvd:focus,.bi-btn-secondary.svelte-nn0bvd:hover,.bi-btn-secondary.svelte-nn0bvd:focus,.bi-btn-success.svelte-nn0bvd:hover,.bi-btn-success.svelte-nn0bvd:focus,.bi-btn-danger.svelte-nn0bvd:hover,.bi-btn-danger.svelte-nn0bvd:focus,.bi-btn-warning.svelte-nn0bvd:hover,.bi-btn-warning.svelte-nn0bvd:focus,.bi-btn-info.svelte-nn0bvd:hover,.bi-btn-info.svelte-nn0bvd:focus{box-shadow:inset 0 0 10px 5px rgba(80, 80, 80, 0.1)}.bi-btn.svelte-nn0bvd:disabled,.bi-btn-primary.svelte-nn0bvd:disabled,.bi-btn-secondary.svelte-nn0bvd:disabled,.bi-btn-success.svelte-nn0bvd:disabled,.bi-btn-danger.svelte-nn0bvd:disabled,.bi-btn-warning.svelte-nn0bvd:disabled,.bi-btn-info.svelte-nn0bvd:disabled,.bi-btn-disabled.svelte-nn0bvd{box-shadow:none;cursor:initial;opacity:0.6}.bi-btn.svelte-nn0bvd{color:rgba(0, 0, 0, 0.38);background-color:#f1f1f1}.bi-btn-primary.svelte-nn0bvd{color:#f7f7f7;background-color:#0275d8}.bi-btn-secondary.svelte-nn0bvd{color:#f7f7f7;background-color:#5bc0de}.bi-btn-success.svelte-nn0bvd{color:#f7f7f7;background-color:#5cb85c}.bi-btn-danger.svelte-nn0bvd{color:#f7f7f7;background-color:#d9534f}.bi-btn-warning.svelte-nn0bvd{color:#f7f7f7;background-color:#f0ad4e}.bi-btn-info.svelte-nn0bvd{color:#f7f7f7;background-color:#5bc0de}.bi-btn-small.svelte-nn0bvd{padding:3px 6px;font-size:12px}.bi-btn-large.svelte-nn0bvd{padding:12px 24px;font-size:16px}.bi-btn-full.svelte-nn0bvd{display:block}.bi-btn-round.svelte-nn0bvd{border-radius:4px}.bi-btn-circle.svelte-nn0bvd{width:60px;height:60px;padding:0;border-radius:50%}")}function M(t){let n,b,r,o,a,g,c=t[17].default,s=(0,e.create_slot)(c,t,t[16],null),f=[t[15],{type:b=t[12]?"submit":"button"}],u={};for(let l=0;l<f.length;l+=1)u=(0,e.assign)(u,f[l]);return{c(){n=(0,e.element)("button"),s&&s.c(),(0,e.set_attributes)(n,u),(0,e.toggle_class)(n,"bi-btn",t[13]),(0,e.toggle_class)(n,"bi-btn-primary",t[0]!==null),(0,e.toggle_class)(n,"bi-btn-secondary",t[1]!==null),(0,e.toggle_class)(n,"bi-btn-danger",t[2]!==null),(0,e.toggle_class)(n,"bi-btn-success",t[3]!==null),(0,e.toggle_class)(n,"bi-btn-warning",t[4]!==null),(0,e.toggle_class)(n,"bi-btn-info",t[5]!==null),(0,e.toggle_class)(n,"bi-btn-small",t[6]!==null),(0,e.toggle_class)(n,"bi-btn-large",t[7]!==null),(0,e.toggle_class)(n,"bi-btn-full",t[8]!==null),(0,e.toggle_class)(n,"bi-btn-round",t[9]),(0,e.toggle_class)(n,"bi-btn-circle",t[10]),(0,e.toggle_class)(n,"bi-btn-disabled",t[11]),(0,e.toggle_class)(n,"svelte-nn0bvd",!0)},m(l,d){(0,e.insert)(l,n,d),s&&s.m(n,null),n.autofocus&&n.focus(),o=!0,a||(g=(0,e.action_destroyer)(r=t[14].call(null,n)),a=!0)},p(l,[d]){s&&s.p&&(!o||d&65536)&&(0,e.update_slot_base)(s,c,l,l[16],o?(0,e.get_slot_changes)(c,l[16],d,null):(0,e.get_all_dirty_from_scope)(l[16]),null),(0,e.set_attributes)(n,u=(0,e.get_spread_update)(f,[d&32768&&l[15],(!o||d&4096&&b!==(b=l[12]?"submit":"button"))&&{type:b}])),(0,e.toggle_class)(n,"bi-btn",l[13]),(0,e.toggle_class)(n,"bi-btn-primary",l[0]!==null),(0,e.toggle_class)(n,"bi-btn-secondary",l[1]!==null),(0,e.toggle_class)(n,"bi-btn-danger",l[2]!==null),(0,e.toggle_class)(n,"bi-btn-success",l[3]!==null),(0,e.toggle_class)(n,"bi-btn-warning",l[4]!==null),(0,e.toggle_class)(n,"bi-btn-info",l[5]!==null),(0,e.toggle_class)(n,"bi-btn-small",l[6]!==null),(0,e.toggle_class)(n,"bi-btn-large",l[7]!==null),(0,e.toggle_class)(n,"bi-btn-full",l[8]!==null),(0,e.toggle_class)(n,"bi-btn-round",l[9]),(0,e.toggle_class)(n,"bi-btn-circle",l[10]),(0,e.toggle_class)(n,"bi-btn-disabled",l[11]),(0,e.toggle_class)(n,"svelte-nn0bvd",!0)},i(l){o||((0,e.transition_in)(s,l),o=!0)},o(l){(0,e.transition_out)(s,l),o=!1},d(l){l&&(0,e.detach)(n),s&&s.d(l),a=!1,g()}}}function N(t,n,b){let r=["primary","secondary","danger","success","warning","info","small","large","full","rounded","circle","disabled","submit"],o=(0,e.compute_rest_props)(n,r),{$$slots:a={},$$scope:g}=n,{primary:c=null}=n,{secondary:s=null}=n,{danger:f=null}=n,{success:u=null}=n,{warning:l=null}=n,{info:d=null}=n,{small:y=null}=n,{large:h=null}=n,{full:k=null}=n,{rounded:z=!1}=n,{circle:_=!1}=n,{disabled:A=!1}=n,{submit:E=!1}=n,j=!1;!c&&!s&&!f&&!u&&!l&&!d&&(j=!0);let D=O(),Q=n.$$slots&&n.$$slots!==void 0;return t.$$set=i=>{b(19,n=(0,e.assign)((0,e.assign)({},n),(0,e.exclude_internal_props)(i))),b(15,o=(0,e.compute_rest_props)(n,r)),"primary"in i&&b(0,c=i.primary),"secondary"in i&&b(1,s=i.secondary),"danger"in i&&b(2,f=i.danger),"success"in i&&b(3,u=i.success),"warning"in i&&b(4,l=i.warning),"info"in i&&b(5,d=i.info),"small"in i&&b(6,y=i.small),"large"in i&&b(7,h=i.large),"full"in i&&b(8,k=i.full),"rounded"in i&&b(9,z=i.rounded),"circle"in i&&b(10,_=i.circle),"disabled"in i&&b(11,A=i.disabled),"submit"in i&&b(12,E=i.submit),"$$scope"in i&&b(16,g=i.$$scope)},n=(0,e.exclude_internal_props)(n),[c,s,f,u,l,d,y,h,k,z,_,A,E,j,D,o,g,a]}var q=class extends e.SvelteComponent{constructor(n){super();(0,e.init)(this,n,N,M,e.safe_not_equal,{primary:0,secondary:1,danger:2,success:3,warning:4,info:5,small:6,large:7,full:8,rounded:9,circle:10,disabled:11,submit:12},L)}},C=q;
+(function (global, factory) {
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
+    typeof define === 'function' && define.amd ? define(['exports'], factory) :
+    (global = global || self, factory(global.BirdieUi = {}));
+}(this, (function (exports) { 'use strict';
+
+    function noop() { }
+    function assign(tar, src) {
+        // @ts-ignore
+        for (const k in src)
+            tar[k] = src[k];
+        return tar;
+    }
+    function run(fn) {
+        return fn();
+    }
+    function blank_object() {
+        return Object.create(null);
+    }
+    function run_all(fns) {
+        fns.forEach(run);
+    }
+    function is_function(thing) {
+        return typeof thing === 'function';
+    }
+    function safe_not_equal(a, b) {
+        return a != a ? b == b : a !== b || ((a && typeof a === 'object') || typeof a === 'function');
+    }
+    function is_empty(obj) {
+        return Object.keys(obj).length === 0;
+    }
+    function create_slot(definition, ctx, $$scope, fn) {
+        if (definition) {
+            const slot_ctx = get_slot_context(definition, ctx, $$scope, fn);
+            return definition[0](slot_ctx);
+        }
+    }
+    function get_slot_context(definition, ctx, $$scope, fn) {
+        return definition[1] && fn
+            ? assign($$scope.ctx.slice(), definition[1](fn(ctx)))
+            : $$scope.ctx;
+    }
+    function get_slot_changes(definition, $$scope, dirty, fn) {
+        if (definition[2] && fn) {
+            const lets = definition[2](fn(dirty));
+            if ($$scope.dirty === undefined) {
+                return lets;
+            }
+            if (typeof lets === 'object') {
+                const merged = [];
+                const len = Math.max($$scope.dirty.length, lets.length);
+                for (let i = 0; i < len; i += 1) {
+                    merged[i] = $$scope.dirty[i] | lets[i];
+                }
+                return merged;
+            }
+            return $$scope.dirty | lets;
+        }
+        return $$scope.dirty;
+    }
+    function update_slot_base(slot, slot_definition, ctx, $$scope, slot_changes, get_slot_context_fn) {
+        if (slot_changes) {
+            const slot_context = get_slot_context(slot_definition, ctx, $$scope, get_slot_context_fn);
+            slot.p(slot_context, slot_changes);
+        }
+    }
+    function get_all_dirty_from_scope($$scope) {
+        if ($$scope.ctx.length > 32) {
+            const dirty = [];
+            const length = $$scope.ctx.length / 32;
+            for (let i = 0; i < length; i++) {
+                dirty[i] = -1;
+            }
+            return dirty;
+        }
+        return -1;
+    }
+    function exclude_internal_props(props) {
+        const result = {};
+        for (const k in props)
+            if (k[0] !== '$')
+                result[k] = props[k];
+        return result;
+    }
+    function append(target, node) {
+        target.appendChild(node);
+    }
+    function append_styles(target, style_sheet_id, styles) {
+        const append_styles_to = get_root_for_style(target);
+        if (!append_styles_to.getElementById(style_sheet_id)) {
+            const style = element('style');
+            style.id = style_sheet_id;
+            style.textContent = styles;
+            append_stylesheet(append_styles_to, style);
+        }
+    }
+    function get_root_for_style(node) {
+        if (!node)
+            return document;
+        const root = node.getRootNode ? node.getRootNode() : node.ownerDocument;
+        if (root && root.host) {
+            return root;
+        }
+        return node.ownerDocument;
+    }
+    function append_stylesheet(node, style) {
+        append(node.head || node, style);
+        return style.sheet;
+    }
+    function insert(target, node, anchor) {
+        target.insertBefore(node, anchor || null);
+    }
+    function detach(node) {
+        if (node.parentNode) {
+            node.parentNode.removeChild(node);
+        }
+    }
+    function element(name) {
+        return document.createElement(name);
+    }
+    function text(data) {
+        return document.createTextNode(data);
+    }
+    function listen(node, event, handler, options) {
+        node.addEventListener(event, handler, options);
+        return () => node.removeEventListener(event, handler, options);
+    }
+    function attr(node, attribute, value) {
+        if (value == null)
+            node.removeAttribute(attribute);
+        else if (node.getAttribute(attribute) !== value)
+            node.setAttribute(attribute, value);
+    }
+    /**
+     * List of attributes that should always be set through the attr method,
+     * because updating them through the property setter doesn't work reliably.
+     * In the example of `width`/`height`, the problem is that the setter only
+     * accepts numeric values, but the attribute can also be set to a string like `50%`.
+     * If this list becomes too big, rethink this approach.
+     */
+    const always_set_through_set_attribute = ['width', 'height'];
+    function set_attributes(node, attributes) {
+        // @ts-ignore
+        const descriptors = Object.getOwnPropertyDescriptors(node.__proto__);
+        for (const key in attributes) {
+            if (attributes[key] == null) {
+                node.removeAttribute(key);
+            }
+            else if (key === 'style') {
+                node.style.cssText = attributes[key];
+            }
+            else if (key === '__value') {
+                node.value = node[key] = attributes[key];
+            }
+            else if (descriptors[key] && descriptors[key].set && always_set_through_set_attribute.indexOf(key) === -1) {
+                node[key] = attributes[key];
+            }
+            else {
+                attr(node, key, attributes[key]);
+            }
+        }
+    }
+    function children(element) {
+        return Array.from(element.childNodes);
+    }
+    function set_data(text, data) {
+        data = '' + data;
+        if (text.data === data)
+            return;
+        text.data = data;
+    }
+    function toggle_class(element, name, toggle) {
+        element.classList[toggle ? 'add' : 'remove'](name);
+    }
+
+    let current_component;
+    function set_current_component(component) {
+        current_component = component;
+    }
+    // TODO figure out if we still want to support
+    // shorthand events, or if we want to implement
+    // a real bubbling mechanism
+    function bubble(component, event) {
+        const callbacks = component.$$.callbacks[event.type];
+        if (callbacks) {
+            // @ts-ignore
+            callbacks.slice().forEach(fn => fn.call(this, event));
+        }
+    }
+
+    const dirty_components = [];
+    const binding_callbacks = [];
+    let render_callbacks = [];
+    const flush_callbacks = [];
+    const resolved_promise = /* @__PURE__ */ Promise.resolve();
+    let update_scheduled = false;
+    function schedule_update() {
+        if (!update_scheduled) {
+            update_scheduled = true;
+            resolved_promise.then(flush);
+        }
+    }
+    function add_render_callback(fn) {
+        render_callbacks.push(fn);
+    }
+    // flush() calls callbacks in this order:
+    // 1. All beforeUpdate callbacks, in order: parents before children
+    // 2. All bind:this callbacks, in reverse order: children before parents.
+    // 3. All afterUpdate callbacks, in order: parents before children. EXCEPT
+    //    for afterUpdates called during the initial onMount, which are called in
+    //    reverse order: children before parents.
+    // Since callbacks might update component values, which could trigger another
+    // call to flush(), the following steps guard against this:
+    // 1. During beforeUpdate, any updated components will be added to the
+    //    dirty_components array and will cause a reentrant call to flush(). Because
+    //    the flush index is kept outside the function, the reentrant call will pick
+    //    up where the earlier call left off and go through all dirty components. The
+    //    current_component value is saved and restored so that the reentrant call will
+    //    not interfere with the "parent" flush() call.
+    // 2. bind:this callbacks cannot trigger new flush() calls.
+    // 3. During afterUpdate, any updated components will NOT have their afterUpdate
+    //    callback called a second time; the seen_callbacks set, outside the flush()
+    //    function, guarantees this behavior.
+    const seen_callbacks = new Set();
+    let flushidx = 0; // Do *not* move this inside the flush() function
+    function flush() {
+        // Do not reenter flush while dirty components are updated, as this can
+        // result in an infinite loop. Instead, let the inner flush handle it.
+        // Reentrancy is ok afterwards for bindings etc.
+        if (flushidx !== 0) {
+            return;
+        }
+        const saved_component = current_component;
+        do {
+            // first, call beforeUpdate functions
+            // and update components
+            try {
+                while (flushidx < dirty_components.length) {
+                    const component = dirty_components[flushidx];
+                    flushidx++;
+                    set_current_component(component);
+                    update(component.$$);
+                }
+            }
+            catch (e) {
+                // reset dirty state to not end up in a deadlocked state and then rethrow
+                dirty_components.length = 0;
+                flushidx = 0;
+                throw e;
+            }
+            set_current_component(null);
+            dirty_components.length = 0;
+            flushidx = 0;
+            while (binding_callbacks.length)
+                binding_callbacks.pop()();
+            // then, once components are updated, call
+            // afterUpdate functions. This may cause
+            // subsequent updates...
+            for (let i = 0; i < render_callbacks.length; i += 1) {
+                const callback = render_callbacks[i];
+                if (!seen_callbacks.has(callback)) {
+                    // ...so guard against infinite loops
+                    seen_callbacks.add(callback);
+                    callback();
+                }
+            }
+            render_callbacks.length = 0;
+        } while (dirty_components.length);
+        while (flush_callbacks.length) {
+            flush_callbacks.pop()();
+        }
+        update_scheduled = false;
+        seen_callbacks.clear();
+        set_current_component(saved_component);
+    }
+    function update($$) {
+        if ($$.fragment !== null) {
+            $$.update();
+            run_all($$.before_update);
+            const dirty = $$.dirty;
+            $$.dirty = [-1];
+            $$.fragment && $$.fragment.p($$.ctx, dirty);
+            $$.after_update.forEach(add_render_callback);
+        }
+    }
+    /**
+     * Useful for example to execute remaining `afterUpdate` callbacks before executing `destroy`.
+     */
+    function flush_render_callbacks(fns) {
+        const filtered = [];
+        const targets = [];
+        render_callbacks.forEach((c) => fns.indexOf(c) === -1 ? filtered.push(c) : targets.push(c));
+        targets.forEach((c) => c());
+        render_callbacks = filtered;
+    }
+    const outroing = new Set();
+    let outros;
+    function group_outros() {
+        outros = {
+            r: 0,
+            c: [],
+            p: outros // parent group
+        };
+    }
+    function check_outros() {
+        if (!outros.r) {
+            run_all(outros.c);
+        }
+        outros = outros.p;
+    }
+    function transition_in(block, local) {
+        if (block && block.i) {
+            outroing.delete(block);
+            block.i(local);
+        }
+    }
+    function transition_out(block, local, detach, callback) {
+        if (block && block.o) {
+            if (outroing.has(block))
+                return;
+            outroing.add(block);
+            outros.c.push(() => {
+                outroing.delete(block);
+                if (callback) {
+                    if (detach)
+                        block.d(1);
+                    callback();
+                }
+            });
+            block.o(local);
+        }
+        else if (callback) {
+            callback();
+        }
+    }
+
+    function get_spread_update(levels, updates) {
+        const update = {};
+        const to_null_out = {};
+        const accounted_for = { $$scope: 1 };
+        let i = levels.length;
+        while (i--) {
+            const o = levels[i];
+            const n = updates[i];
+            if (n) {
+                for (const key in o) {
+                    if (!(key in n))
+                        to_null_out[key] = 1;
+                }
+                for (const key in n) {
+                    if (!accounted_for[key]) {
+                        update[key] = n[key];
+                        accounted_for[key] = 1;
+                    }
+                }
+                levels[i] = n;
+            }
+            else {
+                for (const key in o) {
+                    accounted_for[key] = 1;
+                }
+            }
+        }
+        for (const key in to_null_out) {
+            if (!(key in update))
+                update[key] = undefined;
+        }
+        return update;
+    }
+    function mount_component(component, target, anchor, customElement) {
+        const { fragment, after_update } = component.$$;
+        fragment && fragment.m(target, anchor);
+        if (!customElement) {
+            // onMount happens before the initial afterUpdate
+            add_render_callback(() => {
+                const new_on_destroy = component.$$.on_mount.map(run).filter(is_function);
+                // if the component was destroyed immediately
+                // it will update the `$$.on_destroy` reference to `null`.
+                // the destructured on_destroy may still reference to the old array
+                if (component.$$.on_destroy) {
+                    component.$$.on_destroy.push(...new_on_destroy);
+                }
+                else {
+                    // Edge case - component was destroyed immediately,
+                    // most likely as a result of a binding initialising
+                    run_all(new_on_destroy);
+                }
+                component.$$.on_mount = [];
+            });
+        }
+        after_update.forEach(add_render_callback);
+    }
+    function destroy_component(component, detaching) {
+        const $$ = component.$$;
+        if ($$.fragment !== null) {
+            flush_render_callbacks($$.after_update);
+            run_all($$.on_destroy);
+            $$.fragment && $$.fragment.d(detaching);
+            // TODO null out other refs, including component.$$ (but need to
+            // preserve final state?)
+            $$.on_destroy = $$.fragment = null;
+            $$.ctx = [];
+        }
+    }
+    function make_dirty(component, i) {
+        if (component.$$.dirty[0] === -1) {
+            dirty_components.push(component);
+            schedule_update();
+            component.$$.dirty.fill(0);
+        }
+        component.$$.dirty[(i / 31) | 0] |= (1 << (i % 31));
+    }
+    function init(component, options, instance, create_fragment, not_equal, props, append_styles, dirty = [-1]) {
+        const parent_component = current_component;
+        set_current_component(component);
+        const $$ = component.$$ = {
+            fragment: null,
+            ctx: [],
+            // state
+            props,
+            update: noop,
+            not_equal,
+            bound: blank_object(),
+            // lifecycle
+            on_mount: [],
+            on_destroy: [],
+            on_disconnect: [],
+            before_update: [],
+            after_update: [],
+            context: new Map(options.context || (parent_component ? parent_component.$$.context : [])),
+            // everything else
+            callbacks: blank_object(),
+            dirty,
+            skip_bound: false,
+            root: options.target || parent_component.$$.root
+        };
+        append_styles && append_styles($$.root);
+        let ready = false;
+        $$.ctx = instance
+            ? instance(component, options.props || {}, (i, ret, ...rest) => {
+                const value = rest.length ? rest[0] : ret;
+                if ($$.ctx && not_equal($$.ctx[i], $$.ctx[i] = value)) {
+                    if (!$$.skip_bound && $$.bound[i])
+                        $$.bound[i](value);
+                    if (ready)
+                        make_dirty(component, i);
+                }
+                return ret;
+            })
+            : [];
+        $$.update();
+        ready = true;
+        run_all($$.before_update);
+        // `false` as a special case of no DOM component
+        $$.fragment = create_fragment ? create_fragment($$.ctx) : false;
+        if (options.target) {
+            if (options.hydrate) {
+                const nodes = children(options.target);
+                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                $$.fragment && $$.fragment.l(nodes);
+                nodes.forEach(detach);
+            }
+            else {
+                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                $$.fragment && $$.fragment.c();
+            }
+            if (options.intro)
+                transition_in(component.$$.fragment);
+            mount_component(component, options.target, options.anchor, options.customElement);
+            flush();
+        }
+        set_current_component(parent_component);
+    }
+    /**
+     * Base class for Svelte components. Used when dev=false.
+     */
+    class SvelteComponent {
+        $destroy() {
+            destroy_component(this, 1);
+            this.$destroy = noop;
+        }
+        $on(type, callback) {
+            if (!is_function(callback)) {
+                return noop;
+            }
+            const callbacks = (this.$$.callbacks[type] || (this.$$.callbacks[type] = []));
+            callbacks.push(callback);
+            return () => {
+                const index = callbacks.indexOf(callback);
+                if (index !== -1)
+                    callbacks.splice(index, 1);
+            };
+        }
+        $set($$props) {
+            if (this.$$set && !is_empty($$props)) {
+                this.$$.skip_bound = true;
+                this.$$set($$props);
+                this.$$.skip_bound = false;
+            }
+        }
+    }
+
+    /* src/components/svelte/Button.svelte generated by Svelte v3.59.2 */
+
+    function add_css(target) {
+    	append_styles(target, "svelte-nn0bvd", ".bi-btn.svelte-nn0bvd,.bi-btn-primary.svelte-nn0bvd::-moz-focus-inner,.bi-btn-secondary.svelte-nn0bvd::-moz-focus-inner,.bi-btn-success.svelte-nn0bvd::-moz-focus-inner,.bi-btn-danger.svelte-nn0bvd::-moz-focus-inner,.bi-btn-warning.svelte-nn0bvd::-moz-focus-inner,.bi-btn-info.svelte-nn0bvd::-moz-focus-inner{border:none}.bi-btn.svelte-nn0bvd,.bi-btn-primary.svelte-nn0bvd,.bi-btn-secondary.svelte-nn0bvd,.bi-btn-success.svelte-nn0bvd,.bi-btn-danger.svelte-nn0bvd,.bi-btn-warning.svelte-nn0bvd,.bi-btn-info.svelte-nn0bvd{position:relative;display:inline-block;box-sizing:border-box;min-width:64px;padding:8px 12px;vertical-align:middle;text-align:center;text-overflow:ellipsis;text-transform:uppercase;text-decoration:none;font-size:14px;font-weight:500;line-height:16px;outline:none;border:none;cursor:pointer}.bi-btn.svelte-nn0bvd:hover,.bi-btn.svelte-nn0bvd:focus{box-shadow:inset 0 0 10px 5px rgba(143, 143, 143, 0.1)}.bi-btn-primary.svelte-nn0bvd:hover,.bi-btn-primary.svelte-nn0bvd:focus,.bi-btn-secondary.svelte-nn0bvd:hover,.bi-btn-secondary.svelte-nn0bvd:focus,.bi-btn-success.svelte-nn0bvd:hover,.bi-btn-success.svelte-nn0bvd:focus,.bi-btn-danger.svelte-nn0bvd:hover,.bi-btn-danger.svelte-nn0bvd:focus,.bi-btn-warning.svelte-nn0bvd:hover,.bi-btn-warning.svelte-nn0bvd:focus,.bi-btn-info.svelte-nn0bvd:hover,.bi-btn-info.svelte-nn0bvd:focus{box-shadow:inset 0 0 10px 5px rgba(80, 80, 80, 0.1)}.bi-btn.svelte-nn0bvd:disabled,.bi-btn-primary.svelte-nn0bvd:disabled,.bi-btn-secondary.svelte-nn0bvd:disabled,.bi-btn-success.svelte-nn0bvd:disabled,.bi-btn-danger.svelte-nn0bvd:disabled,.bi-btn-warning.svelte-nn0bvd:disabled,.bi-btn-info.svelte-nn0bvd:disabled,.bi-btn-disabled.svelte-nn0bvd{box-shadow:none;cursor:initial;opacity:0.6}.bi-btn.svelte-nn0bvd{color:rgba(0, 0, 0, 0.38);background-color:#f1f1f1}.bi-btn-primary.svelte-nn0bvd{color:#f7f7f7;background-color:#0275d8}.bi-btn-secondary.svelte-nn0bvd{color:#f7f7f7;background-color:#5bc0de}.bi-btn-success.svelte-nn0bvd{color:#f7f7f7;background-color:#5cb85c}.bi-btn-danger.svelte-nn0bvd{color:#f7f7f7;background-color:#d9534f}.bi-btn-warning.svelte-nn0bvd{color:#f7f7f7;background-color:#f0ad4e}.bi-btn-info.svelte-nn0bvd{color:#f7f7f7;background-color:#5bc0de}.bi-btn-small.svelte-nn0bvd{padding:3px 6px;font-size:12px}.bi-btn-large.svelte-nn0bvd{padding:12px 24px;font-size:16px}.bi-btn-full.svelte-nn0bvd{display:block}.bi-btn-round.svelte-nn0bvd{border-radius:4px}.bi-btn-circle.svelte-nn0bvd{width:60px;height:60px;padding:0;border-radius:50%}");
+    }
+
+    // (51:2) {:else}
+    function create_else_block(ctx) {
+    	let current;
+    	const default_slot_template = /*#slots*/ ctx[17].default;
+    	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[16], null);
+    	const default_slot_or_fallback = default_slot || fallback_block();
+
+    	return {
+    		c() {
+    			if (default_slot_or_fallback) default_slot_or_fallback.c();
+    		},
+    		m(target, anchor) {
+    			if (default_slot_or_fallback) {
+    				default_slot_or_fallback.m(target, anchor);
+    			}
+
+    			current = true;
+    		},
+    		p(ctx, dirty) {
+    			if (default_slot) {
+    				if (default_slot.p && (!current || dirty & /*$$scope*/ 65536)) {
+    					update_slot_base(
+    						default_slot,
+    						default_slot_template,
+    						ctx,
+    						/*$$scope*/ ctx[16],
+    						!current
+    						? get_all_dirty_from_scope(/*$$scope*/ ctx[16])
+    						: get_slot_changes(default_slot_template, /*$$scope*/ ctx[16], dirty, null),
+    						null
+    					);
+    				}
+    			}
+    		},
+    		i(local) {
+    			if (current) return;
+    			transition_in(default_slot_or_fallback, local);
+    			current = true;
+    		},
+    		o(local) {
+    			transition_out(default_slot_or_fallback, local);
+    			current = false;
+    		},
+    		d(detaching) {
+    			if (default_slot_or_fallback) default_slot_or_fallback.d(detaching);
+    		}
+    	};
+    }
+
+    // (49:2) {#if text}
+    function create_if_block(ctx) {
+    	let t;
+
+    	return {
+    		c() {
+    			t = text(/*text*/ ctx[0]);
+    		},
+    		m(target, anchor) {
+    			insert(target, t, anchor);
+    		},
+    		p(ctx, dirty) {
+    			if (dirty & /*text*/ 1) set_data(t, /*text*/ ctx[0]);
+    		},
+    		i: noop,
+    		o: noop,
+    		d(detaching) {
+    			if (detaching) detach(t);
+    		}
+    	};
+    }
+
+    // (52:10)        
+    function fallback_block(ctx) {
+    	let em;
+
+    	return {
+    		c() {
+    			em = element("em");
+    			em.textContent = "Button is empty";
+    		},
+    		m(target, anchor) {
+    			insert(target, em, anchor);
+    		},
+    		p: noop,
+    		d(detaching) {
+    			if (detaching) detach(em);
+    		}
+    	};
+    }
+
+    function create_fragment(ctx) {
+    	let button;
+    	let current_block_type_index;
+    	let if_block;
+    	let current;
+    	let mounted;
+    	let dispose;
+    	const if_block_creators = [create_if_block, create_else_block];
+    	const if_blocks = [];
+
+    	function select_block_type(ctx, dirty) {
+    		if (/*text*/ ctx[0]) return 0;
+    		return 1;
+    	}
+
+    	current_block_type_index = select_block_type(ctx);
+    	if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+    	let button_levels = [/*$$props*/ ctx[14]];
+    	let button_data = {};
+
+    	for (let i = 0; i < button_levels.length; i += 1) {
+    		button_data = assign(button_data, button_levels[i]);
+    	}
+
+    	return {
+    		c() {
+    			button = element("button");
+    			if_block.c();
+    			set_attributes(button, button_data);
+    			toggle_class(button, "bi-btn", /*isDefault*/ ctx[13]);
+    			toggle_class(button, "bi-btn-primary", /*primary*/ ctx[1] !== null);
+    			toggle_class(button, "bi-btn-secondary", /*secondary*/ ctx[2] !== null);
+    			toggle_class(button, "bi-btn-danger", /*danger*/ ctx[3] !== null);
+    			toggle_class(button, "bi-btn-success", /*success*/ ctx[4] !== null);
+    			toggle_class(button, "bi-btn-warning", /*warning*/ ctx[5] !== null);
+    			toggle_class(button, "bi-btn-info", /*info*/ ctx[6] !== null);
+    			toggle_class(button, "bi-btn-small", /*small*/ ctx[7] !== null);
+    			toggle_class(button, "bi-btn-large", /*large*/ ctx[8] !== null);
+    			toggle_class(button, "bi-btn-full", /*full*/ ctx[9] !== null);
+    			toggle_class(button, "bi-btn-round", /*rounded*/ ctx[10]);
+    			toggle_class(button, "bi-btn-circle", /*circle*/ ctx[11]);
+    			toggle_class(button, "bi-btn-disabled", /*disabled*/ ctx[12]);
+    			toggle_class(button, "svelte-nn0bvd", true);
+    		},
+    		m(target, anchor) {
+    			insert(target, button, anchor);
+    			if_blocks[current_block_type_index].m(button, null);
+    			if (button.autofocus) button.focus();
+    			current = true;
+
+    			if (!mounted) {
+    				dispose = listen(button, "click", /*click_handler*/ ctx[18]);
+    				mounted = true;
+    			}
+    		},
+    		p(ctx, [dirty]) {
+    			let previous_block_index = current_block_type_index;
+    			current_block_type_index = select_block_type(ctx);
+
+    			if (current_block_type_index === previous_block_index) {
+    				if_blocks[current_block_type_index].p(ctx, dirty);
+    			} else {
+    				group_outros();
+
+    				transition_out(if_blocks[previous_block_index], 1, 1, () => {
+    					if_blocks[previous_block_index] = null;
+    				});
+
+    				check_outros();
+    				if_block = if_blocks[current_block_type_index];
+
+    				if (!if_block) {
+    					if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+    					if_block.c();
+    				} else {
+    					if_block.p(ctx, dirty);
+    				}
+
+    				transition_in(if_block, 1);
+    				if_block.m(button, null);
+    			}
+
+    			set_attributes(button, button_data = get_spread_update(button_levels, [dirty & /*$$props*/ 16384 && /*$$props*/ ctx[14]]));
+    			toggle_class(button, "bi-btn", /*isDefault*/ ctx[13]);
+    			toggle_class(button, "bi-btn-primary", /*primary*/ ctx[1] !== null);
+    			toggle_class(button, "bi-btn-secondary", /*secondary*/ ctx[2] !== null);
+    			toggle_class(button, "bi-btn-danger", /*danger*/ ctx[3] !== null);
+    			toggle_class(button, "bi-btn-success", /*success*/ ctx[4] !== null);
+    			toggle_class(button, "bi-btn-warning", /*warning*/ ctx[5] !== null);
+    			toggle_class(button, "bi-btn-info", /*info*/ ctx[6] !== null);
+    			toggle_class(button, "bi-btn-small", /*small*/ ctx[7] !== null);
+    			toggle_class(button, "bi-btn-large", /*large*/ ctx[8] !== null);
+    			toggle_class(button, "bi-btn-full", /*full*/ ctx[9] !== null);
+    			toggle_class(button, "bi-btn-round", /*rounded*/ ctx[10]);
+    			toggle_class(button, "bi-btn-circle", /*circle*/ ctx[11]);
+    			toggle_class(button, "bi-btn-disabled", /*disabled*/ ctx[12]);
+    			toggle_class(button, "svelte-nn0bvd", true);
+    		},
+    		i(local) {
+    			if (current) return;
+    			transition_in(if_block);
+    			current = true;
+    		},
+    		o(local) {
+    			transition_out(if_block);
+    			current = false;
+    		},
+    		d(detaching) {
+    			if (detaching) detach(button);
+    			if_blocks[current_block_type_index].d();
+    			mounted = false;
+    			dispose();
+    		}
+    	};
+    }
+
+    function instance($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	let { text = undefined } = $$props;
+    	let { primary = null } = $$props;
+    	let { secondary = null } = $$props;
+    	let { danger = null } = $$props;
+    	let { success = null } = $$props;
+    	let { warning = null } = $$props;
+    	let { info = null } = $$props;
+    	let { small = null } = $$props;
+    	let { large = null } = $$props;
+    	let { full = null } = $$props;
+    	let { rounded = false } = $$props;
+    	let { circle = false } = $$props;
+    	let { disabled = false } = $$props;
+    	let { submit = false } = $$props;
+    	let isDefault = false;
+
+    	if (!primary && !secondary && !danger && !success && !warning && !info) {
+    		isDefault = true;
+    	}
+
+    	function click_handler(event) {
+    		bubble.call(this, $$self, event);
+    	}
+
+    	$$self.$$set = $$new_props => {
+    		$$invalidate(14, $$props = assign(assign({}, $$props), exclude_internal_props($$new_props)));
+    		if ('text' in $$new_props) $$invalidate(0, text = $$new_props.text);
+    		if ('primary' in $$new_props) $$invalidate(1, primary = $$new_props.primary);
+    		if ('secondary' in $$new_props) $$invalidate(2, secondary = $$new_props.secondary);
+    		if ('danger' in $$new_props) $$invalidate(3, danger = $$new_props.danger);
+    		if ('success' in $$new_props) $$invalidate(4, success = $$new_props.success);
+    		if ('warning' in $$new_props) $$invalidate(5, warning = $$new_props.warning);
+    		if ('info' in $$new_props) $$invalidate(6, info = $$new_props.info);
+    		if ('small' in $$new_props) $$invalidate(7, small = $$new_props.small);
+    		if ('large' in $$new_props) $$invalidate(8, large = $$new_props.large);
+    		if ('full' in $$new_props) $$invalidate(9, full = $$new_props.full);
+    		if ('rounded' in $$new_props) $$invalidate(10, rounded = $$new_props.rounded);
+    		if ('circle' in $$new_props) $$invalidate(11, circle = $$new_props.circle);
+    		if ('disabled' in $$new_props) $$invalidate(12, disabled = $$new_props.disabled);
+    		if ('submit' in $$new_props) $$invalidate(15, submit = $$new_props.submit);
+    		if ('$$scope' in $$new_props) $$invalidate(16, $$scope = $$new_props.$$scope);
+    	};
+
+    	$$props = exclude_internal_props($$props);
+
+    	return [
+    		text,
+    		primary,
+    		secondary,
+    		danger,
+    		success,
+    		warning,
+    		info,
+    		small,
+    		large,
+    		full,
+    		rounded,
+    		circle,
+    		disabled,
+    		isDefault,
+    		$$props,
+    		submit,
+    		$$scope,
+    		slots,
+    		click_handler
+    	];
+    }
+
+    class Button extends SvelteComponent {
+    	constructor(options) {
+    		super();
+
+    		init(
+    			this,
+    			options,
+    			instance,
+    			create_fragment,
+    			safe_not_equal,
+    			{
+    				text: 0,
+    				primary: 1,
+    				secondary: 2,
+    				danger: 3,
+    				success: 4,
+    				warning: 5,
+    				info: 6,
+    				small: 7,
+    				large: 8,
+    				full: 9,
+    				rounded: 10,
+    				circle: 11,
+    				disabled: 12,
+    				submit: 15
+    			},
+    			add_css
+    		);
+    	}
+    }
+
+    const BirdieUi = {
+      Button
+    };
+
+    exports.BirdieUi = BirdieUi;
+    exports.Button = Button;
+
+    Object.defineProperty(exports, '__esModule', { value: true });
+
+})));

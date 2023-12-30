@@ -1,6 +1,5 @@
 <script>
-  import {getEventsAction} from './utils';
-
+  export let text = undefined;
   export let primary = null;
   export let secondary = null;
   export let danger = null;
@@ -25,11 +24,7 @@
     !info) {
     isDefault = true;
   }
-
-  const events = getEventsAction();
-
-  const hasSlot = $$props.$$slots && $$props.$$slots !== undefined;
-     
+ 
 </script>
 
 <button
@@ -47,12 +42,17 @@
   class:bi-btn-circle={circle}
   class:bi-btn-disabled={disabled}
   
-  {...$$restProps}
-  use:events
+  {...$$props}
 
-  type={submit ? 'submit' : 'button'}
+  on:click
 >
-  <slot></slot>
+  {#if text}
+    {text}
+  {:else}
+    <slot>
+      <em>Button is empty</em>
+    </slot>
+  {/if}
 </button>
 
 <style>
