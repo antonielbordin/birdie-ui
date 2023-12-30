@@ -54,9 +54,5 @@
         "name": "Antoniel Bordin",
         "email": "birdie-ui@stilosdesign.com.br"
     },
-    "license": "MIT",
-    "exports": {
-        "./package.json": "./package.json",
-        "./BiButton": "../src/components/svelte/BiButton.svelte"
-    }
+    "license": "MIT"
 }
