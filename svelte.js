@@ -1,4 +1,4 @@
-import BiButton from './src/components/svelte/button'
+import BiButton from './src/components/svelte/BiButton.svelte';
 
 export {
   BiButton
