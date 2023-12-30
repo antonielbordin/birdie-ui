@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
-    typeof define === 'function' && define.amd ? define(factory) :
-    (global = global || self, global.BirdieUi = factory());
-}(this, (function () { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
+    typeof define === 'function' && define.amd ? define(['exports'], factory) :
+    (global = global || self, factory(global.BirdieUi = {}));
+}(this, (function (exports) { 'use strict';
 
     function noop() { }
     function assign(tar, src) {
@@ -75,33 +75,139 @@
         }
         return -1;
     }
-    function append(target, node) {
-        target.appendChild(node);
+
+    // Track which nodes are claimed during hydration. Unclaimed nodes can then be removed from the DOM
+    // at the end of hydration without touching the remaining nodes.
+    let is_hydrating = false;
+    function start_hydrating() {
+        is_hydrating = true;
     }
-    function append_styles(target, style_sheet_id, styles) {
-        const append_styles_to = get_root_for_style(target);
-        if (!append_styles_to.getElementById(style_sheet_id)) {
-            const style = element('style');
-            style.id = style_sheet_id;
-            style.textContent = styles;
-            append_stylesheet(append_styles_to, style);
+    function end_hydrating() {
+        is_hydrating = false;
+    }
+    function upper_bound(low, high, key, value) {
+        // Return first index of value larger than input value in the range [low, high)
+        while (low < high) {
+            const mid = low + ((high - low) >> 1);
+            if (key(mid) <= value) {
+                low = mid + 1;
+            }
+            else {
+                high = mid;
+            }
+        }
+        return low;
+    }
+    function init_hydrate(target) {
+        if (target.hydrate_init)
+            return;
+        target.hydrate_init = true;
+        // We know that all children have claim_order values since the unclaimed have been detached if target is not <head>
+        let children = target.childNodes;
+        // If target is <head>, there may be children without claim_order
+        if (target.nodeName === 'HEAD') {
+            const myChildren = [];
+            for (let i = 0; i < children.length; i++) {
+                const node = children[i];
+                if (node.claim_order !== undefined) {
+                    myChildren.push(node);
+                }
+            }
+            children = myChildren;
+        }
+        /*
+        * Reorder claimed children optimally.
+        * We can reorder claimed children optimally by finding the longest subsequence of
+        * nodes that are already claimed in order and only moving the rest. The longest
+        * subsequence of nodes that are claimed in order can be found by
+        * computing the longest increasing subsequence of .claim_order values.
+        *
+        * This algorithm is optimal in generating the least amount of reorder operations
+        * possible.
+        *
+        * Proof:
+        * We know that, given a set of reordering operations, the nodes that do not move
+        * always form an increasing subsequence, since they do not move among each other
+        * meaning that they must be already ordered among each other. Thus, the maximal
+        * set of nodes that do not move form a longest increasing subsequence.
+        */
+        // Compute longest increasing subsequence
+        // m: subsequence length j => index k of smallest value that ends an increasing subsequence of length j
+        const m = new Int32Array(children.length + 1);
+        // Predecessor indices + 1
+        const p = new Int32Array(children.length);
+        m[0] = -1;
+        let longest = 0;
+        for (let i = 0; i < children.length; i++) {
+            const current = children[i].claim_order;
+            // Find the largest subsequence length such that it ends in a value less than our current value
+            // upper_bound returns first greater value, so we subtract one
+            // with fast path for when we are on the current longest subsequence
+            const seqLen = ((longest > 0 && children[m[longest]].claim_order <= current) ? longest + 1 : upper_bound(1, longest, idx => children[m[idx]].claim_order, current)) - 1;
+            p[i] = m[seqLen] + 1;
+            const newLen = seqLen + 1;
+            // We can guarantee that current is the smallest value. Otherwise, we would have generated a longer sequence.
+            m[newLen] = i;
+            longest = Math.max(newLen, longest);
+        }
+        // The longest increasing subsequence of nodes (initially reversed)
+        const lis = [];
+        // The rest of the nodes, nodes that will be moved
+        const toMove = [];
+        let last = children.length - 1;
+        for (let cur = m[longest] + 1; cur != 0; cur = p[cur - 1]) {
+            lis.push(children[cur - 1]);
+            for (; last >= cur; last--) {
+                toMove.push(children[last]);
+            }
+            last--;
+        }
+        for (; last >= 0; last--) {
+            toMove.push(children[last]);
+        }
+        lis.reverse();
+        // We sort the nodes being moved to guarantee that their insertion order matches the claim order
+        toMove.sort((a, b) => a.claim_order - b.claim_order);
+        // Finally, we move the nodes
+        for (let i = 0, j = 0; i < toMove.length; i++) {
+            while (j < lis.length && toMove[i].claim_order >= lis[j].claim_order) {
+                j++;
+            }
+            const anchor = j < lis.length ? lis[j] : null;
+            target.insertBefore(toMove[i], anchor);
         }
     }
-    function get_root_for_style(node) {
-        if (!node)
-            return document;
-        const root = node.getRootNode ? node.getRootNode() : node.ownerDocument;
-        if (root && root.host) {
-            return root;
+    function append_hydration(target, node) {
+        if (is_hydrating) {
+            init_hydrate(target);
+            if ((target.actual_end_child === undefined) || ((target.actual_end_child !== null) && (target.actual_end_child.parentNode !== target))) {
+                target.actual_end_child = target.firstChild;
+            }
+            // Skip nodes of undefined ordering
+            while ((target.actual_end_child !== null) && (target.actual_end_child.claim_order === undefined)) {
+                target.actual_end_child = target.actual_end_child.nextSibling;
+            }
+            if (node !== target.actual_end_child) {
+                // We only insert if the ordering of this node should be modified or the parent node is not target
+                if (node.claim_order !== undefined || node.parentNode !== target) {
+                    target.insertBefore(node, target.actual_end_child);
+                }
+            }
+            else {
+                target.actual_end_child = node.nextSibling;
+            }
         }
-        return node.ownerDocument;
+        else if (node.parentNode !== target || node.nextSibling !== null) {
+            target.appendChild(node);
+        }
     }
-    function append_stylesheet(node, style) {
-        append(node.head || node, style);
-        return style.sheet;
-    }
-    function insert(target, node, anchor) {
-        target.insertBefore(node, anchor || null);
+    function insert_hydration(target, node, anchor) {
+        if (is_hydrating && !anchor) {
+            append_hydration(target, node);
+        }
+        else if (node.parentNode !== target || node.nextSibling != anchor) {
+            target.insertBefore(node, anchor || null);
+        }
     }
     function detach(node) {
         if (node.parentNode) {
@@ -129,6 +235,94 @@
     }
     function children(element) {
         return Array.from(element.childNodes);
+    }
+    function init_claim_info(nodes) {
+        if (nodes.claim_info === undefined) {
+            nodes.claim_info = { last_index: 0, total_claimed: 0 };
+        }
+    }
+    function claim_node(nodes, predicate, processNode, createNode, dontUpdateLastIndex = false) {
+        // Try to find nodes in an order such that we lengthen the longest increasing subsequence
+        init_claim_info(nodes);
+        const resultNode = (() => {
+            // We first try to find an element after the previous one
+            for (let i = nodes.claim_info.last_index; i < nodes.length; i++) {
+                const node = nodes[i];
+                if (predicate(node)) {
+                    const replacement = processNode(node);
+                    if (replacement === undefined) {
+                        nodes.splice(i, 1);
+                    }
+                    else {
+                        nodes[i] = replacement;
+                    }
+                    if (!dontUpdateLastIndex) {
+                        nodes.claim_info.last_index = i;
+                    }
+                    return node;
+                }
+            }
+            // Otherwise, we try to find one before
+            // We iterate in reverse so that we don't go too far back
+            for (let i = nodes.claim_info.last_index - 1; i >= 0; i--) {
+                const node = nodes[i];
+                if (predicate(node)) {
+                    const replacement = processNode(node);
+                    if (replacement === undefined) {
+                        nodes.splice(i, 1);
+                    }
+                    else {
+                        nodes[i] = replacement;
+                    }
+                    if (!dontUpdateLastIndex) {
+                        nodes.claim_info.last_index = i;
+                    }
+                    else if (replacement === undefined) {
+                        // Since we spliced before the last_index, we decrease it
+                        nodes.claim_info.last_index--;
+                    }
+                    return node;
+                }
+            }
+            // If we can't find any matching node, we create a new one
+            return createNode();
+        })();
+        resultNode.claim_order = nodes.claim_info.total_claimed;
+        nodes.claim_info.total_claimed += 1;
+        return resultNode;
+    }
+    function claim_element_base(nodes, name, attributes, create_element) {
+        return claim_node(nodes, (node) => node.nodeName === name, (node) => {
+            const remove = [];
+            for (let j = 0; j < node.attributes.length; j++) {
+                const attribute = node.attributes[j];
+                if (!attributes[attribute.name]) {
+                    remove.push(attribute.name);
+                }
+            }
+            remove.forEach(v => node.removeAttribute(v));
+            return undefined;
+        }, () => create_element(name));
+    }
+    function claim_element(nodes, name, attributes) {
+        return claim_element_base(nodes, name, attributes, element);
+    }
+    function claim_text(nodes, data) {
+        return claim_node(nodes, (node) => node.nodeType === 3, (node) => {
+            const dataStr = '' + data;
+            if (node.data.startsWith(dataStr)) {
+                if (node.data.length !== dataStr.length) {
+                    return node.splitText(dataStr.length);
+                }
+            }
+            else {
+                node.data = dataStr;
+            }
+        }, () => text(data), true // Text nodes should not update last index since it is likely not worth it to eliminate an increasing subsequence of actual elements
+        );
+    }
+    function claim_space(nodes) {
+        return claim_text(nodes, ' ');
     }
     function set_data(text, data) {
         data = '' + data;
@@ -403,6 +597,7 @@
         $$.fragment = create_fragment ? create_fragment($$.ctx) : false;
         if (options.target) {
             if (options.hydrate) {
+                start_hydrating();
                 const nodes = children(options.target);
                 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
                 $$.fragment && $$.fragment.l(nodes);
@@ -415,6 +610,7 @@
             if (options.intro)
                 transition_in(component.$$.fragment);
             mount_component(component, options.target, options.anchor, options.customElement);
+            end_hydrating();
             flush();
         }
         set_current_component(parent_component);
@@ -448,11 +644,37 @@
         }
     }
 
-    /* src/components/svelte/birdie-buttons.svelte generated by Svelte v3.59.2 */
+    function styleInject(css, ref) {
+      if ( ref === void 0 ) ref = {};
+      var insertAt = ref.insertAt;
 
-    function add_css(target) {
-    	append_styles(target, "svelte-2qo8dn", ".bi-btn.svelte-2qo8dn,.bi-btn-primary.svelte-2qo8dn::-moz-focus-inner,.bi-btn-secondary.svelte-2qo8dn::-moz-focus-inner,.bi-btn-success.svelte-2qo8dn::-moz-focus-inner,.bi-btn-danger.svelte-2qo8dn::-moz-focus-inner,.bi-btn-warning.svelte-2qo8dn::-moz-focus-inner,.bi-btn-info.svelte-2qo8dn::-moz-focus-inner{border:none}.bi-btn.svelte-2qo8dn,.bi-btn-primary.svelte-2qo8dn,.bi-btn-secondary.svelte-2qo8dn,.bi-btn-success.svelte-2qo8dn,.bi-btn-danger.svelte-2qo8dn,.bi-btn-warning.svelte-2qo8dn,.bi-btn-info.svelte-2qo8dn,.bi-btn-text.svelte-2qo8dn,.bi-btn-link.svelte-2qo8dn{position:relative;display:inline-block;box-sizing:border-box;min-width:64px;padding:8px 12px;vertical-align:middle;text-align:center;text-overflow:ellipsis;text-transform:uppercase;text-decoration:none;font-size:14px;font-weight:500;line-height:16px;outline:none;border:none;cursor:pointer}.bi-btn-text.svelte-2qo8dn,.bi-btn-link.svelte-2qo8dn{padding:2px;background:none}.bi-btn.svelte-2qo8dn:hover,.bi-btn.svelte-2qo8dn:focus{box-shadow:inset 0 0 10px 5px rgba(143, 143, 143, 0.1)}.bi-btn-primary.svelte-2qo8dn:hover,.bi-btn-primary.svelte-2qo8dn:focus,.bi-btn-secondary.svelte-2qo8dn:hover,.bi-btn-secondary.svelte-2qo8dn:focus,.bi-btn-success.svelte-2qo8dn:hover,.bi-btn-success.svelte-2qo8dn:focus,.bi-btn-danger.svelte-2qo8dn:hover,.bi-btn-danger.svelte-2qo8dn:focus,.bi-btn-warning.svelte-2qo8dn:hover,.bi-btn-warning.svelte-2qo8dn:focus,.bi-btn-info.svelte-2qo8dn:hover,.bi-btn-info.svelte-2qo8dn:focus{box-shadow:inset 0 0 10px 5px rgba(80, 80, 80, 0.1)}.bi-btn-link.svelte-2qo8dn:hover,.bi-btn-link.svelte-2qo8dn:focus{color:#0275d8;transition:color 0.2s}.bi-btn.svelte-2qo8dn:disabled,.bi-btn-primary.svelte-2qo8dn:disabled,.bi-btn-secondary.svelte-2qo8dn:disabled,.bi-btn-success.svelte-2qo8dn:disabled,.bi-btn-danger.svelte-2qo8dn:disabled,.bi-btn-warning.svelte-2qo8dn:disabled,.bi-btn-info.svelte-2qo8dn:disabled,.bi-btn-disabled.svelte-2qo8dn{box-shadow:none;cursor:initial;opacity:0.6}.bi-btn.svelte-2qo8dn{color:rgba(0, 0, 0, 0.38);background-color:#f1f1f1}.bi-btn-primary.svelte-2qo8dn{color:#f7f7f7;background-color:#0275d8}.bi-btn-secondary.svelte-2qo8dn{color:#f7f7f7;background-color:#5bc0de}.bi-btn-success.svelte-2qo8dn{color:#f7f7f7;background-color:#5cb85c}.bi-btn-danger.svelte-2qo8dn{color:#f7f7f7;background-color:#d9534f}.bi-btn-warning.svelte-2qo8dn{color:#f7f7f7;background-color:#f0ad4e}.bi-btn-info.svelte-2qo8dn{color:#f7f7f7;background-color:#5bc0de}.bi-btn-text.svelte-2qo8dn{color:#545454}.bi-btn-link.svelte-2qo8dn{color:#0275d8}.bi-btn-small.svelte-2qo8dn{padding:3px 6px;font-size:12px}.bi-btn-large.svelte-2qo8dn{padding:12px 24px;font-size:16px}.bi-btn-full.svelte-2qo8dn{display:block}.bi-btn-round.svelte-2qo8dn{border-radius:4px}.bi-btn-circle.svelte-2qo8dn{width:60px;height:60px;padding:0;border-radius:50%}");
+      if (!css || typeof document === 'undefined') { return; }
+
+      var head = document.head || document.getElementsByTagName('head')[0];
+      var style = document.createElement('style');
+      style.type = 'text/css';
+
+      if (insertAt === 'top') {
+        if (head.firstChild) {
+          head.insertBefore(style, head.firstChild);
+        } else {
+          head.appendChild(style);
+        }
+      } else {
+        head.appendChild(style);
+      }
+
+      if (style.styleSheet) {
+        style.styleSheet.cssText = css;
+      } else {
+        style.appendChild(document.createTextNode(css));
+      }
     }
+
+    var css_248z = ".bi-btn.svelte-2qo8dn,.bi-btn-primary.svelte-2qo8dn::-moz-focus-inner,.bi-btn-secondary.svelte-2qo8dn::-moz-focus-inner,.bi-btn-success.svelte-2qo8dn::-moz-focus-inner,.bi-btn-danger.svelte-2qo8dn::-moz-focus-inner,.bi-btn-warning.svelte-2qo8dn::-moz-focus-inner,.bi-btn-info.svelte-2qo8dn::-moz-focus-inner{border:none}.bi-btn.svelte-2qo8dn,.bi-btn-primary.svelte-2qo8dn,.bi-btn-secondary.svelte-2qo8dn,.bi-btn-success.svelte-2qo8dn,.bi-btn-danger.svelte-2qo8dn,.bi-btn-warning.svelte-2qo8dn,.bi-btn-info.svelte-2qo8dn,.bi-btn-text.svelte-2qo8dn,.bi-btn-link.svelte-2qo8dn{position:relative;display:inline-block;box-sizing:border-box;min-width:64px;padding:8px 12px;vertical-align:middle;text-align:center;text-overflow:ellipsis;text-transform:uppercase;text-decoration:none;font-size:14px;font-weight:500;line-height:16px;outline:none;border:none;cursor:pointer}.bi-btn-text.svelte-2qo8dn,.bi-btn-link.svelte-2qo8dn{padding:2px;background:none}.bi-btn.svelte-2qo8dn:hover,.bi-btn.svelte-2qo8dn:focus{box-shadow:inset 0 0 10px 5px rgba(143, 143, 143, 0.1)}.bi-btn-primary.svelte-2qo8dn:hover,.bi-btn-primary.svelte-2qo8dn:focus,.bi-btn-secondary.svelte-2qo8dn:hover,.bi-btn-secondary.svelte-2qo8dn:focus,.bi-btn-success.svelte-2qo8dn:hover,.bi-btn-success.svelte-2qo8dn:focus,.bi-btn-danger.svelte-2qo8dn:hover,.bi-btn-danger.svelte-2qo8dn:focus,.bi-btn-warning.svelte-2qo8dn:hover,.bi-btn-warning.svelte-2qo8dn:focus,.bi-btn-info.svelte-2qo8dn:hover,.bi-btn-info.svelte-2qo8dn:focus{box-shadow:inset 0 0 10px 5px rgba(80, 80, 80, 0.1)}.bi-btn-link.svelte-2qo8dn:hover,.bi-btn-link.svelte-2qo8dn:focus{color:#0275d8;transition:color 0.2s}.bi-btn.svelte-2qo8dn:disabled,.bi-btn-primary.svelte-2qo8dn:disabled,.bi-btn-secondary.svelte-2qo8dn:disabled,.bi-btn-success.svelte-2qo8dn:disabled,.bi-btn-danger.svelte-2qo8dn:disabled,.bi-btn-warning.svelte-2qo8dn:disabled,.bi-btn-info.svelte-2qo8dn:disabled,.bi-btn-disabled.svelte-2qo8dn{box-shadow:none;cursor:initial;opacity:0.6}.bi-btn.svelte-2qo8dn{color:rgba(0, 0, 0, 0.38);background-color:#f1f1f1}.bi-btn-primary.svelte-2qo8dn{color:#f7f7f7;background-color:#0275d8}.bi-btn-secondary.svelte-2qo8dn{color:#f7f7f7;background-color:#5bc0de}.bi-btn-success.svelte-2qo8dn{color:#f7f7f7;background-color:#5cb85c}.bi-btn-danger.svelte-2qo8dn{color:#f7f7f7;background-color:#d9534f}.bi-btn-warning.svelte-2qo8dn{color:#f7f7f7;background-color:#f0ad4e}.bi-btn-info.svelte-2qo8dn{color:#f7f7f7;background-color:#5bc0de}.bi-btn-text.svelte-2qo8dn{color:#545454}.bi-btn-link.svelte-2qo8dn{color:#0275d8}.bi-btn-small.svelte-2qo8dn{padding:3px 6px;font-size:12px}.bi-btn-large.svelte-2qo8dn{padding:12px 24px;font-size:16px}.bi-btn-full.svelte-2qo8dn{display:block}.bi-btn-round.svelte-2qo8dn{border-radius:4px}.bi-btn-circle.svelte-2qo8dn{width:60px;height:60px;padding:0;border-radius:50%}";
+    styleInject(css_248z);
+
+    /* src/components/svelte/button/birdie-button.svelte generated by Svelte v3.59.2 */
 
     function create_fragment(ctx) {
     	let button;
@@ -470,6 +692,18 @@
     			t0 = text(/*text*/ ctx[0]);
     			t1 = space();
     			if (default_slot) default_slot.c();
+    			this.h();
+    		},
+    		l(nodes) {
+    			button = claim_element(nodes, "BUTTON", { class: true });
+    			var button_nodes = children(button);
+    			t0 = claim_text(button_nodes, /*text*/ ctx[0]);
+    			t1 = claim_space(button_nodes);
+    			if (default_slot) default_slot.l(button_nodes);
+    			button_nodes.forEach(detach);
+    			this.h();
+    		},
+    		h() {
     			attr(button, "class", "svelte-2qo8dn");
     			toggle_class(button, "bi-btn", /*type*/ ctx[1] === 'default');
     			toggle_class(button, "bi-btn-primary", /*type*/ ctx[1] === 'primary');
@@ -488,9 +722,9 @@
     			toggle_class(button, "bi-btn-disabled", /*disabled*/ ctx[5]);
     		},
     		m(target, anchor) {
-    			insert(target, button, anchor);
-    			append(button, t0);
-    			append(button, t1);
+    			insert_hydration(target, button, anchor);
+    			append_hydration(button, t0);
+    			append_hydration(button, t1);
 
     			if (default_slot) {
     				default_slot.m(button, null);
@@ -626,29 +860,23 @@
     	return [text, type, size, rounded, circle, disabled, onClick, $$scope, slots];
     }
 
-    class Birdie_buttons extends SvelteComponent {
+    class Birdie_button extends SvelteComponent {
     	constructor(options) {
     		super();
 
-    		init(
-    			this,
-    			options,
-    			instance,
-    			create_fragment,
-    			safe_not_equal,
-    			{
-    				text: 0,
-    				type: 1,
-    				size: 2,
-    				rounded: 3,
-    				circle: 4,
-    				disabled: 5
-    			},
-    			add_css
-    		);
+    		init(this, options, instance, create_fragment, safe_not_equal, {
+    			text: 0,
+    			type: 1,
+    			size: 2,
+    			rounded: 3,
+    			circle: 4,
+    			disabled: 5
+    		});
     	}
     }
 
-    return Birdie_buttons;
+    exports.BiButton = Birdie_button;
+
+    Object.defineProperty(exports, '__esModule', { value: true });
 
 })));

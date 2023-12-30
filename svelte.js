@@ -1,3 +1,5 @@
-import BiButton from './src/components/svelte/birdie-buttons.svelte'
+import BiButton from './src/components/svelte/button'
 
-export default BiButton
+export {
+  BiButton
+}
