@@ -1,5 +1,6 @@
 <script>
-  import { createEventDispatcher } from "svelte";
+  import {getEventsAction} from './utils';
+
   export let primary = null;
   export let secondary = null;
   export let danger = null;
@@ -12,6 +13,7 @@
 	export let rounded = false;
   export let circle = false;
   export let disabled = false;
+  export let submit = false;
 
   let isDefault = false;
   if (
@@ -24,11 +26,10 @@
     isDefault = true;
   }
 
-  const dispatch = createEventDispatcher();
-  
-  function onClick(event) {
-    dispatch("click", event);
-  }     
+  const events = getEventsAction();
+
+  const hasSlot = $$props.$$slots && $$props.$$slots !== undefined;
+     
 </script>
 
 <button
@@ -45,7 +46,11 @@
   class:bi-btn-round={rounded}
   class:bi-btn-circle={circle}
   class:bi-btn-disabled={disabled}
-  on:click={onClick}
+  
+  {...$$restProps}
+  use:events
+
+  type={submit ? 'submit' : 'button'}
 >
   <slot></slot>
 </button>
