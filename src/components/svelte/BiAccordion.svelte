@@ -1,5 +1,3 @@
-<svelte:options tag="bi-accordion" />
-
 <script>
   import { createEventDispatcher } from "svelte";
   export let accordionType = 'single';
@@ -7,10 +5,7 @@
   const dispatch = createEventDispatcher();
 </script>
 
-<button>
-  {text}
-  <slot />
-</button>
+ 
 <!-- accordionSingle -->
 
 <div class="bi-accordion">

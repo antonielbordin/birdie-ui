@@ -1,19 +1,72 @@
 <script>
+  /**
+   * Indicates text for using in component.
+   * @type {string|undefined}
+   */
   export let text = undefined;
+  /**
+   * Indicates the component is primary type.
+   * @type {null|any}
+   */
   export let primary = null;
+  /**
+   * Indicates the component is secondary type.
+   * @type {null|any}
+   */
   export let secondary = null;
+  /**
+   * Indicates the component is danger type.
+   * @type {null|any}
+   */
   export let danger = null;
+  /**
+   * Indicates the component is success type.
+   * @type {null|any}
+   */
   export let success = null;
+  /**
+   * Indicates the component is warning type.
+   * @type {null|any}
+   */
   export let warning = null;
+  /**
+   * Indicates the component is info type.
+   * @type {null|any}
+   */
   export let info = null;
-  export let small = null;
-	export let large = null;
-  export let full = null;
+  /**
+   * Indicates the component is small type.
+   * @type {boolean}
+   */
+  export let small = false;
+  /**
+   * Indicates the component is large type.
+   * @type {boolean}
+   */
+	export let large = false;
+  /**
+   * Indicates the component is full type.
+   * @type {boolean}
+   */
+  export let full = false;
+  /**
+   * Indicates if the component using rounded .
+   * @type {boolean}
+   */
 	export let rounded = false;
+  /**
+   * Indicates if the component using circle .
+   * @type {boolean}
+   */
   export let circle = false;
+  /**
+   * Indicates if the component is disabled.
+   * @type {boolean}
+   */
   export let disabled = false;
 
   let isDefault = false;
+
   if (
     !primary && 
     !secondary && 
@@ -35,9 +88,9 @@
   class:bi-btn-success={success !== null}
   class:bi-btn-warning={warning !== null}
   class:bi-btn-info={info !== null}
-  class:bi-btn-small={small !== null}
-  class:bi-btn-large={large !== null}
-  class:bi-btn-full={full !== null}
+  class:bi-btn-small={small}
+  class:bi-btn-large={large}
+  class:bi-btn-full={full}
   class:bi-btn-round={rounded}
   class:bi-btn-circle={circle}
   class:bi-btn-disabled={disabled}  
@@ -120,7 +173,7 @@
   .bi-btn-info:disabled,
   .bi-btn-disabled {
     box-shadow: none;
-    cursor: initial;
+    cursor: not-allowed;
     opacity : 0.6;
   }
   /** Birdie Button Colors */
