@@ -1,6 +1,5 @@
 <script>
   import { createEventDispatcher } from "svelte";
-  export let text = '';
   export let primary = null;
   export let secondary = null;
   export let danger = null;
@@ -26,9 +25,7 @@
   }
 
   const dispatch = createEventDispatcher();
-
-  const hasSlot = $$props.$$slots && $$props.$$slots !== undefined;
-     
+  
   function onClick(event) {
     dispatch("click", event);
   }     
@@ -50,8 +47,7 @@
   class:bi-btn-disabled={disabled}
   on:click={onClick}
 >
-  {text}
-	<slot />
+  <slot></slot>
 </button>
 
 <style>
@@ -75,9 +71,7 @@
   .bi-btn-success,
   .bi-btn-danger,
   .bi-btn-warning,
-  .bi-btn-info,
-  .bi-btn-text,
-  .bi-btn-link {   
+  .bi-btn-info {   
     position: relative;
     display: inline-block;
     box-sizing: border-box;
@@ -94,12 +88,7 @@
     outline: none;
     border: none;
     cursor: pointer;   
-  }  
-  .bi-btn-text,
-  .bi-btn-link {
-    padding: 2px;
-    background: none; 
-  } 
+  }
   /** Birdie Button Hover and Focus */
   .bi-btn:hover,
   .bi-btn:focus {      
@@ -118,11 +107,6 @@
   .bi-btn-info:hover,
   .bi-btn-info:focus {      
     box-shadow: inset 0 0 10px 5px rgba(80, 80, 80, 0.1); 
-  }
-  .bi-btn-link:hover,
-  .bi-btn-link:focus {
-    color: #0275d8;
-    transition: color 0.2s;
   }
   /** Birdie Button Disabled */
   .bi-btn:disabled,
@@ -165,12 +149,6 @@
   .bi-btn-info {
     color: #f7f7f7;
     background-color: #5bc0de;
-  }
-  .bi-btn-text {
-    color: #545454; 
-  }
-  .bi-btn-link {
-    color: #0275d8;
   }
   /** Birdie Button Size and custom */
   .bi-btn-small {
