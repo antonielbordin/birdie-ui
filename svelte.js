@@ -1,9 +1,9 @@
-import Button from './src/components/svelte/Button.svelte';
+import BiButton from './src/components/svelte/BiButton.svelte';
 
 export {
-  Button
+  BiButton
 }
 
 export const BirdieUi = {
-  Button
+  BiButton
 }

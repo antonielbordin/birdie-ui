@@ -12,7 +12,6 @@
 	export let rounded = false;
   export let circle = false;
   export let disabled = false;
-  export let submit = false;
 
   let isDefault = false;
   if (
@@ -28,6 +27,7 @@
 </script>
 
 <button
+  {...$$props}
   class:bi-btn={isDefault}
   class:bi-btn-primary={primary !== null}
   class:bi-btn-secondary={secondary !== null}
@@ -40,10 +40,7 @@
   class:bi-btn-full={full !== null}
   class:bi-btn-round={rounded}
   class:bi-btn-circle={circle}
-  class:bi-btn-disabled={disabled}
-  
-  {...$$props}
-
+  class:bi-btn-disabled={disabled}  
   on:click
 >
   {#if text}
