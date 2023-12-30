@@ -7,7 +7,8 @@
     "svelte": "./svelte.js",
     "scripts": {
         "prepare": "grunt release",
-        "to-svelte": "rollup -c"
+        "to-svelte": "rollup -c",
+        "build": "node esbuild"
     },
     "repository": {
         "type": "git",
@@ -37,7 +38,9 @@
         "rollup-plugin-node-resolve": "^5.2.0",
         "rollup-plugin-postcss": "^4.0.2",
         "rollup-plugin-svelte": "^6.1.1",
-        "svelte": "^3.16.7"
+        "svelte": "^3.16.7",
+        "esbuild": "^0.8.31",
+        "esbuild-svelte": "^0.4.0"
     },
     "browser": "dist/birdie-ui.min.css",
     "style": "dist/birdie-ui.css",
