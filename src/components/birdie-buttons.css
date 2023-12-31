@@ -82,7 +82,7 @@
 .bi-btn-warning:disabled,
 .bi-btn-info:disabled {
    box-shadow: none;
-   cursor: initial;
+   cursor: not-allowed;
    opacity : 0.6;
 }
 

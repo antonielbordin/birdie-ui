@@ -71,5 +71,5 @@
 </button>
 
 <style>
-  @import '../birdie-buttons.css';
+
 </style>
