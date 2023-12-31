@@ -19,6 +19,7 @@ export default {
 	plugins: [
 		svelte({
 		  // preprocess: autoPreprocess()
+			customElement: true
 		}),
 		resolve(),
 		// css({

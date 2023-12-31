@@ -1,3 +1,4 @@
+<svelte:options tag="bi-button" />
 <script>
   /**
    * Indicates text for using in component.
@@ -10,7 +11,7 @@
    */
   export let type = '';
   /**
-   * Size of the component.
+   * Indicates size of the component.
    * @type {'small'|'large'|'full'|string}
    */
    export let size = '';  
@@ -39,7 +40,7 @@
     type !== "success" && 
     type !== "warning" && 
     type !== "info") {
-    isDefault = true;
+      isDefault = true;
   }
  
 </script>

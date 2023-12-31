@@ -23,52 +23,6 @@ function safe_not_equal(a, b) {
 function is_empty(obj) {
     return Object.keys(obj).length === 0;
 }
-function create_slot(definition, ctx, $$scope, fn) {
-    if (definition) {
-        const slot_ctx = get_slot_context(definition, ctx, $$scope, fn);
-        return definition[0](slot_ctx);
-    }
-}
-function get_slot_context(definition, ctx, $$scope, fn) {
-    return definition[1] && fn
-        ? assign($$scope.ctx.slice(), definition[1](fn(ctx)))
-        : $$scope.ctx;
-}
-function get_slot_changes(definition, $$scope, dirty, fn) {
-    if (definition[2] && fn) {
-        const lets = definition[2](fn(dirty));
-        if ($$scope.dirty === undefined) {
-            return lets;
-        }
-        if (typeof lets === 'object') {
-            const merged = [];
-            const len = Math.max($$scope.dirty.length, lets.length);
-            for (let i = 0; i < len; i += 1) {
-                merged[i] = $$scope.dirty[i] | lets[i];
-            }
-            return merged;
-        }
-        return $$scope.dirty | lets;
-    }
-    return $$scope.dirty;
-}
-function update_slot_base(slot, slot_definition, ctx, $$scope, slot_changes, get_slot_context_fn) {
-    if (slot_changes) {
-        const slot_context = get_slot_context(slot_definition, ctx, $$scope, get_slot_context_fn);
-        slot.p(slot_context, slot_changes);
-    }
-}
-function get_all_dirty_from_scope($$scope) {
-    if ($$scope.ctx.length > 32) {
-        const dirty = [];
-        const length = $$scope.ctx.length / 32;
-        for (let i = 0; i < length; i++) {
-            dirty[i] = -1;
-        }
-        return dirty;
-    }
-    return -1;
-}
 function exclude_internal_props(props) {
     const result = {};
     for (const k in props)
@@ -140,6 +94,13 @@ function set_data(text, data) {
 }
 function toggle_class(element, name, toggle) {
     element.classList[toggle ? 'add' : 'remove'](name);
+}
+function attribute_to_object(attributes) {
+    const result = {};
+    for (const attribute of attributes) {
+        result[attribute.name] = attribute.value;
+    }
+    return result;
 }
 
 let current_component;
@@ -263,43 +224,10 @@ function flush_render_callbacks(fns) {
     render_callbacks = filtered;
 }
 const outroing = new Set();
-let outros;
-function group_outros() {
-    outros = {
-        r: 0,
-        c: [],
-        p: outros // parent group
-    };
-}
-function check_outros() {
-    if (!outros.r) {
-        run_all(outros.c);
-    }
-    outros = outros.p;
-}
 function transition_in(block, local) {
     if (block && block.i) {
         outroing.delete(block);
         block.i(local);
-    }
-}
-function transition_out(block, local, detach, callback) {
-    if (block && block.o) {
-        if (outroing.has(block))
-            return;
-        outroing.add(block);
-        outros.c.push(() => {
-            outroing.delete(block);
-            if (callback) {
-                if (detach)
-                    block.d(1);
-                callback();
-            }
-        });
-        block.o(local);
-    }
-    else if (callback) {
-        callback();
     }
 }
 
@@ -440,86 +368,76 @@ function init(component, options, instance, create_fragment, not_equal, props, a
     }
     set_current_component(parent_component);
 }
-/**
- * Base class for Svelte components. Used when dev=false.
- */
-class SvelteComponent {
-    $destroy() {
-        destroy_component(this, 1);
-        this.$destroy = noop;
-    }
-    $on(type, callback) {
-        if (!is_function(callback)) {
-            return noop;
+let SvelteElement;
+if (typeof HTMLElement === 'function') {
+    SvelteElement = class extends HTMLElement {
+        constructor() {
+            super();
+            this.attachShadow({ mode: 'open' });
         }
-        const callbacks = (this.$$.callbacks[type] || (this.$$.callbacks[type] = []));
-        callbacks.push(callback);
-        return () => {
-            const index = callbacks.indexOf(callback);
-            if (index !== -1)
-                callbacks.splice(index, 1);
-        };
-    }
-    $set($$props) {
-        if (this.$$set && !is_empty($$props)) {
-            this.$$.skip_bound = true;
-            this.$$set($$props);
-            this.$$.skip_bound = false;
+        connectedCallback() {
+            const { on_mount } = this.$$;
+            this.$$.on_disconnect = on_mount.map(run).filter(is_function);
+            // @ts-ignore todo: improve typings
+            for (const key in this.$$.slotted) {
+                // @ts-ignore todo: improve typings
+                this.appendChild(this.$$.slotted[key]);
+            }
         }
-    }
+        attributeChangedCallback(attr, _oldValue, newValue) {
+            this[attr] = newValue;
+        }
+        disconnectedCallback() {
+            run_all(this.$$.on_disconnect);
+        }
+        $destroy() {
+            destroy_component(this, 1);
+            this.$destroy = noop;
+        }
+        $on(type, callback) {
+            // TODO should this delegate to addEventListener?
+            if (!is_function(callback)) {
+                return noop;
+            }
+            const callbacks = (this.$$.callbacks[type] || (this.$$.callbacks[type] = []));
+            callbacks.push(callback);
+            return () => {
+                const index = callbacks.indexOf(callback);
+                if (index !== -1)
+                    callbacks.splice(index, 1);
+            };
+        }
+        $set($$props) {
+            if (this.$$set && !is_empty($$props)) {
+                this.$$.skip_bound = true;
+                this.$$set($$props);
+                this.$$.skip_bound = false;
+            }
+        }
+    };
 }
 
 /* src/components/svelte/BiButton.svelte generated by Svelte v3.59.2 */
 
 function create_else_block(ctx) {
-	let current;
-	const default_slot_template = /*#slots*/ ctx[9].default;
-	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[8], null);
-	const default_slot_or_fallback = default_slot || fallback_block();
+	let slot;
 
 	return {
 		c() {
-			if (default_slot_or_fallback) default_slot_or_fallback.c();
+			slot = element("slot");
+			slot.innerHTML = `<em>Button is empty</em>`;
 		},
 		m(target, anchor) {
-			if (default_slot_or_fallback) {
-				default_slot_or_fallback.m(target, anchor);
-			}
-
-			current = true;
+			insert(target, slot, anchor);
 		},
-		p(ctx, dirty) {
-			if (default_slot) {
-				if (default_slot.p && (!current || dirty & /*$$scope*/ 256)) {
-					update_slot_base(
-						default_slot,
-						default_slot_template,
-						ctx,
-						/*$$scope*/ ctx[8],
-						!current
-						? get_all_dirty_from_scope(/*$$scope*/ ctx[8])
-						: get_slot_changes(default_slot_template, /*$$scope*/ ctx[8], dirty, null),
-						null
-					);
-				}
-			}
-		},
-		i(local) {
-			if (current) return;
-			transition_in(default_slot_or_fallback, local);
-			current = true;
-		},
-		o(local) {
-			transition_out(default_slot_or_fallback, local);
-			current = false;
-		},
+		p: noop,
 		d(detaching) {
-			if (default_slot_or_fallback) default_slot_or_fallback.d(detaching);
+			if (detaching) detach(slot);
 		}
 	};
 }
 
-// (64:2) {#if text}
+// (65:2) {#if text}
 function create_if_block(ctx) {
 	let t;
 
@@ -533,50 +451,24 @@ function create_if_block(ctx) {
 		p(ctx, dirty) {
 			if (dirty & /*text*/ 1) set_data(t, /*text*/ ctx[0]);
 		},
-		i: noop,
-		o: noop,
 		d(detaching) {
 			if (detaching) detach(t);
 		}
 	};
 }
 
-// (67:10)        
-function fallback_block(ctx) {
-	let em;
-
-	return {
-		c() {
-			em = element("em");
-			em.textContent = "Button is empty";
-		},
-		m(target, anchor) {
-			insert(target, em, anchor);
-		},
-		p: noop,
-		d(detaching) {
-			if (detaching) detach(em);
-		}
-	};
-}
-
 function create_fragment(ctx) {
 	let button;
-	let current_block_type_index;
-	let if_block;
-	let current;
 	let mounted;
 	let dispose;
-	const if_block_creators = [create_if_block, create_else_block];
-	const if_blocks = [];
 
 	function select_block_type(ctx, dirty) {
-		if (/*text*/ ctx[0]) return 0;
-		return 1;
+		if (/*text*/ ctx[0]) return create_if_block;
+		return create_else_block;
 	}
 
-	current_block_type_index = select_block_type(ctx);
-	if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+	let current_block_type = select_block_type(ctx);
+	let if_block = current_block_type(ctx);
 	let button_levels = [/*$$props*/ ctx[7]];
 	let button_data = {};
 
@@ -588,6 +480,7 @@ function create_fragment(ctx) {
 		c() {
 			button = element("button");
 			if_block.c();
+			this.c = noop;
 			set_attributes(button, button_data);
 			toggle_class(button, "bi-btn", /*isDefault*/ ctx[6]);
 			toggle_class(button, "bi-btn-primary", /*type*/ ctx[1] === "primary");
@@ -605,40 +498,25 @@ function create_fragment(ctx) {
 		},
 		m(target, anchor) {
 			insert(target, button, anchor);
-			if_blocks[current_block_type_index].m(button, null);
+			if_block.m(button, null);
 			if (button.autofocus) button.focus();
-			current = true;
 
 			if (!mounted) {
-				dispose = listen(button, "click", /*click_handler*/ ctx[10]);
+				dispose = listen(button, "click", /*click_handler*/ ctx[8]);
 				mounted = true;
 			}
 		},
 		p(ctx, [dirty]) {
-			let previous_block_index = current_block_type_index;
-			current_block_type_index = select_block_type(ctx);
-
-			if (current_block_type_index === previous_block_index) {
-				if_blocks[current_block_type_index].p(ctx, dirty);
+			if (current_block_type === (current_block_type = select_block_type(ctx)) && if_block) {
+				if_block.p(ctx, dirty);
 			} else {
-				group_outros();
+				if_block.d(1);
+				if_block = current_block_type(ctx);
 
-				transition_out(if_blocks[previous_block_index], 1, 1, () => {
-					if_blocks[previous_block_index] = null;
-				});
-
-				check_outros();
-				if_block = if_blocks[current_block_type_index];
-
-				if (!if_block) {
-					if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+				if (if_block) {
 					if_block.c();
-				} else {
-					if_block.p(ctx, dirty);
+					if_block.m(button, null);
 				}
-
-				transition_in(if_block, 1);
-				if_block.m(button, null);
 			}
 
 			set_attributes(button, button_data = get_spread_update(button_levels, [dirty & /*$$props*/ 128 && /*$$props*/ ctx[7]]));
@@ -656,18 +534,11 @@ function create_fragment(ctx) {
 			toggle_class(button, "bi-btn-circle", /*circle*/ ctx[4]);
 			toggle_class(button, "bi-btn-disabled", /*disabled*/ ctx[5]);
 		},
-		i(local) {
-			if (current) return;
-			transition_in(if_block);
-			current = true;
-		},
-		o(local) {
-			transition_out(if_block);
-			current = false;
-		},
+		i: noop,
+		o: noop,
 		d(detaching) {
 			if (detaching) detach(button);
-			if_blocks[current_block_type_index].d();
+			if_block.d();
 			mounted = false;
 			dispose();
 		}
@@ -675,7 +546,6 @@ function create_fragment(ctx) {
 }
 
 function instance($$self, $$props, $$invalidate) {
-	let { $$slots: slots = {}, $$scope } = $$props;
 	let { text = undefined } = $$props;
 	let { type = '' } = $$props;
 	let { size = '' } = $$props;
@@ -700,40 +570,109 @@ function instance($$self, $$props, $$invalidate) {
 		if ('rounded' in $$new_props) $$invalidate(3, rounded = $$new_props.rounded);
 		if ('circle' in $$new_props) $$invalidate(4, circle = $$new_props.circle);
 		if ('disabled' in $$new_props) $$invalidate(5, disabled = $$new_props.disabled);
-		if ('$$scope' in $$new_props) $$invalidate(8, $$scope = $$new_props.$$scope);
 	};
 
 	$$props = exclude_internal_props($$props);
-
-	return [
-		text,
-		type,
-		size,
-		rounded,
-		circle,
-		disabled,
-		isDefault,
-		$$props,
-		$$scope,
-		slots,
-		click_handler
-	];
+	return [text, type, size, rounded, circle, disabled, isDefault, $$props, click_handler];
 }
 
-class BiButton extends SvelteComponent {
+class BiButton extends SvelteElement {
 	constructor(options) {
 		super();
 
-		init(this, options, instance, create_fragment, safe_not_equal, {
-			text: 0,
-			type: 1,
-			size: 2,
-			rounded: 3,
-			circle: 4,
-			disabled: 5
-		});
+		init(
+			this,
+			{
+				target: this.shadowRoot,
+				props: attribute_to_object(this.attributes),
+				customElement: true
+			},
+			instance,
+			create_fragment,
+			safe_not_equal,
+			{
+				text: 0,
+				type: 1,
+				size: 2,
+				rounded: 3,
+				circle: 4,
+				disabled: 5
+			},
+			null
+		);
+
+		if (options) {
+			if (options.target) {
+				insert(options.target, this, options.anchor);
+			}
+
+			if (options.props) {
+				this.$set(options.props);
+				flush();
+			}
+		}
+	}
+
+	static get observedAttributes() {
+		return ["text", "type", "size", "rounded", "circle", "disabled"];
+	}
+
+	get text() {
+		return this.$$.ctx[0];
+	}
+
+	set text(text) {
+		this.$$set({ text });
+		flush();
+	}
+
+	get type() {
+		return this.$$.ctx[1];
+	}
+
+	set type(type) {
+		this.$$set({ type });
+		flush();
+	}
+
+	get size() {
+		return this.$$.ctx[2];
+	}
+
+	set size(size) {
+		this.$$set({ size });
+		flush();
+	}
+
+	get rounded() {
+		return this.$$.ctx[3];
+	}
+
+	set rounded(rounded) {
+		this.$$set({ rounded });
+		flush();
+	}
+
+	get circle() {
+		return this.$$.ctx[4];
+	}
+
+	set circle(circle) {
+		this.$$set({ circle });
+		flush();
+	}
+
+	get disabled() {
+		return this.$$.ctx[5];
+	}
+
+	set disabled(disabled) {
+		this.$$set({ disabled });
+		flush();
 	}
 }
+
+customElements.define("bi-button", BiButton);
 
 const BirdieUi = {
   BiButton
