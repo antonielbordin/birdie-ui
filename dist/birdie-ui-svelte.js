@@ -506,11 +506,11 @@
     	append_styles(target, "svelte-1uisckt", ".bi-btn.svelte-1uisckt,.bi-btn-primary.svelte-1uisckt::-moz-focus-inner,.bi-btn-secondary.svelte-1uisckt::-moz-focus-inner,.bi-btn-success.svelte-1uisckt::-moz-focus-inner,.bi-btn-danger.svelte-1uisckt::-moz-focus-inner,.bi-btn-warning.svelte-1uisckt::-moz-focus-inner,.bi-btn-info.svelte-1uisckt::-moz-focus-inner{border:none}.bi-btn.svelte-1uisckt,.bi-btn-primary.svelte-1uisckt,.bi-btn-secondary.svelte-1uisckt,.bi-btn-success.svelte-1uisckt,.bi-btn-danger.svelte-1uisckt,.bi-btn-warning.svelte-1uisckt,.bi-btn-info.svelte-1uisckt{position:relative;display:inline-block;box-sizing:border-box;min-width:64px;padding:8px 12px;vertical-align:middle;text-align:center;text-overflow:ellipsis;text-transform:uppercase;text-decoration:none;font-size:14px;font-weight:500;line-height:16px;outline:none;border:none;cursor:pointer}.bi-btn.svelte-1uisckt:hover,.bi-btn.svelte-1uisckt:focus{box-shadow:inset 0 0 10px 5px rgba(143, 143, 143, 0.1)}.bi-btn-primary.svelte-1uisckt:hover,.bi-btn-primary.svelte-1uisckt:focus,.bi-btn-secondary.svelte-1uisckt:hover,.bi-btn-secondary.svelte-1uisckt:focus,.bi-btn-success.svelte-1uisckt:hover,.bi-btn-success.svelte-1uisckt:focus,.bi-btn-danger.svelte-1uisckt:hover,.bi-btn-danger.svelte-1uisckt:focus,.bi-btn-warning.svelte-1uisckt:hover,.bi-btn-warning.svelte-1uisckt:focus,.bi-btn-info.svelte-1uisckt:hover,.bi-btn-info.svelte-1uisckt:focus{box-shadow:inset 0 0 10px 5px rgba(80, 80, 80, 0.1)}.bi-btn.svelte-1uisckt:disabled,.bi-btn-primary.svelte-1uisckt:disabled,.bi-btn-secondary.svelte-1uisckt:disabled,.bi-btn-success.svelte-1uisckt:disabled,.bi-btn-danger.svelte-1uisckt:disabled,.bi-btn-warning.svelte-1uisckt:disabled,.bi-btn-info.svelte-1uisckt:disabled,.bi-btn-disabled.svelte-1uisckt{box-shadow:none;cursor:not-allowed;opacity:0.6}.bi-btn.svelte-1uisckt{color:rgba(0, 0, 0, 0.38);background-color:#f1f1f1}.bi-btn-primary.svelte-1uisckt{color:#f7f7f7;background-color:#0275d8}.bi-btn-secondary.svelte-1uisckt{color:#f7f7f7;background-color:#5bc0de}.bi-btn-success.svelte-1uisckt{color:#f7f7f7;background-color:#5cb85c}.bi-btn-danger.svelte-1uisckt{color:#f7f7f7;background-color:#d9534f}.bi-btn-warning.svelte-1uisckt{color:#f7f7f7;background-color:#f0ad4e}.bi-btn-info.svelte-1uisckt{color:#f7f7f7;background-color:#5bc0de}.bi-btn-small.svelte-1uisckt{padding:3px 6px;font-size:12px}.bi-btn-large.svelte-1uisckt{padding:12px 24px;font-size:16px}.bi-btn-full.svelte-1uisckt{display:block}.bi-btn-round.svelte-1uisckt{border-radius:4px}.bi-btn-circle.svelte-1uisckt{width:60px;height:60px;padding:0;border-radius:50%}");
     }
 
-    // (101:2) {:else}
+    // (106:2) {:else}
     function create_else_block(ctx) {
     	let current;
-    	const default_slot_template = /*#slots*/ ctx[16].default;
-    	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[15], null);
+    	const default_slot_template = /*#slots*/ ctx[17].default;
+    	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[16], null);
     	const default_slot_or_fallback = default_slot || fallback_block();
 
     	return {
@@ -526,15 +526,15 @@
     		},
     		p(ctx, dirty) {
     			if (default_slot) {
-    				if (default_slot.p && (!current || dirty & /*$$scope*/ 32768)) {
+    				if (default_slot.p && (!current || dirty & /*$$scope*/ 65536)) {
     					update_slot_base(
     						default_slot,
     						default_slot_template,
     						ctx,
-    						/*$$scope*/ ctx[15],
+    						/*$$scope*/ ctx[16],
     						!current
-    						? get_all_dirty_from_scope(/*$$scope*/ ctx[15])
-    						: get_slot_changes(default_slot_template, /*$$scope*/ ctx[15], dirty, null),
+    						? get_all_dirty_from_scope(/*$$scope*/ ctx[16])
+    						: get_slot_changes(default_slot_template, /*$$scope*/ ctx[16], dirty, null),
     						null
     					);
     				}
@@ -555,7 +555,7 @@
     	};
     }
 
-    // (99:2) {#if text}
+    // (104:2) {#if text}
     function create_if_block(ctx) {
     	let t;
 
@@ -577,7 +577,7 @@
     	};
     }
 
-    // (102:10)        
+    // (107:10)        
     function fallback_block(ctx) {
     	let em;
 
@@ -626,7 +626,7 @@
     			if_block.c();
     			set_attributes(button, button_data);
     			toggle_class(button, "bi-btn", /*isDefault*/ ctx[13]);
-    			toggle_class(button, "bi-btn-primary", /*primary*/ ctx[1] !== null);
+    			toggle_class(button, "bi-btn-primary", /*type*/ ctx[1] === 'primary');
     			toggle_class(button, "bi-btn-secondary", /*secondary*/ ctx[2] !== null);
     			toggle_class(button, "bi-btn-danger", /*danger*/ ctx[3] !== null);
     			toggle_class(button, "bi-btn-success", /*success*/ ctx[4] !== null);
@@ -647,7 +647,7 @@
     			current = true;
 
     			if (!mounted) {
-    				dispose = listen(button, "click", /*click_handler*/ ctx[17]);
+    				dispose = listen(button, "click", /*click_handler*/ ctx[18]);
     				mounted = true;
     			}
     		},
@@ -680,7 +680,7 @@
 
     			set_attributes(button, button_data = get_spread_update(button_levels, [dirty & /*$$props*/ 16384 && /*$$props*/ ctx[14]]));
     			toggle_class(button, "bi-btn", /*isDefault*/ ctx[13]);
-    			toggle_class(button, "bi-btn-primary", /*primary*/ ctx[1] !== null);
+    			toggle_class(button, "bi-btn-primary", /*type*/ ctx[1] === 'primary');
     			toggle_class(button, "bi-btn-secondary", /*secondary*/ ctx[2] !== null);
     			toggle_class(button, "bi-btn-danger", /*danger*/ ctx[3] !== null);
     			toggle_class(button, "bi-btn-success", /*success*/ ctx[4] !== null);
@@ -715,6 +715,7 @@
     function instance($$self, $$props, $$invalidate) {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	let { text = undefined } = $$props;
+    	let { type = '' } = $$props;
     	let { primary = null } = $$props;
     	let { secondary = null } = $$props;
     	let { danger = null } = $$props;
@@ -740,7 +741,8 @@
     	$$self.$$set = $$new_props => {
     		$$invalidate(14, $$props = assign(assign({}, $$props), exclude_internal_props($$new_props)));
     		if ('text' in $$new_props) $$invalidate(0, text = $$new_props.text);
-    		if ('primary' in $$new_props) $$invalidate(1, primary = $$new_props.primary);
+    		if ('type' in $$new_props) $$invalidate(1, type = $$new_props.type);
+    		if ('primary' in $$new_props) $$invalidate(15, primary = $$new_props.primary);
     		if ('secondary' in $$new_props) $$invalidate(2, secondary = $$new_props.secondary);
     		if ('danger' in $$new_props) $$invalidate(3, danger = $$new_props.danger);
     		if ('success' in $$new_props) $$invalidate(4, success = $$new_props.success);
@@ -752,14 +754,14 @@
     		if ('rounded' in $$new_props) $$invalidate(10, rounded = $$new_props.rounded);
     		if ('circle' in $$new_props) $$invalidate(11, circle = $$new_props.circle);
     		if ('disabled' in $$new_props) $$invalidate(12, disabled = $$new_props.disabled);
-    		if ('$$scope' in $$new_props) $$invalidate(15, $$scope = $$new_props.$$scope);
+    		if ('$$scope' in $$new_props) $$invalidate(16, $$scope = $$new_props.$$scope);
     	};
 
     	$$props = exclude_internal_props($$props);
 
     	return [
     		text,
-    		primary,
+    		type,
     		secondary,
     		danger,
     		success,
@@ -773,6 +775,7 @@
     		disabled,
     		isDefault,
     		$$props,
+    		primary,
     		$$scope,
     		slots,
     		click_handler
@@ -791,7 +794,8 @@
     			safe_not_equal,
     			{
     				text: 0,
-    				primary: 1,
+    				type: 1,
+    				primary: 15,
     				secondary: 2,
     				danger: 3,
     				success: 4,

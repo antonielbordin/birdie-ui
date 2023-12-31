@@ -5,6 +5,11 @@
    */
   export let text = undefined;
   /**
+   * Indicates type for using in component.
+   * @type {'primary'|'secondary'|'danger'|'success'|'warning'|string}
+   */
+  export let type = '';
+  /**
    * Indicates the component is primary type.
    * @type {null|any}
    */
@@ -82,7 +87,7 @@
 <button
   {...$$props}
   class:bi-btn={isDefault}
-  class:bi-btn-primary={primary !== null}
+  class:bi-btn-primary={type === 'primary'}
   class:bi-btn-secondary={secondary !== null}
   class:bi-btn-danger={danger !== null}
   class:bi-btn-success={success !== null}
