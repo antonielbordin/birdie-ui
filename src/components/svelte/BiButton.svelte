@@ -9,51 +9,12 @@
    * @type {'primary'|'secondary'|'danger'|'success'|'warning'|string}
    */
   export let type = '';
+
   /**
-   * Indicates the component is primary type.
-   * @type {null|any}
+   * Size of the component.
+   * @type {'small'|'large'|'full'|string}
    */
-  export let primary = null;
-  /**
-   * Indicates the component is secondary type.
-   * @type {null|any}
-   */
-  export let secondary = null;
-  /**
-   * Indicates the component is danger type.
-   * @type {null|any}
-   */
-  export let danger = null;
-  /**
-   * Indicates the component is success type.
-   * @type {null|any}
-   */
-  export let success = null;
-  /**
-   * Indicates the component is warning type.
-   * @type {null|any}
-   */
-  export let warning = null;
-  /**
-   * Indicates the component is info type.
-   * @type {null|any}
-   */
-  export let info = null;
-  /**
-   * Indicates the component is small type.
-   * @type {boolean}
-   */
-  export let small = false;
-  /**
-   * Indicates the component is large type.
-   * @type {boolean}
-   */
-	export let large = false;
-  /**
-   * Indicates the component is full type.
-   * @type {boolean}
-   */
-  export let full = false;
+   export let size = '';  
   /**
    * Indicates if the component using rounded .
    * @type {boolean}
@@ -73,12 +34,12 @@
   let isDefault = false;
 
   if (
-    !primary && 
-    !secondary && 
-    !danger && 
-    !success && 
-    !warning && 
-    !info) {
+    type !== "primary" && 
+    type !== "secondary" && 
+    type !== "danger" && 
+    type !== "success" && 
+    type !== "warning" && 
+    type !== "info") {
     isDefault = true;
   }
  
@@ -87,15 +48,15 @@
 <button
   {...$$props}
   class:bi-btn={isDefault}
-  class:bi-btn-primary={type === 'primary'}
-  class:bi-btn-secondary={secondary !== null}
-  class:bi-btn-danger={danger !== null}
-  class:bi-btn-success={success !== null}
-  class:bi-btn-warning={warning !== null}
-  class:bi-btn-info={info !== null}
-  class:bi-btn-small={small}
-  class:bi-btn-large={large}
-  class:bi-btn-full={full}
+  class:bi-btn-primary={type === "primary"}
+  class:bi-btn-secondary={type === "secondary"}
+  class:bi-btn-danger={type === "danger"}
+  class:bi-btn-success={type === "success"}
+  class:bi-btn-warning={type === "warning"}
+  class:bi-btn-info={type === "info"}
+  class:bi-btn-small={size === "small"}
+  class:bi-btn-large={size === "large"}
+  class:bi-btn-full={size === "full"}
   class:bi-btn-round={rounded}
   class:bi-btn-circle={circle}
   class:bi-btn-disabled={disabled}  
