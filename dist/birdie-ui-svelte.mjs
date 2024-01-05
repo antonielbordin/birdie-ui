@@ -1046,7 +1046,7 @@ function instance$1($$self, $$props, $$invalidate) {
 	let { scrimWidth = '70px' } = $$props;
 	let { scrimColor = '#444' } = $$props;
 	let { leftOpenBreakpoint = 768 } = $$props;
-	let { rightOpenBreakpoint = 1600 } = $$props;
+	let { rightOpenBreakpoint = 1200 } = $$props;
 	let { width = '250px' } = $$props;
 	let { leftWidth } = $$props;
 	let { rightWidth } = $$props;

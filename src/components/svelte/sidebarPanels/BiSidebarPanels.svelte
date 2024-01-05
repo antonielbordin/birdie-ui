@@ -31,7 +31,7 @@
 	// smaller). These also control whether the component initializes with the panels
 	// open or closed. To opt out of this automated behaviour, set the property to false.
 	export let leftOpenBreakpoint = 768
-	export let rightOpenBreakpoint = 1600
+	export let rightOpenBreakpoint = 1200
 
 	// You can either set an overall width, or different widths for the left and
 	// right panels. The width must be a string of any valid CSS "width" value.
