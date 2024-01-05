@@ -3,7 +3,7 @@
   // To manually toggle the panels externally, e.g. your navigation
 	// menu buttons, bind to this function and call it with whatever
 	// panel you want to update. Setting left/right to undefined will
-	// leave that panel unchanged. (See the demo for an example.)
+	// leave that panel unchanged.
   export const updatePanels = ({ left, right }) => {
 		if (left !== undefined) { setLeft(!!left) }
 		if (right !== undefined) { setRight(!!right) }
@@ -31,7 +31,7 @@
 	// smaller). These also control whether the component initializes with the panels
 	// open or closed. To opt out of this automated behaviour, set the property to false.
 	export let leftOpenBreakpoint = 768
-	export let rightOpenBreakpoint = 1200
+	export let rightOpenBreakpoint = 1600
 
 	// You can either set an overall width, or different widths for the left and
 	// right panels. The width must be a string of any valid CSS "width" value.
@@ -97,20 +97,19 @@
 		bottom: 0;
 		overflow-y: auto;
 	`
-
 	$: mobileMode = windowWidth < mobileBreakpoint
 	$: mobilePanelWidth = `calc(100% - ${scrimWidth})`
 
-	const makeMenuStyle = (side, width, z) => `
+	const generateAsideStyle = (side, width, z) => `
 		${commonStyles}
 		${side}: 0;
 		width: ${width};
 		z-index: ${z};
 	`
-	$: leftNavStyle = makeMenuStyle('left', mobileMode ? mobilePanelWidth : leftWidth || width, mobileMode && leftOpen ? '3' : '2')
-	$: rightNavStyle = makeMenuStyle('right', mobileMode ? mobilePanelWidth : rightWidth || width, mobileMode && rightOpen ? '2' : '1')
+	$: leftAsideStyle = generateAsideStyle('left', mobileMode ? mobilePanelWidth : leftWidth || width, mobileMode && leftOpen ? '3' : '2')
+	$: rightAsideStyle = generateAsideStyle('right', mobileMode ? mobilePanelWidth : rightWidth || width, mobileMode && rightOpen ? '2' : '1')
 
-	const makeScrimStyle = (side, open, transitioning, color) => `
+	const generateContentStyle = (side, open, transitioning, color) => `
 		${commonStyles}
 		${side}: calc(100% - ${scrimWidth});
 		width: ${scrimWidth};
@@ -118,8 +117,8 @@
 		opacity: ${open && !transitioning && '0.5' || '0'};
 		background-color: ${color};
 	`
-	$: leftScrimStyle = mobileMode && makeScrimStyle('left', leftOpen, leftTransitioning, scrimColor)
-	$: rightScrimStyle = mobileMode && makeScrimStyle('right', rightOpen, rightTransitioning, scrimColor)
+	$: leftScrimStyle = mobileMode && generateContentStyle('left', leftOpen, leftTransitioning, scrimColor)
+	$: rightScrimStyle = mobileMode && generateContentStyle('right', rightOpen, rightTransitioning, scrimColor)
 
 	$: contentLeft = mobileMode
 		? (leftOpen && `calc(100% - ${scrimWidth})` || rightOpen && `calc(${scrimWidth} - 100%)` || '0px')
@@ -144,9 +143,9 @@ a handful of UX tests performed on non-technical internet users. The content sho
 to slide to the left/right to expose the panel underneath.
 -->
 
-<main style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; overflow-x: hidden;">
+<main style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; overflow-x: hidden;background:mediumaquamarine">
 	{#if $$slots.left}
-		<aside style="{leftNavStyle}">
+		<aside style="{leftAsideStyle}">
 			<slot name="left" />
     </aside>
 	{/if}
@@ -156,7 +155,7 @@ to slide to the left/right to expose the panel underneath.
   </section>
 
 	{#if $$slots.right}
-		<aside style="{rightNavStyle}">
+		<aside style="{rightAsideStyle}">
 			<slot name="right" />
     </aside>
 	{/if}
