@@ -771,15 +771,15 @@ function create_if_block_3(ctx) {
 			aside = element("aside");
 			slot = element("slot");
 			attr(slot, "name", "left");
-			attr(aside, "style", /*leftNavStyle*/ ctx[5]);
+			attr(aside, "style", /*leftAsideStyle*/ ctx[5]);
 		},
 		m(target, anchor) {
 			insert(target, aside, anchor);
 			append(aside, slot);
 		},
 		p(ctx, dirty) {
-			if (dirty[0] & /*leftNavStyle*/ 32) {
-				attr(aside, "style", /*leftNavStyle*/ ctx[5]);
+			if (dirty[0] & /*leftAsideStyle*/ 32) {
+				attr(aside, "style", /*leftAsideStyle*/ ctx[5]);
 			}
 		},
 		d(detaching) {
@@ -788,7 +788,7 @@ function create_if_block_3(ctx) {
 	};
 }
 
-// (158:1) {#if $$slots.right}
+// (157:1) {#if $$slots.right}
 function create_if_block_2(ctx) {
 	let aside;
 	let slot;
@@ -798,15 +798,15 @@ function create_if_block_2(ctx) {
 			aside = element("aside");
 			slot = element("slot");
 			attr(slot, "name", "right");
-			attr(aside, "style", /*rightNavStyle*/ ctx[4]);
+			attr(aside, "style", /*rightAsideStyle*/ ctx[4]);
 		},
 		m(target, anchor) {
 			insert(target, aside, anchor);
 			append(aside, slot);
 		},
 		p(ctx, dirty) {
-			if (dirty[0] & /*rightNavStyle*/ 16) {
-				attr(aside, "style", /*rightNavStyle*/ ctx[4]);
+			if (dirty[0] & /*rightAsideStyle*/ 16) {
+				attr(aside, "style", /*rightAsideStyle*/ ctx[4]);
 			}
 		},
 		d(detaching) {
@@ -815,7 +815,7 @@ function create_if_block_2(ctx) {
 	};
 }
 
-// (164:1) {#if $$slots.left && mobileMode}
+// (163:1) {#if $$slots.left && mobileMode}
 function create_if_block_1(ctx) {
 	let section;
 	let mounted;
@@ -851,7 +851,7 @@ function create_if_block_1(ctx) {
 	};
 }
 
-// (168:1) {#if $$slots.right && mobileMode}
+// (167:1) {#if $$slots.right && mobileMode}
 function create_if_block$1(ctx) {
 	let section;
 	let mounted;
@@ -924,6 +924,7 @@ function create_fragment$1(ctx) {
 			set_style(main, "left", "0");
 			set_style(main, "right", "0");
 			set_style(main, "overflow-x", "hidden");
+			set_style(main, "background", "mediumaquamarine");
 		},
 		m(target, anchor) {
 			insert(target, main, anchor);
@@ -1021,8 +1022,8 @@ function create_fragment$1(ctx) {
 function instance$1($$self, $$props, $$invalidate) {
 	let mobileMode;
 	let mobilePanelWidth;
-	let leftNavStyle;
-	let rightNavStyle;
+	let leftAsideStyle;
+	let rightAsideStyle;
 	let leftScrimStyle;
 	let rightScrimStyle;
 	let contentLeft;
@@ -1045,7 +1046,7 @@ function instance$1($$self, $$props, $$invalidate) {
 	let { scrimWidth = '70px' } = $$props;
 	let { scrimColor = '#444' } = $$props;
 	let { leftOpenBreakpoint = 768 } = $$props;
-	let { rightOpenBreakpoint = 1200 } = $$props;
+	let { rightOpenBreakpoint = 1600 } = $$props;
 	let { width = '250px' } = $$props;
 	let { leftWidth } = $$props;
 	let { rightWidth } = $$props;
@@ -1114,14 +1115,14 @@ function instance$1($$self, $$props, $$invalidate) {
 		overflow-y: auto;
 	`;
 
-	const makeMenuStyle = (side, width, z) => `
+	const generateAsideStyle = (side, width, z) => `
 		${commonStyles}
 		${side}: 0;
 		width: ${width};
 		z-index: ${z};
 	`;
 
-	const makeScrimStyle = (side, open, transitioning, color) => `
+	const generateContentStyle = (side, open, transitioning, color) => `
 		${commonStyles}
 		${side}: calc(100% - ${scrimWidth});
 		width: ${scrimWidth};
@@ -1152,19 +1153,19 @@ function instance$1($$self, $$props, $$invalidate) {
 		}
 
 		if ($$self.$$.dirty[0] & /*mobileMode, mobilePanelWidth, leftWidth, width, leftOpen*/ 273022977) {
-			 $$invalidate(5, leftNavStyle = makeMenuStyle('left', mobileMode ? mobilePanelWidth : leftWidth || width, mobileMode && leftOpen ? '3' : '2'));
+			 $$invalidate(5, leftAsideStyle = generateAsideStyle('left', mobileMode ? mobilePanelWidth : leftWidth || width, mobileMode && leftOpen ? '3' : '2'));
 		}
 
 		if ($$self.$$.dirty[0] & /*mobileMode, mobilePanelWidth, rightWidth, width, rightOpen*/ 285868033) {
-			 $$invalidate(4, rightNavStyle = makeMenuStyle('right', mobileMode ? mobilePanelWidth : rightWidth || width, mobileMode && rightOpen ? '2' : '1'));
+			 $$invalidate(4, rightAsideStyle = generateAsideStyle('right', mobileMode ? mobilePanelWidth : rightWidth || width, mobileMode && rightOpen ? '2' : '1'));
 		}
 
 		if ($$self.$$.dirty[0] & /*mobileMode, leftOpen, leftTransitioning, scrimColor*/ 12599297) {
-			 $$invalidate(3, leftScrimStyle = mobileMode && makeScrimStyle('left', leftOpen, leftTransitioning, scrimColor));
+			 $$invalidate(3, leftScrimStyle = mobileMode && generateContentStyle('left', leftOpen, leftTransitioning, scrimColor));
 		}
 
 		if ($$self.$$.dirty[0] & /*mobileMode, rightOpen, rightTransitioning, scrimColor*/ 50348033) {
-			 $$invalidate(2, rightScrimStyle = mobileMode && makeScrimStyle('right', rightOpen, rightTransitioning, scrimColor));
+			 $$invalidate(2, rightScrimStyle = mobileMode && generateContentStyle('right', rightOpen, rightTransitioning, scrimColor));
 		}
 
 		if ($$self.$$.dirty[0] & /*mobileMode, leftOpen, scrimWidth, rightOpen, leftWidth, width*/ 21372929) {
@@ -1195,8 +1196,8 @@ function instance$1($$self, $$props, $$invalidate) {
 		contentStyle,
 		rightScrimStyle,
 		leftScrimStyle,
-		rightNavStyle,
-		leftNavStyle,
+		rightAsideStyle,
+		leftAsideStyle,
 		onTransitionEnd,
 		setPanelStates,
 		leftScrimOff,
