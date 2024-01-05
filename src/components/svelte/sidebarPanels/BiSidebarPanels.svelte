@@ -12,19 +12,19 @@
 	// behaviour. The two behaviour changes are: 1) *only* the left or right panel
 	// are allowed to be open, making one visible will hide the other, and 2) the
 	// content panel slides to the side, instead of adjusting the width, and a
-	// scrim/touch-panel is laid over the content, so that tapping the scrim
+	// screen/touch-panel is laid over the content, so that tapping the screen
 	// will hide the panel.
 	export let mobileBreakpoint = 500
 // When in mobile mode the content area is overlayed with a touch area, called
-	// a scrim (named after the theater drop), so that tapping it closes the panel.
+	// a screen (named after the theater drop), so that tapping it closes the panel.
 	// You'll want to make sure this touch area is wide enough that people can
 	// easily and accurately touch it.
-	export let scrimWidth = '70px'
+	export let screenWidth = '70px'
 
-	// The scrim is given 50% opacity, so the content panel is still visible. You
-	// can adjust the scrim color to re-brand the scrim, or to change to a light
+	// The screen is given 50% opacity, so the content panel is still visible. You
+	// can adjust the screen color to re-brand the screen, or to change to a light
 	// or dark theme.
-	export let scrimColor = '#444'
+	export let screenColor = '#444'
 
 	// These attributes control the window width at which the left/right panels will
 	// automatically open (when resizing bigger) or automatically close (when resizing
@@ -88,8 +88,8 @@
 
 	onMount(setPanelStates(false))
 
-	const leftScrimOff = () => { setLeft(false) }
-	const rightScrimOff = () => { setRight(false) }
+	const leftScreenOff = () => { setLeft(false) }
+	const rightScreenOff = () => { setRight(false) }
 
 	const commonStyles = `
 		position: absolute;
@@ -98,7 +98,7 @@
 		overflow-y: auto;
 	`
 	$: mobileMode = windowWidth < mobileBreakpoint
-	$: mobilePanelWidth = `calc(100% - ${scrimWidth})`
+	$: mobilePanelWidth = `calc(100% - ${screenWidth})`
 
 	const generateAsideStyle = (side, width, z) => `
 		${commonStyles}
@@ -111,17 +111,17 @@
 
 	const generateContentStyle = (side, open, transitioning, color) => `
 		${commonStyles}
-		${side}: calc(100% - ${scrimWidth});
-		width: ${scrimWidth};
+		${side}: calc(100% - ${screenWidth});
+		width: ${screenWidth};
 		z-index: ${open && !transitioning ? '5' : '-1'};
 		opacity: ${open && !transitioning && '0.5' || '0'};
 		background-color: ${color};
 	`
-	$: leftScrimStyle = mobileMode && generateContentStyle('left', leftOpen, leftTransitioning, scrimColor)
-	$: rightScrimStyle = mobileMode && generateContentStyle('right', rightOpen, rightTransitioning, scrimColor)
+	$: leftScreenStyle = mobileMode && generateContentStyle('left', leftOpen, leftTransitioning, screenColor)
+	$: rightScreenStyle = mobileMode && generateContentStyle('right', rightOpen, rightTransitioning, screenColor)
 
 	$: contentLeft = mobileMode
-		? (leftOpen && `calc(100% - ${scrimWidth})` || rightOpen && `calc(${scrimWidth} - 100%)` || '0px')
+		? (leftOpen && `calc(100% - ${screenWidth})` || rightOpen && `calc(${screenWidth} - 100%)` || '0px')
 		: (leftOpen ? (leftWidth || width) : '0px')
 	$: contentWidth = mobileMode
 		? '100%'
@@ -137,13 +137,7 @@
 
 <svelte:window on:resize={setPanelStates(true)}/>
 
-<!--
-The side panels being visually "under" the main content is a deliberate choice, based on
-a handful of UX tests performed on non-technical internet users. The content should appear
-to slide to the left/right to expose the panel underneath.
--->
-
-<main style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; overflow-x: hidden;background:mediumaquamarine">
+<main style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; overflow-x: hidden;">
 	{#if $$slots.left}
 		<aside style="{leftAsideStyle}">
 			<slot name="left" />
@@ -161,10 +155,10 @@ to slide to the left/right to expose the panel underneath.
 	{/if}
 
 	{#if $$slots.left && mobileMode}
-		<section style={leftScrimStyle} on:click={leftScrimOff} on:keypress={leftScrimOff}></section>
+		<section style={leftScreenStyle} on:click={leftScreenOff} on:keypress={leftScreenOff}></section>
 	{/if}
 
 	{#if $$slots.right && mobileMode}
-		<section style={rightScrimStyle} on:click={rightScrimOff} on:keypress={rightScrimOff}></section>
+		<section style={rightScreenStyle} on:click={rightScreenOff} on:keypress={rightScreenOff}></section>
 	{/if}
 </main>
