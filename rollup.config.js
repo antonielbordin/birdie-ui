@@ -1,7 +1,5 @@
 import svelte from 'rollup-plugin-svelte'
 import resolve from 'rollup-plugin-node-resolve'
-// import css from 'rollup-plugin-css-porter'
-// import autoPreprocess from 'svelte-preprocess'
 
 import pkg from './package.json'
 
@@ -18,13 +16,8 @@ export default {
 	],
 	plugins: [
 		svelte({
-		  // preprocess: autoPreprocess()
-			customElement: true
+		  customElement: true
 		}),
-		resolve(),
-		// css({
-    //   raw: 'dist/birdie-ui.css',
-    //   minified: 'dist/birdie-ui.min.css',
-    // }),
+		resolve()
 	]
 };

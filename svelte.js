@@ -1,9 +1,12 @@
-import BiButton from './src/components/svelte/BiButton.svelte';
+import BiButton from './src/components/svelte/button/BiButton.svelte';
+import BiSidebarPanels from './src/components/svelte/sidebarPanels/BiSidebarPanels.svelte';
 
 export {
-  BiButton
+  BiButton,
+  BiSidebarPanels
 }
 
 export const BirdieUi = {
-  BiButton
+  BiButton,
+  BiSidebarPanels
 }
