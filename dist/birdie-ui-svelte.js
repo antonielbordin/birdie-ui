@@ -794,7 +794,7 @@
     	};
     }
 
-    // (157:1) {#if $$slots.right}
+    // (151:1) {#if $$slots.right}
     function create_if_block_2(ctx) {
     	let aside;
     	let slot;
@@ -821,7 +821,7 @@
     	};
     }
 
-    // (163:1) {#if $$slots.left && mobileMode}
+    // (157:1) {#if $$slots.left && mobileMode}
     function create_if_block_1(ctx) {
     	let section;
     	let mounted;
@@ -830,23 +830,23 @@
     	return {
     		c() {
     			section = element("section");
-    			attr(section, "style", /*leftScrimStyle*/ ctx[3]);
+    			attr(section, "style", /*leftScreenStyle*/ ctx[3]);
     		},
     		m(target, anchor) {
     			insert(target, section, anchor);
 
     			if (!mounted) {
     				dispose = [
-    					listen(section, "click", /*leftScrimOff*/ ctx[8]),
-    					listen(section, "keypress", /*leftScrimOff*/ ctx[8])
+    					listen(section, "click", /*leftScreenOff*/ ctx[8]),
+    					listen(section, "keypress", /*leftScreenOff*/ ctx[8])
     				];
 
     				mounted = true;
     			}
     		},
     		p(ctx, dirty) {
-    			if (dirty[0] & /*leftScrimStyle*/ 8) {
-    				attr(section, "style", /*leftScrimStyle*/ ctx[3]);
+    			if (dirty[0] & /*leftScreenStyle*/ 8) {
+    				attr(section, "style", /*leftScreenStyle*/ ctx[3]);
     			}
     		},
     		d(detaching) {
@@ -857,7 +857,7 @@
     	};
     }
 
-    // (167:1) {#if $$slots.right && mobileMode}
+    // (161:1) {#if $$slots.right && mobileMode}
     function create_if_block$1(ctx) {
     	let section;
     	let mounted;
@@ -866,23 +866,23 @@
     	return {
     		c() {
     			section = element("section");
-    			attr(section, "style", /*rightScrimStyle*/ ctx[2]);
+    			attr(section, "style", /*rightScreenStyle*/ ctx[2]);
     		},
     		m(target, anchor) {
     			insert(target, section, anchor);
 
     			if (!mounted) {
     				dispose = [
-    					listen(section, "click", /*rightScrimOff*/ ctx[9]),
-    					listen(section, "keypress", /*rightScrimOff*/ ctx[9])
+    					listen(section, "click", /*rightScreenOff*/ ctx[9]),
+    					listen(section, "keypress", /*rightScreenOff*/ ctx[9])
     				];
 
     				mounted = true;
     			}
     		},
     		p(ctx, dirty) {
-    			if (dirty[0] & /*rightScrimStyle*/ 4) {
-    				attr(section, "style", /*rightScrimStyle*/ ctx[2]);
+    			if (dirty[0] & /*rightScreenStyle*/ 4) {
+    				attr(section, "style", /*rightScreenStyle*/ ctx[2]);
     			}
     		},
     		d(detaching) {
@@ -930,7 +930,6 @@
     			set_style(main, "left", "0");
     			set_style(main, "right", "0");
     			set_style(main, "overflow-x", "hidden");
-    			set_style(main, "background", "mediumaquamarine");
     		},
     		m(target, anchor) {
     			insert(target, main, anchor);
@@ -1030,8 +1029,8 @@
     	let mobilePanelWidth;
     	let leftAsideStyle;
     	let rightAsideStyle;
-    	let leftScrimStyle;
-    	let rightScrimStyle;
+    	let leftScreenStyle;
+    	let rightScreenStyle;
     	let contentLeft;
     	let contentWidth;
     	let contentStyle;
@@ -1049,8 +1048,8 @@
     	};
 
     	let { mobileBreakpoint = 500 } = $$props;
-    	let { scrimWidth = '70px' } = $$props;
-    	let { scrimColor = '#444' } = $$props;
+    	let { screenWidth = '70px' } = $$props;
+    	let { screenColor = '#444' } = $$props;
     	let { leftOpenBreakpoint = 768 } = $$props;
     	let { rightOpenBreakpoint = 1200 } = $$props;
     	let { width = '250px' } = $$props;
@@ -1106,11 +1105,11 @@
 
     	onMount(setPanelStates(false));
 
-    	const leftScrimOff = () => {
+    	const leftScreenOff = () => {
     		setLeft(false);
     	};
 
-    	const rightScrimOff = () => {
+    	const rightScreenOff = () => {
     		setRight(false);
     	};
 
@@ -1130,8 +1129,8 @@
 
     	const generateContentStyle = (side, open, transitioning, color) => `
 		${commonStyles}
-		${side}: calc(100% - ${scrimWidth});
-		width: ${scrimWidth};
+		${side}: calc(100% - ${screenWidth});
+		width: ${screenWidth};
 		z-index: ${open && !transitioning ? '5' : '-1'};
 		opacity: ${open && !transitioning && '0.5' || '0'};
 		background-color: ${color};
@@ -1139,8 +1138,8 @@
 
     	$$self.$$set = $$props => {
     		if ('mobileBreakpoint' in $$props) $$invalidate(12, mobileBreakpoint = $$props.mobileBreakpoint);
-    		if ('scrimWidth' in $$props) $$invalidate(13, scrimWidth = $$props.scrimWidth);
-    		if ('scrimColor' in $$props) $$invalidate(14, scrimColor = $$props.scrimColor);
+    		if ('screenWidth' in $$props) $$invalidate(13, screenWidth = $$props.screenWidth);
+    		if ('screenColor' in $$props) $$invalidate(14, screenColor = $$props.screenColor);
     		if ('leftOpenBreakpoint' in $$props) $$invalidate(15, leftOpenBreakpoint = $$props.leftOpenBreakpoint);
     		if ('rightOpenBreakpoint' in $$props) $$invalidate(16, rightOpenBreakpoint = $$props.rightOpenBreakpoint);
     		if ('width' in $$props) $$invalidate(17, width = $$props.width);
@@ -1154,8 +1153,8 @@
     			 $$invalidate(0, mobileMode = windowWidth < mobileBreakpoint);
     		}
 
-    		if ($$self.$$.dirty[0] & /*scrimWidth*/ 8192) {
-    			 $$invalidate(28, mobilePanelWidth = `calc(100% - ${scrimWidth})`);
+    		if ($$self.$$.dirty[0] & /*screenWidth*/ 8192) {
+    			 $$invalidate(28, mobilePanelWidth = `calc(100% - ${screenWidth})`);
     		}
 
     		if ($$self.$$.dirty[0] & /*mobileMode, mobilePanelWidth, leftWidth, width, leftOpen*/ 273022977) {
@@ -1166,17 +1165,17 @@
     			 $$invalidate(4, rightAsideStyle = generateAsideStyle('right', mobileMode ? mobilePanelWidth : rightWidth || width, mobileMode && rightOpen ? '2' : '1'));
     		}
 
-    		if ($$self.$$.dirty[0] & /*mobileMode, leftOpen, leftTransitioning, scrimColor*/ 12599297) {
-    			 $$invalidate(3, leftScrimStyle = mobileMode && generateContentStyle('left', leftOpen, leftTransitioning, scrimColor));
+    		if ($$self.$$.dirty[0] & /*mobileMode, leftOpen, leftTransitioning, screenColor*/ 12599297) {
+    			 $$invalidate(3, leftScreenStyle = mobileMode && generateContentStyle('left', leftOpen, leftTransitioning, screenColor));
     		}
 
-    		if ($$self.$$.dirty[0] & /*mobileMode, rightOpen, rightTransitioning, scrimColor*/ 50348033) {
-    			 $$invalidate(2, rightScrimStyle = mobileMode && generateContentStyle('right', rightOpen, rightTransitioning, scrimColor));
+    		if ($$self.$$.dirty[0] & /*mobileMode, rightOpen, rightTransitioning, screenColor*/ 50348033) {
+    			 $$invalidate(2, rightScreenStyle = mobileMode && generateContentStyle('right', rightOpen, rightTransitioning, screenColor));
     		}
 
-    		if ($$self.$$.dirty[0] & /*mobileMode, leftOpen, scrimWidth, rightOpen, leftWidth, width*/ 21372929) {
+    		if ($$self.$$.dirty[0] & /*mobileMode, leftOpen, screenWidth, rightOpen, leftWidth, width*/ 21372929) {
     			 $$invalidate(27, contentLeft = mobileMode
-    			? leftOpen && `calc(100% - ${scrimWidth})` || rightOpen && `calc(${scrimWidth} - 100%)` || '0px'
+    			? leftOpen && `calc(100% - ${screenWidth})` || rightOpen && `calc(${screenWidth} - 100%)` || '0px'
     			: leftOpen ? leftWidth || width : '0px');
     		}
 
@@ -1200,19 +1199,19 @@
     	return [
     		mobileMode,
     		contentStyle,
-    		rightScrimStyle,
-    		leftScrimStyle,
+    		rightScreenStyle,
+    		leftScreenStyle,
     		rightAsideStyle,
     		leftAsideStyle,
     		onTransitionEnd,
     		setPanelStates,
-    		leftScrimOff,
-    		rightScrimOff,
+    		leftScreenOff,
+    		rightScreenOff,
     		$$slots,
     		updatePanels,
     		mobileBreakpoint,
-    		scrimWidth,
-    		scrimColor,
+    		screenWidth,
+    		screenColor,
     		leftOpenBreakpoint,
     		rightOpenBreakpoint,
     		width,
@@ -1250,8 +1249,8 @@
     			{
     				updatePanels: 11,
     				mobileBreakpoint: 12,
-    				scrimWidth: 13,
-    				scrimColor: 14,
+    				screenWidth: 13,
+    				screenColor: 14,
     				leftOpenBreakpoint: 15,
     				rightOpenBreakpoint: 16,
     				width: 17,
@@ -1279,8 +1278,8 @@
     		return [
     			"updatePanels",
     			"mobileBreakpoint",
-    			"scrimWidth",
-    			"scrimColor",
+    			"screenWidth",
+    			"screenColor",
     			"leftOpenBreakpoint",
     			"rightOpenBreakpoint",
     			"width",
@@ -1303,21 +1302,21 @@
     		flush();
     	}
 
-    	get scrimWidth() {
+    	get screenWidth() {
     		return this.$$.ctx[13];
     	}
 
-    	set scrimWidth(scrimWidth) {
-    		this.$$set({ scrimWidth });
+    	set screenWidth(screenWidth) {
+    		this.$$set({ screenWidth });
     		flush();
     	}
 
-    	get scrimColor() {
+    	get screenColor() {
     		return this.$$.ctx[14];
     	}
 
-    	set scrimColor(scrimColor) {
-    		this.$$set({ scrimColor });
+    	set screenColor(screenColor) {
+    		this.$$set({ screenColor });
     		flush();
     	}
 
