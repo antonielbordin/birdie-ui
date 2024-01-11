@@ -1,0 +1,1 @@
+export { default as BiCard } from './BiCard.svelte';
