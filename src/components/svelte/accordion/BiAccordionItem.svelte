@@ -10,11 +10,20 @@
    * @type {string}
    */
   export let id = 0
-
+  /**
+   * Indicates the type usign in accordion
+   * @type {string}
+   */
+  export let type = 'single'
 </script>
 
+<!-- accordion Single/Multiple -->
 <div class="bi-accordion-tab">
+  {#if type === 'single'}
   <input type="radio" id="rd{id}" name="rd" checked="{open}">
+  {:else}
+  <input type="checkbox" id="rd{id}" name="rd" checked="{open}">
+  {/if}
   <label class="bi-accordion-tab-label" for="rd{id}">
     <slot name="title" />
   </label>
@@ -22,9 +31,4 @@
     <slot name="content" />
   </div>
 </div>
-
-<!-- 
-<div class="bi-accordion-tab">
-  <input type="radio" id="rd3" name="rd">
-  <label for="rd3" class="bi-accordion-tab-close">Close others &times;</label>
-</div> -->
+ 
