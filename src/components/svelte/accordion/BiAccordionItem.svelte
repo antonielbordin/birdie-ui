@@ -14,8 +14,8 @@
 </script>
 
 <div class="bi-accordion-tab">
-  <input type="radio" id="rd{{id}}" name="rd" checked="{{open}}">
-  <label class="bi-accordion-tab-label" for="rd{{id}}">
+  <input type="radio" id="rd{id}" name="rd" checked="{open}">
+  <label class="bi-accordion-tab-label" for="rd{id}">
     <slot name="title" />
   </label>
   <div class="bi-accordion-tab-content">

@@ -1441,7 +1441,6 @@
     	let div1;
     	let input;
     	let input_id_value;
-    	let input_checked_value;
     	let t0;
     	let label;
     	let slot0;
@@ -1461,12 +1460,12 @@
     			div0.innerHTML = `<slot name="content"></slot>`;
     			this.c = noop;
     			attr(input, "type", "radio");
-    			attr(input, "id", input_id_value = "rd" + { id: /*id*/ ctx[1] });
+    			attr(input, "id", input_id_value = "rd" + /*id*/ ctx[1]);
     			attr(input, "name", "rd");
-    			input.checked = input_checked_value = { open: /*open*/ ctx[0] };
+    			input.checked = /*open*/ ctx[0];
     			attr(slot0, "name", "title");
     			attr(label, "class", "bi-accordion-tab-label");
-    			attr(label, "for", label_for_value = "rd" + { id: /*id*/ ctx[1] });
+    			attr(label, "for", label_for_value = "rd" + /*id*/ ctx[1]);
     			attr(div0, "class", "bi-accordion-tab-content");
     			attr(div1, "class", "bi-accordion-tab");
     		},
@@ -1480,15 +1479,15 @@
     			append(div1, div0);
     		},
     		p(ctx, [dirty]) {
-    			if (dirty & /*id*/ 2 && input_id_value !== (input_id_value = "rd" + { id: /*id*/ ctx[1] })) {
+    			if (dirty & /*id*/ 2 && input_id_value !== (input_id_value = "rd" + /*id*/ ctx[1])) {
     				attr(input, "id", input_id_value);
     			}
 
-    			if (dirty & /*open*/ 1 && input_checked_value !== (input_checked_value = { open: /*open*/ ctx[0] })) {
-    				input.checked = input_checked_value;
+    			if (dirty & /*open*/ 1) {
+    				input.checked = /*open*/ ctx[0];
     			}
 
-    			if (dirty & /*id*/ 2 && label_for_value !== (label_for_value = "rd" + { id: /*id*/ ctx[1] })) {
+    			if (dirty & /*id*/ 2 && label_for_value !== (label_for_value = "rd" + /*id*/ ctx[1])) {
     				attr(label, "for", label_for_value);
     			}
     		},
