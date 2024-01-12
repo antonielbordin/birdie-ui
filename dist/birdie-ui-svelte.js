@@ -1393,10 +1393,10 @@
     			label = element("label");
     			label.textContent = "Close others ×";
     			attr(input, "type", "radio");
-    			attr(input, "id", "rd3");
+    			attr(input, "id", "rdcolapse");
     			attr(input, "name", "rd");
     			input.checked = /*colapse*/ ctx[1];
-    			attr(label, "for", "rd3");
+    			attr(label, "for", "rdcolapse");
     			attr(label, "class", "bi-accordion-tab-close");
     			attr(div, "class", "bi-accordion-tab");
     		},
@@ -1421,44 +1421,29 @@
     	let div1;
     	let div0;
     	let slot;
-    	let t0;
-    	let t1;
-    	let div7;
-    	let if_block = /*type*/ ctx[0] === 'multiple' && create_if_block$2(ctx);
+    	let t;
+    	let if_block = /*type*/ ctx[0] === 'single' && create_if_block$2(ctx);
 
     	return {
     		c() {
     			div1 = element("div");
     			div0 = element("div");
     			slot = element("slot");
-    			t0 = space();
+    			t = space();
     			if (if_block) if_block.c();
-    			t1 = space();
-    			div7 = element("div");
-
-    			div7.innerHTML = `<div class="bi-accordion-tabs"><div class="bi-accordion-tab"><input type="checkbox" id="chck1"/> 
-         <label class="bi-accordion-tab-label" for="chck1">Item 1</label> 
-         <div class="bi-accordion-tab-content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, reiciendis!</div></div> 
-      <div class="bi-accordion-tab"><input type="checkbox" id="chck2"/> 
-         <label class="bi-accordion-tab-label" for="chck2">Item 2</label> 
-         <div class="bi-accordion-tab-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. A, in!</div></div></div>`;
-
     			this.c = noop;
     			attr(div0, "class", "bi-accordion-tabs");
     			attr(div1, "class", "bi-accordion");
-    			attr(div7, "class", "bi-accordion");
     		},
     		m(target, anchor) {
     			insert(target, div1, anchor);
     			append(div1, div0);
     			append(div0, slot);
-    			append(div0, t0);
+    			append(div0, t);
     			if (if_block) if_block.m(div0, null);
-    			insert(target, t1, anchor);
-    			insert(target, div7, anchor);
     		},
     		p(ctx, [dirty]) {
-    			if (/*type*/ ctx[0] === 'multiple') {
+    			if (/*type*/ ctx[0] === 'single') {
     				if (if_block) {
     					if_block.p(ctx, dirty);
     				} else {
@@ -1476,8 +1461,6 @@
     		d(detaching) {
     			if (detaching) detach(div1);
     			if (if_block) if_block.d();
-    			if (detaching) detach(t1);
-    			if (detaching) detach(div7);
     		}
     	};
     }
