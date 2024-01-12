@@ -1,7 +1,8 @@
+<svelte:options tag="bi-accordion" />
 <script>
   import { createEventDispatcher } from "svelte";
-  export let accordionType = 'single';
-  export let colapse = false;
+  // export let accordionType = 'single';
+  // export let colapse = false;
 
   const dispatch = createEventDispatcher();
 

@@ -1,32 +1,32 @@
 <svelte:options tag="bi-button" />
 <script>
   /**
-   * Indicates text for using in component.
+   * Indicates text for using in component
    * @type {string|undefined}
    */
   export let text = undefined;
   /**
-   * Indicates type for using in component.
+   * Indicates type for using in component
    * @type {'primary'|'secondary'|'danger'|'success'|'warning'|string}
    */
   export let type = '';
   /**
-   * Indicates size of the component.
+   * Indicates size of the component
    * @type {'small'|'large'|'full'|string}
    */
    export let size = '';  
   /**
-   * Indicates if the component using rounded .
+   * Indicates if the component using rounded
    * @type {boolean}
    */
 	export let rounded = false;
   /**
-   * Indicates if the component using circle .
+   * Indicates if the component using circle
    * @type {boolean}
    */
   export let circle = false;
   /**
-   * Indicates if the component is disabled.
+   * Indicates if the component is disabled
    * @type {boolean}
    */
   export let disabled = false;

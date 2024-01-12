@@ -1,5 +1,14 @@
+<svelte:options tag="bi-accordion-item" />
 <script>
+  /**
+   * Indicates is opened tab in accordion item
+   * @type {boolean}
+   */
   export let open = false
+  /**
+   * Indicates the id to use as a key in the accordion item
+   * @type {string}
+   */
   export let id = 0
 
 </script>
