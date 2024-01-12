@@ -1471,22 +1471,59 @@
 
     function create_fragment$3(ctx) {
     	let div1;
+    	let input;
+    	let input_id_value;
+    	let input_checked_value;
+    	let t0;
+    	let label;
+    	let slot0;
+    	let label_for_value;
+    	let t1;
+    	let div0;
 
     	return {
     		c() {
     			div1 = element("div");
-
-    			div1.innerHTML = `<input type="radio" id="rd1" name="rd"/> 
-  <label class="bi-accordion-tab-label" for="rd1"><slot name="title"></slot></label> 
-  <div class="bi-accordion-tab-content"><slot name="content"></slot></div>`;
-
+    			input = element("input");
+    			t0 = space();
+    			label = element("label");
+    			slot0 = element("slot");
+    			t1 = space();
+    			div0 = element("div");
+    			div0.innerHTML = `<slot name="content"></slot>`;
     			this.c = noop;
+    			attr(input, "type", "radio");
+    			attr(input, "id", input_id_value = "rd" + { id: /*id*/ ctx[1] });
+    			attr(input, "name", "rd");
+    			input.checked = input_checked_value = { open: /*open*/ ctx[0] };
+    			attr(slot0, "name", "title");
+    			attr(label, "class", "bi-accordion-tab-label");
+    			attr(label, "for", label_for_value = "rd" + { id: /*id*/ ctx[1] });
+    			attr(div0, "class", "bi-accordion-tab-content");
     			attr(div1, "class", "bi-accordion-tab");
     		},
     		m(target, anchor) {
     			insert(target, div1, anchor);
+    			append(div1, input);
+    			append(div1, t0);
+    			append(div1, label);
+    			append(label, slot0);
+    			append(div1, t1);
+    			append(div1, div0);
     		},
-    		p: noop,
+    		p(ctx, [dirty]) {
+    			if (dirty & /*id*/ 2 && input_id_value !== (input_id_value = "rd" + { id: /*id*/ ctx[1] })) {
+    				attr(input, "id", input_id_value);
+    			}
+
+    			if (dirty & /*open*/ 1 && input_checked_value !== (input_checked_value = { open: /*open*/ ctx[0] })) {
+    				input.checked = input_checked_value;
+    			}
+
+    			if (dirty & /*id*/ 2 && label_for_value !== (label_for_value = "rd" + { id: /*id*/ ctx[1] })) {
+    				attr(label, "for", label_for_value);
+    			}
+    		},
     		i: noop,
     		o: noop,
     		d(detaching) {
@@ -1497,12 +1534,14 @@
 
     function instance$3($$self, $$props, $$invalidate) {
     	let { open = false } = $$props;
+    	let { id = 0 } = $$props;
 
     	$$self.$$set = $$props => {
     		if ('open' in $$props) $$invalidate(0, open = $$props.open);
+    		if ('id' in $$props) $$invalidate(1, id = $$props.id);
     	};
 
-    	return [open];
+    	return [open, id];
     }
 
     class BiAccordionItem extends SvelteElement {
@@ -1519,7 +1558,7 @@
     			instance$3,
     			create_fragment$3,
     			safe_not_equal,
-    			{ open: 0 },
+    			{ open: 0, id: 1 },
     			null
     		);
 
@@ -1536,7 +1575,7 @@
     	}
 
     	static get observedAttributes() {
-    		return ["open"];
+    		return ["open", "id"];
     	}
 
     	get open() {
@@ -1545,6 +1584,15 @@
 
     	set open(open) {
     		this.$$set({ open });
+    		flush();
+    	}
+
+    	get id() {
+    		return this.$$.ctx[1];
+    	}
+
+    	set id(id) {
+    		this.$$set({ id });
     		flush();
     	}
     }
