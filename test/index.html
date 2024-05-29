@@ -3,11 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Test Components UI Svelte</title>
+  <title></title>
+  <title>Birdie UI - Micro Framework CSS</title>
+  <link rel="stylesheet" href="../src/utilities/birdie-reset.css">
+  <link rel="stylesheet" href="../src/utilities/birdie-colors.css">
+  <link rel="stylesheet" href="../src/components/birdie-buttons.css">
+  <link rel="stylesheet" href="../src/components/birdie-tabs.css">
+  <style>
+    /* @import url("../dist/birdie-ui.css");
+    :root {
+      --bi-primary-color: #da1d50; 
+      --bi-success-color: yellow; 
+    } */
+
+  </style>
 </head>
 <body>
-  <bi-button type="warning" rounded="true">  test </bi-button>
-  
+  <br>
+
+  <span class="bi-btn">teste</span>
+  <span class="bi-btn-primary">teste</span>
+  <span class="bi-btn-success">teste</span>
+  <span class="bi-btn-warning">teste</span>
+  <span class="bi-btn-danger">teste</span>
+  <span class="bi-btn-info">teste</span>
+
+  <br><br>
+
+  <div class="bi-tabs">
+   <div class="bi-tab bi-tab-active" data-tab="1">Tab One</div>
+   <div class="bi-tab" data-tab="2">Tab Two</div>
+  </div>
+  <div class="bi-tab-content bi-tab-active" id="tab-1">Content 1</div>
+  <div class="bi-tab-content" id="tab-2">Content 2</div>
+
+
+
 </body>
 <script src="../dist/birdie-ui-svelte.js"></script>
 </html>

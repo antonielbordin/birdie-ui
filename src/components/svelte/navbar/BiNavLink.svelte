@@ -14,24 +14,3 @@
   >
   <slot />
 </div>
-
-<style>
-  .bi-nav-link {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: auto;
-    height: 46px;
-    padding: 0 10px;
-    background: rgb(249, 250, 249);
-  }
-  .bi-nav-link:hover,
-  .bi-nav-link:active {
-    background: #ccc;
-    cursor: pointer;
-  }
-  .bi-nav-link.bi-nav-link-active {
-    background: magenta;
-  }
-</style>

@@ -1,0 +1,36 @@
+/** ------------------------------- 
+--         Birdie Tabs           --
+-------------------------------- */
+.bi-tabs {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background: magenta;
+}
+
+.bi-tab {
+  padding: 8px 18px;
+  color: var(--bi-tab-color);
+  background: var(--bi-tab-bg);
+  border: 1px solid var(--bi-tab-border);
+  border-radius: 5px 5px 0 0;
+  cursor: pointer;
+}
+
+.bi-tab.bi-tab-active {
+  background: var(--bi-tab-active-bg);
+  border-bottom: 2px solid var(--bi-tab-active-border);
+}
+
+.bi-tab-content {
+  display: none;
+  flex-direction: column;
+  width: calc(100% - 10px);
+  padding: 10px;
+  border: 1px solid var(--bi-tab-border);
+  border-radius: 0 5px 5px 5px;
+}
+
+.bi-tab-content.bi-tab-active {
+  display: flex;  
+}

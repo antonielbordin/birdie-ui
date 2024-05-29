@@ -16,24 +16,3 @@
   >
   <slot />
 </nav>
-
-<style>
-  .bi-nav {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    width: 100%;
-    height: 46px;
-    background: rgb(249, 250, 249);
-  }
-  .bi-nav-start {
-    justify-content: flex-start;
-  }
-  .bi-nav-end {
-    justify-content: flex-end;
-  }
-  .bi-nav-center {
-    justify-content: center;
-  }
-</style>

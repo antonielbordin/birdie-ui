@@ -58,7 +58,9 @@ module.exports = function(grunt) {
                         'dist/css/birdie-tooltips.css',
                         'dist/css/birdie-datatable.css',
                         'dist/css/birdie-card.css',
-                        'dist/css/birdie-accordion.css'
+                        'dist/css/birdie-accordion.css',
+                        'dist/css/birdie-navbar.css',
+                        'dist/css/birdie-tabs.css'
                     ]},  
                     
                     {'dist/js/utilities.js': [ 
