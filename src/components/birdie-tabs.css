@@ -5,7 +5,7 @@
   display: flex;
   flex-direction: row;
   width: 100%;
-  background: magenta;
+  background: transparent;
 }
 
 .bi-tab {
@@ -25,8 +25,8 @@
 .bi-tab-content {
   display: none;
   flex-direction: column;
-  width: calc(100% - 10px);
-  padding: 10px;
+  width: 100%;
+  padding: 10px 0;
   border: 1px solid var(--bi-tab-border);
   border-radius: 0 5px 5px 5px;
 }

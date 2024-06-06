@@ -1,0 +1,90 @@
+/** -------------------------------
+--          Birdie Base          --
+-------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  background-repeat: no-repeat;
+}
+
+::before,
+::after {
+  text-decoration: inherit;
+  vertical-align: inherit;
+}
+
+:where(:root) {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  background-color: var(--bi-background-color);
+  color: var(--bi-color-text);
+  font-weight: var(--bi-font-weight);
+  font-size: var(--bi-font-size);
+  line-height: var(--bi-line-height);
+  font-family: var(--bi-font-family);
+  text-underline-offset: var(--bi-text-underline-offset);
+  text-rendering: optimizeLegibility;
+  overflow-wrap: break-word;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+}
+
+html, body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-size: var(--bi-font-size);
+  font-family: var(--bi-font-family);
+  color: var(--bi-color-text);
+  background: #f6f6f6;		
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.bi-triangle-up::before {
+  position: absolute;
+  right: 7px;
+  top: 18px;
+  content: ' ';
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid var(--bi-default-color-triangle);
+}
+ 
+.bi-triangle-down::before {
+  position: absolute;
+  right: 7px;
+  top: 18px;
+  content: ' ';
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid var(--bi-default-color-triangle);
+}
+ 
+.bi-triangle-left::before {
+  position: absolute;
+  right: 7px;
+  top: 18px;
+  content: ' ';
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-right: 5px solid var(--bi-default-color-triangle);
+}
+ 
+.bi-triangle-right::before {
+  position: absolute;
+  right: 7px;
+  top: 18px;
+  content: ' ';
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 5px solid var(--bi-default-color-triangle);
+}

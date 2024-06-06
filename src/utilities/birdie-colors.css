@@ -1,199 +1,143 @@
 :root {
-   /** Color Pallet Red */            
-   --bi-red-one:   #fef0ef;
-   --bi-red-two:   #fcdbd9;
-   --bi-red-three: #fabeb9;
-   --bi-red-four:  #f79992;
-   --bi-red-five:  #f46e65;
-   --bi-red-six:   #f04134;
-   --bi-red-seven: #d73435;
-   --bi-red-eight: #bd2636;
-   --bi-red-nine:  #a31837;
-   --bi-red-ten:   #880a38;
+  /** Color Pallet Red */            
+  --bi-red-one:   #fef0ef;
+  --bi-red-two:   #fcdbd9;
+  --bi-red-three: #fabeb9;
+  --bi-red-four:  #f79992;
+  --bi-red-five:  #f46e65;
+  --bi-red-six:   #f04134;
+  --bi-red-seven: #d73435;
+  --bi-red-eight: #bd2636;
+  --bi-red-nine:  #a31837;
+  --bi-red-ten:   #880a38;
 
-   /** Color Pallet Green */            
-   --bi-green-one:   #ebf8f2;
-   --bi-green-two:   #cfefdf;
-   --bi-green-three: #a7e1c4;
-   --bi-green-four:  #76d0a3;
-   --bi-green-five:  #3dbd7d;
-   --bi-green-six:   #00a854;
-   --bi-green-seven: #00924c;
-   --bi-green-eight: #007b43;
-   --bi-green-nine:  #00643b;
-   --bi-green-ten:   #004c32;
+  /** Color Pallet Green */            
+  --bi-green-one:   #ebf8f2;
+  --bi-green-two:   #cfefdf;
+  --bi-green-three: #a7e1c4;
+  --bi-green-four:  #76d0a3;
+  --bi-green-five:  #3dbd7d;
+  --bi-green-six:   #00a854;
+  --bi-green-seven: #00924c;
+  --bi-green-eight: #007b43;
+  --bi-green-nine:  #00643b;
+  --bi-green-ten:   #004c32;
 
-   /** Color Pallet Blue */            
-   --bi-blue-one:   #ecf6fd;
-   --bi-blue-two:   #d2eafb;
-   --bi-blue-three: #add8f7;
-   --bi-blue-four:  #7ec2f3;
-   --bi-blue-five:  #49a9ee;
-   --bi-blue-six:   #108ee9;
-   --bi-blue-seven: #0e77ca;
-   --bi-blue-eight: #0c60aa;
-   --bi-blue-nine:  #09488a;
-   --bi-blue-ten:   #073069;
+  /** Color Pallet Blue */            
+  --bi-blue-one:   #ecf6fd;
+  --bi-blue-two:   #d2eafb;
+  --bi-blue-three: #add8f7;
+  --bi-blue-four:  #7ec2f3;
+  --bi-blue-five:  #49a9ee;
+  --bi-blue-six:   #108ee9;
+  --bi-blue-seven: #0e77ca;
+  --bi-blue-eight: #0c60aa;
+  --bi-blue-nine:  #09488a;
+  --bi-blue-ten:   #073069;
 
-   /** Color Pallet Pink */            
-   --bi-pink-one:   #feeff5;
-   --bi-pink-two:   #fdd8e7;
-   --bi-pink-three: #fabeb9;
-   --bi-pink-four:  #fa90ba;
-   --bi-pink-five:  #f7629e;
-   --bi-pink-six:   #f5317f;
-   --bi-pink-seven: #dc277d;
-   --bi-pink-eight: #c11c7b;
-   --bi-pink-nine:  #a71278;
-   --bi-pink-ten:   #8c0776;
+  /** Color Pallet Pink */            
+  --bi-pink-one:   #feeff5;
+  --bi-pink-two:   #fdd8e7;
+  --bi-pink-three: #fabeb9;
+  --bi-pink-four:  #fa90ba;
+  --bi-pink-five:  #f7629e;
+  --bi-pink-six:   #f5317f;
+  --bi-pink-seven: #dc277d;
+  --bi-pink-eight: #c11c7b;
+  --bi-pink-nine:  #a71278;
+  --bi-pink-ten:   #8c0776;
 
-   /** Color Pallet Orange */            
-   --bi-orange-one:   #fef3eb;
-   --bi-orange-two:   #fde3cf;
-   --bi-orange-three: #fccca7;
-   --bi-orange-four:  #faaf76;
-   --bi-orange-five:  #f78e3d;
-   --bi-orange-six:   #f56a00;
-   --bi-orange-seven: #d75000;
-   --bi-orange-eight: #b93600;
-   --bi-orange-nine:  #991b00;
-   --bi-orange-ten:   #7a0000;
+  /** Color Pallet Orange */            
+  --bi-orange-one:   #fef3eb;
+  --bi-orange-two:   #fde3cf;
+  --bi-orange-three: #fccca7;
+  --bi-orange-four:  #faaf76;
+  --bi-orange-five:  #f78e3d;
+  --bi-orange-six:   #f56a00;
+  --bi-orange-seven: #d75000;
+  --bi-orange-eight: #b93600;
+  --bi-orange-nine:  #991b00;
+  --bi-orange-ten:   #7a0000;
 
-   /** Color Pallet Purple */            
-   --bi-purple-one:   #f4f3fd;
-   --bi-purple-two:   #e4e2fa;
-   --bi-purple-three: #cfcaf6;
-   --bi-purple-four:  #b3acf2;
-   --bi-purple-five:  #948aec;
-   --bi-purple-six:   #7265e6;
-   --bi-purple-seven: #6252cd;
-   --bi-purple-eight: #533eb4;
-   --bi-purple-nine:  #42299a;
-   --bi-purple-ten:   #321580;   
+  /** Color Pallet Purple */            
+  --bi-purple-one:   #f4f3fd;
+  --bi-purple-two:   #e4e2fa;
+  --bi-purple-three: #cfcaf6;
+  --bi-purple-four:  #b3acf2;
+  --bi-purple-five:  #948aec;
+  --bi-purple-six:   #7265e6;
+  --bi-purple-seven: #6252cd;
+  --bi-purple-eight: #533eb4;
+  --bi-purple-nine:  #42299a;
+  --bi-purple-ten:   #321580;   
    
-   /** Color Pallet Yellow */            
-   --bi-yellow-one:   #fffaeb;
-   --bi-yellow-two:   #fff3cf;
-   --bi-yellow-three: #ffe9a7;
-   --bi-yellow-four:  #ffdd76;
-   --bi-yellow-five:  #ffce3d;
-   --bi-yellow-six:   #ffbf00;
-   --bi-yellow-seven: #e09a00;
-   --bi-yellow-eight: #c17500;
-   --bi-yellow-nine:  #a04f00;
-   --bi-yellow-ten:   #802800;
+  /** Color Pallet Yellow */            
+  --bi-yellow-one:   #fffaeb;
+  --bi-yellow-two:   #fff3cf;
+  --bi-yellow-three: #ffe9a7;
+  --bi-yellow-four:  #ffdd76;
+  --bi-yellow-five:  #ffce3d;
+  --bi-yellow-six:   #ffbf00;
+  --bi-yellow-seven: #e09a00;
+  --bi-yellow-eight: #c17500;
+  --bi-yellow-nine:  #a04f00;
+  --bi-yellow-ten:   #802800;
+  
+  /** Color Pallet Cyan */            
+  --bi-cyan-one:   #ebf8f9;
+  --bi-cyan-two:   #cfedf0;
+  --bi-cyan-three: #a7dfe3;
+  --bi-cyan-four:  #76cdd3;
+  --bi-cyan-five:  #3db8c1;
+  --bi-cyan-six:   #00a2ae;
+  --bi-cyan-seven: #008997;
+  --bi-cyan-eight: #00707f;
+  --bi-cyan-nine:  #005667;
+  --bi-cyan-ten:   #003c4e;
    
-   /** Color Pallet Cyan */            
-   --bi-cyan-one:   #ebf8f9;
-   --bi-cyan-two:   #cfedf0;
-   --bi-cyan-three: #a7dfe3;
-   --bi-cyan-four:  #76cdd3;
-   --bi-cyan-five:  #3db8c1;
-   --bi-cyan-six:   #00a2ae;
-   --bi-cyan-seven: #008997;
-   --bi-cyan-eight: #00707f;
-   --bi-cyan-nine:  #005667;
-   --bi-cyan-ten:   #003c4e;
-   
-   /** Color Pallet Grey */            
-   --bi-grey-one:   #fbfbfb;
-   --bi-grey-two:   #f7f7f7;
-   --bi-grey-three: #f5f5f5;
-   --bi-grey-four:  #e9e9e9;
-   --bi-grey-five:  #d9d9d9;
-   --bi-grey-six:   #bfbfbf;
-   --bi-grey-seven: #919191;
-   --bi-grey-eight: #5a5a5a;
-   --bi-grey-nine:  #404040;
-   --bi-grey-ten:   #222222;
+  /** Color Pallet Grey */            
+  --bi-grey-one:   #fbfbfb;
+  --bi-grey-two:   #f7f7f7;
+  --bi-grey-three: #f5f5f5;
+  --bi-grey-four:  #e9e9e9;
+  --bi-grey-five:  #d9d9d9;
+  --bi-grey-six:   #bfbfbf;
+  --bi-grey-seven: #919191;
+  --bi-grey-eight: #5a5a5a;
+  --bi-grey-nine:  #404040;
+  --bi-grey-ten:   #222222;
 
+  --bi-white: #ffffff;
+  --bi-black: #000000;
 
-   /* --bi-color-default: #545454;
-   --bi-color-primary: #0275d8;
-   --bi-color-secondary: #5bc0de; 
-   --bi-color-success: #5cb85c; 
-   --bi-color-danger: #d9534f; 
-   --bi-color-warning: #f0ad4e;
-   --bi-color-info: #5bc0de;
-   --bi-color-light: #f7f7f7;
-   --bi-color-dark: #292b2c;
-   --bi-color-muted: #c0c0c0; */
+  --bi-color-default: var(--bi-grey-eight);
+  --bi-color-primary: var(--bi-blue-six);
+  --bi-color-secondary: var(--bi-blue-five); 
+  --bi-color-success: var(--bi-green-six); 
+  --bi-color-danger: var(--bi-red-six); 
+  --bi-color-warning: var(--bi-yellow-six);
+  --bi-color-info: var(--bi-cyan-six);
+  --bi-color-light: var(--bi-green-two);
+  --bi-color-dark: var(--bi-grey-ten);
+  --bi-color-muted: var(--bi-grey-five);
 
-   --bi-color-default: var(--bi-grey-eight);
-   --bi-color-primary: var(--bi-blue-six);
-   --bi-color-secondary: var(--bi-blue-five); 
-   --bi-color-success: var(--bi-green-six); 
-   --bi-color-danger: var(--bi-red-six); 
-   --bi-color-warning: var(--bi-yellow-six);
-   --bi-color-info: var(--bi-cyan-six);
-   --bi-color-light: var(--bi-green-two);
-   --bi-color-dark: var(--bi-grey-ten);
-   --bi-color-muted: var(--bi-grey-five);
+  --bi-text-primary: var(--bi-blue-six);
+  --bi-text-secondary: var(--bi-grey-eight); 
+  --bi-text-success: var(--bi-green-six); 
+  --bi-text-danger: var(--bi-red-six); 
+  --bi-text-warning: var(--bi-yellow-six);
+  --bi-text-info: var(--bi-cyan-six);
+  --bi-text-muted: var(--bi-grey-five);
+  --bi-text-light: var(--bi-green-two);
+  --bi-text-dark: var(--bi-grey-ten);
 
-   --bi-text-primary: var(--bi-blue-six);
-   --bi-text-secondary: var(--bi-grey-eight); 
-   --bi-text-success: var(--bi-green-six); 
-   --bi-text-danger: var(--bi-red-six); 
-   --bi-text-warning: var(--bi-yellow-six);
-   --bi-text-info: var(--bi-cyan-six);
-   --bi-text-muted: var(--bi-grey-five);
-   --bi-text-light: var(--bi-green-two);
-   --bi-text-dark: var(--bi-grey-ten);
+  /* typography */
+  --bi-color-text: var(--bi-color-default);
+  --bi-color-text-heading: var(--bi-text-dark);
+  --bi-color-text-subtle: var(--bi-text-muted);
+  --bi-color-link: var(--bi-color-primary);
+  --bi-color-link-visited: var(--bi-color-primary);
 
-   /* typography */
-   --bi-color-text: var(--bi-color-default);
-   --bi-color-text-heading: var(--bi-text-dark);
-   --bi-color-text-subtle: var(--bi-text-muted);
-   --bi-color-link: var(--bi-color-primary);
-   --bi-color-link-visited: var(--bi-color-primary);
-
-   /** Generic options */
-   --bi-color-border: var(--bi-grey-six);
-
-   /** Style for tooltips */
-   --bi-tooltip-bg: var(--bi-color-dark);
-   --bi-tooltip-color: var(--bi-color-light);
-
-   /** Style for card */ 
-   --bi-card-bg: #fbfbfb;  
-   --bi-card-header-bg: #e0e0e0;
-   --bi-card-header-color: #292b2c;
-   --bi-card-content-bg: #fbfbfb;
-   --bi-card-content-color: #292b2c;
-
-   /** Style for dropdown */
-   --bi-dropdown-bg: #fbfbfb;
-   --bi-dropdown-color: var(--bi-color-default);
-   --bi-dropdown-hover: #F5F5F5;
-   --bi-dropdown-border: #c0c0c0;
-
-   /** Style for accordion */
-   --bi-accordion-bg: #fbfbfb;
-   --bi-accordion-color: var(--bi-color-default);
-   --bi-accordion-hover-bg: var(--bi-color-primary);
-   --bi-accordion-hover-color: #fbfbfb;
-   --bi-accordion-border: var(--bi-color-default);
-   --bi-accordion-border-hover: var(--bi-color-primary);
-   --bi-accordion-active-bg: var(--bi-color-primary);
-   --bi-accordion-active-color: #fbfbfb;
-
-   /** Style for datatable */
-   --bi-datatable-paginator-bg: transparent !important;
-   --bi-datatable-paginator-color: var(--bi-color-primary);
-   --bi-datatable-paginator-bg-action: var(--bi-color-primary);
-   --bi-datatable-paginator-color-action: #fbfbfb;
-   --bi-datatable-paginator-info: var(--bi-color-primary);
-
-   /** Style for tabs */
-   --bi-tab-bg: #f1f1f1;
-   --bi-tab-active-bg: #fff;
-   --bi-tab-color: var(--bi-color-default);
-   --bi-tab-active-border: var(--bi-color-primary);
-   --bi-tab-border: var(--bi-color-border);
-
-
-   
-
-
+  /** Generic options */
+  --bi-color-border: var(--bi-grey-six);
 }
-/* https://www.w3c.br/traducoes/wcag/wcag22-pt-BR/ */

@@ -40,276 +40,556 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-:root {  
-   --bi-color-default: #545454;
-   --bi-color-primary: #0275d8;
-   --bi-color-secondary: #5bc0de; 
-   --bi-color-success: #5cb85c; 
-   --bi-color-danger: #d9534f; 
-   --bi-color-warning: #f0ad4e;
-   --bi-color-info: #5bc0de;
-   --bi-color-light: #f7f7f7;
-   --bi-color-dark: #292b2c;
-   --bi-color-muted: #c0c0c0;
 
-   --bi-text-primary: #0275d8;
-   --bi-text-secondary: #6c757d; 
-   --bi-text-success: #5cb85c; 
-   --bi-text-danger: #d9534f; 
-   --bi-text-warning: #f0ad4e;
-   --bi-text-info: #5bc0de;
-   --bi-text-muted: #6c757d;
-   --bi-text-light: #f7f7f7;
-   --bi-text-dark: #292b2c;
+:root {
+  /** Color Pallet Red */            
+  --bi-red-one:   #fef0ef;
+  --bi-red-two:   #fcdbd9;
+  --bi-red-three: #fabeb9;
+  --bi-red-four:  #f79992;
+  --bi-red-five:  #f46e65;
+  --bi-red-six:   #f04134;
+  --bi-red-seven: #d73435;
+  --bi-red-eight: #bd2636;
+  --bi-red-nine:  #a31837;
+  --bi-red-ten:   #880a38;
 
-   /* typography */
-   --bi-color-text: var(--bi-color-default);
-   --bi-color-text-heading: var(--bi-text-dark);
-   --bi-color-text-subtle: var(--bi-text-muted);
-   --bi-color-link: var(--bi-color-primary);
-   --bi-color-link-visited: var(--bi-color-primary);
+  /** Color Pallet Green */            
+  --bi-green-one:   #ebf8f2;
+  --bi-green-two:   #cfefdf;
+  --bi-green-three: #a7e1c4;
+  --bi-green-four:  #76d0a3;
+  --bi-green-five:  #3dbd7d;
+  --bi-green-six:   #00a854;
+  --bi-green-seven: #00924c;
+  --bi-green-eight: #007b43;
+  --bi-green-nine:  #00643b;
+  --bi-green-ten:   #004c32;
 
-   /** Style for tooltips */
-   --bi-tooltip-bg: var(--bi-color-dark);
-   --bi-tooltip-color: var(--bi-color-light);
+  /** Color Pallet Blue */            
+  --bi-blue-one:   #ecf6fd;
+  --bi-blue-two:   #d2eafb;
+  --bi-blue-three: #add8f7;
+  --bi-blue-four:  #7ec2f3;
+  --bi-blue-five:  #49a9ee;
+  --bi-blue-six:   #108ee9;
+  --bi-blue-seven: #0e77ca;
+  --bi-blue-eight: #0c60aa;
+  --bi-blue-nine:  #09488a;
+  --bi-blue-ten:   #073069;
 
-   /** Style for card */ 
-   --bi-card-bg: #fbfbfb;  
-   --bi-card-header-bg: #e0e0e0;
-   --bi-card-header-color: #292b2c;
-   --bi-card-content-bg: #fbfbfb;
-   --bi-card-content-color: #292b2c;
+  /** Color Pallet Pink */            
+  --bi-pink-one:   #feeff5;
+  --bi-pink-two:   #fdd8e7;
+  --bi-pink-three: #fabeb9;
+  --bi-pink-four:  #fa90ba;
+  --bi-pink-five:  #f7629e;
+  --bi-pink-six:   #f5317f;
+  --bi-pink-seven: #dc277d;
+  --bi-pink-eight: #c11c7b;
+  --bi-pink-nine:  #a71278;
+  --bi-pink-ten:   #8c0776;
 
-   /** Style for dropdown */
-   --bi-dropdown-bg: #fbfbfb;
-   --bi-dropdown-color: var(--bi-color-default);
-   --bi-dropdown-hover: #F5F5F5;
-   --bi-dropdown-border: #c0c0c0;
+  /** Color Pallet Orange */            
+  --bi-orange-one:   #fef3eb;
+  --bi-orange-two:   #fde3cf;
+  --bi-orange-three: #fccca7;
+  --bi-orange-four:  #faaf76;
+  --bi-orange-five:  #f78e3d;
+  --bi-orange-six:   #f56a00;
+  --bi-orange-seven: #d75000;
+  --bi-orange-eight: #b93600;
+  --bi-orange-nine:  #991b00;
+  --bi-orange-ten:   #7a0000;
 
-   /** Style for accordion */
-   --bi-accordion-bg: #fbfbfb;
-   --bi-accordion-color: var(--bi-color-default);
-   --bi-accordion-hover-bg: var(--bi-color-primary);
-   --bi-accordion-hover-color: #fbfbfb;
-   --bi-accordion-border: var(--bi-color-default);
-   --bi-accordion-border-hover: var(--bi-color-primary);
-   --bi-accordion-active-bg: var(--bi-color-primary);
-   --bi-accordion-active-color: #fbfbfb;
+  /** Color Pallet Purple */            
+  --bi-purple-one:   #f4f3fd;
+  --bi-purple-two:   #e4e2fa;
+  --bi-purple-three: #cfcaf6;
+  --bi-purple-four:  #b3acf2;
+  --bi-purple-five:  #948aec;
+  --bi-purple-six:   #7265e6;
+  --bi-purple-seven: #6252cd;
+  --bi-purple-eight: #533eb4;
+  --bi-purple-nine:  #42299a;
+  --bi-purple-ten:   #321580;   
+   
+  /** Color Pallet Yellow */            
+  --bi-yellow-one:   #fffaeb;
+  --bi-yellow-two:   #fff3cf;
+  --bi-yellow-three: #ffe9a7;
+  --bi-yellow-four:  #ffdd76;
+  --bi-yellow-five:  #ffce3d;
+  --bi-yellow-six:   #ffbf00;
+  --bi-yellow-seven: #e09a00;
+  --bi-yellow-eight: #c17500;
+  --bi-yellow-nine:  #a04f00;
+  --bi-yellow-ten:   #802800;
+  
+  /** Color Pallet Cyan */            
+  --bi-cyan-one:   #ebf8f9;
+  --bi-cyan-two:   #cfedf0;
+  --bi-cyan-three: #a7dfe3;
+  --bi-cyan-four:  #76cdd3;
+  --bi-cyan-five:  #3db8c1;
+  --bi-cyan-six:   #00a2ae;
+  --bi-cyan-seven: #008997;
+  --bi-cyan-eight: #00707f;
+  --bi-cyan-nine:  #005667;
+  --bi-cyan-ten:   #003c4e;
+   
+  /** Color Pallet Grey */            
+  --bi-grey-one:   #fbfbfb;
+  --bi-grey-two:   #f7f7f7;
+  --bi-grey-three: #f5f5f5;
+  --bi-grey-four:  #e9e9e9;
+  --bi-grey-five:  #d9d9d9;
+  --bi-grey-six:   #bfbfbf;
+  --bi-grey-seven: #919191;
+  --bi-grey-eight: #5a5a5a;
+  --bi-grey-nine:  #404040;
+  --bi-grey-ten:   #222222;
 
-   /** Style for datatable */
-   --bi-datatable-paginator-bg: transparent !important;
-   --bi-datatable-paginator-color: var(--bi-color-primary);
-   --bi-datatable-paginator-bg-action: var(--bi-color-primary);
-   --bi-datatable-paginator-color-action: #fbfbfb;
-   --bi-datatable-paginator-info: var(--bi-color-primary);
+  --bi-white: #ffffff;
+  --bi-black: #000000;
+
+  --bi-color-default: var(--bi-grey-eight);
+  --bi-color-primary: var(--bi-blue-six);
+  --bi-color-secondary: var(--bi-blue-five); 
+  --bi-color-success: var(--bi-green-six); 
+  --bi-color-danger: var(--bi-red-six); 
+  --bi-color-warning: var(--bi-yellow-six);
+  --bi-color-info: var(--bi-cyan-six);
+  --bi-color-light: var(--bi-green-two);
+  --bi-color-dark: var(--bi-grey-ten);
+  --bi-color-muted: var(--bi-grey-five);
+
+  --bi-text-primary: var(--bi-blue-six);
+  --bi-text-secondary: var(--bi-grey-eight); 
+  --bi-text-success: var(--bi-green-six); 
+  --bi-text-danger: var(--bi-red-six); 
+  --bi-text-warning: var(--bi-yellow-six);
+  --bi-text-info: var(--bi-cyan-six);
+  --bi-text-muted: var(--bi-grey-five);
+  --bi-text-light: var(--bi-green-two);
+  --bi-text-dark: var(--bi-grey-ten);
+
+  /* typography */
+  --bi-color-text: var(--bi-color-default);
+  --bi-color-text-heading: var(--bi-text-dark);
+  --bi-color-text-subtle: var(--bi-text-muted);
+  --bi-color-link: var(--bi-color-primary);
+  --bi-color-link-visited: var(--bi-color-primary);
+
+  /** Generic options */
+  --bi-color-border: var(--bi-grey-six);
 }
 /** ------------------------------- 
 --         Typography            --
 -------------------------------- */
 :root {
-    /** Set default fonts family */
-    --bi-font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    --bi-font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-    --bi-font-mono: ui-monospace, Consolas, "Liberation Mono", "Courier New", monospace;
+  /** Set default fonts family */
+  --bi-font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, Helvetica, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --bi-font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --bi-font-mono: ui-monospace, Menlo, Consolas, "Liberation Mono", "Courier New", monospace;
+  --bi-font-family: var(--bi-font-sans);
+  --bi-font-weight: 400;
+  --bi-font-size: 100%;
 
-    /** Set base values */    
-    --bi-text-base-size: 1em;
-    --bi-text-scale-ratio: 1.2;
-    --bi-line-height: 1.2;
+  /** Set base values */
+  --bi-line-height: 1.2;     
+  --bi-text-base-size: 1em;
+  --bi-text-scale-ratio: 1.2;
+  --bi-text-underline-offset: 0.1rem;
 
-    --bi-text-xs:   1em;
-    --bi-text-sm:   1.25em;
-    --bi-text-md:   1.5em;
-    --bi-text-lg:   1.75em;
-    --bi-text-xl:   2em;
-    --bi-text-xxl:  2.5em;
-    --bi-text-xxxl: 3em;
+  --bi-text-xs:   1em;
+  --bi-text-sm:   1.25em;
+  --bi-text-md:   1.5em;
+  --bi-text-lg:   1.75em;
+  --bi-text-xl:   2em;
+  --bi-text-xxl:  2.5em;
+  --bi-text-xxxl: 3em;
 
-    /** Line-height */
-    --bi-heading-line-height: 1.2;
-    --bi-body-line-height: 1.4;
-
-    /** Spacing values */
-    --bi-space-xxxs: 0.25em;
-    --bi-space-xxs:  0.375em;
-    --bi-space-xs:   0.5em;
-    --bi-space-sm:   0.75em;
-    --bi-space-md:   1.25em;
-    --bi-space-lg:   2em;
-    --bi-space-xl:   3.25em;
-    --bi-space-xxl:  5.25em;
-    --bi-space-xxxl: 8.5em;
+  /** Spacing values */
+  --bi-space-xxxs: 0.25em;
+  --bi-space-xxs:  0.375em;
+  --bi-space-xs:   0.5em;
+  --bi-space-sm:   0.75em;
+  --bi-space-md:   1.25em;
+  --bi-space-lg:   2em;
+  --bi-space-xl:   3.25em;
+  --bi-space-xxl:  5.25em;
+  --bi-space-xxxl: 8.5em;
 }
 
 body {
-    font-size: var(--bi-text-base-size);
-    font-family: var(--bi-font-sans);
-    color: var(--color-text);
+  font-size: var(--bi-text-base-size);
+  font-family: var(--bi-font-family);
+  color: var(--color-text);
 }
 
 h1, h2, h3, h4, h5, h6, form legend {
-    color: var(--bi-color-text-heading);
-    margin-bottom: var(--bi-space-xxs);
-    line-height: var(--bi-heading-line-height);
+  color: var(--color-text);
+  margin-bottom: var(--bi-space-xxs);
+  font-size: var(--bi-font-size);
+  line-height: var(--bi-line-height);
+  font-family: var(--bi-font-family);
 }
 
 h1, h2, h3, h4, h5, h6, p {
-    font-weight: 400;
+  font-weight: var(--bi-font-weight);
 }
 
 .bi-h1, .bi-h2, .bi-h3, .bi-h4, .bi-h5, .bi-h6 {
-    color: var(--bi-color-text-heading);
-    margin-bottom: var(--bi-space-xxs);
-    line-height: var(--bi-heading-line-height);
-    font-weight: 400;
+  color: var(--color-text);
+  margin-bottom: var(--bi-space-xxs);
+  font-weight: var(--bi-font-weight);
+  font-size: var(--bi-font-size);
+  line-height: var(--bi-line-height);
+  font-family: var(--bi-font-family);
 }
 
 /** Text size */
 .text-xxxl { font-size: var(--bi-text-xxxl); }
 
 h1, .bi-h1, .text-xxl {
-    font-size: var(--bi-text-xxl);
+  font-size: var(--bi-text-xxl);
 }
 
 h2, .bi-h2, .text-xl {
-    font-size: var(--bi-text-xl);
+  font-size: var(--bi-text-xl);
 }
 
 h3, .bi-h3, .text-lg {
-    font-size: var(--bi-text-lg);
+  font-size: var(--bi-text-lg);
 }
 
 h4, .bi-h4, .text-md {
-    font-size: var(--bi-text-md);
+  font-size: var(--bi-text-md);
 }
 
 h5, small, .bi-h5, .text-sm {
-    font-size: var(--bi-text-sm);
+  font-size: var(--bi-text-sm);
 }
 
 h6, .bi-h6, .text-xs {
-    font-size: var(--bi-text-xs);
+  font-size: var(--bi-text-xs);
 }
 
 p {
-    line-height: var(--bi-body-line-height);
-    margin-bottom: var(--bi-space-sm);
-    font-size: var(--bi-text-xs);
+  line-height: var(--bi-body-line-height);
+  margin-bottom: var(--bi-space-sm);
+  font-size: var(--bi-text-xs);
 }
 
 a {
-    color: var(--bi-color-link);
+  color: var(--bi-color-link);
 }
 a:visited {
-    color: var(--bi-color-link-visited);
+  color: var(--bi-color-link-visited);
 }
 
 b, strong {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 /** Text Transform */
 .bi-uppercase {
-    text-transform: uppercase;
+  text-transform: uppercase;
 }
 .bi-lowercase {
-    text-transform: lowercase;
+  text-transform: lowercase;
 }
 .bi-capitalize {
-    text-transform: capitalize;
+  text-transform: capitalize;
 }
 .bi-normal-case {
-    text-transform: none;
+  text-transform: none;
 }
 
 /** Text Decoration and decoration style */
 .bi-underline, .bi-underline-double, .bi-underline-dotted, 
 .bi-underline-dashed, .bi-underline-wavy {
-    text-decoration-line: underline;
-    text-decoration-style: solid;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
 }
 .bi-overline, .bi-overline-double, .bi-overline-dotted, 
 .bi-overline-dashed, .bi-overline-wavy {
-    text-decoration-line: overline;
-    text-decoration-style: solid;
+  text-decoration-line: overline;
+  text-decoration-style: solid;
 }
 .bi-line-through, .bi-line-through-double, .bi-line-through-dotted, 
 .bi-line-through-dashed, .bi-line-through-wavy {
-    text-decoration-line: line-through;
-    text-decoration-style: solid;
+  text-decoration-line: line-through;
+  text-decoration-style: solid;
 }
 .bi-no-decoration {
-    text-decoration-line: none;
-    text-decoration-style: solid;
+  text-decoration-line: none;
+  text-decoration-style: solid;
 }
 /** Text Decoration Style */
 .bi-underline-double,
 .bi-overline-double,
 .bi-line-through-double {
-    text-decoration-style: double;
+  text-decoration-style: double;
 }
 .bi-underline-dotted,
 .bi-overline-dotted,
 .bi-line-through-dotted {
-    text-decoration-style: dotted;
+  text-decoration-style: dotted;
 }
 .bi-underline-dashed,
 .bi-overline-dashed,
 .bi-line-through-dashed {
-    text-decoration-style: dashed;
+  text-decoration-style: dashed;
 }
 .bi-underline-wavy,
 .bi-overline-wavy,
 .bi-line-through-wavy	{
-    text-decoration-style: wavy;
+  text-decoration-style: wavy;
 }
 
 /** Text Align */
 .bi-text-left {
-    text-align: left;
+  text-align: left;
 }
 .bi-text-center {
-    text-align: center;
+  text-align: center;
 }
 .bi-text-right {
-    text-align: right;
+  text-align: right;
 }
 .bi-text-justify {
-    text-align: justify;
+  text-align: justify;
 }
 .bi-text-start {
-    text-align: start;
+  text-align: start;
 }
 .bi-text-end {
-    text-align: end;
+  text-align: end;
 }
 
 /** Increase font sizes by 1.5x on bigger screens */
 @media (min-width: 48rem) {
-    :root {          
-        --bi-text-xs:   1.25em;
-        --bi-text-sm:   1.5em;
-        --bi-text-md:   2em;
-        --bi-text-lg:   2.5em;
-        --bi-text-xl:   3em;
-        --bi-text-xxl:  3.5em;
-        --bi-text-xxxl: 4em;
-    }
+  :root {          
+    --bi-text-xs:   1.25em;
+    --bi-text-sm:   1.5em;
+    --bi-text-md:   2em;
+    --bi-text-lg:   2.5em;
+    --bi-text-xl:   3em;
+    --bi-text-xxl:  3.5em;
+    --bi-text-xxxl: 4em;
+  }
 }
+/** -------------------------------
+--         Birdie Themes         --
+-------------------------------- */
+
+:root {
+  /** Styles defaults*/
+  --bi-border-radius: 0.25rem;
+  --bi-border-width: 0.0625rem;
+  --bi-outline-width: 0.125rem;
+  --bi-transition: 0.2s ease-in-out;
+  --bi-spacing: 1rem;
+  --bi-background-color: var(--bi-grey-one)
+
+
+  /** Style for tabs */
+  --bi-tab-bg: var(--bi-grey-four);
+  --bi-tab-active-bg: var(--bi-white);
+  --bi-tab-color: var(--bi-color-default);
+  --bi-tab-active-border: var(--bi-color-primary);
+  --bi-tab-border: var(--bi-color-border);
+
+  /** Style for card */ 
+  --bi-card-bg: var(--bi-grey-one);  
+  --bi-card-header-bg: var(--bi-grey-four);
+  --bi-card-header-color: var(--bi-color-default);
+  --bi-card-content-bg: var(--bi-white);
+  --bi-card-content-color: var(--bi-grey-ten);
+  --bi-card-border: var(--bi-default-border);
+  --bi-card-border-radius: var(--bi-default-border-radius);
+  --bi-card-box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+
+  /** Style for accordion */
+  --bi-accordion-bg: var(--bi-grey-one);
+  --bi-accordion-color: var(--bi-color-default);
+  --bi-accordion-border: var(--bi-default-border);
+  --bi-accordion-border-radius: var(--bi-default-border-radius);
+  --bi-accordion-panel-label-bg: var(--bi-grey-four);
+  --bi-accordion-panel-label-color: var(--bi-color-default);
+  --bi-accordion-content-bg: var(--bi-white);
+  --bi-accordion-content-color: var(--bi-grey-ten);
+
+  /** Style for dropdown */
+  --bi-dropdown-bg: var(--bi-grey-four);
+  --bi-dropdown-bg-hover: var(--bi-grey-five);
+  --bi-dropdown-color: var(--bi-color-default);
+  --bi-dropdown-hover: var(--bi-grey-four);
+  --bi-dropdown-border: var(--bi-default-border);
+  --bi-dropdown-border-radius: var(--bi-default-border-radius);
+  --bi-dropdown-menu-border: var(--bi-default-border); 
+  --bi-dropdown-menu-border-radius: var(--bi-default-border-radius);
+  --bi-dropdown-menu-box-shadow: 0 3px 6px rgba(0,0,0,.175);  /* 0 8px 16px rgba(0,0,0,0.2); */
+  --bi-dropdown-item-color: var(--bi-grey-ten);
+  --bi-dropdown-item-hover-bg: #f1f1f1;
+  --bi-dropdown-item-divider-color: var(--bi-grey-five);
+
+  /** Style for tooltips */
+  --bi-tooltip-bg: var(--bi-color-dark);
+  --bi-tooltip-color: var(--bi-color-light);
+
+  /** Style for textfields */
+  --bi-textfield-color: var(--bi-color-default);
+  --bi-textfield-border: var(--bi-default-border);
+  --bi-textfield-border-radius: var(--bi-default-border-radius);
+  --bi-textfield-muted-bg: var(--bi-color-muted);
+  --bi-textfield-muted-border: 1px solid var(--bi-color-muted);
+
+  /** Style for selections */
+  --bi-selections-border: var(--bi-default-border);
+  --bi-selections-border-radius: 2px;
+  --bi-selections-bg: var(--bi-grey-four);
+  --bi-selections-bg-active: var(--bi-color-primary);
+  --bi-selections-color: var(--bi-color-primary);
+
+
+  
+  
+
+  /** Style for datatable */
+  --bi-datatable-paginator-bg: transparent !important;
+  --bi-datatable-paginator-color: var(--bi-color-primary);
+  --bi-datatable-paginator-bg-action: var(--bi-color-primary);
+  --bi-datatable-paginator-color-action: #fbfbfb;
+  --bi-datatable-paginator-info: var(--bi-color-primary);
+
+  
+
+
+
+
+
+}
+
+
+input:not([type=submit],
+[type=button],
+[type=reset],
+[type=checkbox],
+[type=radio],
+[type=file]),
+:where(select, textarea) {
+  background:magenta;
+}
+
+
+
+
+
+
+.theme-light {
+  --color-primary: #0060df;
+  --color-secondary: #fbfbfe;
+  --color-accent: #fd6f53;
+  --font-color: #000000;
+}
+.theme-dark {
+  --color-primary: #17ed90;
+  --color-secondary: #243133;
+  --color-accent: #12cdea;
+  --font-color: #ffffff;
+}
+/** -------------------------------
+--          Birdie Base          --
+-------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  background-repeat: no-repeat;
+}
+
+::before,
+::after {
+  text-decoration: inherit;
+  vertical-align: inherit;
+}
+
+:where(:root) {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  background-color: var(--bi-background-color);
+  color: var(--bi-color-text);
+  font-weight: var(--bi-font-weight);
+  font-size: var(--bi-font-size);
+  line-height: var(--bi-line-height);
+  font-family: var(--bi-font-family);
+  text-underline-offset: var(--bi-text-underline-offset);
+  text-rendering: optimizeLegibility;
+  overflow-wrap: break-word;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+}
+
 html, body {
-   position: relative;
-   width: 100%;
-   height: 100%;
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
 body {
-   font-size: var(--bi-font-size);
-   font-family: var(--bi-font-family);
-   color: var(--bi-color-text);
-   background: #f6f6f6;		
-   box-sizing: border-box;
-   margin: 0;
-	padding: 0;
+  font-size: var(--bi-font-size);
+  font-family: var(--bi-font-family);
+  color: var(--bi-color-text);
+  background: #f6f6f6;		
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.bi-triangle-up::before {
+  position: absolute;
+  right: 7px;
+  top: 18px;
+  content: ' ';
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid var(--bi-default-color-triangle);
+}
+ 
+.bi-triangle-down::before {
+  position: absolute;
+  right: 7px;
+  top: 18px;
+  content: ' ';
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid var(--bi-default-color-triangle);
+}
+ 
+.bi-triangle-left::before {
+  position: absolute;
+  right: 7px;
+  top: 18px;
+  content: ' ';
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-right: 5px solid var(--bi-default-color-triangle);
+}
+ 
+.bi-triangle-right::before {
+  position: absolute;
+  right: 7px;
+  top: 18px;
+  content: ' ';
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 5px solid var(--bi-default-color-triangle);
 }
 /* Simple Grid System */
 
@@ -543,604 +823,606 @@ body {
 -------------------------------- */
 /** Reset default style in browsers */
 ::-moz-placeholder {  
-   opacity: 1;
+  opacity: 1;
 }
 ::placeholder {  
-   opacity: 1;
+  opacity: 1;
 }
 input::-moz-focus-inner,
 textarea::-moz-focus-inner {
-   border: none;
-   outline: none;
+  border: none;
+  outline: none;
 }
-/** Birdie Textfield */
-.bi-textfield,
-.bi-textfield-outlined {
-   position: relative;
-   display: inline-block;
-   font-size: 16px;
-   line-height: 1.5;
-   width: 100%;
-   height: 2.5em;
-   border-radius: 4px;
+
+.bi-textfield {
+  position: relative;
+  display: inline-block;
+  font-size: 16px;
+  line-height: 1.5;
+  width: 100%;
+  height: 2.8em;
+  margin: 5px 0;
+  border-radius: var(--bi-textfield-border-radius);  
 }
-/** Input, Textarea */
+
 .bi-textfield > input,
-.bi-textfield > textarea,
-.bi-textfield-outlined > input,
-.bi-textfield-outlined > textarea {
-   -webkit-text-fill-color: currentColor;
-   box-shadow: none;
-   font-family: inherit;
-   font-size: inherit;
-   line-height: inherit; 
-   display: block;
-   box-sizing: border-box;
-   width: 100%;
-   height: inherit;
-   border: none; 
-   margin: 0;
-   padding: 15px 10px;
-   color: var(--bi-default-color);   
-   caret-color: var(--bi-default-color);
-   border: 1px solid var(--bi-default-color);
-   background-color: transparent;
-   border-radius: 4px;   
-}
-.bi-textfield-outlined > input:not(:focus):-moz-placeholder-shown, .bi-textfield-outlined > textarea:not(:focus):-moz-placeholder-shown {
-   border-top-color: var(--bi-default-color);
-}
-.bi-textfield-outlined > input:not(:focus):placeholder-shown,
-.bi-textfield-outlined > textarea:not(:focus):placeholder-shown {
-   border-top-color: var(--bi-default-color);
-}
-/* Label */
-.bi-textfield-outlined > input + label,
-.bi-textfield-outlined > textarea + label {
-   display: block;
-   box-sizing: border-box;
-   position: absolute;
-   top: 0;
-   left: 12px;   
-   max-width: 80%;  
-   max-height: 80%;  
-   padding: 2px 0 0;
-   font-size: 75%;
-   line-height: 15px;
-   cursor: text; 
-   color: var(--bi-default-color);
-   pointer-events: none;
-   transition: color 0.2s, font-size 0.2s, line-height 0.2s;
-} 
-/* Corners */
-.bi-textfield-outlined > input + label::before,
-.bi-textfield-outlined > input + label::after,
-.bi-textfield-outlined > textarea + label::before,
-.bi-textfield-outlined > textarea + label::after {
-   content: "";
-   display: block;
-   box-sizing: border-box;
-   margin-top: -10px;
-   min-width: 10px;
-   height: 8px;
-   pointer-events: none;
-   box-shadow: inset 0 1px transparent;
-   transition: border 0.2s, box-shadow 0.2s;
-   background: none;
+.bi-textfield > textarea {
+  -webkit-text-fill-color: currentColor;
+  box-shadow: none;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 400;
+  line-height: inherit; 
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  height: inherit;
+  border: none; 
+  margin: 0;
+  padding: 0.375rem 0.75rem;
+  color: var(--bi-textfield-color);
+  background-color: transparent;
+  border: var(--bi-textfield-border);
+  border-radius: var(--bi-textfield-border-radius);
+  outline: none;
+  transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-.bi-textfield-outlined > input:not(:focus):-moz-placeholder-shown + label, .bi-textfield-outlined > textarea:not(:focus):-moz-placeholder-shown + label {
-   line-height: 10px;  
+.bi-textfield > textarea {
+  min-height: 4.5em;
 }
 
-.bi-textfield-outlined > input:not(:focus):placeholder-shown + label,
-.bi-textfield-outlined > textarea:not(:focus):placeholder-shown + label {
-   line-height: 10px;  
+.bi-textfield > input:hover,
+.bi-textfield > textarea:hover {
+  border-color: var(--bi-color-primary);
 }
 
-/** Hover */
-.bi-textfield:hover > input,
-.bi-textfield:hover > textarea,
-.bi-textfield-outlined:hover > input,
-.bi-textfield-outlined:hover > textarea
-{
-   border-color: var(--bi-primary-color);
-   width: 100%;
-}
-
-.bi-textfield-outlined:hover > input:not(:focus):-moz-placeholder-shown, .bi-textfield-outlined:hover > textarea:not(:focus):-moz-placeholder-shown {
-   border-color: var(--bi-primary-color);
-}
-
-.bi-textfield-outlined:hover > input:not(:focus):placeholder-shown,
-.bi-textfield-outlined:hover > textarea:not(:focus):placeholder-shown {
-   border-color: var(--bi-primary-color);
-}
-/* Placeholder-shown */
-.bi-textfield > input:not(:focus):-moz-placeholder-shown + label, .bi-textfield > textarea:not(:focus):-moz-placeholder-shown + label, .bi-textfield-outlined > input:not(:focus):-moz-placeholder-shown + label, .bi-textfield-outlined > textarea:not(:focus):-moz-placeholder-shown + label {
-   font-size: inherit;
-   line-height: 2.5em;
-}
-.bi-textfield > input:not(:focus):placeholder-shown + label,
-.bi-textfield > textarea:not(:focus):placeholder-shown + label,
-.bi-textfield-outlined > input:not(:focus):placeholder-shown + label,
-.bi-textfield-outlined > textarea:not(:focus):placeholder-shown + label {
-   font-size: inherit;
-   line-height: 2.5em;
-}
-/* Focus */
 .bi-textfield > input:focus,
-.bi-textfield > textarea:focus {
-   border-color: var(--bi-primary-color);
-   outline: none;
+.bi-textfield > textarea:focus,
+.bi-textfield > input:focus-visible,
+.bi-textfield > textarea:focus-visible {
+  color: var(--bi-textfield-color);
+  background-color: #fff;
+  border-color: #80bdff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  outline: 0;
 }
-.bi-textfield-outlined > input:focus,
-.bi-textfield-outlined > textarea:focus {
-   border-color: var(--bi-primary-color);
-   outline: none;
+
+.bi-textfield > input::-moz-placeholder, .bi-textfield > textarea::-moz-placeholder {
+  color: var(--bi-textfield-color);
+  opacity: 1;
 }
-.bi-textfield-outlined > input:not(:-moz-placeholder-shown) + label {
-   top: -5px;   
-   max-height: 25%;
-   width: auto !important; 
-   max-width: 60%;
-   padding: 0 3px; 
-   color: var(--bi-primary-color);
-   background: #FFFFFF;
+
+.bi-textfield > input::placeholder,
+.bi-textfield > textarea::placeholder {
+  color: var(--bi-textfield-color);
+  opacity: 1;
 }
-.bi-textfield-outlined > input:focus + label,
-.bi-textfield-outlined > textarea:focus + label,
-.bi-textfield-outlined > input:not(:placeholder-shown) + label {
-   top: -5px;   
-   max-height: 25%;
-   width: auto !important; 
-   max-width: 60%;
-   padding: 0 3px; 
-   color: var(--bi-primary-color);
-   background: #FFFFFF;
-}
-.bi-textfield-outlined > input:not(:-moz-placeholder-shown):not(:focus) + label {  
-   max-height: 20%;
-   color: var(--bi-default-color);
-}
-.bi-textfield-outlined > input:not(:placeholder-shown):not(:focus) + label {  
-   max-height: 20%;
-   color: var(--bi-default-color);
-} 
-/* Disabled */
+
 .bi-textfield > input:disabled,
-.bi-textfield > textarea:disabled {
-   border-color: var(--bi-muted-color) !important;
-   color: var(--bi-muted-color);
-   pointer-events: none;   
-}
-.bi-textfield-outlined > input:disabled,
-.bi-textfield-outlined > input:disabled + label,
-.bi-textfield-outlined > textarea:disabled,
-.bi-textfield-outlined > textarea:disabled + label {
-   border-color: transparent var(--bi-muted-color) var(--bi-muted-color) !important;
-   color: var(--bi-muted-color);
-   pointer-events: none;   
-}
-.bi-textfield-outlined > input:disabled + label::before,
-.bi-textfield-outlined > input:disabled + label::after,
-.bi-textfield-outlined > textarea:disabled + label::before,
-.bi-textfield-outlined > textarea:disabled + label::after {
-   border-top-color: var(--bi-muted-color) !important;   
-}
-.bi-textfield-outlined > input:disabled:-moz-placeholder-shown, .bi-textfield-outlined > input:disabled:-moz-placeholder-shown + label, .bi-textfield-outlined > textarea:disabled:-moz-placeholder-shown, .bi-textfield-outlined > textarea:disabled:-moz-placeholder-shown + label {
-   border-top-color: var(--bi-muted-color) !important;
-}
-.bi-textfield-outlined > input:disabled:placeholder-shown,
-.bi-textfield-outlined > input:disabled:placeholder-shown + label,
-.bi-textfield-outlined > textarea:disabled:placeholder-shown,
-.bi-textfield-outlined > textarea:disabled:placeholder-shown + label {
-   border-top-color: var(--bi-muted-color) !important;
-}
-.bi-textfield-outlined > input:disabled:-moz-placeholder-shown + label::before, .bi-textfield-outlined > input:disabled:-moz-placeholder-shown + label::after, .bi-textfield-outlined > textarea:disabled:-moz-placeholder-shown + label::before, .bi-textfield-outlined > textarea:disabled:-moz-placeholder-shown + label::after {
-   border-top-color: transparent !important;
-}
-.bi-textfield-outlined > input:disabled:placeholder-shown + label::before,
-.bi-textfield-outlined > input:disabled:placeholder-shown + label::after,
-.bi-textfield-outlined > textarea:disabled:placeholder-shown + label::before,
-.bi-textfield-outlined > textarea:disabled:placeholder-shown + label::after {
-   border-top-color: transparent !important;
+.bi-textfield > input[readonly],
+.bi-textfield > textarea:disabled,
+.bi-textfield > textarea[readonly] {
+  background-color: var(--bi-textfield-muted-bg);
+  border: var(--bi-textfield-muted-border);
+  color: var(--bi-textfield-color);
+  cursor: not-allowed;
+  opacity: 1;
 }
 /** ------------------------------- 
 --      Birdie Selections        --
 -------------------------------- */
 /** Reset default style in browsers */
 ::-moz-placeholder {  
-   opacity: 1;
+  opacity: 1;
 }
 ::placeholder {  
-   opacity: 1;
+  opacity: 1;
 }
 input::-moz-focus-inner,
 select::-moz-focus-inner {
-   border: none;
-   outline: none;
+  border: none;
+  outline: none;
 }
 /** Birdie Checkbox, Radio */
 .bi-checkbox,
 .bi-radio {
-   z-index: 0;
-   position: relative;
-   display: inline-block;
-   color: var(--bi-default-color);
-   font-size: 16px;
-   line-height: 1.5;
+  z-index: 0;
+  position: relative;
+  display: inline-block;
+  color: var(--bi-color-default);
+  font-size: 16px;
+  line-height: 1.5;
 } 
 /** Box input checkbox and radio */
 .bi-checkbox > input,
 .bi-radio > input {
-   appearance: none;
-   -moz-appearance: none;
-   -webkit-appearance: none;
-   z-index: 1;
-   position: absolute;
-   display: block;
-   box-sizing: border-box;
-   margin: 3px 1px;
-   border: 1px solid var(--bi-default-color); 
-   border-radius: 2px;
-   width: 18px;
-   height: 18px;
-   outline: none;
-   cursor: pointer;
-   transition: border-color 0.2s, background-color 0.2s;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  z-index: 1;
+  position: absolute;
+  display: block;
+  box-sizing: border-box;
+  margin: 3px 1px;
+  border: var(--bi-selections-border); 
+  border-radius: var(--bi-selections-border-radius);
+  width: 18px;
+  height: 18px;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.2s, background-color 0.2s;
 }
 .bi-radio > input {   
-   margin: 2px 0;
-   border-radius: 50%;
-   width: 20px;
-   height: 20px;   
-   transition: border-color 0.2s;
+  margin: 2px 0;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;   
+  transition: border-color 0.2s;
 }
 /** Label checkbox and radio */
 .bi-checkbox > input + label,
 .bi-radio > input + label {
-   display: inline-block;
-   box-sizing: border-box;
-   padding-left: 30px;
-   width: inherit;
-   cursor: pointer;
+  display: inline-block;
+  box-sizing: border-box;
+  padding-left: 30px;
+  width: inherit;
+  cursor: pointer;
 } 
 /** Highlight checkbox and radio */
 .bi-checkbox > input + label::before,
 .bi-radio > input + label::before {
-   content: "";
-   position: absolute;
-   left: -10px;
-   top: -8px;
-   display: block;
-   border-radius: 50%;
-   width: 40px;
-   height: 40px;
-   background-color: var(--bi-primary-color);
-   opacity: 0;
-   transform: scale(1);
-   pointer-events: none;
-   transition: opacity 0.3s, transform 0.2s;
+  content: "";
+  position: absolute;
+  left: -10px;
+  top: -8px;
+  display: block;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  background-color: var(--bi-selections-bg-active);
+  opacity: 0;
+  transform: scale(1);
+  pointer-events: none;
+  transition: opacity 0.3s, transform 0.2s;
 }
 .bi-radio > input + label::before { 
-   transform: scale(0);
+  transform: scale(0);
 }
 /** Check Mark checkbox and radio */
 .bi-checkbox > input + label::after {
-   z-index: 1;
-   content: "";  
-   display: block;
-   position: absolute;
-   top: 3px;
-   left: 1px;
-   box-sizing: content-box;
-   width: 10px;
-   height: 5px;
-   border: 2px solid transparent;
-   border-right-width: 0;
-   border-top-width: 0;
-   pointer-events: none;
-   transform: translate(3px, 4px) rotate(-45deg);
-   transition: border-color 0.2s;
+  z-index: 1;
+  content: "";  
+  display: block;
+  position: absolute;
+  top: 3px;
+  left: 1px;
+  box-sizing: content-box;
+  width: 10px;
+  height: 5px;
+  border: 2px solid transparent;
+  border-right-width: 0;
+  border-top-width: 0;
+  pointer-events: none;
+  transform: translate(3px, 4px) rotate(-45deg);
+  transition: border-color 0.2s;
 }
 .bi-radio > input + label::after {
-   content: "";
-   display: block;
-   position: absolute;
-   top: 2px;
-   left: 0;
-   border-radius: 50%;
-   width: 10px;
-   height: 10px;
-   background-color: var(--bi-primary-color);
-   transform: translate(5px, 5px) scale(0);
-   transition: transform 0.1s;
+  content: "";
+  display: block;
+  position: absolute;
+  top: 2px;
+  left: 0;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  background-color: var(--bi-color-primary);
+  transform: translate(5px, 5px) scale(0);
+  transition: transform 0.1s;
 }
 
 /** Checked, Indeterminate in checkbox */
 .bi-checkbox > input:checked,
 .bi-checkbox > input:indeterminate {
-   border-color: var(--bi-primary-color);
-   background-color: var(--bi-primary-color);
+  border-color: var(--bi-selections-color);
+  background-color: var(--bi-selections-color);
 }
 .bi-checkbox > input:checked + label::before,
 .bi-checkbox > input:indeterminate + label::before {
-   background-color: var(--bi-primary-color);
+  background-color: var(--bi-selections-color);
 }
 .bi-checkbox > input:checked + label::after,
 .bi-checkbox > input:indeterminate + label::after {
-   border-color: var(--bi-light-color);
+  border-color: var(--bi-color-light);
 }
 .bi-checkbox > input:indeterminate + label::after {
-   border-left-width: 0;
-   transform: translate(4px, 3px);
+  border-left-width: 0;
+  transform: translate(4px, 3px);
 }
 .bi-radio > input:checked {
-   border-color: var(--bi-primary-color);
+  border-color: var(--bi-selections-color);
 }
 .bi-radio > input:checked + label::before {
-   background-color: var(--bi-light-color);
+  background-color: var(--bi-color-light);
 }
 .bi-radio > input:checked + label::after {
-   transform: translate(5px, 5px) scale(1);
+  transform: translate(5px, 5px) scale(1);
 }
 /** Hover, Focus in checkbox and radio */
 .bi-checkbox:hover > input,
 .bi-radio:hover > input {
-   border-color: var(--bi-primary-color);
+  border-color: var(--bi-selections-color);
 }
 .bi-checkbox:hover > input + label::before {
-   opacity: 0.04;  
-   color: var(--bi-primary-color);  
+  opacity: 0.04;  
+  color: var(--bi-selections-color);  
 }
 .bi-radio:hover > input + label::before {
-   opacity: 0.04;
-   transform: scale(1);   
+  opacity: 0.04;
+  transform: scale(1);   
 }
 /** Disabled in checkbox and radio */
 .bi-checkbox > input:disabled,
 .bi-radio > input:disabled {   
-   cursor: initial;
-   border-color: var(--bi-muted-color);
+  cursor: initial;
+  border-color: var(--bi-color-muted);
 }
 .bi-checkbox > input:checked:disabled,
 .bi-checkbox > input:indeterminate:disabled {
-   border-color: transparent;
-   background-color: var(--bi-muted-color);
+  border-color: transparent;
+  background-color: var(--bi-color-muted);
 }
 .bi-checkbox > input:disabled + label,
 .bi-radio > input:disabled + label {
-   cursor: initial;
-   color: var(--bi-muted-color);   
+  cursor: initial;
+  color: var(--bi-color-muted);   
 }
 .bi-checkbox > input:disabled + label::before,
 .bi-radio > input:disabled + label::before {
-   opacity: 0;
-   transform: scale(0);
+  opacity: 0;
+  transform: scale(0);
 }
 .bi-radio > input:disabled + label::after {
-   background-color: currentColor;
+  background-color: currentColor;
 }
 /** Birdie Switch */
 .bi-switch {
-   position: relative;
-   display: inline-block;
-   width: 60px;
-   height: 30px;
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 30px;
 }
 /** Hide default HTML checkbox in switch */
 .bi-switch input {
-   opacity: 0;
-   width: 0;
-   height: 0;
+  opacity: 0;
+  width: 0;
+  height: 0;
 } 
 /** The slider in switch */
 .bi-slider-sw {
-   position: absolute;
-   cursor: pointer;
-   top: 0;
-   left: 0;
-   right: 0;
-   bottom: 0;
-   background-color: var(--bi-muted-color);
-   transition: .4s;
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--bi-selections-bg);
+  transition: .4s;
 }
 .bi-slider-sw:before {
-   position: absolute;
-   content: "";
-   height: 22px;
-   width: 22px;
-   left: 4px;
-   bottom: 4px;
-   background-color: #FFF;
-   transition: .4s;
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 4px;
+  bottom: 4px;
+  background-color: #FFF;
+  transition: .4s;
 } 
 .bi-switch input:checked + .bi-slider-sw {
-   background-color: var(--bi-primary-color);
+  background-color: var(--bi-selections-bg-active);
 } 
 .bi-switch input:checked + .bi-slider-sw:before {
-   transform: translateX(26px);
+  transform: translateX(26px);
 } 
 /** Rounded sliders in switch */
 .bi-slider-sw.round {
-   border-radius: 30px;
+  border-radius: 30px;
 } 
 .bi-slider-sw.round:before {
-   border-radius: 50%;
+  border-radius: 50%;
 }
 /** Birdie Select */
 .bi-select {
-   display: flex;
-   width: 100%;
-   height: 2.5em;
-   font-size: 16px;
-   line-height: 3;
-   position: relative;     
-   overflow: hidden;
-   border-radius: 4px;
-   background: transparent !important;
-   border: 1px solid var(--bi-default-color);
+  position: relative;
+  font-family: Arial, sans-serif;
+}
+
+.bi-select select {
+  display: none;
+}
+
+.bi-select-selected {
+  background-color: #f1f1f1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  position: relative;
+}
+
+.bi-select-selected::after {
+  /* content: "▼";
+  position: absolute;
+  right: 10px;
+  top: 14px; */
+  content: "";
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid var(--bi-dropdown-color);
+  transition: transform 0.3s;
+}
+
+.bi-select-items {
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ccc;
+  z-index: 99;
+  max-height: 200px;
+  overflow-y: auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.bi-select-items div {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.bi-select-items div:hover, 
+.bi-same-as-selected {
+  background-color: #f1f1f1;
+}
+
+.bi-select-hide {
+  display: none;
+}
+
+.bi-select-arrow-active::after {
+  transform: translateY(-50%) rotate(360deg);
+  border-top: none;
+  border-bottom: 5px solid var(--bi-dropdown-color);
+}
+
+.bi-select-selected.disabled {
+  background-color: #e9ecef;
+  border: 1px solid #ced4da;
+  cursor: not-allowed;
+  color: #6c757d;
+}
+
+.bi-select-selected.disabled::after {
+  border-top: 5px solid #6c757d;
+  border-bottom: none;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+}
+
+/*
+.bi-select > select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 400;
+  line-height: inherit;
+  display: block;
+  width: 100%;
+  height: 2.8em;
+  border: none;
+  margin: 0;
+  padding: 0.375rem 0.75rem;
+  color: var(--bi-textfield-color);
+  background-color: transparent;
+  border: var(--bi-textfield-border);
+  border-radius: var(--bi-textfield-border-radius);
+  outline: none;
+  transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  cursor: pointer;
+}
+ 
+.bi-select > select:hover {
+  border-color: var(--bi-color-primary);
+}
+
+.bi-select > select:focus,
+.bi-select > select:focus-visible {
+  color: var(--bi-textfield-color);
+  background-color: #fff;
+  border-color: #80bdff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  outline: 0;
+}
+ 
+.bi-select > select:disabled,
+.bi-select > select[readonly] {
+  background-color: var(--bi-textfield-muted-bg);
+  border: var(--bi-textfield-muted-border);
+  color: var(--bi-textfield-color);
+  cursor: not-allowed;
+  opacity: 1;
+} 
+*/ 
+/*
+.bi-select {
+  display: flex;
+  width: 100%;
+  height: 2.5em;
+  font-size: 16px;
+  line-height: 3;
+  position: relative;     
+  overflow: hidden;
+  border-radius: 4px;
+  background: transparent !important;
+  border: var(--bi-selections-border);
 }
 .bi-select::after {
-   content: "";
-   position: absolute;
-   right: 20px;
-   top: 10px;
-   z-index: 9999;
-   width: 12px;
-   height: 12px;   
-   border: 2px solid grey;
-   border-top: transparent;
-   border-right: transparent;
-   cursor: pointer;
-   transform: rotate(-45deg);
-   pointer-events: none;
-   transition: all 0.3s linear;
+  content: "";
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  z-index: 9999;
+  width: 12px;
+  height: 12px;   
+  border: 2px solid grey;
+  border-top: transparent;
+  border-right: transparent;
+  cursor: pointer;
+  transform: rotate(-45deg);
+  pointer-events: none;
+  transition: all 0.3s linear;
  }
 .bi-select > select {
-   -webkit-appearance: none;
-   -moz-appearance: none;
-   appearance: none;
-   outline: 0;
-   box-shadow: none;
-   border: none;
-   background-image: none;
-   background: transparent !important;
-   flex: 1;
-   padding: 0 .5em;
-   color: var(--bi-default-color);   
-   cursor: pointer;
-   font-size: 1em;
-   font-family: inherit;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  box-shadow: none;
+  border: none;
+  background-image: none;
+  background: transparent !important;
+  flex: 1;
+  padding: 0 .5em;
+  color: var(--bi-color-default);   
+  cursor: pointer;
+  font-size: 1em;
+  font-family: inherit;
 }
 .bi-select > select::-ms-expand {
-   display: none;
+  display: none;
 }
 .bi-select:hover {
-   border-color: var(--bi-primary-color);
+  border-color: var(--bi-color-primary);
 }
 .bi-select > select:focus,
 .bi-select > select:active,
 .bi-select > select:focus-within,
 .bi-select > select:active-within {
-   border-radius: 4px;
+  border-radius: var(--bi-default-border-radius);
+  background: magenta !important;
 }
 
-/** Disabled */
 .bi-select[disabled] {
-   color: var(--bi-muted-color);
-   border-color: var(--bi-muted-color) !important;
+  color: var(--bi-color-muted);
+  border-color: var(--bi-color-muted) !important;
 }
 .bi-select[disabled] > select {
-   color: var(--bi-muted-color);
+  color: var(--bi-color-muted);
 }
 .bi-select[disabled]:hover::after {
-   color: var(--bi-muted-color);
+  color: var(--bi-color-muted);
 }
+*/
 /** ------------------------------- 
 --        Birdie Dropdown        --
 -------------------------------- */
 
 /** Birdie Dropdown */
 .bi-dropdown {
-    position: relative;
-    display: inline-block;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-size: 16px;
+  position: relative;
+  display: inline-block;
+  font-size: 16px;
 }
 
-.bi-dropdown:hover {
-    cursor:pointer;
+.bi-dropdown-toggle {
+  font-size: 16px;
+  background-color: var(--bi-dropdown-bg);
+  border: var(--bi-dropdown-border);
+  padding: 8px 20px 8px 10px;
+  border-radius: var(--bi-dropdown-border-radius);
+  display: inline-block;
+  color: var(--bi-dropdown-color);
+  text-decoration: none;
+  cursor: pointer !important;
+  transition: background-color 0.3s ease;
 }
 
-.bi-dropdown > a, 
-.bi-dropdown > button {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-size: 16px;
-    background-color: var(--bi-dropdown-bg);
-    border: 1px solid var(--bi-dropdown-border);
-    padding: 8px 20px 8px 10px;
-    border-radius: 4px;
-    display: inline-block;
-    color: var(--bi-dropdown-color);
-    text-decoration: none;
+.bi-dropdown-toggle:hover {
+  background-color: var(--bi-dropdown-bg-hover);
 }
-  
-.bi-dropdown > a:before, 
-.bi-dropdown > button:before {
-    position: absolute;
-    right: 7px;
-    top: 16px;
-    content: ' ';
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 5px solid var(--bi-dropdown-color);
+.bi-dropdown-toggle:before {
+  position: absolute;
+  right: 7px;
+  top: 18px;
+  content: ' ';
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid var(--bi-dropdown-color);
 }
-  
-.bi-dropdown input[type=checkbox] {
-    position: absolute;
-    display: block;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 100%;
-    margin: 0px;
-    opacity: 0;
-  }
-  
-.bi-dropdown input[type=checkbox]:checked {
-    position: fixed;
-    z-index:+0;
-    top: 0px; left: 0px; 
-    right: 0px; bottom: 0px;
-  }
-  
-.bi-dropdown ul {
-    position: absolute;
-    top: 35px;
-    border: 1px solid var(--bi-dropdown-border);
-    border-radius: 3px;
-    left: 0px;
-    list-style: none;
-    padding: 4px 0px;
-    display: none;
-    background-color: white;
-    box-shadow: 0 3px 6px rgba(0,0,0,.175);
-    z-index: 999;
+
+.bi-dropdown-menu {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  background-color: var(--bi-white);
+  border: var(--bi-dropdown-menu-border);
+  border-radius: var(--bi-dropdown-menu-border-radius);
+  box-shadow: var(--bi-dropdown-menu-box-shadow); 
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+  z-index: 1;
+  min-width: 160px;
 }
-  
-.bi-dropdown input[type=checkbox]:checked + ul {
-    display: block;
+
+.bi-dropdown-menu.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
-  
-.bi-dropdown ul li {
-    display: block;
-    padding: 6px 20px;
-    white-space: nowrap;
-    min-width: 100px;
+
+.bi-dropdown-item {
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  color: var(--bi-dropdown-item-color);
 }
-  
-.bi-dropdown ul li:hover {
-    background-color: var(--bi-dropdown-hover);
-    cursor: pointer;
+
+.bi-dropdown-item:hover {
+  background-color: var(--bi-dropdown-item-hover-bg);
 }
-  
-.bi-dropdown ul li a {
-    text-decoration: none;
-    display: block;
-    color: var(--bi-dropdown-color)
+
+.bi-dropdown-item:first-child:hover {
+  border-top-left-radius: var(--bi-default-border-radius);
+  border-top-right-radius: var(--bi-default-border-radius);
 }
-  
-.bi-dropdown .bi-dropdown-divider {
-    height: 1px;
-    margin: 9px 0;
-    overflow: hidden;
-    background-color: #e5e5e5;
-    font-size: 1px;
-    padding: 0;
+
+.bi-dropdown-item:last-child:hover {
+  border-bottom-left-radius: var(--bi-default-border-radius);
+  border-bottom-right-radius: var(--bi-default-border-radius);
 }
-  
+
+.bi-dropdown-item-divider {
+  height: 1px;
+  margin: 9px 0;
+  overflow: hidden;
+  background-color: var(--bi-dropdown-item-divider-color);
+  font-size: 1px;
+  padding: 0;
+  display: block;
+}
+
 /**/
 [data-bi='tooltip'] {
 	position: relative;
@@ -1483,48 +1765,102 @@ select::-moz-focus-inner {
 }
 .bi-card,
 .bi-card-padding {
-    background: var(--bi-card-bg);
-    border:none;
-    border-radius: 4px;  
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;  
-    width: auto;
+  width: 100%;
+  background: var(--bi-card-bg);
+  border: var(--bi-card-border);
+  border-radius: var(--bi-card-border-radius);  
+  box-shadow: var(--bi-card-box-shadow);
+  transition: 0.3s;  
 }
 .bi-card-padding {
-    padding: 0.5em;
+  padding: 0.5em;
 }
-
 .bi-card img,
 .bi-card-padding img {
-    border-radius: 4px 4px 0 0;
+  border-radius: 4px 4px 0 0;
 }
-
 .bi-card .bi-card-header,
 .bi-card-padding .bi-card-header {
-    color: var(--bi-card-header-color);
-    background: var(--bi-card-header-bg);
-    padding: 5px;
+  color: var(--bi-card-header-color);
+  background: var(--bi-card-header-bg);
+  padding: 5px;
 }
 .bi-card .bi-card-content,
 .bi-card-padding .bi-card-content {
-    min-height: 85px;
-    color: var(--bi-card-content-color);
-    background: var(--bi-card-content-bg);
-    padding: 5px;    
+  min-height: 85px;
+  color: var(--bi-card-content-color);
+  background: var(--bi-card-content-bg);
+  padding: 5px;    
 }
 /** -------------------------------
 --        Birdie Accordion       --
 -------------------------------- */
+
 /** Birdie Accordion */
 .bi-accordion {
-    width: 100%;
-    border-radius: 4px;
-    border: 1px solid var(--bi-accordion-border);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border: var(--bi-accordion-border);
+  border-radius: var(--bi-accordion-border-radius);  
+  background: var(--bi-accordion-bg);
+  color: var(--bi-accordion-color);
+  overflow: hidden;
+}
+
+.bi-accordion-panel {
+  border-bottom: 1px solid #ccc;
+}
+
+.bi-accordion-panel-label {
+  padding: 15px;
+  background: var(--bi-accordion-panel-label-bg);
+  color: var(--bi-accordion-panel-label-color);
+  font-size: 13px;  
+  cursor: pointer;
+  position: relative;
+}
+
+.bi-accordion-panel-label::after {
+  content: '\02795'; /* Unicode character for "plus" sign (+) */
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.bi-accordion-panel-label.active::after {
+  content: '\2796'; /* Unicode character for "minus" sign (-) */
+}
+
+.bi-accordion-panel-content {
+  padding: 15px;
+  display: none;
+  background: var(--bi-accordion-content-bg);
+  color: var(--bi-accordion-content-color)
+}
+
+.bi-accordion-panel-content.show {
+  display: block; 
+}
+
+ 
+
+
+
+
+
+
+/* old idea */
+/* .bi-accordion {
+    width: 100%;  
+    border: var(--bi-accordion-border);
+    border-radius: var(--bi-accordion-border-radius);
     color: var(--bi-accordion-color);
-}
-.bi-accordion:hover {
+  }
+  .bi-accordion:hover {
     border-color: var(--bi-accordion-border-hover);    
-}
+  }
 .bi-accordion-tabs {
     border-radius: 4px;
     overflow: hidden;    
@@ -1545,7 +1881,7 @@ select::-moz-focus-inner {
     padding-right: 1em;
 }
 .bi-accordion-tab-label:hover {
-    background: var(--bi-accordion-hover-bg); /*#1a252f*/
+    background: var(--bi-accordion-hover-bg);
     color: var(--bi-accordion-hover-color);
 }
 .bi-accordion-tab-label::after {
@@ -1567,12 +1903,12 @@ select::-moz-focus-inner {
     justify-content: flex-end;
     padding: 1em;
     font-size: 0.75em;
-    background: transparent; /*#2c3e50*/
+    background: transparent;
     cursor: pointer;
 }
 .bi-accordion-tab-close:hover,
 .bi-accordion-tab-close:active {
-    background: var(--bi-accordion-hover-bg); /*#1a252f*/
+    background: var(--bi-accordion-hover-bg);
     color: var(--bi-accordion-hover-color);
 }
 .bi-accordion input {
@@ -1581,7 +1917,7 @@ select::-moz-focus-inner {
     z-index: -1;
 }
 .bi-accordion input:checked + .bi-accordion-tab-label {
-    background: var(--bi-accordion-active-bg);/* #1a252f*/
+    background: var(--bi-accordion-active-bg);
     color: var(--bi-accordion-active-color);
 }
 .bi-accordion input:checked + .bi-accordion-tab-label::after {
@@ -1597,6 +1933,7 @@ select::-moz-focus-inner {
 .bi-accordion input:checked + .bi-accordion {
     background-color: magenta;
 }
+ */
 /** ------------------------------- 
 --        Birdie Navbar        --
 -------------------------------- */
@@ -1658,31 +1995,34 @@ select::-moz-focus-inner {
 -------------------------------- */
 .bi-tabs {
   display: flex;
-  margin-bottom: 5px;
-  background: magenta;
+  flex-direction: row;
+  width: 100%;
+  background: transparent;
 }
 
 .bi-tab {
-  padding: 10px 20px;
-  cursor: pointer;
-  background: #f1f1f1;
-  border: 1px solid rgba(102, 153, 102, 0.6);
-  margin-right: 1px;
+  padding: 8px 18px;
+  color: var(--bi-tab-color);
+  background: var(--bi-tab-bg);
+  border: 1px solid var(--bi-tab-border);
   border-radius: 5px 5px 0 0;
+  cursor: pointer;
 }
 
 .bi-tab.bi-tab-active {
-  background: #fff;
-  border-bottom: 2px solid #007BFF;
+  background: var(--bi-tab-active-bg);
+  border-bottom: 2px solid var(--bi-tab-active-border);
 }
 
 .bi-tab-content {
   display: none;
-  padding: 20px;
-  border: 1px solid #ccc;
+  flex-direction: column;
+  width: 100%;
+  padding: 10px 0;
+  border: 1px solid var(--bi-tab-border);
   border-radius: 0 5px 5px 5px;
 }
 
 .bi-tab-content.bi-tab-active {
-  display: block;
+  display: flex;  
 }

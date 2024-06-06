@@ -4,100 +4,86 @@
 
 /** Birdie Dropdown */
 .bi-dropdown {
-    position: relative;
-    display: inline-block;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-size: 16px;
+  position: relative;
+  display: inline-block;
+  font-size: 16px;
 }
 
-.bi-dropdown:hover {
-    cursor:pointer;
+.bi-dropdown-toggle {
+  font-size: 16px;
+  background-color: var(--bi-dropdown-bg);
+  border: var(--bi-dropdown-border);
+  padding: 8px 20px 8px 10px;
+  border-radius: var(--bi-dropdown-border-radius);
+  display: inline-block;
+  color: var(--bi-dropdown-color);
+  text-decoration: none;
+  cursor: pointer !important;
+  transition: background-color 0.3s ease;
 }
 
-.bi-dropdown > a, 
-.bi-dropdown > button {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-size: 16px;
-    background-color: var(--bi-dropdown-bg);
-    border: 1px solid var(--bi-dropdown-border);
-    padding: 8px 20px 8px 10px;
-    border-radius: 4px;
-    display: inline-block;
-    color: var(--bi-dropdown-color);
-    text-decoration: none;
+.bi-dropdown-toggle:hover {
+  background-color: var(--bi-dropdown-bg-hover);
 }
-  
-.bi-dropdown > a:before, 
-.bi-dropdown > button:before {
-    position: absolute;
-    right: 7px;
-    top: 16px;
-    content: ' ';
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 5px solid var(--bi-dropdown-color);
+.bi-dropdown-toggle:before {
+  position: absolute;
+  right: 7px;
+  top: 18px;
+  content: ' ';
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid var(--bi-dropdown-color);
 }
-  
-.bi-dropdown input[type=checkbox] {
-    position: absolute;
-    display: block;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 100%;
-    margin: 0px;
-    opacity: 0;
-  }
-  
-.bi-dropdown input[type=checkbox]:checked {
-    position: fixed;
-    z-index:+0;
-    top: 0px; left: 0px; 
-    right: 0px; bottom: 0px;
-  }
-  
-.bi-dropdown ul {
-    position: absolute;
-    top: 35px;
-    border: 1px solid var(--bi-dropdown-border);
-    border-radius: 3px;
-    left: 0px;
-    list-style: none;
-    padding: 4px 0px;
-    display: none;
-    background-color: white;
-    box-shadow: 0 3px 6px rgba(0,0,0,.175);
-    z-index: 999;
+
+.bi-dropdown-menu {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  background-color: var(--bi-white);
+  border: var(--bi-dropdown-menu-border);
+  border-radius: var(--bi-dropdown-menu-border-radius);
+  box-shadow: var(--bi-dropdown-menu-box-shadow); 
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+  z-index: 1;
+  min-width: 160px;
 }
-  
-.bi-dropdown input[type=checkbox]:checked + ul {
-    display: block;
+
+.bi-dropdown-menu.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
-  
-.bi-dropdown ul li {
-    display: block;
-    padding: 6px 20px;
-    white-space: nowrap;
-    min-width: 100px;
+
+.bi-dropdown-item {
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  color: var(--bi-dropdown-item-color);
 }
-  
-.bi-dropdown ul li:hover {
-    background-color: var(--bi-dropdown-hover);
-    cursor: pointer;
+
+.bi-dropdown-item:hover {
+  background-color: var(--bi-dropdown-item-hover-bg);
 }
-  
-.bi-dropdown ul li a {
-    text-decoration: none;
-    display: block;
-    color: var(--bi-dropdown-color)
+
+.bi-dropdown-item:first-child:hover {
+  border-top-left-radius: var(--bi-default-border-radius);
+  border-top-right-radius: var(--bi-default-border-radius);
 }
-  
-.bi-dropdown .bi-dropdown-divider {
-    height: 1px;
-    margin: 9px 0;
-    overflow: hidden;
-    background-color: #e5e5e5;
-    font-size: 1px;
-    padding: 0;
+
+.bi-dropdown-item:last-child:hover {
+  border-bottom-left-radius: var(--bi-default-border-radius);
+  border-bottom-right-radius: var(--bi-default-border-radius);
 }
-  
+
+.bi-dropdown-item-divider {
+  height: 1px;
+  margin: 9px 0;
+  overflow: hidden;
+  background-color: var(--bi-dropdown-item-divider-color);
+  font-size: 1px;
+  padding: 0;
+  display: block;
+}

@@ -1,3 +1,111 @@
+/** -------------------------------
+--         Birdie Themes         --
+-------------------------------- */
+
+:root {
+  /** Styles defaults*/
+  --bi-border-radius: 0.25rem;
+  --bi-border-width: 0.0625rem;
+  --bi-outline-width: 0.125rem;
+  --bi-transition: 0.2s ease-in-out;
+  --bi-spacing: 1rem;
+  --bi-background-color: var(--bi-grey-one)
+
+
+  /** Style for tabs */
+  --bi-tab-bg: var(--bi-grey-four);
+  --bi-tab-active-bg: var(--bi-white);
+  --bi-tab-color: var(--bi-color-default);
+  --bi-tab-active-border: var(--bi-color-primary);
+  --bi-tab-border: var(--bi-color-border);
+
+  /** Style for card */ 
+  --bi-card-bg: var(--bi-grey-one);  
+  --bi-card-header-bg: var(--bi-grey-four);
+  --bi-card-header-color: var(--bi-color-default);
+  --bi-card-content-bg: var(--bi-white);
+  --bi-card-content-color: var(--bi-grey-ten);
+  --bi-card-border: var(--bi-default-border);
+  --bi-card-border-radius: var(--bi-default-border-radius);
+  --bi-card-box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+
+  /** Style for accordion */
+  --bi-accordion-bg: var(--bi-grey-one);
+  --bi-accordion-color: var(--bi-color-default);
+  --bi-accordion-border: var(--bi-default-border);
+  --bi-accordion-border-radius: var(--bi-default-border-radius);
+  --bi-accordion-panel-label-bg: var(--bi-grey-four);
+  --bi-accordion-panel-label-color: var(--bi-color-default);
+  --bi-accordion-content-bg: var(--bi-white);
+  --bi-accordion-content-color: var(--bi-grey-ten);
+
+  /** Style for dropdown */
+  --bi-dropdown-bg: var(--bi-grey-four);
+  --bi-dropdown-bg-hover: var(--bi-grey-five);
+  --bi-dropdown-color: var(--bi-color-default);
+  --bi-dropdown-hover: var(--bi-grey-four);
+  --bi-dropdown-border: var(--bi-default-border);
+  --bi-dropdown-border-radius: var(--bi-default-border-radius);
+  --bi-dropdown-menu-border: var(--bi-default-border); 
+  --bi-dropdown-menu-border-radius: var(--bi-default-border-radius);
+  --bi-dropdown-menu-box-shadow: 0 3px 6px rgba(0,0,0,.175);  /* 0 8px 16px rgba(0,0,0,0.2); */
+  --bi-dropdown-item-color: var(--bi-grey-ten);
+  --bi-dropdown-item-hover-bg: #f1f1f1;
+  --bi-dropdown-item-divider-color: var(--bi-grey-five);
+
+  /** Style for tooltips */
+  --bi-tooltip-bg: var(--bi-color-dark);
+  --bi-tooltip-color: var(--bi-color-light);
+
+  /** Style for textfields */
+  --bi-textfield-color: var(--bi-color-default);
+  --bi-textfield-border: var(--bi-default-border);
+  --bi-textfield-border-radius: var(--bi-default-border-radius);
+  --bi-textfield-muted-bg: var(--bi-color-muted);
+  --bi-textfield-muted-border: 1px solid var(--bi-color-muted);
+
+  /** Style for selections */
+  --bi-selections-border: var(--bi-default-border);
+  --bi-selections-border-radius: 2px;
+  --bi-selections-bg: var(--bi-grey-four);
+  --bi-selections-bg-active: var(--bi-color-primary);
+  --bi-selections-color: var(--bi-color-primary);
+
+
+  
+  
+
+  /** Style for datatable */
+  --bi-datatable-paginator-bg: transparent !important;
+  --bi-datatable-paginator-color: var(--bi-color-primary);
+  --bi-datatable-paginator-bg-action: var(--bi-color-primary);
+  --bi-datatable-paginator-color-action: #fbfbfb;
+  --bi-datatable-paginator-info: var(--bi-color-primary);
+
+  
+
+
+
+
+
+}
+
+
+input:not([type=submit],
+[type=button],
+[type=reset],
+[type=checkbox],
+[type=radio],
+[type=file]),
+:where(select, textarea) {
+  background:magenta;
+}
+
+
+
+
+
+
 .theme-light {
   --color-primary: #0060df;
   --color-secondary: #fbfbfe;

@@ -5,172 +5,84 @@
 ::placeholder,
 ::-ms-input-placeholder,
 :-ms-input-placeholder { 
-   color: --bi-default-color;    
+  color: --bi-default-color;    
 }
 ::placeholder {  
-   opacity: 1;
+  opacity: 1;
 }
 input::-moz-focus-inner,
 textarea::-moz-focus-inner {
-   border: none;
-   outline: none;
+  border: none;
+  outline: none;
 }
-/** Birdie Textfield */
-.bi-textfield,
-.bi-textfield-outlined {
-   position: relative;
-   display: inline-block;
-   font-size: 16px;
-   line-height: 1.5;
-   width: 100%;
-   height: 2.5em;
-   border-radius: 4px;
+
+.bi-textfield {
+  position: relative;
+  display: inline-block;
+  font-size: 16px;
+  line-height: 1.5;
+  width: 100%;
+  height: 2.8em;
+  margin: 5px 0;
+  border-radius: var(--bi-textfield-border-radius);  
 }
-/** Input, Textarea */
+
 .bi-textfield > input,
-.bi-textfield > textarea,
-.bi-textfield-outlined > input,
-.bi-textfield-outlined > textarea {
-   -webkit-text-fill-color: currentColor;
-   box-shadow: none;
-   font-family: inherit;
-   font-size: inherit;
-   line-height: inherit; 
-   display: block;
-   box-sizing: border-box;
-   width: 100%;
-   height: inherit;
-   border: none; 
-   margin: 0;
-   padding: 15px 10px;
-   color: var(--bi-default-color);   
-   caret-color: var(--bi-default-color);
-   border: 1px solid var(--bi-default-color);
-   background-color: transparent;
-   border-radius: 4px;   
-}
-.bi-textfield-outlined > input:not(:focus):placeholder-shown,
-.bi-textfield-outlined > textarea:not(:focus):placeholder-shown {
-   border-top-color: var(--bi-default-color);
-}
-/* Label */
-.bi-textfield-outlined > input + label,
-.bi-textfield-outlined > textarea + label {
-   display: block;
-   box-sizing: border-box;
-   position: absolute;
-   top: 0;
-   left: 12px;   
-   max-width: 80%;  
-   max-height: 80%;  
-   padding: 2px 0 0;
-   font-size: 75%;
-   line-height: 15px;
-   cursor: text; 
-   color: var(--bi-default-color);
-   pointer-events: none;
-   transition: color 0.2s, font-size 0.2s, line-height 0.2s;
-} 
-/* Corners */
-.bi-textfield-outlined > input + label::before,
-.bi-textfield-outlined > input + label::after,
-.bi-textfield-outlined > textarea + label::before,
-.bi-textfield-outlined > textarea + label::after {
-   content: "";
-   display: block;
-   box-sizing: border-box;
-   margin-top: -10px;
-   min-width: 10px;
-   height: 8px;
-   pointer-events: none;
-   box-shadow: inset 0 1px transparent;
-   transition: border 0.2s, box-shadow 0.2s;
-   background: none;
+.bi-textfield > textarea {
+  -webkit-text-fill-color: currentColor;
+  box-shadow: none;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 400;
+  line-height: inherit; 
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  height: inherit;
+  border: none; 
+  margin: 0;
+  padding: 0.375rem 0.75rem;
+  color: var(--bi-textfield-color);
+  background-color: transparent;
+  border: var(--bi-textfield-border);
+  border-radius: var(--bi-textfield-border-radius);
+  outline: none;
+  transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-.bi-textfield-outlined > input:not(:focus):placeholder-shown + label,
-.bi-textfield-outlined > textarea:not(:focus):placeholder-shown + label {
-   line-height: 10px;  
+.bi-textfield > textarea {
+  min-height: 4.5em;
 }
 
-/** Hover */
-.bi-textfield:hover > input,
-.bi-textfield:hover > textarea,
-.bi-textfield-outlined:hover > input,
-.bi-textfield-outlined:hover > textarea
-{
-   border-color: var(--bi-primary-color);
-   width: 100%;
+.bi-textfield > input:hover,
+.bi-textfield > textarea:hover {
+  border-color: var(--bi-color-primary);
 }
 
-.bi-textfield-outlined:hover > input:not(:focus):placeholder-shown,
-.bi-textfield-outlined:hover > textarea:not(:focus):placeholder-shown {
-   border-color: var(--bi-primary-color);
-}
-/* Placeholder-shown */
-.bi-textfield > input:not(:focus):placeholder-shown + label,
-.bi-textfield > textarea:not(:focus):placeholder-shown + label,
-.bi-textfield-outlined > input:not(:focus):placeholder-shown + label,
-.bi-textfield-outlined > textarea:not(:focus):placeholder-shown + label {
-   font-size: inherit;
-   line-height: 2.5em;
-}
-/* Focus */
 .bi-textfield > input:focus,
-.bi-textfield > textarea:focus {
-   border-color: var(--bi-primary-color);
-   outline: none;
+.bi-textfield > textarea:focus,
+.bi-textfield > input:focus-visible,
+.bi-textfield > textarea:focus-visible {
+  color: var(--bi-textfield-color);
+  background-color: #fff;
+  border-color: #80bdff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  outline: 0;
 }
-.bi-textfield-outlined > input:focus,
-.bi-textfield-outlined > textarea:focus {
-   border-color: var(--bi-primary-color);
-   outline: none;
+
+.bi-textfield > input::placeholder,
+.bi-textfield > textarea::placeholder {
+  color: var(--bi-textfield-color);
+  opacity: 1;
 }
-.bi-textfield-outlined > input:focus + label,
-.bi-textfield-outlined > textarea:focus + label,
-.bi-textfield-outlined > input:not(:placeholder-shown) + label {
-   top: -5px;   
-   max-height: 25%;
-   width: auto !important; 
-   max-width: 60%;
-   padding: 0 3px; 
-   color: var(--bi-primary-color);
-   background: #FFFFFF;
-}
-.bi-textfield-outlined > input:not(:placeholder-shown):not(:focus) + label {  
-   max-height: 20%;
-   color: var(--bi-default-color);
-} 
-/* Disabled */
+
 .bi-textfield > input:disabled,
-.bi-textfield > textarea:disabled {
-   border-color: var(--bi-muted-color) !important;
-   color: var(--bi-muted-color);
-   pointer-events: none;   
-}
-.bi-textfield-outlined > input:disabled,
-.bi-textfield-outlined > input:disabled + label,
-.bi-textfield-outlined > textarea:disabled,
-.bi-textfield-outlined > textarea:disabled + label {
-   border-color: transparent var(--bi-muted-color) var(--bi-muted-color) !important;
-   color: var(--bi-muted-color);
-   pointer-events: none;   
-}
-.bi-textfield-outlined > input:disabled + label::before,
-.bi-textfield-outlined > input:disabled + label::after,
-.bi-textfield-outlined > textarea:disabled + label::before,
-.bi-textfield-outlined > textarea:disabled + label::after {
-   border-top-color: var(--bi-muted-color) !important;   
-}
-.bi-textfield-outlined > input:disabled:placeholder-shown,
-.bi-textfield-outlined > input:disabled:placeholder-shown + label,
-.bi-textfield-outlined > textarea:disabled:placeholder-shown,
-.bi-textfield-outlined > textarea:disabled:placeholder-shown + label {
-   border-top-color: var(--bi-muted-color) !important;
-}
-.bi-textfield-outlined > input:disabled:placeholder-shown + label::before,
-.bi-textfield-outlined > input:disabled:placeholder-shown + label::after,
-.bi-textfield-outlined > textarea:disabled:placeholder-shown + label::before,
-.bi-textfield-outlined > textarea:disabled:placeholder-shown + label::after {
-   border-top-color: transparent !important;
+.bi-textfield > input[readonly],
+.bi-textfield > textarea:disabled,
+.bi-textfield > textarea[readonly] {
+  background-color: var(--bi-textfield-muted-bg);
+  border: var(--bi-textfield-muted-border);
+  color: var(--bi-textfield-color);
+  cursor: not-allowed;
+  opacity: 1;
 }

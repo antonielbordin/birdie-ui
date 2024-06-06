@@ -2,192 +2,196 @@
 --         Typography            --
 -------------------------------- */
 :root {
-    /** Set default fonts family */
-    --bi-font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    --bi-font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-    --bi-font-mono: ui-monospace, Consolas, "Liberation Mono", "Courier New", monospace;
+  /** Set default fonts family */
+  --bi-font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, Helvetica, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --bi-font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --bi-font-mono: ui-monospace, Menlo, Consolas, "Liberation Mono", "Courier New", monospace;
+  --bi-font-family: var(--bi-font-sans);
+  --bi-font-weight: 400;
+  --bi-font-size: 100%;
 
-    /** Set base values */    
-    --bi-text-base-size: 1em;
-    --bi-text-scale-ratio: 1.2;
-    --bi-line-height: 1.2;
+  /** Set base values */
+  --bi-line-height: 1.2;     
+  --bi-text-base-size: 1em;
+  --bi-text-scale-ratio: 1.2;
+  --bi-text-underline-offset: 0.1rem;
 
-    --bi-text-xs:   1em;
-    --bi-text-sm:   1.25em;
-    --bi-text-md:   1.5em;
-    --bi-text-lg:   1.75em;
-    --bi-text-xl:   2em;
-    --bi-text-xxl:  2.5em;
-    --bi-text-xxxl: 3em;
+  --bi-text-xs:   1em;
+  --bi-text-sm:   1.25em;
+  --bi-text-md:   1.5em;
+  --bi-text-lg:   1.75em;
+  --bi-text-xl:   2em;
+  --bi-text-xxl:  2.5em;
+  --bi-text-xxxl: 3em;
 
-    /** Line-height */
-    --bi-heading-line-height: 1.2;
-    --bi-body-line-height: 1.4;
-
-    /** Spacing values */
-    --bi-space-xxxs: 0.25em;
-    --bi-space-xxs:  0.375em;
-    --bi-space-xs:   0.5em;
-    --bi-space-sm:   0.75em;
-    --bi-space-md:   1.25em;
-    --bi-space-lg:   2em;
-    --bi-space-xl:   3.25em;
-    --bi-space-xxl:  5.25em;
-    --bi-space-xxxl: 8.5em;
+  /** Spacing values */
+  --bi-space-xxxs: 0.25em;
+  --bi-space-xxs:  0.375em;
+  --bi-space-xs:   0.5em;
+  --bi-space-sm:   0.75em;
+  --bi-space-md:   1.25em;
+  --bi-space-lg:   2em;
+  --bi-space-xl:   3.25em;
+  --bi-space-xxl:  5.25em;
+  --bi-space-xxxl: 8.5em;
 }
 
 body {
-    font-size: var(--bi-text-base-size);
-    font-family: var(--bi-font-sans);
-    color: var(--color-text);
+  font-size: var(--bi-text-base-size);
+  font-family: var(--bi-font-family);
+  color: var(--color-text);
 }
 
 h1, h2, h3, h4, h5, h6, form legend {
-    color: var(--bi-color-text-heading);
-    margin-bottom: var(--bi-space-xxs);
-    line-height: var(--bi-heading-line-height);
+  color: var(--color-text);
+  margin-bottom: var(--bi-space-xxs);
+  font-size: var(--bi-font-size);
+  line-height: var(--bi-line-height);
+  font-family: var(--bi-font-family);
 }
 
 h1, h2, h3, h4, h5, h6, p {
-    font-weight: 400;
+  font-weight: var(--bi-font-weight);
 }
 
 .bi-h1, .bi-h2, .bi-h3, .bi-h4, .bi-h5, .bi-h6 {
-    color: var(--bi-color-text-heading);
-    margin-bottom: var(--bi-space-xxs);
-    line-height: var(--bi-heading-line-height);
-    font-weight: 400;
+  color: var(--color-text);
+  margin-bottom: var(--bi-space-xxs);
+  font-weight: var(--bi-font-weight);
+  font-size: var(--bi-font-size);
+  line-height: var(--bi-line-height);
+  font-family: var(--bi-font-family);
 }
 
 /** Text size */
 .text-xxxl { font-size: var(--bi-text-xxxl); }
 
 h1, .bi-h1, .text-xxl {
-    font-size: var(--bi-text-xxl);
+  font-size: var(--bi-text-xxl);
 }
 
 h2, .bi-h2, .text-xl {
-    font-size: var(--bi-text-xl);
+  font-size: var(--bi-text-xl);
 }
 
 h3, .bi-h3, .text-lg {
-    font-size: var(--bi-text-lg);
+  font-size: var(--bi-text-lg);
 }
 
 h4, .bi-h4, .text-md {
-    font-size: var(--bi-text-md);
+  font-size: var(--bi-text-md);
 }
 
 h5, small, .bi-h5, .text-sm {
-    font-size: var(--bi-text-sm);
+  font-size: var(--bi-text-sm);
 }
 
 h6, .bi-h6, .text-xs {
-    font-size: var(--bi-text-xs);
+  font-size: var(--bi-text-xs);
 }
 
 p {
-    line-height: var(--bi-body-line-height);
-    margin-bottom: var(--bi-space-sm);
-    font-size: var(--bi-text-xs);
+  line-height: var(--bi-body-line-height);
+  margin-bottom: var(--bi-space-sm);
+  font-size: var(--bi-text-xs);
 }
 
 a {
-    color: var(--bi-color-link);
+  color: var(--bi-color-link);
 }
 a:visited {
-    color: var(--bi-color-link-visited);
+  color: var(--bi-color-link-visited);
 }
 
 b, strong {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 /** Text Transform */
 .bi-uppercase {
-    text-transform: uppercase;
+  text-transform: uppercase;
 }
 .bi-lowercase {
-    text-transform: lowercase;
+  text-transform: lowercase;
 }
 .bi-capitalize {
-    text-transform: capitalize;
+  text-transform: capitalize;
 }
 .bi-normal-case {
-    text-transform: none;
+  text-transform: none;
 }
 
 /** Text Decoration and decoration style */
 .bi-underline, .bi-underline-double, .bi-underline-dotted, 
 .bi-underline-dashed, .bi-underline-wavy {
-    text-decoration-line: underline;
-    text-decoration-style: solid;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
 }
 .bi-overline, .bi-overline-double, .bi-overline-dotted, 
 .bi-overline-dashed, .bi-overline-wavy {
-    text-decoration-line: overline;
-    text-decoration-style: solid;
+  text-decoration-line: overline;
+  text-decoration-style: solid;
 }
 .bi-line-through, .bi-line-through-double, .bi-line-through-dotted, 
 .bi-line-through-dashed, .bi-line-through-wavy {
-    text-decoration-line: line-through;
-    text-decoration-style: solid;
+  text-decoration-line: line-through;
+  text-decoration-style: solid;
 }
 .bi-no-decoration {
-    text-decoration-line: none;
-    text-decoration-style: solid;
+  text-decoration-line: none;
+  text-decoration-style: solid;
 }
 /** Text Decoration Style */
 .bi-underline-double,
 .bi-overline-double,
 .bi-line-through-double {
-    text-decoration-style: double;
+  text-decoration-style: double;
 }
 .bi-underline-dotted,
 .bi-overline-dotted,
 .bi-line-through-dotted {
-    text-decoration-style: dotted;
+  text-decoration-style: dotted;
 }
 .bi-underline-dashed,
 .bi-overline-dashed,
 .bi-line-through-dashed {
-    text-decoration-style: dashed;
+  text-decoration-style: dashed;
 }
 .bi-underline-wavy,
 .bi-overline-wavy,
 .bi-line-through-wavy	{
-    text-decoration-style: wavy;
+  text-decoration-style: wavy;
 }
 
 /** Text Align */
 .bi-text-left {
-    text-align: left;
+  text-align: left;
 }
 .bi-text-center {
-    text-align: center;
+  text-align: center;
 }
 .bi-text-right {
-    text-align: right;
+  text-align: right;
 }
 .bi-text-justify {
-    text-align: justify;
+  text-align: justify;
 }
 .bi-text-start {
-    text-align: start;
+  text-align: start;
 }
 .bi-text-end {
-    text-align: end;
+  text-align: end;
 }
 
 /** Increase font sizes by 1.5x on bigger screens */
 @media (min-width: 48rem) {
-    :root {          
-        --bi-text-xs:   1.25em;
-        --bi-text-sm:   1.5em;
-        --bi-text-md:   2em;
-        --bi-text-lg:   2.5em;
-        --bi-text-xl:   3em;
-        --bi-text-xxl:  3.5em;
-        --bi-text-xxxl: 4em;
-    }
+  :root {          
+    --bi-text-xs:   1.25em;
+    --bi-text-sm:   1.5em;
+    --bi-text-md:   2em;
+    --bi-text-lg:   2.5em;
+    --bi-text-xl:   3em;
+    --bi-text-xxl:  3.5em;
+    --bi-text-xxxl: 4em;
+  }
 }

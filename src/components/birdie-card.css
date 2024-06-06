@@ -1,31 +1,29 @@
 .bi-card,
 .bi-card-padding {
-    background: var(--bi-card-bg);
-    border:none;
-    border-radius: 4px;  
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;  
-    width: auto;
+  width: 100%;
+  background: var(--bi-card-bg);
+  border: var(--bi-card-border);
+  border-radius: var(--bi-card-border-radius);  
+  box-shadow: var(--bi-card-box-shadow);
+  transition: 0.3s;  
 }
 .bi-card-padding {
-    padding: 0.5em;
+  padding: 0.5em;
 }
-
 .bi-card img,
 .bi-card-padding img {
-    border-radius: 4px 4px 0 0;
+  border-radius: 4px 4px 0 0;
 }
-
 .bi-card .bi-card-header,
 .bi-card-padding .bi-card-header {
-    color: var(--bi-card-header-color);
-    background: var(--bi-card-header-bg);
-    padding: 5px;
+  color: var(--bi-card-header-color);
+  background: var(--bi-card-header-bg);
+  padding: 5px;
 }
 .bi-card .bi-card-content,
 .bi-card-padding .bi-card-content {
-    min-height: 85px;
-    color: var(--bi-card-content-color);
-    background: var(--bi-card-content-bg);
-    padding: 5px;    
+  min-height: 85px;
+  color: var(--bi-card-content-color);
+  background: var(--bi-card-content-bg);
+  padding: 5px;    
 }

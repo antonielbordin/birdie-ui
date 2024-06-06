@@ -3,292 +3,421 @@
 -------------------------------- */
 /** Reset default style in browsers */
 ::placeholder {  
-   opacity: 1;
+  opacity: 1;
 }
 input::-moz-focus-inner,
 select::-moz-focus-inner {
-   border: none;
-   outline: none;
+  border: none;
+  outline: none;
 }
 /** Birdie Checkbox, Radio */
 .bi-checkbox,
 .bi-radio {
-   z-index: 0;
-   position: relative;
-   display: inline-block;
-   color: var(--bi-default-color);
-   font-size: 16px;
-   line-height: 1.5;
+  z-index: 0;
+  position: relative;
+  display: inline-block;
+  color: var(--bi-color-default);
+  font-size: 16px;
+  line-height: 1.5;
 } 
 /** Box input checkbox and radio */
 .bi-checkbox > input,
 .bi-radio > input {
-   appearance: none;
-   -moz-appearance: none;
-   -webkit-appearance: none;
-   z-index: 1;
-   position: absolute;
-   display: block;
-   box-sizing: border-box;
-   margin: 3px 1px;
-   border: 1px solid var(--bi-default-color); 
-   border-radius: 2px;
-   width: 18px;
-   height: 18px;
-   outline: none;
-   cursor: pointer;
-   transition: border-color 0.2s, background-color 0.2s;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  z-index: 1;
+  position: absolute;
+  display: block;
+  box-sizing: border-box;
+  margin: 3px 1px;
+  border: var(--bi-selections-border); 
+  border-radius: var(--bi-selections-border-radius);
+  width: 18px;
+  height: 18px;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.2s, background-color 0.2s;
 }
 .bi-radio > input {   
-   margin: 2px 0;
-   border-radius: 50%;
-   width: 20px;
-   height: 20px;   
-   transition: border-color 0.2s;
+  margin: 2px 0;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;   
+  transition: border-color 0.2s;
 }
 /** Label checkbox and radio */
 .bi-checkbox > input + label,
 .bi-radio > input + label {
-   display: inline-block;
-   box-sizing: border-box;
-   padding-left: 30px;
-   width: inherit;
-   cursor: pointer;
+  display: inline-block;
+  box-sizing: border-box;
+  padding-left: 30px;
+  width: inherit;
+  cursor: pointer;
 } 
 /** Highlight checkbox and radio */
 .bi-checkbox > input + label::before,
 .bi-radio > input + label::before {
-   content: "";
-   position: absolute;
-   left: -10px;
-   top: -8px;
-   display: block;
-   border-radius: 50%;
-   width: 40px;
-   height: 40px;
-   background-color: var(--bi-primary-color);
-   opacity: 0;
-   transform: scale(1);
-   pointer-events: none;
-   transition: opacity 0.3s, transform 0.2s;
+  content: "";
+  position: absolute;
+  left: -10px;
+  top: -8px;
+  display: block;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  background-color: var(--bi-selections-bg-active);
+  opacity: 0;
+  transform: scale(1);
+  pointer-events: none;
+  transition: opacity 0.3s, transform 0.2s;
 }
 .bi-radio > input + label::before { 
-   transform: scale(0);
+  transform: scale(0);
 }
 /** Check Mark checkbox and radio */
 .bi-checkbox > input + label::after {
-   z-index: 1;
-   content: "";  
-   display: block;
-   position: absolute;
-   top: 3px;
-   left: 1px;
-   box-sizing: content-box;
-   width: 10px;
-   height: 5px;
-   border: 2px solid transparent;
-   border-right-width: 0;
-   border-top-width: 0;
-   pointer-events: none;
-   transform: translate(3px, 4px) rotate(-45deg);
-   transition: border-color 0.2s;
+  z-index: 1;
+  content: "";  
+  display: block;
+  position: absolute;
+  top: 3px;
+  left: 1px;
+  box-sizing: content-box;
+  width: 10px;
+  height: 5px;
+  border: 2px solid transparent;
+  border-right-width: 0;
+  border-top-width: 0;
+  pointer-events: none;
+  transform: translate(3px, 4px) rotate(-45deg);
+  transition: border-color 0.2s;
 }
 .bi-radio > input + label::after {
-   content: "";
-   display: block;
-   position: absolute;
-   top: 2px;
-   left: 0;
-   border-radius: 50%;
-   width: 10px;
-   height: 10px;
-   background-color: var(--bi-primary-color);
-   transform: translate(5px, 5px) scale(0);
-   transition: transform 0.1s;
+  content: "";
+  display: block;
+  position: absolute;
+  top: 2px;
+  left: 0;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  background-color: var(--bi-color-primary);
+  transform: translate(5px, 5px) scale(0);
+  transition: transform 0.1s;
 }
 
 /** Checked, Indeterminate in checkbox */
 .bi-checkbox > input:checked,
 .bi-checkbox > input:indeterminate {
-   border-color: var(--bi-primary-color);
-   background-color: var(--bi-primary-color);
+  border-color: var(--bi-selections-color);
+  background-color: var(--bi-selections-color);
 }
 .bi-checkbox > input:checked + label::before,
 .bi-checkbox > input:indeterminate + label::before {
-   background-color: var(--bi-primary-color);
+  background-color: var(--bi-selections-color);
 }
 .bi-checkbox > input:checked + label::after,
 .bi-checkbox > input:indeterminate + label::after {
-   border-color: var(--bi-light-color);
+  border-color: var(--bi-color-light);
 }
 .bi-checkbox > input:indeterminate + label::after {
-   border-left-width: 0;
-   transform: translate(4px, 3px);
+  border-left-width: 0;
+  transform: translate(4px, 3px);
 }
 .bi-radio > input:checked {
-   border-color: var(--bi-primary-color);
+  border-color: var(--bi-selections-color);
 }
 .bi-radio > input:checked + label::before {
-   background-color: var(--bi-light-color);
+  background-color: var(--bi-color-light);
 }
 .bi-radio > input:checked + label::after {
-   transform: translate(5px, 5px) scale(1);
+  transform: translate(5px, 5px) scale(1);
 }
 /** Hover, Focus in checkbox and radio */
 .bi-checkbox:hover > input,
 .bi-radio:hover > input {
-   border-color: var(--bi-primary-color);
+  border-color: var(--bi-selections-color);
 }
 .bi-checkbox:hover > input + label::before {
-   opacity: 0.04;  
-   color: var(--bi-primary-color);  
+  opacity: 0.04;  
+  color: var(--bi-selections-color);  
 }
 .bi-radio:hover > input + label::before {
-   opacity: 0.04;
-   transform: scale(1);   
+  opacity: 0.04;
+  transform: scale(1);   
 }
 /** Disabled in checkbox and radio */
 .bi-checkbox > input:disabled,
 .bi-radio > input:disabled {   
-   cursor: initial;
-   border-color: var(--bi-muted-color);
+  cursor: initial;
+  border-color: var(--bi-color-muted);
 }
 .bi-checkbox > input:checked:disabled,
 .bi-checkbox > input:indeterminate:disabled {
-   border-color: transparent;
-   background-color: var(--bi-muted-color);
+  border-color: transparent;
+  background-color: var(--bi-color-muted);
 }
 .bi-checkbox > input:disabled + label,
 .bi-radio > input:disabled + label {
-   cursor: initial;
-   color: var(--bi-muted-color);   
+  cursor: initial;
+  color: var(--bi-color-muted);   
 }
 .bi-checkbox > input:disabled + label::before,
 .bi-radio > input:disabled + label::before {
-   opacity: 0;
-   transform: scale(0);
+  opacity: 0;
+  transform: scale(0);
 }
 .bi-radio > input:disabled + label::after {
-   background-color: currentColor;
+  background-color: currentColor;
 }
 /** Birdie Switch */
 .bi-switch {
-   position: relative;
-   display: inline-block;
-   width: 60px;
-   height: 30px;
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 30px;
 }
 /** Hide default HTML checkbox in switch */
 .bi-switch input {
-   opacity: 0;
-   width: 0;
-   height: 0;
+  opacity: 0;
+  width: 0;
+  height: 0;
 } 
 /** The slider in switch */
 .bi-slider-sw {
-   position: absolute;
-   cursor: pointer;
-   top: 0;
-   left: 0;
-   right: 0;
-   bottom: 0;
-   background-color: var(--bi-muted-color);
-   -webkit-transition: .4s;
-   transition: .4s;
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--bi-selections-bg);
+  -webkit-transition: .4s;
+  transition: .4s;
 }
 .bi-slider-sw:before {
-   position: absolute;
-   content: "";
-   height: 22px;
-   width: 22px;
-   left: 4px;
-   bottom: 4px;
-   background-color: #FFF;
-   -webkit-transition: .4s;
-   transition: .4s;
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 4px;
+  bottom: 4px;
+  background-color: #FFF;
+  -webkit-transition: .4s;
+  transition: .4s;
 } 
 .bi-switch input:checked + .bi-slider-sw {
-   background-color: var(--bi-primary-color);
+  background-color: var(--bi-selections-bg-active);
 } 
 .bi-switch input:checked + .bi-slider-sw:before {
-   -webkit-transform: translateX(26px);
-   -ms-transform: translateX(26px);
-   transform: translateX(26px);
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
 } 
 /** Rounded sliders in switch */
 .bi-slider-sw.round {
-   border-radius: 30px;
+  border-radius: 30px;
 } 
 .bi-slider-sw.round:before {
-   border-radius: 50%;
+  border-radius: 50%;
 }
 /** Birdie Select */
 .bi-select {
-   display: flex;
-   width: 100%;
-   height: 2.5em;
-   font-size: 16px;
-   line-height: 3;
-   position: relative;     
-   overflow: hidden;
-   border-radius: 4px;
-   background: transparent !important;
-   border: 1px solid var(--bi-default-color);
+  position: relative;
+  font-family: Arial, sans-serif;
+}
+
+.bi-select select {
+  display: none;
+}
+
+.bi-select-selected {
+  background-color: #f1f1f1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+}
+
+.bi-select-selected::after {
+  /* content: "▼";
+  position: absolute;
+  right: 10px;
+  top: 14px; */
+  content: "";
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid var(--bi-dropdown-color);
+  transition: transform 0.3s;
+}
+
+.bi-select-items {
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ccc;
+  z-index: 99;
+  max-height: 200px;
+  overflow-y: auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.bi-select-items div {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.bi-select-items div:hover, 
+.bi-same-as-selected {
+  background-color: #f1f1f1;
+}
+
+.bi-select-hide {
+  display: none;
+}
+
+.bi-select-arrow-active::after {
+  transform: translateY(-50%) rotate(360deg);
+  border-top: none;
+  border-bottom: 5px solid var(--bi-dropdown-color);
+}
+
+.bi-select-selected.disabled {
+  background-color: #e9ecef;
+  border: 1px solid #ced4da;
+  cursor: not-allowed;
+  color: #6c757d;
+}
+
+.bi-select-selected.disabled::after {
+  border-top: 5px solid #6c757d;
+  border-bottom: none;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+}
+
+/*
+.bi-select > select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 400;
+  line-height: inherit;
+  display: block;
+  width: 100%;
+  height: 2.8em;
+  border: none;
+  margin: 0;
+  padding: 0.375rem 0.75rem;
+  color: var(--bi-textfield-color);
+  background-color: transparent;
+  border: var(--bi-textfield-border);
+  border-radius: var(--bi-textfield-border-radius);
+  outline: none;
+  transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  cursor: pointer;
+}
+ 
+.bi-select > select:hover {
+  border-color: var(--bi-color-primary);
+}
+
+.bi-select > select:focus,
+.bi-select > select:focus-visible {
+  color: var(--bi-textfield-color);
+  background-color: #fff;
+  border-color: #80bdff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  outline: 0;
+}
+ 
+.bi-select > select:disabled,
+.bi-select > select[readonly] {
+  background-color: var(--bi-textfield-muted-bg);
+  border: var(--bi-textfield-muted-border);
+  color: var(--bi-textfield-color);
+  cursor: not-allowed;
+  opacity: 1;
+} 
+*/ 
+/*
+.bi-select {
+  display: flex;
+  width: 100%;
+  height: 2.5em;
+  font-size: 16px;
+  line-height: 3;
+  position: relative;     
+  overflow: hidden;
+  border-radius: 4px;
+  background: transparent !important;
+  border: var(--bi-selections-border);
 }
 .bi-select::after {
-   content: "";
-   position: absolute;
-   right: 20px;
-   top: 10px;
-   z-index: 9999;
-   width: 12px;
-   height: 12px;   
-   border: 2px solid grey;
-   border-top: transparent;
-   border-right: transparent;
-   cursor: pointer;
-   transform: rotate(-45deg);
-   pointer-events: none;
-   transition: all 0.3s linear;
+  content: "";
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  z-index: 9999;
+  width: 12px;
+  height: 12px;   
+  border: 2px solid grey;
+  border-top: transparent;
+  border-right: transparent;
+  cursor: pointer;
+  transform: rotate(-45deg);
+  pointer-events: none;
+  transition: all 0.3s linear;
  }
 .bi-select > select {
-   -webkit-appearance: none;
-   -moz-appearance: none;
-   -ms-appearance: none;
-   appearance: none;
-   outline: 0;
-   box-shadow: none;
-   border: none;
-   background-image: none;
-   background: transparent !important;
-   flex: 1;
-   padding: 0 .5em;
-   color: var(--bi-default-color);   
-   cursor: pointer;
-   font-size: 1em;
-   font-family: inherit;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  box-shadow: none;
+  border: none;
+  background-image: none;
+  background: transparent !important;
+  flex: 1;
+  padding: 0 .5em;
+  color: var(--bi-color-default);   
+  cursor: pointer;
+  font-size: 1em;
+  font-family: inherit;
 }
 .bi-select > select::-ms-expand {
-   display: none;
+  display: none;
 }
 .bi-select:hover {
-   border-color: var(--bi-primary-color);
+  border-color: var(--bi-color-primary);
 }
 .bi-select > select:focus,
 .bi-select > select:active,
 .bi-select > select:focus-within,
 .bi-select > select:active-within {
-   border-radius: 4px;
+  border-radius: var(--bi-default-border-radius);
+  background: magenta !important;
 }
 
-/** Disabled */
 .bi-select[disabled] {
-   color: var(--bi-muted-color);
-   border-color: var(--bi-muted-color) !important;
+  color: var(--bi-color-muted);
+  border-color: var(--bi-color-muted) !important;
 }
 .bi-select[disabled] > select {
-   color: var(--bi-muted-color);
+  color: var(--bi-color-muted);
 }
 .bi-select[disabled]:hover::after {
-   color: var(--bi-muted-color);
+  color: var(--bi-color-muted);
 }
+*/

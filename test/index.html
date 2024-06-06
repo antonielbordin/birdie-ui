@@ -5,22 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title></title>
   <title>Birdie UI - Micro Framework CSS</title>
-  <link rel="stylesheet" href="../src/utilities/birdie-reset.css">
-  <link rel="stylesheet" href="../src/utilities/birdie-colors.css">
-  <link rel="stylesheet" href="../src/components/birdie-buttons.css">
-  <link rel="stylesheet" href="../src/components/birdie-tabs.css">
+  <link rel="stylesheet" href="../dist/birdie-ui.css">
   <style>
     /* @import url("../dist/birdie-ui.css");
     :root {
       --bi-primary-color: #da1d50; 
       --bi-success-color: yellow; 
     } */
+    body {
+      width: 100%;
+      padding: 15px;
+      box-sizing: border-box;
+    }
 
   </style>
 </head>
 <body>
-  <h1>Buttons Samples</h1>
-  <br>
+  <br><br>
+  <h1>Buttons Sample</h1>
+  <br><br>
 
   <span class="bi-btn">teste</span>
   <span class="bi-btn-primary">teste</span>
@@ -30,8 +33,10 @@
   <span class="bi-btn-info">teste</span>
 
   <br><br>
-  <h1>Tabs Samples</h1>
-  <br>
+  <h1>Tabs Sample</h1>
+  <br><br>
+
+  <!-- Element Tabs -->
   <div class="bi-tabs">
    <div class="bi-tab bi-tab-active" data-tab="1">Tab One</div>
    <div class="bi-tab" data-tab="2">Tab Two</div>
@@ -39,8 +44,311 @@
   <div class="bi-tab-content bi-tab-active" id="tab-1">Content 1</div>
   <div class="bi-tab-content" id="tab-2">Content 2</div>
 
+  <br><br>
+  <h1>Card Sample</h1>
+  <br><br>
+  
+  <!-- Element Card -->
+  <div class="bi-card">
+    <header class="bi-card-header">Header card</header>
+    <section class="bi-card-content">This is content card</section>
+  </div>
+
+  <br><br>
+  <h1>Accordion Sample</h1>
+  <br><br>
+
+  <!-- Element Accordion -->
+  <div class="bi-accordion">
+    <div class="bi-accordion-panel">
+      <div class="bi-accordion-panel-label" id="label1">
+        Item 1
+      </div>
+      <div class="bi-accordion-panel-content" id="content1">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, reiciendis!
+      </div>
+    </div>
+    <div class="bi-accordion-panel">
+      <div class="bi-accordion-panel-label" id="label2">
+        Item 2
+      </div>
+      <div class="bi-accordion-panel-content" id="content2">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, reiciendis!
+      </div>
+    </div>
+  </div>
+
+  <br><br>
+  <h1>Dropdown Sample</h1>
+  <br><br>
+
+  <!-- Element Dropdown -->
+  <div class="bi-dropdown">
+    <button class="bi-dropdown-toggle">Action</button>
+    <div class="bi-dropdown-menu">
+      <a href="#" class="bi-dropdown-item">Item 1</a>
+      <a href="#" class="bi-dropdown-item">Item 2</a>
+      <a href="#" class="bi-dropdown-item">Item 3</a>
+      <a class="bi-dropdown-item-divider"></a>
+      <a href="#" class="bi-dropdown-item">Item 4</a>
+    </div>
+  </div>
+
+  <br><br>
+  <h1>Tooltips Samples</h1>
+  <br><br>
+
+  <!-- Element Dropdown -->
+  <span data-bi="tooltip" bi-tooltip-pos="top" bi-tooltip="Top">Show Top</span>
+  <span data-bi="tooltip" bi-tooltip-pos="right" bi-tooltip="Right">Show Right</span>
+  <span data-bi="tooltip" bi-tooltip-pos="left" bi-tooltip="Left">Show Left</span>
+  <span data-bi="tooltip" bi-tooltip-pos="bottom" bi-tooltip="Bottom">Show Bottom</span>
+
+  <br><br>
+  <h1>Textfields Samples</h1>
+  <br><br>
+
+  <!-- Element TextField Standard -->
+  <div class="bi-textfield">
+    <input placeholder="Standard">
+  </div>
+
+  <!-- Element TextField Standard Disabled -->
+  <div class="bi-textfield">
+    <input placeholder="Standard" disabled>
+  </div>
+
+  <!-- Element TextField Standard -->
+  <div class="bi-textfield">
+    <textarea placeholder="Standard"></textarea>
+  </div>
+
+  <!-- Element TextField Standard Disabled -->
+  <div class="bi-textfield">
+    <textarea placeholder="Standard" disabled></textarea>
+  </div>
+
+  <br><br>
+  <h1>Checkbox Sample</h1>
+  <br><br>
+
+  <!-- Element Checkbox -->
+  <div class="bi-checkbox">
+    <input type="checkbox">
+    <label>Checkbox</label>
+  </div>
+
+  <!-- Element Checkbox Disabled -->
+  <div class="bi-checkbox">
+    <input type="checkbox" disabled>
+    <label>Checkbox Disabled</label>
+  </div>
+
+  <br><br>
+  <h1>Radio Sample</h1>
+  <br><br>
+
+  <!-- Element Radio -->
+  <div class="bi-radio">
+    <input type="radio">
+    <label>Radio</label>
+  </div>
+
+  <!-- Element Radio Disabled -->
+  <div class="bi-radio">
+    <input type="radio" disabled>
+    <label>Radio Disabled</label>
+  </div>
+
+  <br><br>
+  <h1>Switch Sample</h1>
+  <br><br>
+
+  <!-- Element Switch -->
+  <label class="bi-switch">
+    <input type="checkbox">
+    <span class="bi-slider-sw"></span>
+  </label> 
+
+  <!-- Element Switch -->
+  <label class="bi-switch">
+    <input type="checkbox" disabled>
+    <span class="bi-slider-sw"></span>
+  </label>
+
+  <br><br>
+  <h1>Switch Rounded Sample</h1>
+  <br><br>
+
+  <!-- Element Switch Rounded-->
+  <label class="bi-switch">
+    <input type="checkbox">
+    <span class="bi-slider-sw round"></span>
+  </label> 
+
+  <!-- Element Switch Rounded-->
+  <label class="bi-switch">
+    <input type="checkbox" disabled>
+    <span class="bi-slider-sw round"></span>
+  </label>
+
+  <br><br>
+  <h1>Select Sample</h1>
+  <br><br>
+
+  <!-- Element Select -->
+  <div class="bi-select">
+    <select>
+      <option selected disabled>Choose a content</option>
+      <option value="one">Option One</option>
+      <option value="two">Option Two</option>
+      <option value="three">Option Three</option>
+      <option value="four">Option Four</option>
+      <option value="five">Option Five</option>
+    </select>
+  </div>
+
+  <!-- Element Select Disabled -->
+  <div class="bi-select" disabled>
+    <select disabled>
+      <option selected disabled>Choose a content</option>
+      <option value="one" class="bi-select-option">Option One</option>
+      <option value="two">Option Two</option>
+      <option value="three">Option Three</option>
+      <option value="four">Option Four</option>
+      <option value="five">Option Five</option>
+    </select>
+  </div>
+
+  <br><br>
+  <h1>Datatable Samples</h1>
+  <br><br>
+
+  <div class="bi-datatable">
+    <table id="bi-datatable">
+       <thead>
+          <tr>
+             <th scope="col">#</th>
+             <th scope="col">Data One</th>
+             <th scope="col">Data Two</th>
+             <th scope="col">Data Three</th>
+          </tr>
+       </thead>
+       <tbody>
+          <tr>
+             <td data-label="#">1</td>
+             <td data-label="Data One">Day</td>
+             <td data-label="Data Two">Wello</td>
+             <td data-label="Data Three">World!</td>                        
+          </tr>
+          <tr>
+             <td scope="row" >2</td>
+             <td>Day</td>
+             <td>Hello</td>
+             <td>World!</td>
+          </tr>
+          <tr>
+             <td>3</td>
+             <td>Day</td>
+             <td>Hello</td>
+             <td>World!</td>
+          </tr>
+          <tr>
+             <td>4</td>
+             <td>Day</td>
+             <td>Hello</td>
+             <td>World!</td>
+          </tr>
+          <tr>
+             <td>5</td>
+             <td>Day</td>
+             <td>Hello</td>
+             <td>World!</td>
+          </tr>
+          <tr>
+             <td>6</td>
+             <td>Day</td>
+             <td>Hello</td>
+             <td>World!</td>
+          </tr>
+          <tr>
+             <td>7</td>
+             <td>Day</td>
+             <td>Hello</td>
+             <td>World!</td>
+          </tr>
+       </tbody>
+    </table>                    
+ </div>
 
 
+
+
+
+
+  <br><br>
+  <h1>Typography Heading</h1>
+  <br><br>
+
+  <h1>h1. Birdie UI heading</h1>
+  <h2>h2. Birdie UI heading</h2>
+  <h3>h3. Birdie UI heading</h3>
+  <h4>h4. Birdie UI heading</h4>
+  <h5>h5. Birdie UI heading</h5>
+  <h6>h6. Birdie UI heading</h6>
+
+  <br><br>
+  <h1>Typography Heading Class</h1>
+  <br><br>
+
+  <p class="bi-h1">h1. Birdie UI heading</p>
+  <p class="bi-h2">h2. Birdie UI heading</p>
+  <p class="bi-h3">h3. Birdie UI heading</p>
+  <p class="bi-h4">h4. Birdie UI heading</p>
+  <p class="bi-h5">h5. Birdie UI heading</p>
+  <p class="bi-h6">h6. Birdie UI heading</p>
+
+  <br><br>
+  <h1>Typography Text Transform</h1>
+  <br><br>
+
+  <p class="bi-uppercase">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, reiciendis!</p>
+  <p class="bi-lowercase">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, reiciendis!</p>
+  <p class="bi-capitalize">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, reiciendis!</p>
+  <p class="bi-normal-case">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, reiciendis!</p>
+
+  <br><br>
+  <h1>Typography Text Decoration</h1>
+  <br><br>
+
+  <p class="bi-overline">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, reiciendis!</p>
+  <p class="bi-underline">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, reiciendis!</p>
+  <p class="bi-line-through">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, reiciendis!</p>
+  <p class="bi-underline-double">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, reiciendis!</p>
+  <p class="bi-underline-dotted">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, reiciendis!</p>
+  <p class="bi-underline-dashed">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, reiciendis!</p>
+  <p class="bi-underline-wavy">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, reiciendis!</p>
+  <p class="bi-no-decoration">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, reiciendis!</p>            
+
+  <br><br>
+  <h1>Typography Text Alignment</h1>
+  <br><br>
+
+  <p class="bi-text-left">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, reiciendis!</p>
+  <p class="bi-text-center">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, reiciendis!</p>
+  <p class="bi-text-right">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, reiciendis!</p>
+  <p class="bi-text-justify">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, reiciendis!</p>            
+  <p class="bi-text-start">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, reiciendis!</p>            
+  <p class="bi-text-end">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, reiciendis!</p>            
+
+
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </body>
-<script src="../dist/birdie-ui-svelte.js"></script>
+
+<script src="../dist/birdie-ui.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    new BirdieUI();
+  });
+</script>
 </html>
