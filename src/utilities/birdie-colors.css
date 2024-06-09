@@ -139,5 +139,6 @@
   --bi-color-link-visited: var(--bi-color-primary);
 
   /** Generic options */
-  --bi-color-border: var(--bi-grey-six);
+  --bi-color-border: var(--bi-grey-nine); 
+  --bi-color-muted-bg: var(--bi-grey-six);
 }

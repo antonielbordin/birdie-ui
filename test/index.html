@@ -133,32 +133,48 @@
   <br><br>
 
   <!-- Element Checkbox -->
-  <div class="bi-checkbox">
-    <input type="checkbox">
-    <label>Checkbox</label>
-  </div>
+  <label class="bi-checkbox">
+    <input type="checkbox" />
+    <span>Checkbox</span>
+  </label>
 
-  <!-- Element Checkbox Disabled -->
-  <div class="bi-checkbox">
-    <input type="checkbox" disabled>
-    <label>Checkbox Disabled</label>
-  </div>
+  <label class="bi-checkbox">
+    <input type="checkbox" disabled />
+    <span>Checkbox Disabled</span>
+  </label>
+
+  <label bi-checkbox="true">
+    <input type="checkbox" />
+    <span>Checkbox no Class</span>
+  </label>
+
+  <label bi-checkbox="true">
+    <input type="checkbox" disabled />
+    <span>Checkbox no Class Disabled</span>
+  </label>
 
   <br><br>
   <h1>Radio Sample</h1>
   <br><br>
 
   <!-- Element Radio -->
-  <div class="bi-radio">
+  <label class="bi-radio">
     <input type="radio">
-    <label>Radio</label>
-  </div>
-
-  <!-- Element Radio Disabled -->
-  <div class="bi-radio">
+    <span>Radio</span>
+  </label>
+  <label class="bi-radio">
     <input type="radio" disabled>
-    <label>Radio Disabled</label>
-  </div>
+    <span>Radio Disabled</span>
+  </label>
+
+  <label bi-radio="true">
+    <input type="radio" />
+    <span>Radio no Class</span>
+  </label>
+  <label bi-radio="true">
+    <input type="radio" disabled />
+    <span>Radio no Class Disabled</span>
+  </label>
 
   <br><br>
   <h1>Switch Sample</h1>
@@ -166,32 +182,32 @@
 
   <!-- Element Switch -->
   <label class="bi-switch">
-    <input type="checkbox">
-    <span class="bi-slider-sw"></span>
+    <input type="checkbox" role="switch">
+    <span class="bi-slider-sw round"></span>
   </label> 
 
   <!-- Element Switch -->
   <label class="bi-switch">
-    <input type="checkbox" disabled>
+    <input type="checkbox" role="switch" disabled>
     <span class="bi-slider-sw"></span>
   </label>
 
   <br><br>
-  <h1>Switch Rounded Sample</h1>
+  <h1>Switch Sample no class</h1>
   <br><br>
 
-  <!-- Element Switch Rounded-->
-  <label class="bi-switch">
-    <input type="checkbox">
-    <span class="bi-slider-sw round"></span>
-  </label> 
-
-  <!-- Element Switch Rounded-->
-  <label class="bi-switch">
-    <input type="checkbox" disabled>
-    <span class="bi-slider-sw round"></span>
+  <!-- Element Switch -->
+  <label bi-switch="true">
+    <input type="checkbox" role="switch" />
+    <span />
   </label>
 
+  <!-- Element Switch -->
+  <label bi-switch="true" data-round="true">
+    <input type="checkbox" role="switch" disabled />
+    <span />
+  </label>
+   
   <br><br>
   <h1>Select Sample</h1>
   <br><br>

@@ -4,12 +4,35 @@
 
 :root {
   /** Styles defaults*/
+  --bi-border: 1px solid var(--bi-color-border);
   --bi-border-radius: 0.25rem;
   --bi-border-width: 0.0625rem;
   --bi-outline-width: 0.125rem;
   --bi-transition: 0.2s ease-in-out;
   --bi-spacing: 1rem;
-  --bi-background-color: var(--bi-grey-one)
+  --bi-background-color: var(--bi-grey-one);
+
+
+  /** Style for Selections type */
+  --bi-selections-border: var(--bi-default-border);
+  --bi-selections-border-radius: 2px;
+  --bi-selections-bg: var(--bi-grey-four);
+  --bi-selections-bg-active: var(--bi-color-primary);
+  --bi-selections-color: var(--bi-color-primary);
+
+  /** Style for Selections type Switch */
+  --bi-switch-bg: var(--bi-grey-four);
+  --bi-switch-bg-active: var(--bi-color-primary);
+  --bi-switch-color: var(--bi-white);
+  --bi-switch-color-active: var(--bi-white);  
+  --bi-switch-color-bg-muted: var(--bi-color-muted-bg);
+  --bi-switch-color-muted: var(--bi-color-muted);
+ 
+  
+
+
+
+
 
 
   /** Style for tabs */
@@ -64,13 +87,7 @@
   --bi-textfield-muted-bg: var(--bi-color-muted);
   --bi-textfield-muted-border: 1px solid var(--bi-color-muted);
 
-  /** Style for selections */
-  --bi-selections-border: var(--bi-default-border);
-  --bi-selections-border-radius: 2px;
-  --bi-selections-bg: var(--bi-grey-four);
-  --bi-selections-bg-active: var(--bi-color-primary);
-  --bi-selections-color: var(--bi-color-primary);
-
+  
 
   
   
