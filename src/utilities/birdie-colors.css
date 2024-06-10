@@ -106,6 +106,11 @@
   --bi-grey-eight: #5a5a5a;
   --bi-grey-nine:  #404040;
   --bi-grey-ten:   #222222;
+/*  
+  --bi-grey-seven: #919191;
+  --bi-grey-five:  #d9d9d9;
+  --bi-muted-bg: #e9ecef;
+  --bi-muted-color: #6c757d; */
 
   --bi-white: #ffffff;
   --bi-black: #000000;
@@ -119,7 +124,7 @@
   --bi-color-info: var(--bi-cyan-six);
   --bi-color-light: var(--bi-green-two);
   --bi-color-dark: var(--bi-grey-ten);
-  --bi-color-muted: var(--bi-grey-five);
+  --bi-color-muted: var(--bi-grey-seven);
 
   --bi-text-primary: var(--bi-blue-six);
   --bi-text-secondary: var(--bi-grey-eight); 
@@ -127,7 +132,7 @@
   --bi-text-danger: var(--bi-red-six); 
   --bi-text-warning: var(--bi-yellow-six);
   --bi-text-info: var(--bi-cyan-six);
-  --bi-text-muted: var(--bi-grey-five);
+  --bi-text-muted: var(--bi-grey-seven);
   --bi-text-light: var(--bi-green-two);
   --bi-text-dark: var(--bi-grey-ten);
 
@@ -139,6 +144,6 @@
   --bi-color-link-visited: var(--bi-color-primary);
 
   /** Generic options */
-  --bi-color-border: var(--bi-grey-nine); 
+  --bi-color-border: var( --bi-grey-six); 
   --bi-color-muted-bg: var(--bi-grey-six);
 }

@@ -12,13 +12,36 @@
   --bi-spacing: 1rem;
   --bi-background-color: var(--bi-grey-one);
 
+  --bi-muted-bg: #e9e9e9;
+  --bi-muted-color: #919191;
 
-  /** Style for Selections type */
-  --bi-selections-border: var(--bi-default-border);
-  --bi-selections-border-radius: 2px;
-  --bi-selections-bg: var(--bi-grey-four);
+  /* 
+  --bi-muted-bg: #e9ecef;
+  --bi-muted-color: #6c757d; 
+  */
+
+  /** Style for textfields */
+  --bi-textfield-color: var(--bi-color-default);
+  --bi-textfield-border: var(--bi-border);
+  --bi-textfield-border-radius: var(--bi-border-radius);
+  --bi-textfield-muted-bg: var(--bi-muted-bg);
+  --bi-textfield-muted-color: var(--bi-muted-color);
+  --bi-textfield-muted-border: var(--bi-border);
+  --bi-textfield-bg: var(--bi-white);
+  --bi-textfield-focus-border-color: var(--bi-color-primary); /*#007bff;*/
+  --bi-textfield-focus-box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  --bi-textfield-hover-border-color: var(--bi-color-primary); /*#0056b3;*/
+  --bi-textfield-hover-muted-border-color: #bfbfbf;
+
+  /** Style for Selections type Radio and Checkbox */
+  --bi-selections-border: var(--bi-border);
+  --bi-selections-border-radius: var(--bi-border-radius);
+  --bi-selections-bg: var(--bi-white);
   --bi-selections-bg-active: var(--bi-color-primary);
   --bi-selections-color: var(--bi-color-primary);
+  --bi-selections-muted-bg: var(--bi-muted-bg);
+  --bi-selections-muted-color: var(--bi-muted-color);
+  --bi-selections-muted-border-color: var(--bi-muted-color);
 
   /** Style for Selections type Switch */
   --bi-switch-bg: var(--bi-grey-four);
@@ -28,11 +51,18 @@
   --bi-switch-color-bg-muted: var(--bi-color-muted-bg);
   --bi-switch-color-muted: var(--bi-color-muted);
  
-  
-
-
-
-
+  /** Style for select */
+  --bi-select-bg: var(--bi-white);
+  --bi-select-color: var(--bi-color-default);
+  --bi-select-border: var(--bi-border);
+  --bi-select-border-radius: var(--bi-border-radius);
+  --bi-select-muted-bg: var(--bi-muted-bg);
+  --bi-select-muted-color: var(--bi-muted-color);
+  --bi-select-muted-border: var(--bi-border);
+  --bi-select-hover-border-color: var(--bi-color-primary);
+  --bi-select-hover-muted-border-color: #bfbfbf;
+  --bi-select-focus-border-color: var(--bi-color-primary);
+  --bi-select-focus-box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 
 
   /** Style for tabs */
@@ -79,13 +109,6 @@
   /** Style for tooltips */
   --bi-tooltip-bg: var(--bi-color-dark);
   --bi-tooltip-color: var(--bi-color-light);
-
-  /** Style for textfields */
-  --bi-textfield-color: var(--bi-color-default);
-  --bi-textfield-border: var(--bi-default-border);
-  --bi-textfield-border-radius: var(--bi-default-border-radius);
-  --bi-textfield-muted-bg: var(--bi-color-muted);
-  --bi-textfield-muted-border: 1px solid var(--bi-color-muted);
 
   
 

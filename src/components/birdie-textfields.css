@@ -16,6 +16,66 @@ textarea::-moz-focus-inner {
   outline: none;
 }
 
+/* Estilo para label com classe bi-textfield */
+input[bi-textfield="true"],
+.bi-textfield {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  min-width: 300px;
+}
+
+input[bi-textfield="true"],
+.bi-textfield > input {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  border: var(--bi-textfield-border);
+  border-radius: var(--bi-textfield-border-radius);
+  background-color: var(--bi-textfield-bg);
+  color: var(--bi-textfield-color);
+  font-size: 1em;
+  line-height: 1.5; 
+  cursor: pointer;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  margin-bottom: 5px;
+}
+
+input[bi-textfield="true"]:focus,
+input[bi-textfield="true"]:focus-within,
+.bi-textfield > input:focus,
+.bi-textfield > input:focus-within {
+  border-color: var(--bi-textfield-focus-border-color);
+  box-shadow: var(--bi-textfield-focus-box-shadow);
+  outline: none;
+}
+
+input[bi-textfield="true"]:disabled,
+.bi-textfield > input:disabled {
+  background-color: var(--bi-textfield-muted-bg);
+  color:var(--bi-textfield-muted-color);
+  cursor: not-allowed;
+}
+
+input[bi-textfield="true"]:hover,
+.bi-textfield > input:hover {
+  border-color: var(--bi-textfield-hover-border-color);
+}
+
+input[bi-textfield="true"]:hover:disabled,
+.bi-textfield > input:hover:disabled {
+  border-color: var(--bi-textfield-hover-muted-border-color);
+}
+
+
+
+ 
+/*
 .bi-textfield {
   position: relative;
   display: inline-block;
@@ -86,3 +146,4 @@ textarea::-moz-focus-inner {
   cursor: not-allowed;
   opacity: 1;
 }
+*/

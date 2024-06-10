@@ -5,6 +5,12 @@
 ::placeholder {  
   opacity: 1;
 }
+::-moz-selection {
+  background-color: magenta
+}
+::selection {
+  background-color: mediumslateblue;
+}
 
 input::-moz-focus-inner,
 select::-moz-focus-inner {
@@ -221,8 +227,8 @@ label[bi-checkbox="true"] > input[type="checkbox"]:disabled,
 label[bi-radio="true"] > input[type="radio"]:disabled,
 .bi-checkbox > input:disabled,
 .bi-radio > input:disabled {   
-  cursor: initial;
-  border-color: var(--bi-color-muted);
+  cursor: not-allowed;
+  border-color: var(--bi-selections-muted-border-color);
 }
 
 label[bi-checkbox="true"] > input[type="checkbox"]:checked:disabled,
@@ -230,15 +236,15 @@ label[bi-checkbox="true"] > input[type="checkbox"]:indeterminate:disabled,
 .bi-checkbox > input:checked:disabled,
 .bi-checkbox > input:indeterminate:disabled {
   border-color: transparent;
-  background-color: var(--bi-color-muted);
+  background-color: var(--bi-selections-muted-bg);
 }
 
-label[bi-checkbox="true"] > input[type="checkbox"] + span,
-label[bi-radio="true"] > input[type="radio"] + span,
+label[bi-checkbox="true"] > input[type="checkbox"]:disabled + span,
+label[bi-radio="true"] > input[type="radio"]:disabled + span,
 .bi-checkbox > input:disabled + span,
 .bi-radio > input:disabled + span {
-  cursor: initial;
-  color: var(--bi-color-muted);   
+  cursor: not-allowed;
+  color: var(--bi-selections-muted-color);   
 }
 
 label[bi-checkbox="true"] > input[type="checkbox"]:disabled + span::before,
@@ -257,7 +263,7 @@ label[bi-radio="true"] > input[type="radio"]:disabled + span::after,
   background-color: currentColor;
 }
 
-/** Birdie Switch */
+/** Birdie Switch usign class or pure tag html */
 label[bi-switch="true"],
 .bi-switch {
   position: relative;
@@ -359,22 +365,74 @@ label[bi-switch="true"] > input:disabled + span,
   background-color: var(bi-switch-color-bg-muted);
 }
 
- 
-
-::-moz-selection {
-  background-color: magenta
-}
-
-::selection {
-  background-color: mediumslateblue;
-}
-
+/** Birdie Select usign class or pure tag html */
 .bi-select {
   position: relative;
-  font-family: Arial, sans-serif;
+  display: inline-block;
+  width: 100%;
+  min-width: 300px;
 }
 
-.bi-select select {
+select[bi-select="true"],
+.bi-select > select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 100%;
+  padding: 10px;
+  border: var(--bi-select-border);
+  border-radius: var(--bi-select-border-radius);
+  background-color: var(--bi-select-bg);
+  color: var(--bi-select-color);
+  font-size: 1em;
+  line-height: 1.5; 
+  cursor: pointer;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  margin-bottom: 5px;
+}
+
+select[bi-select="true"]::after,
+.bi-select::after {
+  content: '\25BC'; /* Unicode para a seta para baixo */
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--bi-icon-color, #333);
+}
+
+select[bi-select="true"]:focus,
+.bi-select > select:focus {
+  border-color: var(--bi-select-focus-border-color);
+  box-shadow: var(--bi-select-focus-box-shadow);
+  outline: none;
+}
+
+select[bi-select="true"]:disabled,
+.bi-select > select:disabled {
+  background-color: var(--bi-select-muted-bg);
+  color: var(--bi-select-muted-color);
+  cursor: not-allowed;
+}
+
+select[bi-select="true"]:hover,
+.bi-select > select:hover {
+  border-color: var(--bi-select-hover-border-color);  
+}
+
+select[bi-select="true"]:hover:disabled,
+.bi-select > select:hover:disabled {
+  border-color: var(--bi-select-hover-muted-border-color);
+}
+
+
+/*
+.bi-select {
+  position: relative;
+}
+
+.bi-select > select {
   display: none;
 }
 
@@ -388,10 +446,6 @@ label[bi-switch="true"] > input:disabled + span,
 }
 
 .bi-select-selected::after {
-  /* content: "▼";
-  position: absolute;
-  right: 10px;
-  top: 14px; */
   content: "";
   position: absolute;
   right: 10px;
@@ -449,7 +503,7 @@ label[bi-switch="true"] > input:disabled + span,
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
 }
-
+*/
 /*
 .bi-select > select {
   -webkit-appearance: none;
