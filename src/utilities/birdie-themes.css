@@ -73,20 +73,19 @@
   --bi-tab-active-bg: var(--bi-white);  
   --bi-tab-active-border: var(--bi-color-primary);
   --bi-tab-hover-bg: #bfbfbf;
-  
-  
-
-
 
   /** Style for card */ 
-  --bi-card-bg: var(--bi-grey-one);  
+  --bi-card-bg: var(--bi-grey-one);
+  --bi-card-border: 1px solid var(--bi-color-border);
   --bi-card-header-bg: var(--bi-grey-four);
   --bi-card-header-color: var(--bi-color-default);
   --bi-card-content-bg: var(--bi-white);
   --bi-card-content-color: var(--bi-grey-ten);
-  --bi-card-border: var(--bi-default-border);
-  --bi-card-border-radius: var(--bi-default-border-radius);
-  --bi-card-box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  --bi-card-footer-bg: var(--bi-white);
+  --bi-card-footer-color: var(--bi-grey-ten);
+  
+  
+  /* --bi-card-box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); */
 
   /** Style for accordion */
   --bi-accordion-bg: var(--bi-grey-one);

@@ -462,20 +462,19 @@ b, strong {
   --bi-tab-active-bg: var(--bi-white);  
   --bi-tab-active-border: var(--bi-color-primary);
   --bi-tab-hover-bg: #bfbfbf;
-  
-  
-
-
 
   /** Style for card */ 
-  --bi-card-bg: var(--bi-grey-one);  
+  --bi-card-bg: var(--bi-grey-one);
+  --bi-card-border: 1px solid var(--bi-color-border);
   --bi-card-header-bg: var(--bi-grey-four);
   --bi-card-header-color: var(--bi-color-default);
   --bi-card-content-bg: var(--bi-white);
   --bi-card-content-color: var(--bi-grey-ten);
-  --bi-card-border: var(--bi-default-border);
-  --bi-card-border-radius: var(--bi-default-border-radius);
-  --bi-card-box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  --bi-card-footer-bg: var(--bi-white);
+  --bi-card-footer-color: var(--bi-grey-ten);
+  
+  
+  /* --bi-card-box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); */
 
   /** Style for accordion */
   --bi-accordion-bg: var(--bi-grey-one);
@@ -1691,15 +1690,15 @@ select[bi-select="true"]:hover:disabled,
 }
 
 /**/
-[data-bi='tooltip'] {
+[bi='tooltip'] {
 	position: relative;
 	display: inline-block;
 	cursor: pointer;
 }
 
 /* Applies to all tooltips */
-[data-bi='tooltip']::before,
-[data-bi='tooltip']::after {
+[bi='tooltip']::before,
+[bi='tooltip']::after {
 	text-transform: none;
 	font-size: 0.9em;
 	line-height: 1;
@@ -1712,13 +1711,13 @@ select[bi-select="true"]:hover:disabled,
 	opacity: 0;
 }
 
-[data-bi='tooltip']::before {
+[bi='tooltip']::before {
 	content: "";
 	border: 5px solid transparent;
 	z-index: 1001;
 }
 
-[data-bi='tooltip']::after {
+[bi='tooltip']::after {
 	content: attr(bi-tooltip);
 	text-align: center;
 	-webkit-backdrop-filter: blur(20px);
@@ -1736,8 +1735,8 @@ select[bi-select="true"]:hover:disabled,
 }
 
 /* Make the tooltips respond to hover */
-[data-bi='tooltip']:hover::before,
-[data-bi='tooltip']:hover::after {
+[bi='tooltip']:hover::before,
+[bi='tooltip']:hover::after {
 	display: block;
 }
 
@@ -1748,45 +1747,45 @@ select[bi-select="true"]:hover:disabled,
 }
 
 /* FLOW: TOP */
-[data-bi="tooltip"]:not([bi-tooltip-pos])::before,
-[data-bi="tooltip"][bi-tooltip-pos^="top"]::before {
+[bi="tooltip"]:not([bi-tooltip-pos])::before,
+[bi="tooltip"][bi-tooltip-pos^="top"]::before {
 	bottom: 100%;
 	border-bottom-width: 0;
 	border-top-color: var(--bi-tooltip-bg);
 }
 
-[data-bi="tooltip"]:not([bi-tooltip-pos])::after,
-[data-bi="tooltip"][bi-tooltip-pos^="top"]::after {
+[bi="tooltip"]:not([bi-tooltip-pos])::after,
+[bi="tooltip"][bi-tooltip-pos^="top"]::after {
 	bottom: calc(100% + 5px);
 }
 
-[data-bi="tooltip"]:not([bi-tooltip-pos])::before,
-[data-bi="tooltip"]:not([bi-tooltip-pos])::after,
-[data-bi="tooltip"][bi-tooltip-pos^="top"]::before,
-[data-bi="tooltip"][bi-tooltip-pos^="top"]::after {
+[bi="tooltip"]:not([bi-tooltip-pos])::before,
+[bi="tooltip"]:not([bi-tooltip-pos])::after,
+[bi="tooltip"][bi-tooltip-pos^="top"]::before,
+[bi="tooltip"][bi-tooltip-pos^="top"]::after {
 	left: 50%;
 	transform: translate(-50%, -0.5em);
 }
 
 /* FLOW: BOTTOM */
-[data-bi="tooltip"][bi-tooltip-pos^="bottom"]::before {
+[bi="tooltip"][bi-tooltip-pos^="bottom"]::before {
 	top: 100%;
 	border-top-width: 0;
 	border-bottom-color: var(--bi-tooltip-bg);
 }
 
-[data-bi="tooltip"][bi-tooltip-pos^="bottom"]::after {
+[bi="tooltip"][bi-tooltip-pos^="bottom"]::after {
 	top: calc(100% + 5px);
 }
 
-[data-bi="tooltip"][bi-tooltip-pos^="bottom"]::before,
-[data-bi="tooltip"][bi-tooltip-pos^="bottom"]::after {
+[bi="tooltip"][bi-tooltip-pos^="bottom"]::before,
+[bi="tooltip"][bi-tooltip-pos^="bottom"]::after {
 	left: 50%;
 	transform: translate(-50%, 0.5em);
 }
 
 /* FLOW: LEFT */
-[data-bi="tooltip"][bi-tooltip-pos^="left"]::before {
+[bi="tooltip"][bi-tooltip-pos^="left"]::before {
 	top: 50%;
 	border-right-width: 0;
 	border-left-color: var(--bi-tooltip-bg);
@@ -1794,14 +1793,14 @@ select[bi-select="true"]:hover:disabled,
 	transform: translate(-0.5em, -50%);
 }
 
-[data-bi="tooltip"][bi-tooltip-pos^="left"]::after {
+[bi="tooltip"][bi-tooltip-pos^="left"]::after {
 	top: 50%;
 	right: calc(100% + 5px);
 	transform: translate(-0.5em, -50%);	
 }
 
 /* FLOW: RIGHT */
-[data-bi="tooltip"][bi-tooltip-pos^="right"]::before {
+[bi="tooltip"][bi-tooltip-pos^="right"]::before {
 	top: 50%;
 	border-left-width: 0;
 	border-right-color: var(--bi-tooltip-bg);
@@ -1809,7 +1808,7 @@ select[bi-select="true"]:hover:disabled,
 	transform: translate(0.5em, -50%);
 }
 
-[data-bi="tooltip"][bi-tooltip-pos^="right"]::after {
+[bi="tooltip"][bi-tooltip-pos^="right"]::after {
 	top: 50%;
 	left: calc(100% + 5px);
 	transform: translate(0.5em, -50%);
@@ -1831,19 +1830,19 @@ select[bi-select="true"]:hover:disabled,
 }
 
 /* FX All The Things */
-[data-bi="tooltip"]:not([bi-tooltip-pos]):hover::before,
-[data-bi="tooltip"]:not([bi-tooltip-pos]):hover::after,
-[data-bi="tooltip"][bi-tooltip-pos^="top"]:hover::before,
-[data-bi="tooltip"][bi-tooltip-pos^="top"]:hover::after,
-[data-bi="tooltip"][bi-tooltip-pos^="bottom"]:hover::before,
-[data-bi="tooltip"][bi-tooltip-pos^="bottom"]:hover::after {
+[bi="tooltip"]:not([bi-tooltip-pos]):hover::before,
+[bi="tooltip"]:not([bi-tooltip-pos]):hover::after,
+[bi="tooltip"][bi-tooltip-pos^="top"]:hover::before,
+[bi="tooltip"][bi-tooltip-pos^="top"]:hover::after,
+[bi="tooltip"][bi-tooltip-pos^="bottom"]:hover::before,
+[bi="tooltip"][bi-tooltip-pos^="bottom"]:hover::after {
 	animation: tooltips-vert 300ms ease-out forwards;
 }
 
-[data-bi="tooltip"][bi-tooltip-pos^="left"]:hover::before,
-[data-bi="tooltip"][bi-tooltip-pos^="left"]:hover::after,
-[data-bi="tooltip"][bi-tooltip-pos^="right"]:hover::before,
-[data-bi="tooltip"][bi-tooltip-pos^="right"]:hover::after {
+[bi="tooltip"][bi-tooltip-pos^="left"]:hover::before,
+[bi="tooltip"][bi-tooltip-pos^="left"]:hover::after,
+[bi="tooltip"][bi-tooltip-pos^="right"]:hover::before,
+[bi="tooltip"][bi-tooltip-pos^="right"]:hover::after {
 	animation: tooltips-horz 300ms ease-out forwards;
 }
 /** Formatng datatable */
@@ -2030,34 +2029,40 @@ select[bi-select="true"]:hover:disabled,
    letter-spacing: .1em;
    text-transform: uppercase;
 }
-.bi-card,
-.bi-card-padding {
+[bi='card'],
+.bi-card {
   width: 100%;
   background: var(--bi-card-bg);
   border: var(--bi-card-border);
-  border-radius: var(--bi-card-border-radius);  
-  box-shadow: var(--bi-card-box-shadow);
-  transition: 0.3s;  
+  border-radius: var(--bi-border-radius);
+  transition: 0.3s;
 }
-.bi-card-padding {
-  padding: 0.5em;
-}
-.bi-card img,
-.bi-card-padding img {
-  border-radius: 4px 4px 0 0;
-}
-.bi-card .bi-card-header,
-.bi-card-padding .bi-card-header {
+[bi='card'] > header,
+.bi-card > .bi-card-header {
   color: var(--bi-card-header-color);
   background: var(--bi-card-header-bg);
-  padding: 5px;
+  border-top-left-radius: var(--bi-border-radius);
+  border-top-right-radius: var(--bi-border-radius);  
+  padding: 10px;
 }
-.bi-card .bi-card-content,
-.bi-card-padding .bi-card-content {
+[bi='card'] > section,
+[bi='card'] > div,
+.bi-card > .bi-card-content {
   min-height: 85px;
   color: var(--bi-card-content-color);
   background: var(--bi-card-content-bg);
-  padding: 5px;    
+  padding: 10px;    
+}
+[bi='card'] > footer,
+.bi-card > .bi-card-footer {
+  color: var(--bi-card-footer-color);
+  background: var(--bi-card-footer-bg);
+  padding: 10px;    
+}
+[bi='card'] > :last-child, 
+.bi-card > :last-child {
+  border-bottom-left-radius: var(--bi-border-radius);
+  border-bottom-right-radius: var(--bi-border-radius);
 }
 /** -------------------------------
 --        Birdie Accordion       --
@@ -2264,11 +2269,9 @@ select[bi-select="true"]:hover:disabled,
   display: flex;
   flex-direction: column;
 }
-
 .bi-tabs > input[type="radio"] {
   display: none;
 }
-
 .bi-tab-labels {
   display: flex;
   flex-direction: row;
@@ -2277,7 +2280,6 @@ select[bi-select="true"]:hover:disabled,
   cursor: pointer;
   background: transparent 
 }
-
 .bi-tab-label {
   padding: 10px 20px;
   color: var(--bi-tab-color);
@@ -2286,28 +2288,23 @@ select[bi-select="true"]:hover:disabled,
   border-bottom: 2px solid #bfbfbf;
   cursor: pointer;
 }
-
 .bi-tab-label:hover {
   background: var(--bi-tab-hover-bg);
 }
-
 .bi-tab-contents {
   display: flex;
   flex-direction: column;
   padding: 10px;
   border: var(--bi-tab-border);
 }
-
 .bi-tab-contents > .bi-tab-content {
   display: none;
 }
- 
 #tab-1:checked ~ .bi-tab-contents > .bi-tab-content[tab-content="1"],
 #tab-2:checked ~ .bi-tab-contents > .bi-tab-content[tab-content="2"],
 #tab-3:checked ~ .bi-tab-contents > .bi-tab-content[tab-content="3"] {
   display: block;
 }
-
 #tab-1:checked ~ .bi-tab-labels > .bi-tab-label[tab-label="1"],
 #tab-2:checked ~ .bi-tab-labels > .bi-tab-label[tab-label="2"],
 #tab-3:checked ~ .bi-tab-labels > .bi-tab-label[tab-label="3"] {

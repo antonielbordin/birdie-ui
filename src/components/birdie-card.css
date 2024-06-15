@@ -1,29 +1,35 @@
-.bi-card,
-.bi-card-padding {
+[bi='card'],
+.bi-card {
   width: 100%;
   background: var(--bi-card-bg);
   border: var(--bi-card-border);
-  border-radius: var(--bi-card-border-radius);  
-  box-shadow: var(--bi-card-box-shadow);
-  transition: 0.3s;  
+  border-radius: var(--bi-border-radius);
+  transition: 0.3s;
 }
-.bi-card-padding {
-  padding: 0.5em;
-}
-.bi-card img,
-.bi-card-padding img {
-  border-radius: 4px 4px 0 0;
-}
-.bi-card .bi-card-header,
-.bi-card-padding .bi-card-header {
+[bi='card'] > header,
+.bi-card > .bi-card-header {
   color: var(--bi-card-header-color);
   background: var(--bi-card-header-bg);
-  padding: 5px;
+  border-top-left-radius: var(--bi-border-radius);
+  border-top-right-radius: var(--bi-border-radius);  
+  padding: 10px;
 }
-.bi-card .bi-card-content,
-.bi-card-padding .bi-card-content {
+[bi='card'] > section,
+[bi='card'] > div,
+.bi-card > .bi-card-content {
   min-height: 85px;
   color: var(--bi-card-content-color);
   background: var(--bi-card-content-bg);
-  padding: 5px;    
+  padding: 10px;    
+}
+[bi='card'] > footer,
+.bi-card > .bi-card-footer {
+  color: var(--bi-card-footer-color);
+  background: var(--bi-card-footer-bg);
+  padding: 10px;    
+}
+[bi='card'] > :last-child, 
+.bi-card > :last-child {
+  border-bottom-left-radius: var(--bi-border-radius);
+  border-bottom-right-radius: var(--bi-border-radius);
 }
