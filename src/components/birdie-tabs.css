@@ -3,34 +3,47 @@
 -------------------------------- */
 .bi-tabs {
   display: flex;
-  flex-direction: row;
-  width: 100%;
-  background: transparent;
+  flex-direction: column;
 }
-
-.bi-tab {
-  padding: 8px 18px;
+.bi-tabs > input[type="radio"] {
+  display: none;
+}
+.bi-tab-labels {
+  display: flex;
+  flex-direction: row;
+  justify-content: var(--bi-tab-position);
+  align-items: center;
+  cursor: pointer;
+  background: transparent 
+}
+.bi-tab-label {
+  padding: 10px 20px;
   color: var(--bi-tab-color);
   background: var(--bi-tab-bg);
-  border: 1px solid var(--bi-tab-border);
-  border-radius: 5px 5px 0 0;
+  border: var(--bi-tab-border);
+  border-bottom: 2px solid #bfbfbf;
   cursor: pointer;
 }
-
-.bi-tab.bi-tab-active {
+.bi-tab-label:hover {
+  background: var(--bi-tab-hover-bg);
+}
+.bi-tab-contents {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border: var(--bi-tab-border);
+}
+.bi-tab-contents > .bi-tab-content {
+  display: none;
+}
+#tab-1:checked ~ .bi-tab-contents > .bi-tab-content[tab-content="1"],
+#tab-2:checked ~ .bi-tab-contents > .bi-tab-content[tab-content="2"],
+#tab-3:checked ~ .bi-tab-contents > .bi-tab-content[tab-content="3"] {
+  display: block;
+}
+#tab-1:checked ~ .bi-tab-labels > .bi-tab-label[tab-label="1"],
+#tab-2:checked ~ .bi-tab-labels > .bi-tab-label[tab-label="2"],
+#tab-3:checked ~ .bi-tab-labels > .bi-tab-label[tab-label="3"] {
   background: var(--bi-tab-active-bg);
   border-bottom: 2px solid var(--bi-tab-active-border);
-}
-
-.bi-tab-content {
-  display: none;
-  flex-direction: column;
-  width: 100%;
-  padding: 10px 0;
-  border: 1px solid var(--bi-tab-border);
-  border-radius: 0 5px 5px 5px;
-}
-
-.bi-tab-content.bi-tab-active {
-  display: flex;  
 }

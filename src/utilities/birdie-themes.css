@@ -66,11 +66,17 @@
 
 
   /** Style for tabs */
-  --bi-tab-bg: var(--bi-grey-four);
-  --bi-tab-active-bg: var(--bi-white);
   --bi-tab-color: var(--bi-color-default);
+  --bi-tab-border: 1px solid var(--bi-color-border);
+  --bi-tab-position: flex-start;
+  --bi-tab-bg: var(--bi-grey-four);
+  --bi-tab-active-bg: var(--bi-white);  
   --bi-tab-active-border: var(--bi-color-primary);
-  --bi-tab-border: var(--bi-color-border);
+  --bi-tab-hover-bg: #bfbfbf;
+  
+  
+
+
 
   /** Style for card */ 
   --bi-card-bg: var(--bi-grey-one);  

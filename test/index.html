@@ -38,11 +38,31 @@
 
   <!-- Element Tabs -->
   <div class="bi-tabs">
-   <div class="bi-tab bi-tab-active" data-tab="1">Tab One</div>
-   <div class="bi-tab" data-tab="2">Tab Two</div>
+    <input type="radio" name="bi-tab-control" id="tab-1" checked>
+    <input type="radio" name="bi-tab-control" id="tab-2">
+    <input type="radio" name="bi-tab-control" id="tab-3">  
+
+    <div class="bi-tab-labels">
+      <label for="tab-1" tab-label="1" class="bi-tab-label">Tab 1</label>
+      <label for="tab-2" tab-label="2" class="bi-tab-label">Tab 2</label>
+      <label for="tab-3" tab-label="3" class="bi-tab-label">Tab 3</label>
+    </div>
+
+    <div class="bi-tab-contents">
+      <div tab-content="1" class="bi-tab-content" >
+        <h2>Tab 1 Content</h2>
+        <p>This is the content of the first tab</p>
+      </div>
+      <div tab-content="2" class="bi-tab-content" >
+        <h2>Tab 2 Content</h2>
+        <p>This is the content of the second tab</p>
+      </div>
+      <div tab-content="3" class="bi-tab-content">
+        <h2>Tab 3 Content</h2>
+        <p>This is the content of the third tab</p>
+      </div>        
+    </div>     
   </div>
-  <div class="bi-tab-content bi-tab-active" id="tab-1">Content 1</div>
-  <div class="bi-tab-content" id="tab-2">Content 2</div>
 
   <br><br>
   <h1>Card Sample</h1>
