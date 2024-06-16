@@ -8,7 +8,7 @@
   --bi-border-radius: 0.25rem;
   --bi-border-width: 0.0625rem;
   --bi-outline-width: 0.125rem;
-  --bi-transition: 0.2s ease-in-out;
+  --bi-transition: 0.2s ease-in-out;  
   --bi-spacing: 1rem;
   --bi-background-color: var(--bi-grey-one);
 
@@ -76,7 +76,7 @@
 
   /** Style for card */ 
   --bi-card-bg: var(--bi-grey-one);
-  --bi-card-border: 1px solid var(--bi-color-border);
+  --bi-card-border: var(--bi-border);
   --bi-card-header-bg: var(--bi-grey-four);
   --bi-card-header-color: var(--bi-color-default);
   --bi-card-content-bg: var(--bi-white);
@@ -84,16 +84,16 @@
   --bi-card-footer-bg: var(--bi-white);
   --bi-card-footer-color: var(--bi-grey-ten);
   
-  
-  /* --bi-card-box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); */
-
   /** Style for accordion */
   --bi-accordion-bg: var(--bi-grey-one);
   --bi-accordion-color: var(--bi-color-default);
-  --bi-accordion-border: var(--bi-default-border);
-  --bi-accordion-border-radius: var(--bi-default-border-radius);
-  --bi-accordion-panel-label-bg: var(--bi-grey-four);
-  --bi-accordion-panel-label-color: var(--bi-color-default);
+  --bi-accordion-border: var(--bi-border);
+  --bi-accordion-border-radius: var(--bi-border-radius);
+  --bi-accordion-label-bg: var(--bi-grey-four);
+  --bi-accordion-label-bg-hover: var(--bi-grey-five);
+  --bi-accordion-label-bg-active:var(--bi-grey-five);
+  --bi-accordion-label-border-bottom-active: 1px solid var(--bi-color-primary);
+  --bi-accordion-label-color: var(--bi-color-default);
   --bi-accordion-content-bg: var(--bi-white);
   --bi-accordion-content-color: var(--bi-grey-ten);
 

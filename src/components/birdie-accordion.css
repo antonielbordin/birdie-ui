@@ -1,8 +1,8 @@
 /** -------------------------------
 --        Birdie Accordion       --
 -------------------------------- */
-
 /** Birdie Accordion */
+[bi='accordion'],
 .bi-accordion {
   display: flex;
   flex-direction: column;
@@ -11,132 +11,110 @@
   border-radius: var(--bi-accordion-border-radius);  
   background: var(--bi-accordion-bg);
   color: var(--bi-accordion-color);
-  overflow: hidden;
+  transition: border-color 0.3s;
 }
 
-.bi-accordion-panel {
-  border-bottom: 1px solid #ccc;
+[bi='accordion'] > details,
+.bi-accordion > details,
+.bi-accordion > .bi-accordion-item {
+  display: flex;
+  border-bottom: var(--bi-accordion-border);
 }
 
-.bi-accordion-panel-label {
+[bi='accordion'] > :last-child,
+.bi-accordion > :last-child {
+  border-bottom: none !important;
+  margin-bottom: 0;
+}
+
+[bi='accordion'] > details > summary,
+.bi-accordion > details > summary,
+.bi-accordion > .bi-accordion-item > .bi-accordion-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bi-accordion-label-bg);
+  color: var(--bi-accordion-label-color);
   padding: 15px;
-  background: var(--bi-accordion-panel-label-bg);
-  color: var(--bi-accordion-panel-label-color);
-  font-size: 13px;  
+  font-size: 1em;
   cursor: pointer;
+  outline: none;
   position: relative;
 }
 
-.bi-accordion-panel-label::after {
-  content: '\02795'; /* Unicode character for "plus" sign (+) */
-  position: absolute;
-  right: 15px;
-  top: 50%;
-  transform: translateY(-50%);
+[bi='accordion'] > details > summary::after,
+.bi-accordion > details > summary::after,
+.bi-accordion > .bi-accordion-item > .bi-accordion-header::after {
+  content: '+';
+  font-size: 20px;
+  color: var(--bi-accordion-label-color);
 }
 
-.bi-accordion-panel-label.active::after {
-  content: '\2796'; /* Unicode character for "minus" sign (-) */
-}
-
-.bi-accordion-panel-content {
-  padding: 15px;
+[bi='accordion'] > details > summary::-webkit-details-marker,
+.bi-accordion > details > summary::-webkit-details-marker,
+.bi-accordion > .bi-accordion-item > .bi-accordion-header::-webkit-details-marker {
   display: none;
-  background: var(--bi-accordion-content-bg);
-  color: var(--bi-accordion-content-color)
 }
 
-.bi-accordion-panel-content.show {
-  display: block; 
+[bi='accordion'] > details > summary::marker,
+.bi-accordion > details > summary::marker,
+.bi-accordion > .bi-accordion-item > .bi-accordion-header::marker {
+  display: none;
 }
 
+[bi='accordion'] > details > summary::-moz-list-bullet,
+.bi-accordion > details > summary::-moz-list-bullet,
+.bi-accordion > .bi-accordion-item > .bi-accordion-header::-moz-list-bullet {
+  list-style-type: none;
+}
  
+[bi='accordion'] > :first-child > summary,
+.bi-accordion > :first-child > summary,
+.bi-accordion > :first-child > .bi-accordion-header {
+  border-top-left-radius: var(--bi-accordion-border-radius);
+  border-top-right-radius: var(--bi-accordion-border-radius);  
+}
 
+[bi='accordion'] > details > summary:hover,
+.bi-accordion > details > summary:hover,
+.bi-accordion > .bi-accordion-item > .bi-accordion-header:hover {
+  background-color: var(--bi-accordion-label-bg-hover); /* #e1e1e1; */
+}
 
+[bi='accordion'] > :last-child > summary,
+.bi-accordion > :last-child > summary,
+.bi-accordion > :last-child > .bi-accordion-header {
+  border-bottom-left-radius: var(--bi-accordion-border-radius);
+  border-bottom-right-radius: var(--bi-accordion-border-radius);
+}
 
+[bi='accordion'] > details[open] > summary,
+.bi-accordion > details[open] > summary,
+.bi-accordion > .bi-accordion-item[open] > .bi-accordion-header {
+  background-color: var(--bi-accordion-label-bg-active); 
+  border-bottom: var(--bi-accordion-label-border-bottom-active);
+}
 
+[bi='accordion'] > details[open] > summary::after,
+.bi-accordion > details[open] > summary::after,
+.bi-accordion > .bi-accordion-item[open] > .bi-accordion-header::after {
+  content: '-';
+  color: var(--bi-accordion-label-color);
+}
 
+[bi='accordion'] > :last-child[open] > summary,
+.bi-accordion > :last-child[open] > summary,
+.bi-accordion > :last-child[open] > .bi-accordion-header {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
 
-/* old idea */
-/* .bi-accordion {
-    width: 100%;  
-    border: var(--bi-accordion-border);
-    border-radius: var(--bi-accordion-border-radius);
-    color: var(--bi-accordion-color);
-  }
-  .bi-accordion:hover {
-    border-color: var(--bi-accordion-border-hover);    
-  }
-.bi-accordion-tabs {
-    border-radius: 4px;
-    overflow: hidden;    
+[bi='accordion'] > details > div,
+[bi='accordion'] > details > section,
+.bi-accordion > details > div,
+.bi-accordion > details > section,
+.bi-accordion > .bi-accordion-item > .bi-accordion-content {
+  padding: 10px;
+  background: var(--bi-accordion-content-bg);
+  color: var(--bi-accordion-content-color);
 }
-.bi-accordion-tab {
-    width: 100%;    
-    overflow: hidden;
-}
-.bi-accordion-tab-label {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 2.5em;
-    background: transparent;
-    font-weight: bold;
-    cursor: pointer;
-    padding-left: 1em;
-    padding-right: 1em;
-}
-.bi-accordion-tab-label:hover {
-    background: var(--bi-accordion-hover-bg);
-    color: var(--bi-accordion-hover-color);
-}
-.bi-accordion-tab-label::after {
-    content: "❯";
-    width: 1em;
-    height: 1em;
-    text-align: center;
-    transition: all 0.35s;
-}
-.bi-accordion-tab-content {
-    max-height: 0;
-    padding: 0 1em;
-    color: #545454;
-    background: #FFFFFF;
-    transition: all 0.35s;
-}
-.bi-accordion-tab-close {
-    display: flex;
-    justify-content: flex-end;
-    padding: 1em;
-    font-size: 0.75em;
-    background: transparent;
-    cursor: pointer;
-}
-.bi-accordion-tab-close:hover,
-.bi-accordion-tab-close:active {
-    background: var(--bi-accordion-hover-bg);
-    color: var(--bi-accordion-hover-color);
-}
-.bi-accordion input {
-    position: absolute;
-    opacity: 0;
-    z-index: -1;
-}
-.bi-accordion input:checked + .bi-accordion-tab-label {
-    background: var(--bi-accordion-active-bg);
-    color: var(--bi-accordion-active-color);
-}
-.bi-accordion input:checked + .bi-accordion-tab-label::after {
-    transform: rotate(90deg);
-}
-.bi-accordion input:checked ~ .bi-accordion-tab-content {
-    max-height: 100vh;
-    padding: 1em;
-}
-.bi-accordion input:checked + .bi-accordion {
-    border-color: var(--bi-accordion-border-hover);
-}
-.bi-accordion input:checked + .bi-accordion {
-    background-color: magenta;
-}
- */
