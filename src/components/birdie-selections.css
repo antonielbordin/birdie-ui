@@ -6,10 +6,10 @@
   opacity: 1;
 }
 ::-moz-selection {
-  background-color: magenta
+  background-color: var(--bi-select-bg);
 }
 ::selection {
-  background-color: mediumslateblue;
+  background-color: var(--bi-select-bg);
 }
 
 input::-moz-focus-inner,
@@ -366,6 +366,7 @@ label[bi-switch="true"] > input:disabled + span,
 }
 
 /** Birdie Select usign class or pure tag html */
+[bi="select"],
 .bi-select {
   position: relative;
   display: inline-block;
@@ -373,7 +374,7 @@ label[bi-switch="true"] > input:disabled + span,
   min-width: 300px;
 }
 
-select[bi-select="true"],
+[bi="select"],
 .bi-select > select {
   appearance: none;
   -webkit-appearance: none;
@@ -388,40 +389,60 @@ select[bi-select="true"],
   line-height: 1.5; 
   cursor: pointer;
   transition: border-color 0.3s, box-shadow 0.3s;
+  background-image: none;
   margin-bottom: 5px;
 }
 
-select[bi-select="true"]::after,
 .bi-select::after {
-  content: '\25BC'; /* Unicode para a seta para baixo */
+  content: ' ';
   position: absolute;
-  top: 50%;
-  right: 10px;
-  transform: translateY(-50%);
+  right: 15px;
+  top: 20px;  
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid var(--bi-select-color);  
   pointer-events: none;
-  color: var(--bi-icon-color, #333);
 }
 
-select[bi-select="true"]:focus,
+[bi="select"]::after {
+  content: '' !important;
+  position: absolute !important;
+  right: 15px !important;
+  top: 20px !important;  
+  border-left: 5px solid transparent !important;
+  border-right: 5px solid transparent !important;
+  border-top: 5px solid var(--bi-select-color) !important;  
+  pointer-events: none;  
+}
+
+[bi="select"]::-ms-expand {
+  display: none; 
+}
+
+[bi="select"]:-moz-focusring {
+  color: transparent;
+}
+
+[bi="select"]:focus,
 .bi-select > select:focus {
   border-color: var(--bi-select-focus-border-color);
   box-shadow: var(--bi-select-focus-box-shadow);
-  outline: none;
+  outline: none;  
 }
 
-select[bi-select="true"]:disabled,
+[bi="select"]:disabled,
 .bi-select > select:disabled {
   background-color: var(--bi-select-muted-bg);
   color: var(--bi-select-muted-color);
   cursor: not-allowed;
 }
 
-select[bi-select="true"]:hover,
+[bi="select"]:hover,
 .bi-select > select:hover {
   border-color: var(--bi-select-hover-border-color);  
 }
 
-select[bi-select="true"]:hover:disabled,
+[bi="select"]:hover:disabled,
 .bi-select > select:hover:disabled {
   border-color: var(--bi-select-hover-muted-border-color);
 }

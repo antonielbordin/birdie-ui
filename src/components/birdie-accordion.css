@@ -45,9 +45,10 @@
 [bi='accordion'] > details > summary::after,
 .bi-accordion > details > summary::after,
 .bi-accordion > .bi-accordion-item > .bi-accordion-header::after {
-  content: '+';
-  font-size: 20px;
-  color: var(--bi-accordion-label-color);
+  content: ' ';
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid var(--bi-accordion-label-color);
 }
 
 [bi='accordion'] > details > summary::-webkit-details-marker,
@@ -98,8 +99,11 @@
 [bi='accordion'] > details[open] > summary::after,
 .bi-accordion > details[open] > summary::after,
 .bi-accordion > .bi-accordion-item[open] > .bi-accordion-header::after {
-  content: '-';
-  color: var(--bi-accordion-label-color);
+  content: ' ';
+  border-top: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid var(--bi-accordion-label-color);
 }
 
 [bi='accordion'] > :last-child[open] > summary,

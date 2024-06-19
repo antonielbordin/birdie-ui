@@ -492,9 +492,9 @@ b, strong {
   --bi-dropdown-color: var(--bi-color-default);
   --bi-dropdown-hover: var(--bi-grey-four);
   --bi-dropdown-border: var(--bi-default-border);
-  --bi-dropdown-border-radius: var(--bi-default-border-radius);
+  --bi-dropdown-border-radius: var(--bi-border-radius);
   --bi-dropdown-menu-border: var(--bi-default-border); 
-  --bi-dropdown-menu-border-radius: var(--bi-default-border-radius);
+  --bi-dropdown-menu-border-radius: var(--bi-border-radius);
   --bi-dropdown-menu-box-shadow: 0 3px 6px rgba(0,0,0,.175);  /* 0 8px 16px rgba(0,0,0,0.2); */
   --bi-dropdown-item-color: var(--bi-grey-ten);
   --bi-dropdown-item-hover-bg: #f1f1f1;
@@ -525,7 +525,7 @@ b, strong {
 }
 
 
-input:not([type=submit],
+/* input:not([type=submit],
 [type=button],
 [type=reset],
 [type=checkbox],
@@ -533,7 +533,7 @@ input:not([type=submit],
 [type=file]),
 :where(select, textarea) {
   background:magenta;
-}
+} */
 
 
 
@@ -642,75 +642,78 @@ body {
   border-bottom: 5px solid transparent;
   border-left: 5px solid var(--bi-default-color-triangle);
 }
-/* Simple Grid System */
+/** ------------------------------- 
+--         Birdie Navbar         --
+-------------------------------- */
 
+/** Simple Grid System */
 .bi-container {
-    display: flex;
-    flex-direction: column;
-    width: calc(100% - 20px);
-    max-width: calc(100% - 20px);
-    padding: 0 10px;       
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 20px);
+  max-width: calc(100% - 20px);
+  padding: 0 10px;       
 }
 
 .bi-container-fixed {
-    display: flex;
-    flex-direction: column;
-    width: 1200px;
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  width: 1200px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 10px;
 } 
 
 .bi-row {
-    display: flex;   
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    margin-bottom: 10px; 
+  display: flex;   
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 10px; 
 }
 
 .bi-column {
-    flex-basis: 100%;    
+  flex-basis: 100%;    
 } 
 
 #box {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 #content,
 #sidebar {
-    flex-basis: 100%;
+  flex-basis: 100%;
 }
 
 @media screen and (min-width: 800px) {
-    .bi-column {
-        flex: 1;
-    }
-    .col-20 {
-        flex: 2;
-    }
-    .col-25 {
-        flex: 2.5;
-    }
-    .col-30 {
-        flex: 3;
-    }
-    .col-50 {
-        flex: 5;
-    }
-    .col-75 {
-        flex: 7.5;
-    }
-    #sidebar {
-        flex: 2.5;
-    }
-    #content {
-        flex: 7.5;
-    } 
+  .bi-column {
+    flex: 1;
+  }
+  .col-20 {
+    flex: 2;
+  }
+  .col-25 {
+    flex: 2.5;
+  }
+  .col-30 {
+    flex: 3;
+  }
+  .col-50 {
+    flex: 5;
+  }
+  .col-75 {
+    flex: 7.5;
+  }
+  #sidebar {
+    flex: 2.5;
+  }
+  #content {
+    flex: 7.5;
+  } 
 }
 /** ------------------------------- 
 --       Birdie Buttons          --
@@ -723,9 +726,17 @@ body {
 .bi-btn-success::-moz-focus-inner,
 .bi-btn-danger::-moz-focus-inner,
 .bi-btn-warning::-moz-focus-inner,
-.bi-btn-info::-moz-focus-inner {
-   border: none;
+.bi-btn-info::-moz-focus-inner,
+.bi-btn-outline::-moz-focus-inner,
+.bi-btn-outline-primary::-moz-focus-inner,
+.bi-btn-outline-secondary::-moz-focus-inner,
+.bi-btn-outline-success::-moz-focus-inner,
+.bi-btn-outline-danger::-moz-focus-inner,
+.bi-btn-outline-warning::-moz-focus-inner,
+.bi-btn-outline-info::-moz-focus-inner {
+  border: none;
 }
+
 /** Birdie Button default options */
 .bi-btn,
 .bi-btn-primary,
@@ -735,36 +746,43 @@ body {
 .bi-btn-warning,
 .bi-btn-info,
 .bi-btn-text,
-.bi-btn-link {   
-   position: relative;
-   display: inline-block;
-   box-sizing: border-box;
-   min-width: 64px;
-   padding: 8px 12px;
-   vertical-align: middle;
-   text-align: center;
-   text-overflow: ellipsis;
-   text-transform: uppercase;
-   text-decoration: none;
-   font-size: 14px;
-   font-weight: 600;
-   line-height: 16px;
-   outline: none;
-   border: none;
-   cursor: pointer;  
-   transition: background-color 0.3s ease;
+.bi-btn-link,
+.bi-btn-outline,
+.bi-btn-outline-primary,
+.bi-btn-outline-secondary,
+.bi-btn-outline-success,
+.bi-btn-outline-danger,
+.bi-btn-outline-warning,
+.bi-btn-outline-info {   
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  min-width: 64px;
+  padding: 8px 12px;
+  vertical-align: middle;
+  text-align: center;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 16px;
+  outline: none;
+  border: none;
+  cursor: pointer;  
+  transition: background-color 0.3s ease;
 }  
 
 .bi-btn-text,
 .bi-btn-link {
-   padding: 2px;
-   background: none; 
+  padding: 2px;
+  background: none; 
 } 
 
 /** Birdie Button Hover and Focus */
 .bi-btn:hover,
 .bi-btn:focus {      
-   box-shadow: inset 0 0 10px 5px rgba(143, 143, 143, 0.1); 
+  box-shadow: inset 0 0 10px 5px rgba(143, 143, 143, 0.1); 
 }
 
 .bi-btn-primary:hover,
@@ -778,14 +796,16 @@ body {
 .bi-btn-warning:hover,
 .bi-btn-warning:focus,
 .bi-btn-info:hover,
-.bi-btn-info:focus {      
-   box-shadow: inset 0 0 10px 5px rgba(55, 55, 55, 0.1); 
+.bi-btn-info:focus,
+.bi-btn-outline-primary:focus,
+.bi-btn-outline-primary:hover {      
+  box-shadow: inset 0 0 10px 5px rgba(55, 55, 55, 0.1); 
 }
 
 .bi-btn-link:hover,
 .bi-btn-link:focus {
-   color: var(--bi-color-link-visited);
-   transition: color 0.2s;
+  color: var(--bi-color-link-visited);
+  transition: color 0.2s;
 }
 
 /** Birdie Button Disabled */
@@ -795,98 +815,144 @@ body {
 .bi-btn-success:disabled,
 .bi-btn-danger:disabled,
 .bi-btn-warning:disabled,
-.bi-btn-info:disabled {
-   box-shadow: none;
-   cursor: not-allowed;
-   opacity : 0.6;
+.bi-btn-info:disabled,
+.bi-btn-outline:disabled,
+.bi-btn-outline-primary:disabled {
+  box-shadow: none;
+  cursor: not-allowed;
+  opacity : 0.6;
 }
 
 /** Birdie Button Colors */
 .bi-btn {
-   color: rgba(0, 0, 0, 0.38);
-   background-color: #f1f1f1;
+  color: var(--bi-color-default);
+  background-color: var(--bi-grey-four);
+}
+
+.bi-btn-outline {
+  color: var(--bi-color-default);
+  border: 1px solid var(--bi-color-border);
+  background-color: transparent;
 }
  
 .bi-btn-primary {
-   color: var(--bi-text-light);
-   background-color: var(--bi-color-primary);
+  color: var(--bi-text-light);
+  background-color: var(--bi-color-primary);
+}
+
+.bi-btn-outline-primary {
+  color: var(--bi-color-primary);
+  border: 1px solid var(--bi-color-primary);
+  background-color: transparent;
 }
  
 .bi-btn-secondary {
-   color: var(--bi-text-light);
-   background-color: var(--bi-color-secondary);
+  color: var(--bi-text-light);
+  background-color: var(--bi-color-secondary);
+}
+
+.bi-btn-outline-secondary {
+  color: var(--bi-color-secondary);
+  border: 1px solid var(--bi-color-secondary);
+  background-color: transparent;
 }
   
 .bi-btn-success {   
-   color: var(--bi-text-light);
-   background-color: var(--bi-color-success);
+  color: var(--bi-text-light);
+  background-color: var(--bi-color-success);
+}
+
+.bi-btn-outline-success {
+  color: var(--bi-color-secondary);
+  border: 1px solid var(--bi-color-secondary);
+  background-color: transparent;
 }
 
 .bi-btn-danger {
-   color: var(--bi-text-light);
-   background-color: var(--bi-color-danger);
+  color: var(--bi-text-light);
+  background-color: var(--bi-color-danger);
+}
+
+.bi-btn-outline-danger {
+  color: var(--bi-color-danger);
+  border: 1px solid var(--bi-color-danger);
+  background-color: transparent;
 }
 
 .bi-btn-warning {
-   color: var(--bi-text-light);
-   background-color: var(--bi-color-warning);
+  color: var(--bi-text-light);
+  background-color: var(--bi-color-warning);
+}
+
+.bi-btn-outline-warning {
+  color: var(--bi-color-warning);
+  border: 1px solid var(--bi-color-warning);
+  background-color: transparent;
 }
 
 .bi-btn-info {
-   color: var(--bi-text-light);
-   background-color: var(--bi-color-info);
+  color: var(--bi-text-light);
+  background-color: var(--bi-color-info);
+}
+
+.bi-btn-outline-info {
+  color: var(--bi-color-info);
+  border: 1px solid var(--bi-color-info);
+  background-color: transparent;
 }
 
 .bi-btn-text {
-   color: var(--bi-color-text); 
+  color: var(--bi-color-text); 
 }
 .bi-btn-link {
-   color: var(--bi-color-link);
+  color: var(--bi-color-link);
 }
 
 /** Birdie Button Size and custom */
 .bi-btn-small {
-   padding: 3px 6px;
-   font-size: 12px;
+  padding: 3px 6px;
+  font-size: 12px;
 }
 
 .bi-btn-large {
-   padding: 12px 24px; 
-   font-size: 16px;
+  padding: 12px 24px; 
+  font-size: 16px;
 } 
 
 .bi-btn-full {
-   display: block;
+  display: block;
 }
 
 .bi-btn-round {
-   border-radius: 4px;
+  border-radius: 4px;
 }
 
 .bi-btn-circle {   
-   width: 60px;
-   height: 60px;
-   padding: 0;
-   border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  padding: 0;
+  border-radius: 50%;
 }
 /** ------------------------------- 
 --         Textfields            --
 -------------------------------- */
 /** Reset default style in browsers */
+
 ::-moz-placeholder {  
   opacity: 1;
 }
+
 ::placeholder {  
   opacity: 1;
 }
+
 input::-moz-focus-inner,
 textarea::-moz-focus-inner {
   border: none;
   outline: none;
 }
 
-/* Estilo para label com classe bi-textfield */
-input[bi-textfield="true"],
+[bi='textfield'],
 .bi-textfield {
   position: relative;
   display: inline-block;
@@ -894,8 +960,9 @@ input[bi-textfield="true"],
   min-width: 300px;
 }
 
-input[bi-textfield="true"],
-.bi-textfield > input {
+[bi='textfield'],
+.bi-textfield > input,
+.bi-textfield > textarea {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -915,107 +982,57 @@ input[bi-textfield="true"],
   margin-bottom: 5px;
 }
 
-input[bi-textfield="true"]:focus,
-input[bi-textfield="true"]:focus-within,
+[bi='textfield']:is(textarea),
+.bi-textfield > textarea {
+  min-height: 6em;
+  resize: none;
+}
+
+[bi='textfield']:focus,
+[bi='textfield']:focus-within,
 .bi-textfield > input:focus,
-.bi-textfield > input:focus-within {
+.bi-textfield > input:focus-within,
+.bi-textfield > textarea:focus,
+.bi-textfield > textarea:focus-within {
   border-color: var(--bi-textfield-focus-border-color);
   box-shadow: var(--bi-textfield-focus-box-shadow);
   outline: none;
 }
 
-input[bi-textfield="true"]:disabled,
-.bi-textfield > input:disabled {
-  background-color: var(--bi-textfield-muted-bg);
-  color:var(--bi-textfield-muted-color);
-  cursor: not-allowed;
-}
-
-input[bi-textfield="true"]:hover,
-.bi-textfield > input:hover {
-  border-color: var(--bi-textfield-hover-border-color);
-}
-
-input[bi-textfield="true"]:hover:disabled,
-.bi-textfield > input:hover:disabled {
-  border-color: var(--bi-textfield-hover-muted-border-color);
-}
-
-
-
- 
-/*
-.bi-textfield {
-  position: relative;
-  display: inline-block;
-  font-size: 16px;
-  line-height: 1.5;
-  width: 100%;
-  height: 2.8em;
-  margin: 5px 0;
-  border-radius: var(--bi-textfield-border-radius);  
-}
-
-.bi-textfield > input,
-.bi-textfield > textarea {
-  -webkit-text-fill-color: currentColor;
-  box-shadow: none;
-  font-family: inherit;
-  font-size: inherit;
-  font-weight: 400;
-  line-height: inherit; 
-  display: block;
-  box-sizing: border-box;
-  width: 100%;
-  height: inherit;
-  border: none; 
-  margin: 0;
-  padding: 0.375rem 0.75rem;
+[bi='textfield']::-moz-placeholder, .bi-textfield > input::-moz-placeholder, .bi-textfield > textarea::-moz-placeholder {
   color: var(--bi-textfield-color);
-  background-color: transparent;
-  border: var(--bi-textfield-border);
-  border-radius: var(--bi-textfield-border-radius);
-  outline: none;
-  transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  opacity: 1;
 }
 
-.bi-textfield > textarea {
-  min-height: 4.5em;
-}
-
-.bi-textfield > input:hover,
-.bi-textfield > textarea:hover {
-  border-color: var(--bi-color-primary);
-}
-
-.bi-textfield > input:focus,
-.bi-textfield > textarea:focus,
-.bi-textfield > input:focus-visible,
-.bi-textfield > textarea:focus-visible {
-  color: var(--bi-textfield-color);
-  background-color: #fff;
-  border-color: #80bdff;
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-  outline: 0;
-}
-
+[bi='textfield']::placeholder,
 .bi-textfield > input::placeholder,
 .bi-textfield > textarea::placeholder {
   color: var(--bi-textfield-color);
   opacity: 1;
 }
 
+[bi='textfield']:disabled,
+[bi='textfield'][readonly],
 .bi-textfield > input:disabled,
 .bi-textfield > input[readonly],
 .bi-textfield > textarea:disabled,
 .bi-textfield > textarea[readonly] {
   background-color: var(--bi-textfield-muted-bg);
-  border: var(--bi-textfield-muted-border);
-  color: var(--bi-textfield-color);
+  color: var(--bi-textfield-muted-color);
   cursor: not-allowed;
-  opacity: 1;
 }
-*/
+
+[bi='textfield']:hover,
+.bi-textfield > input:hover,
+.bi-textfield > textarea:hover {
+  border-color: var(--bi-textfield-hover-border-color);
+}
+
+[bi='textfield']:hover:disabled,
+.bi-textfield > input:hover:disabled,
+.bi-textfield > textarea:hover:disabled {
+  border-color: var(--bi-textfield-hover-muted-border-color);
+}
 /** ------------------------------- 
 --      Birdie Selections        --
 -------------------------------- */
@@ -1027,10 +1044,10 @@ input[bi-textfield="true"]:hover:disabled,
   opacity: 1;
 }
 ::-moz-selection {
-  background-color: magenta
+  background-color: var(--bi-select-bg);
 }
 ::selection {
-  background-color: mediumslateblue;
+  background-color: var(--bi-select-bg);
 }
 
 input::-moz-focus-inner,
@@ -1344,6 +1361,7 @@ label[bi-switch="true"] > input:disabled + span,
 }
 
 /** Birdie Select usign class or pure tag html */
+[bi="select"],
 .bi-select {
   position: relative;
   display: inline-block;
@@ -1351,7 +1369,7 @@ label[bi-switch="true"] > input:disabled + span,
   min-width: 300px;
 }
 
-select[bi-select="true"],
+[bi="select"],
 .bi-select > select {
   appearance: none;
   -webkit-appearance: none;
@@ -1366,40 +1384,60 @@ select[bi-select="true"],
   line-height: 1.5; 
   cursor: pointer;
   transition: border-color 0.3s, box-shadow 0.3s;
+  background-image: none;
   margin-bottom: 5px;
 }
 
-select[bi-select="true"]::after,
 .bi-select::after {
-  content: '\25BC'; /* Unicode para a seta para baixo */
+  content: ' ';
   position: absolute;
-  top: 50%;
-  right: 10px;
-  transform: translateY(-50%);
+  right: 15px;
+  top: 20px;  
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid var(--bi-select-color);  
   pointer-events: none;
-  color: var(--bi-icon-color, #333);
 }
 
-select[bi-select="true"]:focus,
+[bi="select"]::after {
+  content: '' !important;
+  position: absolute !important;
+  right: 15px !important;
+  top: 20px !important;  
+  border-left: 5px solid transparent !important;
+  border-right: 5px solid transparent !important;
+  border-top: 5px solid var(--bi-select-color) !important;  
+  pointer-events: none;  
+}
+
+[bi="select"]::-ms-expand {
+  display: none; 
+}
+
+[bi="select"]:-moz-focusring {
+  color: transparent;
+}
+
+[bi="select"]:focus,
 .bi-select > select:focus {
   border-color: var(--bi-select-focus-border-color);
   box-shadow: var(--bi-select-focus-box-shadow);
-  outline: none;
+  outline: none;  
 }
 
-select[bi-select="true"]:disabled,
+[bi="select"]:disabled,
 .bi-select > select:disabled {
   background-color: var(--bi-select-muted-bg);
   color: var(--bi-select-muted-color);
   cursor: not-allowed;
 }
 
-select[bi-select="true"]:hover,
+[bi="select"]:hover,
 .bi-select > select:hover {
   border-color: var(--bi-select-hover-border-color);  
 }
 
-select[bi-select="true"]:hover:disabled,
+[bi="select"]:hover:disabled,
 .bi-select > select:hover:disabled {
   border-color: var(--bi-select-hover-muted-border-color);
 }
@@ -1616,7 +1654,7 @@ select[bi-select="true"]:hover:disabled,
   font-size: 1em;
   background-color: var(--bi-dropdown-bg);
   border: var(--bi-dropdown-border);
-  padding: 8px 20px 8px 10px;
+  padding: 8px 35px 8px 10px;
   border-radius: var(--bi-dropdown-border-radius);
   display: inline-block;
   color: var(--bi-dropdown-color);
@@ -1635,7 +1673,7 @@ select[bi-select="true"]:hover:disabled,
 .bi-dropdown > button::before,
 [bi='dropdown'] > button::before {
   position: absolute;
-  right: 7px;
+  right: 15px;
   top: 18px;
   content: ' ';
   border-left: 5px solid transparent;
@@ -2143,9 +2181,10 @@ select[bi-select="true"]:hover:disabled,
 [bi='accordion'] > details > summary::after,
 .bi-accordion > details > summary::after,
 .bi-accordion > .bi-accordion-item > .bi-accordion-header::after {
-  content: '+';
-  font-size: 20px;
-  color: var(--bi-accordion-label-color);
+  content: ' ';
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid var(--bi-accordion-label-color);
 }
 
 [bi='accordion'] > details > summary::-webkit-details-marker,
@@ -2196,8 +2235,11 @@ select[bi-select="true"]:hover:disabled,
 [bi='accordion'] > details[open] > summary::after,
 .bi-accordion > details[open] > summary::after,
 .bi-accordion > .bi-accordion-item[open] > .bi-accordion-header::after {
-  content: '-';
-  color: var(--bi-accordion-label-color);
+  content: ' ';
+  border-top: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid var(--bi-accordion-label-color);
 }
 
 [bi='accordion'] > :last-child[open] > summary,

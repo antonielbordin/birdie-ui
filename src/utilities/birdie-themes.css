@@ -103,9 +103,9 @@
   --bi-dropdown-color: var(--bi-color-default);
   --bi-dropdown-hover: var(--bi-grey-four);
   --bi-dropdown-border: var(--bi-default-border);
-  --bi-dropdown-border-radius: var(--bi-default-border-radius);
+  --bi-dropdown-border-radius: var(--bi-border-radius);
   --bi-dropdown-menu-border: var(--bi-default-border); 
-  --bi-dropdown-menu-border-radius: var(--bi-default-border-radius);
+  --bi-dropdown-menu-border-radius: var(--bi-border-radius);
   --bi-dropdown-menu-box-shadow: 0 3px 6px rgba(0,0,0,.175);  /* 0 8px 16px rgba(0,0,0,0.2); */
   --bi-dropdown-item-color: var(--bi-grey-ten);
   --bi-dropdown-item-hover-bg: #f1f1f1;
@@ -136,7 +136,7 @@
 }
 
 
-input:not([type=submit],
+/* input:not([type=submit],
 [type=button],
 [type=reset],
 [type=checkbox],
@@ -144,7 +144,7 @@ input:not([type=submit],
 [type=file]),
 :where(select, textarea) {
   background:magenta;
-}
+} */
 
 
 
